@@ -1,0 +1,64 @@
+# =========================
+# Godot 2D
+# =========================
+
+# Folder z importowanymi assetami
+.import/
+# Cache Godot
+.godot/
+# Eksportowane presety (opcjonalnie)
+export_presets.cfg
+# Tymczasowe pliki edytora
+*.tmp
+*.temp
+
+# =========================
+# Java / Spring Boot
+# =========================
+
+# Build output
+target/
+build/
+
+# Maven
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# IDE
+*.iml
+.idea/
+*.ipr
+*.iws
+.vscode/
+
+# Logi
+*.log
+
+# =========================
+# PostgreSQL / Database
+# =========================
+
+# Nie przechowuj lokalnych danych bazy
+pgdata/
+*.sql
+*.dump
+
+# =========================
+# Docker
+# =========================
+
+# Ignore container data and cache
+docker-compose.override.yml
+
+
+
+# *.env
+# application-local.properties

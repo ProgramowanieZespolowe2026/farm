@@ -31,7 +31,9 @@ Database Configuration
 
 Spring Boot local development
 
-File: backend/src/main/resources/application.properties
+File: backend/src/main/resources/application-local.yaml
+set in this file your local credentials (this will allow you to run serwer in intellij localy) 
+this file will be deleted from repository and extention added to git ignore
 
 spring:
 
@@ -53,42 +55,13 @@ spring:
   application:
     name: farm-game-server
 
-Docker PostgreSQL (docker-compose.yml)
+Docker PostgreSQL (.env)
+set in this file your local credentials (this will allow you to run database container) 
+this file will be deleted from repository and extention added to git ignore
 
-version: "3.8"
-
-services:
-  db:
-    image: postgres:16
-    container_name: game-database
-    environment:
-      POSTGRES_DB: databasename
-      POSTGRES_USER: username
-      POSTGRES_PASSWORD: password
-    ports:
-      - "5432:5432"
-    volumes:
-      - db-data:/var/lib/postgresql/data
-
-  server:
-    build: .
-    container_name: game-server
-    ports:
-      - "8080:8080"
-    depends_on:
-      - db
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/databasename
-      SPRING_DATASOURCE_USERNAME: username
-      SPRING_DATASOURCE_PASSWORD: password
-
-volumes:
-  db-data:
-Notes:
-
-If you change credentials or DB name, update both application.properties and docker-compose.yml
-
-db-data volume keeps DB data persistent on each developer’s machine
+DB_USER=username
+DB_PASSWORD=password
+DB_NAME=databasename
 
 Running the Project
 Option 1 – Run Backend + DB with Docker
@@ -101,7 +74,7 @@ Verify containers:
 
 docker ps
 
-You should see spring-app and postgres-db.
+You should see myproject-app and myproject-db.
 
 Stop containers:
 
@@ -113,11 +86,8 @@ Start PostgreSQL (Docker only):
 
 docker compose up -d db
 
-Run backend from IntelliJ or terminal:
+Run backend from IntelliJ
 
-mvn spring-boot:run
-
-or run from IntelliJ “Run” button.
 
 Running the Godot Game
 
@@ -159,4 +129,8 @@ Farm/
 │ └── project.godot
 │
 ├── docker-compose.yml
+├── .env
 └── README.txt
+
+gmail do gita: login: programowanie.zespolowe2026@gmail.com hasło do gmaila i gita: 2026Programowanie!
+

@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: com.programowanie_zespolowe.farm_game_server.FarmGameServerA
+ pplication
+
