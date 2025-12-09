@@ -60,5 +60,5 @@ docker-compose.override.yml
 
 
 
-# *.env
-# application-local.properties
+*.env
+application-local.yaml
