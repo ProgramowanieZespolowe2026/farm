@@ -7,9 +7,9 @@ spring:
     baseline-on-migrate: true
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/<database name>
-    username: <username>
-    password: <password>
+    url: jdbc:postgresql://localhost:5432/game
+    username: markross89
+    password: 16LUty1985!
 
     jpa:
       hibernate:
