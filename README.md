@@ -1,4 +1,23 @@
-This project contains:
+# Pre production instruction for developers:
+**While develop project please use test scene**
+```bash
+./godot/farm-game/scenes/Temporary/test_scene_tile_map.tsc
+```
+  
+**Configuration**  
+You should already have set input map and globals script automaticly. If something with player movement or timing functions doesn't works please check input map or globals.
+```bash
+Project->Project Settings -> Input Map # In here you must have 4 variables for moving
+Project->Project Settings -> Globals # In here you must have script TestGameTimeCycleManager.gd
+```
+
+**Warning**
+- Don't put file ```project.godot``` in .gitignore. This file have project input map and globals scripts.
+
+
+
+
+# This project contains:
 
 Godot (4) 2D game (client)
 
