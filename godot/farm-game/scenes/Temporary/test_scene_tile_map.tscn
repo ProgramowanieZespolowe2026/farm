@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=4 uid="uid://chv1srod3boey"]
+[gd_scene load_steps=4 format=4 uid="uid://chv1srod3boey"]
 
 [ext_resource type="TileSet" uid="uid://booah1wl0uwxx" path="res://TileSets/Temporary/game_tile_set.tres" id="1_kghoo"]
 [ext_resource type="PackedScene" uid="uid://m5w4eggderw0" path="res://scenes/Temporary/temporary_player.tscn" id="2_ukh4r"]
+[ext_resource type="PackedScene" uid="uid://coe7o5imj3tw6" path="res://scenes/ui/game_screen.tscn" id="3_n5pk4"]
 
 [node name="TestSceneTileMap" type="Node2D"]
 
@@ -13,3 +14,5 @@ tile_set = ExtResource("1_kghoo")
 
 [node name="TemporaryPlayer" parent="." instance=ExtResource("2_ukh4r")]
 position = Vector2(130, 93)
+
+[node name="GameScreen" parent="." instance=ExtResource("3_n5pk4")]

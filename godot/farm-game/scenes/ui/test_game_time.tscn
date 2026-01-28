@@ -1,0 +1,135 @@
+[gd_scene load_steps=5 format=3 uid="uid://clcluxi7rp3ni"]
+
+[ext_resource type="Theme" uid="uid://bo1sa2w3rmaff" path="res://TileSets/ui/test_game_time_theme.tres" id="1_iws24"]
+[ext_resource type="Script" uid="uid://dbjl4bxpy3x3l" path="res://scripts/ui/test_game_time.gd" id="2_1pdl5"]
+[ext_resource type="Texture2D" uid="uid://dq7deg40blf8d" path="res://assets/ui/Sprite sheet for Basic Pack.png" id="2_jfdjp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1pdl5"]
+atlas = ExtResource("2_jfdjp")
+region = Rect2(261, 2, 7, 12)
+
+[node name="TestGameTime" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+scale = Vector2(3, 3)
+theme = ExtResource("1_iws24")
+script = ExtResource("2_1pdl5")
+
+[node name="DayPanel" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = -95.0
+offset_bottom = 43.0
+theme_type_variation = &"TestCounterPanel"
+
+[node name="MarginContainer" type="MarginContainer" parent="DayPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="DayLabel" type="Label" parent="DayPanel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"TestGameTimeLabel"
+text = "DAY 0"
+
+[node name="TimePanel" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = -94.999985
+offset_top = 43.66667
+offset_right = 1.5258789e-05
+offset_bottom = 86.66667
+theme_type_variation = &"TestCounterPanel"
+
+[node name="MarginContainer" type="MarginContainer" parent="TimePanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="TimeLabel" type="Label" parent="TimePanel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"TestGameTimeLabel"
+text = "00:00"
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_left = -95.000046
+offset_top = 88.0
+offset_right = -4.5776367e-05
+offset_bottom = 112.0
+
+[node name="NormalSpeedButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_right = 31.0
+offset_bottom = 24.0
+theme_type_variation = &"TestGameTimeButton"
+
+[node name="TextureRect" type="TextureRect" parent="Control/NormalSpeedButton"]
+layout_mode = 0
+offset_left = 10.666672
+offset_top = 6.0
+offset_right = 20.666672
+offset_bottom = 18.0
+texture = SubResource("AtlasTexture_1pdl5")
+
+[node name="FastSpeedButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 31.666672
+offset_right = 62.66667
+offset_bottom = 24.0
+theme_type_variation = &"TestGameTimeButton"
+
+[node name="TextureRect" type="TextureRect" parent="Control/FastSpeedButton"]
+layout_mode = 0
+offset_left = 13.666668
+offset_top = 6.0
+offset_right = 23.666668
+offset_bottom = 18.0
+texture = SubResource("AtlasTexture_1pdl5")
+
+[node name="TextureRect2" type="TextureRect" parent="Control/FastSpeedButton"]
+layout_mode = 0
+offset_left = 7.666668
+offset_top = 6.0
+offset_right = 17.666668
+offset_bottom = 18.0
+texture = SubResource("AtlasTexture_1pdl5")
+
+[node name="CheetahSpeedButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 63.66668
+offset_right = 94.66668
+offset_bottom = 24.0
+theme_type_variation = &"TestGameTimeButton"
+
+[node name="TextureRect" type="TextureRect" parent="Control/CheetahSpeedButton"]
+layout_mode = 0
+offset_left = 16.333332
+offset_top = 6.0
+offset_right = 26.333332
+offset_bottom = 18.0
+texture = SubResource("AtlasTexture_1pdl5")
+
+[node name="TextureRect2" type="TextureRect" parent="Control/CheetahSpeedButton"]
+layout_mode = 0
+offset_left = 10.666666
+offset_top = 6.0
+offset_right = 20.666666
+offset_bottom = 18.0
+texture = SubResource("AtlasTexture_1pdl5")
+
+[node name="TextureRect3" type="TextureRect" parent="Control/CheetahSpeedButton"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 6.0
+offset_right = 15.0
+offset_bottom = 18.0
+texture = SubResource("AtlasTexture_1pdl5")
+
+[connection signal="pressed" from="Control/NormalSpeedButton" to="." method="_on_normal_speed_button_pressed"]
+[connection signal="pressed" from="Control/FastSpeedButton" to="." method="_on_fast_speed_button_pressed"]
+[connection signal="pressed" from="Control/CheetahSpeedButton" to="." method="_on_cheetah_speed_button_pressed"]
