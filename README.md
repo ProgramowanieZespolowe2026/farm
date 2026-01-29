@@ -1,20 +1,28 @@
 # Pre production instruction for developers:
-**While develop project please use test scene**
+### Main folder
+To work with project please open ```./godot/farm-game``` in godot.  
+
+### While develop project please use test scene
 ```bash
 ./godot/farm-game/scenes/Temporary/test_scene_tile_map.tsc
 ```
   
-**Configuration**  
-You should already have set input map and globals script automaticly. If something with player movement or timing functions doesn't works please check input map or globals.
+### Configuration  
+You should already have set input map and globals script automatically. If something with player movement or timing functions doesn't works please check input map or globals.
 ```bash
 Project->Project Settings -> Input Map # In here you must have 4 variables for moving
 Project->Project Settings -> Globals # In here you must have script TestGameTimeCycleManager.gd
-```
+```   
+  
+### Assets  
+- In folder ```./godot/farm-game/assets``` please put **ONLY** assets who are currently using in project  
+- Database for all asset packs is in ```./godot/All asset packs```
 
-**Warning**
+### Warning
 - Don't put file ```project.godot``` in .gitignore. This file have project input map and globals scripts.
 
 
+---
 
 
 # This project contains:
