@@ -4,7 +4,7 @@ To work with project please open ```./godot/farm-game``` in godot.
 
 ### While develop project please use test scene
 ```bash
-./godot/farm-game/scenes/Temporary/test_scene_tile_map.tsc
+./godot/farm-game/scenes/map/test_level.tsc
 ```
   
 ### Configuration  
