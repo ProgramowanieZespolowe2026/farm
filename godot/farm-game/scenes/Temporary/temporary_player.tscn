@@ -5,39 +5,39 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l62cs"]
 atlas = ExtResource("1_ag6uu")
-region = Rect2(32, 0, 32, 64)
+region = Rect2(32, 21, 32, 21)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8u10v"]
 atlas = ExtResource("1_ag6uu")
-region = Rect2(128, 0, 32, 64)
+region = Rect2(128, 21, 32, 21)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wuahn"]
 atlas = ExtResource("1_ag6uu")
-region = Rect2(224, 0, 32, 64)
+region = Rect2(224, 21, 32, 21)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t0lp8"]
 atlas = ExtResource("1_ag6uu")
-region = Rect2(320, 0, 32, 64)
+region = Rect2(320, 21, 32, 21)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vqhct"]
 atlas = ExtResource("1_ag6uu")
-region = Rect2(416, 0, 32, 64)
+region = Rect2(416, 21, 32, 21)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_87w6o"]
 atlas = ExtResource("1_ag6uu")
-region = Rect2(512, 0, 32, 64)
+region = Rect2(512, 21, 32, 21)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2hfvo"]
 atlas = ExtResource("1_ag6uu")
-region = Rect2(608, 0, 32, 64)
+region = Rect2(608, 21, 32, 21)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kx7gd"]
 atlas = ExtResource("1_ag6uu")
-region = Rect2(704, 0, 32, 64)
+region = Rect2(704, 21, 32, 21)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p2o2t"]
 atlas = ExtResource("1_ag6uu")
-region = Rect2(800, 0, 32, 64)
+region = Rect2(800, 21, 32, 21)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dxbwb"]
 animations = [{
@@ -75,21 +75,24 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ag6uu"]
-size = Vector2(18, 25)
+size = Vector2(16, 6)
 
 [node name="TemporaryPlayer" type="CharacterBody2D"]
+y_sort_enabled = true
 script = ExtResource("1_l62cs")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -12)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_dxbwb")
 animation = &"Idle"
 autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -1.5)
+position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_ag6uu")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -1)
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
