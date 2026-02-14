@@ -1,8 +1,14 @@
-[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://gymfb77lk45e"]
+[gd_resource type="TileSet" load_steps=10 format=3 uid="uid://gymfb77lk45e"]
 
+[ext_resource type="PackedScene" uid="uid://21xfovuuqhqt" path="res://scenes/objects/trees/small_tree.tscn" id="1_1v51a"]
 [ext_resource type="Texture2D" uid="uid://clc8cywq3p630" path="res://assets/map/Grass Summer.png" id="1_8p6j2"]
+[ext_resource type="PackedScene" uid="uid://cynm6sljd7w7s" path="res://scenes/objects/trees/big_tree.tscn" id="1_cjvij"]
 [ext_resource type="Texture2D" uid="uid://cc2qj75kq47ap" path="res://assets/map/Props.png" id="2_1v51a"]
 [ext_resource type="Texture2D" uid="uid://7downapvk8kb" path="res://assets/map/Tileset Grass Water Summer.png" id="2_8p6j2"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_cjvij"]
+scenes/1/scene = ExtResource("1_cjvij")
+scenes/2/scene = ExtResource("1_1v51a")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xl3bn"]
 texture = ExtResource("2_1v51a")
@@ -294,3 +300,4 @@ terrain_set_0/terrain_1/color = Color(0.735113, 0.19774398, 0.48876882, 1)
 sources/1 = SubResource("TileSetAtlasSource_xl3bn")
 sources/4 = SubResource("TileSetAtlasSource_cjvij")
 sources/2 = SubResource("TileSetAtlasSource_1v51a")
+sources/0 = SubResource("TileSetScenesCollectionSource_cjvij")
