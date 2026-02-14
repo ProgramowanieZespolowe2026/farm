@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtqdpjfe5p0si"]
+
+[ext_resource type="Script" uid="uid://bw4622lrhqdjg" path="res://scenes/components/effect_component.gd" id="1_ageo0"]
+
+[node name="EffectComponent" type="Node2D"]
+script = ExtResource("1_ageo0")
+max_effect_count = 5
