@@ -3,7 +3,7 @@ extends Sprite2D
 @onready var reaction_component: ReactionComponent = $ReactionComponent
 @onready var effect_component: EffectComponent = $EffectComponent
 
-var log_scene = preload("res://scenes/objects/trees/big_log_scene.tscn")
+var log_scene = preload("res://scenes/objects/trees/big_log.tscn")
 
 func _ready() -> void:
 	reaction_component.on_action.connect(add_effect)
