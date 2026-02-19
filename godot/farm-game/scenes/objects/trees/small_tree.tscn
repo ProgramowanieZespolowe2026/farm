@@ -1,0 +1,47 @@
+[gd_scene load_steps=10 format=3 uid="uid://21xfovuuqhqt"]
+
+[ext_resource type="Shader" uid="uid://chehecu4endcg" path="res://scenes/objects/trees/tree_shake.gdshader" id="1_w057i"]
+[ext_resource type="Texture2D" uid="uid://d4jkml0rthmgt" path="res://assets/map/Trees.png" id="1_xyb6m"]
+[ext_resource type="PackedScene" uid="uid://chjrf87r5bpwx" path="res://scenes/components/reaction_component.tscn" id="2_au4vd"]
+[ext_resource type="Script" uid="uid://d0nb8oemhfxfj" path="res://scenes/objects/trees/small_tree.gd" id="2_g5iuu"]
+[ext_resource type="PackedScene" uid="uid://dtqdpjfe5p0si" path="res://scenes/components/effect_component.tscn" id="4_w057i"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_skbjc"]
+resource_local_to_scene = true
+shader = ExtResource("1_w057i")
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 20.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21b8l"]
+atlas = ExtResource("1_xyb6m")
+region = Rect2(64, 8, 32, 40)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_67mvu"]
+radius = 4.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g5iuu"]
+size = Vector2(10, 19)
+
+[node name="SmallTree" type="Sprite2D"]
+material = SubResource("ShaderMaterial_skbjc")
+texture = SubResource("AtlasTexture_21b8l")
+script = ExtResource("2_g5iuu")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+y_sort_enabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1, 13)
+shape = SubResource("CircleShape2D_67mvu")
+
+[node name="ReactionComponent" parent="." instance=ExtResource("2_au4vd")]
+
+[node name="ReactionCollisionShape2D" type="CollisionShape2D" parent="ReactionComponent"]
+position = Vector2(1, 7.5)
+shape = SubResource("RectangleShape2D_g5iuu")
+debug_color = Color(0.99069434, 0.06492505, 0.17696726, 0.41960785)
+
+[node name="EffectComponent" parent="." instance=ExtResource("4_w057i")]
+max_effect_count = 3
+
+[connection signal="area_entered" from="ReactionComponent" to="ReactionComponent" method="_on_area_entered"]
