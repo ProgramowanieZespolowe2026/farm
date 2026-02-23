@@ -54,8 +54,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Dirt" type="CharacterBody2D"]
-position = Vector2(8, 8)
+[node name="Dirt" type="CharacterBody2D" groups=["dirt"]]
 script = ExtResource("1_xff3s")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

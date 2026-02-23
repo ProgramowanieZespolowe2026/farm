@@ -3,11 +3,13 @@ class_name ToolController
 
 const TILE_SIZE = 16
 const dirt_scene = preload("uid://cnwapekbgonx0")
+const tomato_scene = preload("uid://cr7exlho4r0pg")
 
 @onready var highlight: Sprite2D = $Highlight
 @onready var player = get_parent() 
 
 var world_objects = {}
+var crop_objects = {}
 var current_target_grid_pos = Vector2.ZERO
 
 func _process(_delta):
@@ -46,6 +48,8 @@ func _input(event):
 			use_watering_can()
 		elif current_tool == DataTypes.Tools.Fertilizer:
 			use_fertilizer()
+		elif current_tool == DataTypes.Tools.Tomato:
+			plant_tomato()
 			
 		#func wzor_funkcji_ktora_kopiujemy():
 			#if world_objects.has(current_target_grid_pos):
@@ -55,6 +59,7 @@ func _input(event):
 				#if target_object.has_method("nazwa_funkcji_z_sceny_przedmiotu"):
 					#target_object.nazwa_funkcji_z_sceny_przedmiotu()
 
+#Dodawanie nowych bloków do mapy
 func use_hoe():
 	if not world_objects.has(current_target_grid_pos):
 		var new_dirt = dirt_scene.instantiate()
@@ -64,6 +69,14 @@ func use_hoe():
 		world_objects[current_target_grid_pos] = new_dirt
 
 func use_shovel():
+	if crop_objects.has(current_target_grid_pos):
+		var crop_to_remove = crop_objects[current_target_grid_pos]
+		
+		if is_instance_valid(crop_to_remove):
+			crop_to_remove.queue_free()
+			
+		crop_objects.erase(current_target_grid_pos)
+		
 	if world_objects.has(current_target_grid_pos):
 		var object_to_remove = world_objects[current_target_grid_pos]
 		
@@ -87,3 +100,18 @@ func use_fertilizer():
 		if is_instance_valid(target_object):
 			if target_object.has_method("fertilize"):
 				target_object.fertilize()
+				
+func plant_tomato():
+	if world_objects.has(current_target_grid_pos):
+		var target_object = world_objects[current_target_grid_pos]
+		
+		if is_instance_valid(target_object) and target_object.is_in_group("dirt"):
+			
+			if not crop_objects.has(current_target_grid_pos):
+				
+				var new_tomato = tomato_scene.instantiate()
+				new_tomato.global_position = highlight.global_position 
+				
+				player.get_parent().add_child(new_tomato) 
+			
+				crop_objects[current_target_grid_pos] = new_tomato
