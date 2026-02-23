@@ -6,5 +6,6 @@ enum Tools {
 	Axe,
 	Hoe,
 	Shovel,
-	Watering
+	Watering,
+	Fertilizer
 }

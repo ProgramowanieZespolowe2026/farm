@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://cnwapekbgonx0"]
-
-[ext_resource type="Texture2D" uid="uid://00s1dqgp5l8n" path="res://assets/map/dirt-dry.png" id="1_tqo41"]
-[ext_resource type="Script" uid="uid://cbiy0a5acqke7" path="res://scripts/objects/plants/dirt_dry.gd" id="2_mdrmt"]
-
-[node name="Dirt-dry" type="Sprite2D"]
-position = Vector2(8, 8)
-texture = ExtResource("1_tqo41")
-script = ExtResource("2_mdrmt")

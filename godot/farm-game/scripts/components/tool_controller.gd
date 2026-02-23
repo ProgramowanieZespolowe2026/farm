@@ -16,7 +16,8 @@ func _process(_delta):
 func update_highlight():
 	var current_tool = player.current_tool
 	
-	if current_tool in [DataTypes.Tools.Hoe, DataTypes.Tools.Shovel, DataTypes.Tools.Axe, DataTypes.Tools.Watering]:
+	#Tu dodajemy nowe narzędzia
+	if current_tool != DataTypes.Tools.None:
 		highlight.visible = true
 	else:
 		highlight.visible = false
@@ -36,12 +37,23 @@ func _input(event):
 			return 
 			
 		var current_tool = player.current_tool
+		#Tu dodajemy wywoływanie funkcji ( ktora ma byc na samym dole )
 		if current_tool == DataTypes.Tools.Hoe:
 			use_hoe()
 		elif current_tool == DataTypes.Tools.Shovel:
 			use_shovel()
 		elif current_tool == DataTypes.Tools.Watering:
 			use_watering_can()
+		elif current_tool == DataTypes.Tools.Fertilizer:
+			use_fertilizer()
+			
+		#func wzor_funkcji_ktora_kopiujemy():
+			#if world_objects.has(current_target_grid_pos):
+			#var target_object = world_objects[current_target_grid_pos]
+		
+			#if is_instance_valid(target_object):
+				#if target_object.has_method("nazwa_funkcji_z_sceny_przedmiotu"):
+					#target_object.nazwa_funkcji_z_sceny_przedmiotu()
 
 func use_hoe():
 	if not world_objects.has(current_target_grid_pos):
@@ -67,3 +79,11 @@ func use_watering_can():
 		if is_instance_valid(target_object):
 			if target_object.has_method("water"):
 				target_object.water()
+
+func use_fertilizer():
+	if world_objects.has(current_target_grid_pos):
+		var target_object = world_objects[current_target_grid_pos]
+		
+		if is_instance_valid(target_object):
+			if target_object.has_method("fertilize"):
+				target_object.fertilize()
