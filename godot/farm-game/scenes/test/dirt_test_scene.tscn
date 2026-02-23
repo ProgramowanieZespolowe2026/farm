@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://bg8m32ywo2pji"]
+
+[ext_resource type="PackedScene" uid="uid://c8qju1qxars1t" path="res://scenes/components/day_night_cycle_component.tscn" id="1_p1bgt"]
+[ext_resource type="PackedScene" uid="uid://m5w4eggderw0" path="res://scenes/Temporary/temporary_player.tscn" id="2_gk2fe"]
+[ext_resource type="PackedScene" uid="uid://ckphra5tyfs3b" path="res://scenes/map/test_scene_tile_map.tscn" id="3_ws0va"]
+[ext_resource type="PackedScene" uid="uid://coe7o5imj3tw6" path="res://scenes/ui/game_screen.tscn" id="4_4ebn3"]
+
+[node name="TestLevel" type="Node2D"]
+y_sort_enabled = true
+
+[node name="DayNightCycleComponent" parent="." instance=ExtResource("1_p1bgt")]
+
+[node name="TemporaryPlayer" parent="." instance=ExtResource("2_gk2fe")]
+position = Vector2(265, 137)
+current_tool = 4
+
+[node name="test-scene-tile-map" parent="." instance=ExtResource("3_ws0va")]
+
+[node name="GameScreen" parent="." instance=ExtResource("4_4ebn3")]

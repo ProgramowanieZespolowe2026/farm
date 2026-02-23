@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpqibo55vvtcy"]
+
+[ext_resource type="Texture2D" uid="uid://cnxqhaoa5pt00" path="res://assets/map/Highlight.png" id="1_2ngfi"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_2ngfi"]
+blend_mode = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkggo"]
+atlas = ExtResource("1_2ngfi")
+
+[node name="Highlight" type="Sprite2D"]
+modulate = Color(1, 1, 1, 0.3137255)
+top_level = true
+material = SubResource("CanvasItemMaterial_2ngfi")
+position = Vector2(8, 8)
+texture = SubResource("AtlasTexture_jkggo")
