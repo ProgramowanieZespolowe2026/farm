@@ -3,5 +3,9 @@ extends Node
 
 enum Tools {
 	None,
-	Axe
+	Axe,
+	Hoe,
+	Shovel,
+	Watering,
+	Fertilizer
 }

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmmvysvf3y6uj"]
+
+[ext_resource type="Script" uid="uid://b6wxb6hy8i0it" path="res://scripts/components/tool_controller.gd" id="1_qb26u"]
+[ext_resource type="PackedScene" uid="uid://cpqibo55vvtcy" path="res://scenes/components/highlight.tscn" id="1_set4t"]
+
+[node name="ToolController" type="Node2D"]
+script = ExtResource("1_qb26u")
+
+[node name="Highlight" parent="." instance=ExtResource("1_set4t")]
