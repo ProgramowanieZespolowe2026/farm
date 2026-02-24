@@ -10,7 +10,7 @@ var log_scene = preload("res://scenes/objects/trees/small_log.tscn")
 func _ready() -> void:
 	grid_pos = global_position / TILE_SIZE
 	WorldObjects.objects[grid_pos] = self
-	print(WorldObjects.objects)
+	#print(WorldObjects.objects)
 	
 func hit():
 	health -= 1

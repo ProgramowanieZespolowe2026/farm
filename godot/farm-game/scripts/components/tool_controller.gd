@@ -32,7 +32,7 @@ func _input(event):
 			return 
 			
 		var current_tool = player.current_tool
-		#Tu dodajemy wywoływanie funkcji ( ktora ma byc na samym dole )
+		#Tu dodajemy wywoływanie funkcji narzędzia ( ktora ma byc na dole )
 		if current_tool == DataTypes.Tools.Hoe:
 			use_hoe()
 		elif current_tool == DataTypes.Tools.Shovel:
@@ -41,6 +41,8 @@ func _input(event):
 			use_watering_can()
 		elif current_tool == DataTypes.Tools.Fertilizer:
 			use_fertilizer()
+		elif current_tool == DataTypes.Tools.Axe:
+			use_axe()
 		elif current_tool == DataTypes.Tools.None:
 			collect_plant()
 		elif current_tool == DataTypes.Tools.Tomato_Seed:
@@ -100,9 +102,19 @@ func use_fertilizer():
 			if target_object.has_method("fertilize"):
 				target_object.fertilize()
 				
+func use_axe():
+	var target_grid_pos_i = Vector2i(current_target_grid_pos)
+	
+	if WorldObjects.objects.has(target_grid_pos_i):
+		var target_object = WorldObjects.objects[target_grid_pos_i]
+		
+		if is_instance_valid(target_object) and target_object.has_method("hit"):
+			target_object.hit()
+			return 
 
+#AUTOMATYCZNIE DZIALA FUNKCJA ZBIERANIA OWOCOW Z ROSLIN
+#!!!! ALE KAZDA TAKA ROSLINA MUSI MIEC FUNKCJE "harvest()"
 func collect_plant():
-	#Kazda roslina z ktorej maja byc zbierane owoce musi miec funkcje harvest!!!!
 	if map_tiles.has(current_target_grid_pos):
 		var target_crop = map_tiles[current_target_grid_pos]["crop"]
 		if is_instance_valid(target_crop):
