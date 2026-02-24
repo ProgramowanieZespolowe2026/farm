@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://pn2ndodk5yht"]
 
 [ext_resource type="Texture2D" uid="uid://ddsciay4xv435" path="res://assets/map/Plants.png" id="1_4t3eb"]
-[ext_resource type="Script" uid="uid://l6doxg8ss3jx" path="res://scripts/objects/plants/tomato/tomato_seed.gd" id="2_4t3eb"]
+[ext_resource type="Script" uid="uid://dflxb6a3a8uos" path="res://scripts/objects/plants/CropItemOrSeed.gd" id="2_4t3eb"]
 [ext_resource type="PackedScene" uid="uid://c522b6f3babgw" path="res://scenes/components/collectable_component.tscn" id="3_picu2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7by1t"]
@@ -17,6 +17,8 @@ position = Vector2(-5.9604645e-08, -4)
 scale = Vector2(1.375, 1.375)
 texture = SubResource("AtlasTexture_7by1t")
 script = ExtResource("2_4t3eb")
+item_name = "Tomato_Seed"
+item_value = 3
 
 [node name="CollectableComponent" parent="." instance=ExtResource("3_picu2")]
 
