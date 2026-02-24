@@ -7,5 +7,6 @@ enum Tools {
 	Hoe,
 	Shovel,
 	Watering,
-	Fertilizer
+	Fertilizer,
+	Tomato_Seed
 }

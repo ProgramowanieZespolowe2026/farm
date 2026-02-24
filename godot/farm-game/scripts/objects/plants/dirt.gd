@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Node2D
 
 var is_watered: bool = false
 var is_fertilized: bool = false
@@ -45,14 +45,12 @@ func water() -> void:
 	else:
 		waiting_for_first_tick = true
 			
-
 func dry_out() -> void:
 	is_watered = false
 	if is_fertilized:
 		animated_sprite_2d.play("Dry_with_fertilize")
 	else:
 		animated_sprite_2d.play("Dry_without_fertilize")
-		
 		
 func fertilize() -> void:
 	is_fertilized = true
