@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name TemporaryPlayer
 
 @export var speed := 200.0
 @export var current_tool = DataTypes.Tools.None
