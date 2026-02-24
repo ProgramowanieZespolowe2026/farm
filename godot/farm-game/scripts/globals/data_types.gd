@@ -8,5 +8,5 @@ enum Tools {
 	Shovel,
 	Watering,
 	Fertilizer,
-	Tomato
+	Tomato_Seed
 }
