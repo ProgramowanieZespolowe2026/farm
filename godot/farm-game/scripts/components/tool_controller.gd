@@ -15,13 +15,6 @@ func _process(_delta):
 	update_highlight()
 
 func update_highlight():
-	#var current_tool = player.current_tool
-	
-	#if current_tool != DataTypes.Tools.None:
-		#highlight.visible = true
-	#else:
-		#highlight.visible = false
-		#return
 	
 	highlight.visible = true
 	
@@ -109,6 +102,7 @@ func use_fertilizer():
 				
 
 func collect_plant():
+	#Kazda roslina z ktorej maja byc zbierane owoce musi miec funkcje harvest!!!!
 	if map_tiles.has(current_target_grid_pos):
 		var target_crop = map_tiles[current_target_grid_pos]["crop"]
 		if is_instance_valid(target_crop):

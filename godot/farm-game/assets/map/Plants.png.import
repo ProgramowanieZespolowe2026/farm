@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mjk34imnjvuj"
-path="res://.godot/imported/Summer Crops.png-ac5149d07431d6163aa713e2a95a78db.ctex"
+uid="uid://ddsciay4xv435"
+path="res://.godot/imported/Plants.png-b0f01f44e006590b29b50b7f2f13938a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/map/Summer Crops.png"
-dest_files=["res://.godot/imported/Summer Crops.png-ac5149d07431d6163aa713e2a95a78db.ctex"]
+source_file="res://assets/map/Plants.png"
+dest_files=["res://.godot/imported/Plants.png-b0f01f44e006590b29b50b7f2f13938a.ctex"]
 
 [params]
 

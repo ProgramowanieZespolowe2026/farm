@@ -1,25 +1,37 @@
-[gd_scene load_steps=7 format=3 uid="uid://cr7exlho4r0pg"]
+[gd_scene load_steps=8 format=3 uid="uid://cr7exlho4r0pg"]
 
-[ext_resource type="Script" uid="uid://fecyt6ab5fkj" path="res://scripts/objects/plants/tomato_plant.gd" id="1_31wig"]
-[ext_resource type="Texture2D" uid="uid://mjk34imnjvuj" path="res://assets/map/Summer Crops.png" id="2_lyulk"]
+[ext_resource type="Script" uid="uid://fecyt6ab5fkj" path="res://scripts/objects/plants/tomato/tomato_plant.gd" id="1_31wig"]
+[ext_resource type="Texture2D" uid="uid://ddsciay4xv435" path="res://assets/map/Plants.png" id="3_lyulk"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_po2op"]
-atlas = ExtResource("2_lyulk")
+[sub_resource type="AtlasTexture" id="AtlasTexture_lyulk"]
+atlas = ExtResource("3_lyulk")
+region = Rect2(112, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31wig"]
+atlas = ExtResource("3_lyulk")
 region = Rect2(64, 16, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_axu4e"]
-atlas = ExtResource("2_lyulk")
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2blu"]
+atlas = ExtResource("3_lyulk")
 region = Rect2(80, 16, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mts3v"]
-atlas = ExtResource("2_lyulk")
-region = Rect2(16, 16, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_47mn2"]
+atlas = ExtResource("3_lyulk")
+region = Rect2(32, 16, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_q5g8b"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_po2op")
+"texture": SubResource("AtlasTexture_lyulk")
+}],
+"loop": true,
+"name": &"tomato_die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_31wig")
 }],
 "loop": true,
 "name": &"tomato_in_growth",
@@ -27,7 +39,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_axu4e")
+"texture": SubResource("AtlasTexture_w2blu")
 }],
 "loop": true,
 "name": &"tomato_ready_to_collect",
@@ -35,7 +47,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mts3v")
+"texture": SubResource("AtlasTexture_47mn2")
 }],
 "loop": true,
 "name": &"tomato_sprouting",
@@ -48,5 +60,5 @@ script = ExtResource("1_31wig")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -7)
 sprite_frames = SubResource("SpriteFrames_q5g8b")
-animation = &"tomato_in_growth"
+animation = &"tomato_die"
 autoplay = "tomato_sprouting"
