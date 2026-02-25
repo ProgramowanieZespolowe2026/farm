@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://ndmuv1r3ok3c"]
+
+[ext_resource type="Texture2D" uid="uid://ddsciay4xv435" path="res://assets/map/Plants.png" id="1_ssa8d"]
+[ext_resource type="Script" uid="uid://dflxb6a3a8uos" path="res://scripts/objects/plants/CropItemOrSeed.gd" id="2_q2vma"]
+[ext_resource type="PackedScene" uid="uid://c522b6f3babgw" path="res://scenes/components/collectable_component.tscn" id="3_tj77c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3hi4k"]
+atlas = ExtResource("1_ssa8d")
+region = Rect2(144, 144, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bjov3"]
+radius = 7.0
+
+[node name="Corn_item" type="Sprite2D"]
+z_index = 1
+position = Vector2(-0.5000005, -0.50000036)
+scale = Vector2(0.56250006, 0.56250006)
+texture = SubResource("AtlasTexture_3hi4k")
+script = ExtResource("2_q2vma")
+item_name = "Corn_Item"
+
+[node name="CollectableComponent" parent="." instance=ExtResource("3_tj77c")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent"]
+shape = SubResource("CircleShape2D_bjov3")

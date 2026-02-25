@@ -1,0 +1,70 @@
+[gd_scene load_steps=10 format=3 uid="uid://dn8j0kg051qv0"]
+
+[ext_resource type="Script" uid="uid://b2qxgja54m0d7" path="res://scripts/objects/plants/CropBase.gd" id="1_hwyd7"]
+[ext_resource type="PackedScene" uid="uid://cshwou0feebm6" path="res://scenes/objects/plants/corn/corn_item.tscn" id="2_umalw"]
+[ext_resource type="PackedScene" uid="uid://crw5q6sfpdtr2" path="res://scenes/objects/plants/corn/corn_seed.tscn" id="3_ea87f"]
+[ext_resource type="Texture2D" uid="uid://ddsciay4xv435" path="res://assets/map/Plants.png" id="3_yfw3v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umalw"]
+atlas = ExtResource("3_yfw3v")
+region = Rect2(112, 68, 16, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfw3v"]
+atlas = ExtResource("3_yfw3v")
+region = Rect2(80, 68, 16, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ea87f"]
+atlas = ExtResource("3_yfw3v")
+region = Rect2(96, 68, 16, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_instx"]
+atlas = ExtResource("3_yfw3v")
+region = Rect2(16, 68, 16, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q5g8b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_umalw")
+}],
+"loop": true,
+"name": &"die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yfw3v")
+}],
+"loop": true,
+"name": &"in_growth",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ea87f")
+}],
+"loop": true,
+"name": &"ready_to_collect",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_instx")
+}],
+"loop": true,
+"name": &"sprouting",
+"speed": 5.0
+}]
+
+[node name="Corn_plant" type="Node2D"]
+position = Vector2(0, -2)
+script = ExtResource("1_hwyd7")
+item_scene = ExtResource("2_umalw")
+seed_scene = ExtResource("3_ea87f")
+regrowing = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -7)
+sprite_frames = SubResource("SpriteFrames_q5g8b")
+animation = &"sprouting"
+autoplay = "sprouting"

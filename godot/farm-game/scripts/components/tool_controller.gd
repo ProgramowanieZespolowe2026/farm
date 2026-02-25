@@ -4,6 +4,11 @@ class_name ToolController
 const TILE_SIZE = 16
 const dirt_scene = preload("uid://cnwapekbgonx0")
 const tomato_scene = preload("uid://cr7exlho4r0pg")
+const wheat_scene = preload("uid://b618f3t6eq1vl")
+const potato_scene = preload("uid://bboxssfxh5d70")
+const corn_scene = preload("uid://dn8j0kg051qv0")
+const carrot_scene = preload("uid://dqdme10exp2k8")
+const beet_scene = preload("uid://dyka3kbunmshh")
 
 @onready var highlight: Sprite2D = $Highlight
 @onready var player = get_parent() 
@@ -45,8 +50,19 @@ func _input(event):
 			use_axe()
 		elif current_tool == DataTypes.Tools.None:
 			collect_plant()
+			
 		elif current_tool == DataTypes.Tools.Tomato_Seed:
-			plant_tomato()
+			plant(tomato_scene)
+		elif current_tool == DataTypes.Tools.Wheat_Seed:
+			plant(wheat_scene)
+		elif current_tool == DataTypes.Tools.Corn_Seed:
+			plant(corn_scene)
+		elif current_tool == DataTypes.Tools.Potato_Item:
+			plant(potato_scene)
+		elif current_tool == DataTypes.Tools.Carrot_Seed:
+			plant(carrot_scene)
+		elif current_tool == DataTypes.Tools.Beet_Seed:
+			plant(beet_scene)
 			
 func use_hoe():
 	#Jesli jest zaorana ziemia i jakas roslina to zniszcz sama rosline
@@ -74,11 +90,13 @@ func use_shovel():
 	if map_tiles.has(current_target_grid_pos):
 		var tile = map_tiles[current_target_grid_pos]
 		
+		#Niszczenie rosliny
 		if tile["crop"] != null and is_instance_valid(tile["crop"]):
 			tile["crop"].queue_free()
 			tile["crop"] = null
 			return 
 			
+		#Niszczenie ziemi
 		if tile["dirt"] != null and is_instance_valid(tile["dirt"]):
 			tile["dirt"].queue_free()
 			tile["dirt"] = null
@@ -121,8 +139,61 @@ func collect_plant():
 			
 			if target_crop.has_method("harvest"):
 				target_crop.harvest()
+			if not target_crop.regrowing:
+				var tile = map_tiles[current_target_grid_pos]
+				if tile["crop"] != null and is_instance_valid(tile["crop"]):
+					tile["crop"].queue_free()
+					tile["crop"] = null
 
-func plant_tomato():
+#func plant_tomato():
+	#if map_tiles.has(current_target_grid_pos):
+		#var tile = map_tiles[current_target_grid_pos]
+		#var target_object = tile["dirt"]
+		#
+		#if is_instance_valid(target_object) and target_object.is_in_group("dirt"):
+			#
+			#if tile["crop"] == null:
+				#var new_tomato = tomato_scene.instantiate()
+				#new_tomato.global_position = highlight.global_position 
+				#
+				#new_tomato.dirt_underneath = target_object
+				#
+				#player.get_parent().add_child(new_tomato) 
+				#tile["crop"] = new_tomato
+				
+#func plant_wheat():
+	#if map_tiles.has(current_target_grid_pos):
+		#var tile = map_tiles[current_target_grid_pos]
+		#var target_object = tile["dirt"]
+		#
+		#if is_instance_valid(target_object) and target_object.is_in_group("dirt"):
+			#
+			#if tile["crop"] == null:
+				#var new_wheat = wheat_scene.instantiate()
+				#new_wheat.global_position = highlight.global_position 
+				#
+				#new_wheat.dirt_underneath = target_object
+				#
+				#player.get_parent().add_child(new_wheat) 
+				#tile["crop"] = new_wheat
+#
+#func plant_potato():
+	#if map_tiles.has(current_target_grid_pos):
+		#var tile = map_tiles[current_target_grid_pos]
+		#var target_object = tile["dirt"]
+		#
+		#if is_instance_valid(target_object) and target_object.is_in_group("dirt"):
+			#
+			#if tile["crop"] == null:
+				#var new_potato = potato_scene.instantiate()
+				#new_potato.global_position = highlight.global_position 
+				#
+				#new_potato.dirt_underneath = target_object
+				#
+				#player.get_parent().add_child(new_potato) 
+				#tile["crop"] = new_potato
+
+func plant(scene):
 	if map_tiles.has(current_target_grid_pos):
 		var tile = map_tiles[current_target_grid_pos]
 		var target_object = tile["dirt"]
@@ -130,10 +201,10 @@ func plant_tomato():
 		if is_instance_valid(target_object) and target_object.is_in_group("dirt"):
 			
 			if tile["crop"] == null:
-				var new_tomato = tomato_scene.instantiate()
-				new_tomato.global_position = highlight.global_position 
+				var new_plant = scene.instantiate()
+				new_plant.global_position = highlight.global_position 
 				
-				new_tomato.dirt_underneath = target_object
+				new_plant.dirt_underneath = target_object
 				
-				player.get_parent().add_child(new_tomato) 
-				tile["crop"] = new_tomato
+				player.get_parent().add_child(new_plant) 
+				tile["crop"] = new_plant
