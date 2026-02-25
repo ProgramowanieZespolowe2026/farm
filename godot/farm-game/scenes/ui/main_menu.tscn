@@ -1,11 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://dmjwltx4ixwd2"]
+[gd_scene load_steps=14 format=3 uid="uid://cuct641uhibiv"]
 
-[ext_resource type="Script" uid="uid://bghwdvrxd7aq2" path="res://scripts/ui/main_menu.gd" id="1_1g8jr"]
-[ext_resource type="Texture2D" uid="uid://bw41dahssgn3e" path="res://assets/ui/background.png" id="1_sl1te"]
+[ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_1g8jr"]
+[ext_resource type="Texture2D" path="res://assets/ui/background.png" id="1_sl1te"]
 [ext_resource type="FontFile" uid="uid://capoihxunrgmm" path="res://assets/ui/pixelFont-7-8x14-sproutLands.ttf" id="2_fe2o3"]
-[ext_resource type="AudioStream" uid="uid://cjltq87787ymg" path="res://assets/audio/Darude - Sandstorm.mp3" id="4_m1kxf"]
-[ext_resource type="Script" uid="uid://dupb6niwn2o5b" path="res://scripts/ui/audio_control.gd" id="4_x2yvf"]
-[ext_resource type="Script" uid="uid://csq3hm03agbv7" path="res://scripts/ui/full_screen_control.gd" id="5_uhagc"]
+[ext_resource type="AudioStream" path="res://assets/audio/Darude - Sandstorm.mp3" id="4_m1kxf"]
+[ext_resource type="Script" path="res://scripts/ui/audio_control.gd" id="4_x2yvf"]
+[ext_resource type="Script" path="res://scripts/ui/full_screen_control.gd" id="5_uhagc"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fe2o3"]
 texture = ExtResource("1_sl1te")

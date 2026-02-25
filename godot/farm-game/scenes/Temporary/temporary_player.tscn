@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://m5w4eggderw0"]
+[gd_scene load_steps=15 format=3 uid="uid://m5w4eggderw0"]
 
 [ext_resource type="Texture2D" uid="uid://6dgp7ynmac65" path="res://assets/Temporary/player-idle.png" id="1_ag6uu"]
 [ext_resource type="Script" uid="uid://clti4cak0wtm4" path="res://scripts/Temporary/temporary_player.gd" id="1_l62cs"]
+[ext_resource type="PackedScene" uid="uid://dmmvysvf3y6uj" path="res://scenes/components/tool_controller.tscn" id="3_8u10v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l62cs"]
 atlas = ExtResource("1_ag6uu")
@@ -78,7 +79,12 @@ animations = [{
 size = Vector2(16, 6)
 
 [node name="TemporaryPlayer" type="CharacterBody2D"]
+z_index = 1
 y_sort_enabled = true
+collision_layer = 2
+collision_mask = 33
+platform_floor_layers = 4278190081
+platform_wall_layers = 1
 script = ExtResource("1_l62cs")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -94,5 +100,7 @@ shape = SubResource("RectangleShape2D_ag6uu")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -1)
-zoom = Vector2(2, 2)
+zoom = Vector2(1.2, 1.2)
 position_smoothing_enabled = true
+
+[node name="ToolController" parent="." instance=ExtResource("3_8u10v")]

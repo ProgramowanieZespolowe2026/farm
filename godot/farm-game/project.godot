@@ -19,10 +19,15 @@ config/icon="res://icon.svg"
 TestGameTimeCycleManager="*res://scripts/globals/test_game_time_cycle_manager.gd"
 JsonData="*res://scripts/ui/JSONData.gd"
 
+
 [display]
 
 window/size/mode=3
 window/stretch/mode="canvas_items"
+
+InventoryManager="*res://scripts/globals/inventory_manager.gd"
+WorldObjects="*res://scripts/globals/world_objects.gd"
+
 
 [display]
 
@@ -33,6 +38,9 @@ window/size/window_height_override=720
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_height"
 window/stretch/scale_mode="integer"
+
+InventoryManager="*res://scripts/globals/inventory_manager.gd"
+
 
 [input]
 

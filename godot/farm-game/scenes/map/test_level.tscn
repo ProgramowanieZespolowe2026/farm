@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://hdv3e0cdjdb4"]
+[gd_scene load_steps=5 format=3 uid="uid://hdv3e0cdjdb4"]
 
 [ext_resource type="PackedScene" uid="uid://c8qju1qxars1t" path="res://scenes/components/day_night_cycle_component.tscn" id="1_8nivs"]
 [ext_resource type="PackedScene" uid="uid://ckphra5tyfs3b" path="res://scenes/map/test_scene_tile_map.tscn" id="2_l8c3y"]
 [ext_resource type="PackedScene" uid="uid://coe7o5imj3tw6" path="res://scenes/ui/game_screen.tscn" id="3_w7454"]
 [ext_resource type="PackedScene" uid="uid://m5w4eggderw0" path="res://scenes/Temporary/temporary_player.tscn" id="4_5w3vb"]
-[ext_resource type="PackedScene" uid="uid://y3lcfv2dd6wt" path="res://scenes/ui/inventory_panel.tscn" id="5_l8c3y"]
 
 [node name="TestLevel" type="Node2D"]
 y_sort_enabled = true
@@ -17,5 +16,3 @@ position = Vector2(265, 137)
 [node name="test-scene-tile-map" parent="." instance=ExtResource("2_l8c3y")]
 
 [node name="GameScreen" parent="." instance=ExtResource("3_w7454")]
-
-[node name="InventoryPanel" parent="." instance=ExtResource("5_l8c3y")]
