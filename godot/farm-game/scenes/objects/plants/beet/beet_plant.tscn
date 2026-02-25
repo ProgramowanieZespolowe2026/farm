@@ -1,20 +1,21 @@
-[gd_scene load_steps=9 format=3 uid="uid://dyka3kbunmshh"]
+[gd_scene load_steps=10 format=3 uid="uid://dyka3kbunmshh"]
 
 [ext_resource type="Script" uid="uid://b2qxgja54m0d7" path="res://scripts/objects/plants/CropBase.gd" id="1_yrnm2"]
 [ext_resource type="PackedScene" uid="uid://7sb28reghkcu" path="res://scenes/objects/plants/beet/beet_item.tscn" id="2_cybd5"]
-[ext_resource type="Texture2D" uid="uid://ddsciay4xv435" path="res://assets/map/Plants.png" id="3_pjpjw"]
+[ext_resource type="Texture2D" uid="uid://dptjdkvpo33n2" path="res://assets/map/Plants.png" id="3_pjpjw"]
+[ext_resource type="Texture2D" uid="uid://dptjdkvpo33n2" path="res://assets/map/plants.png" id="4_3rc7h"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cybd5"]
 atlas = ExtResource("3_pjpjw")
 region = Rect2(112, 160, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3rc7h"]
-atlas = ExtResource("3_pjpjw")
-region = Rect2(16, 160, 16, 32)
+atlas = ExtResource("4_3rc7h")
+region = Rect2(32, 160, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fvs7c"]
-atlas = ExtResource("3_pjpjw")
-region = Rect2(80, 160, 16, 32)
+atlas = ExtResource("4_3rc7h")
+region = Rect2(64, 160, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_toqrf"]
 atlas = ExtResource("3_pjpjw")
@@ -65,5 +66,5 @@ item_scene = ExtResource("2_cybd5")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -14)
 sprite_frames = SubResource("SpriteFrames_q5g8b")
-animation = &"ready_to_collect"
+animation = &"in_growth"
 autoplay = "sprouting"

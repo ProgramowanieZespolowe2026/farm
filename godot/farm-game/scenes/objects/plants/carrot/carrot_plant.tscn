@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b2qxgja54m0d7" path="res://scripts/objects/plants/CropBase.gd" id="1_388mi"]
 [ext_resource type="PackedScene" uid="uid://ndmuv1r3ok3c" path="res://scenes/objects/plants/carrot/carrot_item.tscn" id="2_w0dgt"]
-[ext_resource type="Texture2D" uid="uid://ddsciay4xv435" path="res://assets/map/Plants.png" id="3_jxjhv"]
+[ext_resource type="Texture2D" uid="uid://dptjdkvpo33n2" path="res://assets/map/plants.png" id="3_jxjhv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w0dgt"]
 atlas = ExtResource("3_jxjhv")
