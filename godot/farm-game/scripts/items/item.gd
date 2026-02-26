@@ -1,30 +1,28 @@
 extends Node2D
 
 var item_name
-var item_quantity
+var item_value
 
 func _ready():
-	var rand_val = randi() % 3
-	if rand_val == 0:
-		item_name = "Axe"
-	elif rand_val == 1:
-		item_name = "Log"
-	else:
-		item_name = "Wheat"
+	pass
 
+func set_item(nm, qt):
+	item_name = nm
+	item_value = qt
 	$TextureRect.texture = load("res://assets/items/Icons/" + item_name + ".png")
-	var stack_size = int(JsonData.item_data[item_name]["StackSize"])
-	item_quantity = randi() % stack_size + 1
 	
+	var stack_size = int(JsonData.item_data[item_name]["StackSize"])
 	if stack_size == 1:
 		$Label.visible = false
 	else:
-		$Label.text = str(item_quantity)
-		
-func add_item_quantity(amount_to_add):
-	item_quantity += amount_to_add
-	$Label.text = str(item_quantity)
+		$Label.visible = true
+		$Label.text = str(item_value)
 	
-func decrease_item_quantity(amount_to_remove):
-	item_quantity -= amount_to_remove
-	$Label.text = str(item_quantity)
+	
+func add_item_value(amount_to_add):
+	item_value += amount_to_add
+	$Label.text = str(item_value)
+	
+func decrease_item_value(amount_to_remove):
+	item_value -= amount_to_remove
+	$Label.text = str(item_value)

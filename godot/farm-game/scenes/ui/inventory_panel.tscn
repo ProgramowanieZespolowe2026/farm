@@ -1,10 +1,8 @@
-
 [gd_scene load_steps=7 format=3 uid="uid://y3lcfv2dd6wt"]
 
 [ext_resource type="Script" uid="uid://oy5u2eqd3nmg" path="res://scripts/ui/inventory_panel.gd" id="1_cvy6a"]
 [ext_resource type="Texture2D" uid="uid://b1i2v36yxp6ef" path="res://assets/ui/button.png" id="2_17uwj"]
 [ext_resource type="Script" uid="uid://dqfdg7wwx6cps" path="res://scripts/ui/slot.gd" id="2_cvy6a"]
- 
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_17uwj"]
 atlas = ExtResource("2_17uwj")
