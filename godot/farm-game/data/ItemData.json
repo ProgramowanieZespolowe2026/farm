@@ -1,24 +1,49 @@
 {
   "Log": {
-    "ItemCategory": "Resource",
-    "StackSize": 99,
-    "Description": "Zwykłe drewienko"
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Zwykłe drewienko"
   },
-  "Wheat": {
-    "ItemCategory": "Resource",
-    "StackSize": 99,
-    "Description": "Zboże"
+  "Beet_Item": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Burak"
+  },
+  "Carrot_Item": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Marchew"
+  },
+  "Corn_Item": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Kukurydza"
+  },
+  "Potato_Item": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Ziemniak"
+  },
+  "Tomato_Item": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Pomidor"
+  },
+  "Wheat_Item": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Pomidor"
   },
   "Axe": {
-    "ItemCategory": "Axe",
-    "ItemSpeed": 0.75, 
-    "StackSize": 1,
-    "Description": "Siekiera"
+	"ItemCategory": "Axe",
+	"ItemSpeed": 0.75, 
+	"StackSize": 1,
+	"Description": "Siekiera"
   },
   "Hoe": {
-    "ItemCategory": "Hoe",
-    "ItemSpeed": 0.75, 
-    "StackSize": 1,
-    "Description": "Motyka"
+	"ItemCategory": "Hoe",
+	"ItemSpeed": 0.75, 
+	"StackSize": 1,
+	"Description": "Motyka"
   }
 }
