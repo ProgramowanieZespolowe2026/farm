@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://bmljfppu5lu6p"]
+
+[ext_resource type="PackedScene" uid="uid://bcr4x2brtalu4" path="res://audio/sfx/walk_on_grass.tscn" id="1_ihbny"]
+[ext_resource type="PackedScene" uid="uid://bbcrfo5rc5duh" path="res://audio/sfx/walk_on_dirt.tscn" id="2_bsymr"]
+[ext_resource type="PackedScene" uid="uid://d6un2vjdjl34" path="res://audio/sfx/chop_wood.tscn" id="3_wr2t7"]
+[ext_resource type="PackedScene" uid="uid://csdds1e1s8a58" path="res://audio/sfx/pick_up_item.tscn" id="4_bsymr"]
+
+[node name="PlayerSfxController" type="Node2D"]
+
+[node name="WalkOnGrass" parent="." instance=ExtResource("1_ihbny")]
+
+[node name="WalkOnDirt" parent="." instance=ExtResource("2_bsymr")]
+
+[node name="ChopWood" parent="." instance=ExtResource("3_wr2t7")]
+
+[node name="PickUpItem" parent="." instance=ExtResource("4_bsymr")]

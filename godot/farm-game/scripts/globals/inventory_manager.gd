@@ -9,12 +9,12 @@ func add_item(item_name: String, item_value: int = 1):
 		if item["name"] == item_name:
 			item["value"] += item_value
 			inventory_updated.emit()
-			print(items)
+			#print(items)
 			return
 			
 	items.append({"name": item_name, "value": item_value})
 	inventory_updated.emit()
-	print(items)
+	#print(items)
 
 func remove_item(item_name: String, item_value: int = 1):
 	for i in range(items.size()):

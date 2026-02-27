@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbcrfo5rc5duh"]
+
+[ext_resource type="AudioStream" uid="uid://nfxiv2bq7mer" path="res://assets/audio/sfx/step_dirt.ogg" id="1_jnvvj"]
+
+[node name="WalkOnDirt" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_jnvvj")
+pitch_scale = 0.01
+bus = &"Sfx"

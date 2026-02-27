@@ -4,8 +4,11 @@ class_name TemporaryPlayer
 @export var speed := 200.0
 @export var current_tool = DataTypes.Tools.None
 @onready var sprite = $AnimatedSprite2D
+@onready var player_sfx_controller: Node2D = $PlayerSfxController
+
 
 var last_facing_direction = Vector2.DOWN
+
 
 func _physics_process(delta):
 	var input_vector = Vector2.ZERO
@@ -19,6 +22,10 @@ func _physics_process(delta):
 	
 	velocity = input_vector * speed
 	move_and_slide()
+
+			
+	if velocity.length() > 0:
+		player_sfx_controller.play_walk_audio()
 	
 	if input_vector.x != 0:
 		sprite.flip_h = input_vector.x < 0

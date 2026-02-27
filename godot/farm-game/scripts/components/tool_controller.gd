@@ -12,6 +12,7 @@ const beet_scene = preload("uid://dyka3kbunmshh")
 
 @onready var highlight: Sprite2D = $Highlight
 @onready var player = get_parent() 
+@onready var player_sfx_controller: PlayerSfxController = $"../PlayerSfxController"
 
 var map_tiles = {}
 var current_target_grid_pos = Vector2.ZERO
@@ -128,6 +129,7 @@ func use_axe():
 		
 		if is_instance_valid(target_object) and target_object.has_method("hit"):
 			target_object.hit()
+			player_sfx_controller.chop_wood.play()
 			return 
 
 #AUTOMATYCZNIE DZIALA FUNKCJA ZBIERANIA OWOCOW Z ROSLIN
