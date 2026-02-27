@@ -21,6 +21,10 @@ Project->Project Settings -> Globals # In here you must have script TestGameTime
 ### Warning
 - Don't put file ```project.godot``` in .gitignore. This file have project input map and globals scripts.
 
+### Tools
+- Hoe - to **create** new field, **destroy** regrowing plants ( tomato, corn ) and **collect** not regrowing plants: wheat, beet, potato
+- Shovel - **only to destroy**
+- None ( empty hand ): to **collect regrowing plants**: tomato, corn
 
 ---
 
