@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://b618f3t6eq1vl"]
 
 [ext_resource type="Script" uid="uid://b2qxgja54m0d7" path="res://scripts/objects/plants/CropBase.gd" id="1_1ni1q"]
-[ext_resource type="Texture2D" uid="uid://ddsciay4xv435" path="res://assets/map/Plants.png" id="2_8hvcu"]
+[ext_resource type="Texture2D" uid="uid://dptjdkvpo33n2" path="res://assets/map/Plants.png" id="2_8hvcu"]
 [ext_resource type="PackedScene" uid="uid://h4j2m27oqybs" path="res://scenes/objects/plants/wheat/wheat_item.tscn" id="2_ihs76"]
 [ext_resource type="PackedScene" uid="uid://cnoynt5pjyu3i" path="res://scenes/objects/plants/wheat/wheat_seed.tscn" id="2_mh12r"]
 
@@ -58,6 +58,7 @@ animations = [{
 
 [node name="Wheat_plant" type="Node2D"]
 script = ExtResource("1_1ni1q")
+plant_name = "Wheat_Plant"
 seed_produce_amount = 3
 item_scene = ExtResource("2_ihs76")
 seed_scene = ExtResource("2_mh12r")

@@ -39,6 +39,7 @@ func _input(event):
 		var current_tool = player.current_tool
 		#Tu dodajemy wywoływanie funkcji narzędzia ( ktora ma byc na dole )
 		if current_tool == DataTypes.Tools.Hoe:
+			collect_plant(DataTypes.Tools.Hoe)
 			use_hoe()
 		elif current_tool == DataTypes.Tools.Shovel:
 			use_shovel()
@@ -49,7 +50,7 @@ func _input(event):
 		elif current_tool == DataTypes.Tools.Axe:
 			use_axe()
 		elif current_tool == DataTypes.Tools.None:
-			collect_plant()
+			collect_plant(DataTypes.Tools.None)
 			
 		elif current_tool == DataTypes.Tools.Tomato_Seed:
 			plant(tomato_scene)
@@ -132,66 +133,16 @@ func use_axe():
 
 #AUTOMATYCZNIE DZIALA FUNKCJA ZBIERANIA OWOCOW Z ROSLIN
 #!!!! ALE KAZDA TAKA ROSLINA MUSI MIEC FUNKCJE "harvest()"
-func collect_plant():
+func collect_plant(currentTool: DataTypes.Tools):
 	if map_tiles.has(current_target_grid_pos):
 		var target_crop = map_tiles[current_target_grid_pos]["crop"]
 		if is_instance_valid(target_crop):
+			print(target_crop.plant_name)
 			
-			if target_crop.has_method("harvest"):
-				target_crop.harvest()
-			if not target_crop.regrowing:
-				var tile = map_tiles[current_target_grid_pos]
-				if tile["crop"] != null and is_instance_valid(tile["crop"]):
-					tile["crop"].queue_free()
-					tile["crop"] = null
+			if (currentTool == DataTypes.Tools.None and target_crop.regrowing == true) or (currentTool == DataTypes.Tools.Hoe and target_crop.regrowing == false)  :
+				if target_crop.has_method("harvest"):
+					target_crop.harvest()
 
-#func plant_tomato():
-	#if map_tiles.has(current_target_grid_pos):
-		#var tile = map_tiles[current_target_grid_pos]
-		#var target_object = tile["dirt"]
-		#
-		#if is_instance_valid(target_object) and target_object.is_in_group("dirt"):
-			#
-			#if tile["crop"] == null:
-				#var new_tomato = tomato_scene.instantiate()
-				#new_tomato.global_position = highlight.global_position 
-				#
-				#new_tomato.dirt_underneath = target_object
-				#
-				#player.get_parent().add_child(new_tomato) 
-				#tile["crop"] = new_tomato
-				
-#func plant_wheat():
-	#if map_tiles.has(current_target_grid_pos):
-		#var tile = map_tiles[current_target_grid_pos]
-		#var target_object = tile["dirt"]
-		#
-		#if is_instance_valid(target_object) and target_object.is_in_group("dirt"):
-			#
-			#if tile["crop"] == null:
-				#var new_wheat = wheat_scene.instantiate()
-				#new_wheat.global_position = highlight.global_position 
-				#
-				#new_wheat.dirt_underneath = target_object
-				#
-				#player.get_parent().add_child(new_wheat) 
-				#tile["crop"] = new_wheat
-#
-#func plant_potato():
-	#if map_tiles.has(current_target_grid_pos):
-		#var tile = map_tiles[current_target_grid_pos]
-		#var target_object = tile["dirt"]
-		#
-		#if is_instance_valid(target_object) and target_object.is_in_group("dirt"):
-			#
-			#if tile["crop"] == null:
-				#var new_potato = potato_scene.instantiate()
-				#new_potato.global_position = highlight.global_position 
-				#
-				#new_potato.dirt_underneath = target_object
-				#
-				#player.get_parent().add_child(new_potato) 
-				#tile["crop"] = new_potato
 
 func plant(scene):
 	if map_tiles.has(current_target_grid_pos):

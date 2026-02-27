@@ -3,6 +3,7 @@ class_name CropBase
 
 var dirt_underneath: Node2D = null
 var growth_points_to_collect: int = 1880
+@export var plant_name: String = "Name"
 @export var item_produce_amount: int = 1
 @export var seed_produce_amount: int = 1
 @export var item_scene: PackedScene
@@ -42,7 +43,6 @@ func harvest():
 		if regrowing:
 			animated_sprite_2d.play("in_growth")
 			growth_points = growth_points_to_collect / 2
-		#else:
 			
 		
 		if item_scene:

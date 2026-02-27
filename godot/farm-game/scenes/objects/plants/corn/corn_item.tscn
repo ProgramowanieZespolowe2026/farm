@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cshwou0feebm6"]
 
-[ext_resource type="Texture2D" uid="uid://ddsciay4xv435" path="res://assets/map/Plants.png" id="1_ufng0"]
+[ext_resource type="Texture2D" uid="uid://dptjdkvpo33n2" path="res://assets/map/Plants.png" id="1_ufng0"]
 [ext_resource type="Script" uid="uid://dflxb6a3a8uos" path="res://scripts/objects/plants/CropItemOrSeed.gd" id="2_jkm7j"]
 [ext_resource type="PackedScene" uid="uid://c522b6f3babgw" path="res://scenes/components/collectable_component.tscn" id="3_5ikxk"]
 

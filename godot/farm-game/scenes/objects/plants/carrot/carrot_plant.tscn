@@ -58,6 +58,7 @@ animations = [{
 [node name="Corn_plant" type="Node2D"]
 position = Vector2(0, -2)
 script = ExtResource("1_388mi")
+plant_name = "Carrot_Plant"
 item_produce_amount = 3
 seed_produce_amount = 0
 item_scene = ExtResource("2_w0dgt")
