@@ -1,24 +1,24 @@
 {
   "Log": {
-    "ItemCategory": "Resource",
-    "StackSize": 99,
-    "Description": "Zwykłe drewienko"
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Zwykłe drewienko"
   },
   "Wheat": {
-    "ItemCategory": "Resource",
-    "StackSize": 99,
-    "Description": "Zboże"
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Zboże"
   },
   "Axe": {
-    "ItemCategory": "Axe",
-    "ItemSpeed": 0.75, 
-    "StackSize": 1,
-    "Description": "Siekiera"
+	"ItemCategory": "Axe",
+	"ItemSpeed": 0.75, 
+	"StackSize": 1,
+	"Description": "Siekiera"
   },
   "Hoe": {
-    "ItemCategory": "Hoe",
-    "ItemSpeed": 0.75, 
-    "StackSize": 1,
-    "Description": "Motyka"
+	"ItemCategory": "Hoe",
+	"ItemSpeed": 0.75, 
+	"StackSize": 1,
+	"Description": "Motyka"
   }
 }
