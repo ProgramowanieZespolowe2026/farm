@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhvklmfp02uk1"]
+
+[ext_resource type="AudioStream" uid="uid://de1f2k6lhgr3s" path="res://assets/audio/sfx/fertilize_plants.ogg" id="1_ppcq8"]
+
+[node name="FertilizePlants" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_ppcq8")
+bus = &"Sfx"

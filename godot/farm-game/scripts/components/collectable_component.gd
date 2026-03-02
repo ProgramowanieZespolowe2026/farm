@@ -3,7 +3,6 @@ extends Area2D
 
 @export var collectable_name: String
 # export for testing
-# var collectable_name: String = get
 
 func _on_body_entered(body: Node2D) -> void:
 	# need to change temporaryplayer to player when player is ready !!!

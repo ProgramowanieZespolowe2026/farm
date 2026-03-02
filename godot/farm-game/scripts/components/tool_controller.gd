@@ -87,6 +87,7 @@ func use_hoe():
 		
 		player.get_parent().add_child(new_dirt) 
 		map_tiles[current_target_grid_pos]["dirt"] = new_dirt
+	player_sfx_controller.play_hoe_sound()
 		
 func use_shovel():
 	if map_tiles.has(current_target_grid_pos):
@@ -96,6 +97,7 @@ func use_shovel():
 		if tile["crop"] != null and is_instance_valid(tile["crop"]):
 			tile["crop"].queue_free()
 			tile["crop"] = null
+			player_sfx_controller.play_shovel_sound()
 			return 
 			
 		#Niszczenie ziemi
@@ -105,6 +107,8 @@ func use_shovel():
 			
 		if tile["dirt"] == null and tile["crop"] == null:
 			map_tiles.erase(current_target_grid_pos)
+			
+		player_sfx_controller.play_shovel_sound()
 		
 func use_watering_can():
 	if map_tiles.has(current_target_grid_pos):
@@ -113,6 +117,9 @@ func use_watering_can():
 		if is_instance_valid(target_object):
 			if target_object.has_method("water"):
 				target_object.water()
+				player_sfx_controller.play_water_plants_sound()
+				
+		
 
 func use_fertilizer():
 	if map_tiles.has(current_target_grid_pos):
@@ -121,6 +128,7 @@ func use_fertilizer():
 		if is_instance_valid(target_object):
 			if target_object.has_method("fertilize"):
 				target_object.fertilize()
+				player_sfx_controller.play_fertilize_plants_sound()
 				
 func use_axe():
 	var target_grid_pos_i = Vector2i(current_target_grid_pos)
@@ -144,6 +152,7 @@ func collect_plant(currentTool: DataTypes.Tools):
 			if (currentTool == DataTypes.Tools.None and target_crop.regrowing == true) or (currentTool == DataTypes.Tools.Hoe and target_crop.regrowing == false)  :
 				if target_crop.has_method("harvest"):
 					target_crop.harvest()
+					player_sfx_controller.play_pick_up_item()
 
 
 func plant(scene):
@@ -161,3 +170,4 @@ func plant(scene):
 				
 				player.get_parent().add_child(new_plant) 
 				tile["crop"] = new_plant
+				player_sfx_controller.play_plant_sound()

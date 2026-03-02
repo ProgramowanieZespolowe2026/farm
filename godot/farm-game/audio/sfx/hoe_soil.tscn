@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqbfqvoql0bvf"]
+
+[ext_resource type="AudioStream" uid="uid://bisktcaka6gtk" path="res://assets/audio/sfx/hoe_soil.ogg" id="1_apwsv"]
+
+[node name="HoeSoil" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_apwsv")
+bus = &"Sfx"

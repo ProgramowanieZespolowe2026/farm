@@ -4,3 +4,4 @@
 
 [node name="ChopWood" type="AudioStreamPlayer2D"]
 stream = ExtResource("1_ujm6s")
+bus = &"Sfx"

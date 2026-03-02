@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://m4a1g6x3vga2"]
+
+[ext_resource type="AudioStream" uid="uid://cvayqgl8krtsw" path="res://assets/audio/sfx/shovel_soil.ogg" id="1_srihc"]
+
+[node name="ShovelSoil" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_srihc")
+bus = &"Sfx"

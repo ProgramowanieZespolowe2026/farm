@@ -1,10 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://m5w4eggderw0"]
+[gd_scene load_steps=16 format=3 uid="uid://m5w4eggderw0"]
 
 [ext_resource type="Texture2D" uid="uid://6dgp7ynmac65" path="res://assets/Temporary/player-idle.png" id="1_ag6uu"]
 [ext_resource type="Script" uid="uid://clti4cak0wtm4" path="res://scripts/Temporary/temporary_player.gd" id="1_l62cs"]
 [ext_resource type="PackedScene" uid="uid://dmmvysvf3y6uj" path="res://scenes/components/tool_controller.tscn" id="3_8u10v"]
 [ext_resource type="PackedScene" uid="uid://bmljfppu5lu6p" path="res://scenes/components/player_sfx_controller.tscn" id="4_t0lp8"]
-[ext_resource type="Script" uid="uid://y3ka22r23ate" path="res://scripts/components/player_sfx_controller.gd" id="5_vqhct"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l62cs"]
 atlas = ExtResource("1_ag6uu")
@@ -109,4 +108,3 @@ position_smoothing_enabled = true
 [node name="ToolController" parent="." instance=ExtResource("3_8u10v")]
 
 [node name="PlayerSfxController" parent="." instance=ExtResource("4_t0lp8")]
-script = ExtResource("5_vqhct")

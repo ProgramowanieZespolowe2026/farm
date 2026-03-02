@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://1bu5wul7kg1b"]
+
+[ext_resource type="Script" uid="uid://c7pixeatrofam" path="res://scripts/components/new_item_sfx_component.gd" id="1_duugn"]
+[ext_resource type="PackedScene" uid="uid://qjygbasi78yy" path="res://audio/sfx/new_item.tscn" id="2_lnc1v"]
+
+[node name="NewItemSfxComponent" type="Node2D"]
+script = ExtResource("1_duugn")
+
+[node name="NewItem" parent="." instance=ExtResource("2_lnc1v")]
