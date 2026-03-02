@@ -1,11 +1,11 @@
 [gd_scene load_steps=14 format=3 uid="uid://cuct641uhibiv"]
 
-[ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_1g8jr"]
-[ext_resource type="Texture2D" path="res://assets/ui/background.png" id="1_sl1te"]
+[ext_resource type="Script" uid="uid://c8toyk8cl8kjv" path="res://scripts/ui/main_menu.gd" id="1_1g8jr"]
+[ext_resource type="Texture2D" uid="uid://bw41dahssgn3e" path="res://assets/ui/background.png" id="1_sl1te"]
 [ext_resource type="FontFile" uid="uid://capoihxunrgmm" path="res://assets/ui/pixelFont-7-8x14-sproutLands.ttf" id="2_fe2o3"]
-[ext_resource type="AudioStream" path="res://assets/audio/Darude - Sandstorm.mp3" id="4_m1kxf"]
-[ext_resource type="Script" path="res://scripts/ui/audio_control.gd" id="4_x2yvf"]
-[ext_resource type="Script" path="res://scripts/ui/full_screen_control.gd" id="5_uhagc"]
+[ext_resource type="Script" uid="uid://d2ickw45fsc32" path="res://scripts/ui/audio_control.gd" id="4_x2yvf"]
+[ext_resource type="Script" uid="uid://5i87dnd8uokv" path="res://scripts/ui/full_screen_control.gd" id="5_uhagc"]
+[ext_resource type="AudioStream" uid="uid://d1p8agloassk3" path="res://assets/audio/music/farm_music.mp3" id="6_uhagc"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fe2o3"]
 texture = ExtResource("1_sl1te")
@@ -263,7 +263,7 @@ text = "Fullscreen"
 script = ExtResource("5_uhagc")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_m1kxf")
+stream = ExtResource("6_uhagc")
 autoplay = true
 bus = &"Music"
 

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://coe7o5imj3tw6"]
+[gd_scene load_steps=5 format=3 uid="uid://coe7o5imj3tw6"]
 
 [ext_resource type="PackedScene" uid="uid://clcluxi7rp3ni" path="res://scenes/ui/test_game_time.tscn" id="1_8hmcv"]
 [ext_resource type="Script" uid="uid://cxnw3cis3e2ao" path="res://scenes/ui/game_screen.gd" id="1_gusqm"]
 [ext_resource type="PackedScene" uid="uid://y3lcfv2dd6wt" path="res://scenes/ui/inventory_panel.tscn" id="2_e2vrk"]
+[ext_resource type="PackedScene" uid="uid://ylhduw5fblc5" path="res://audio/sfx/inventory_open.tscn" id="4_gkbp4"]
 
 [node name="GameScreen" type="CanvasLayer"]
 script = ExtResource("1_gusqm")
@@ -24,3 +25,5 @@ size_flags_vertical = 0
 
 [node name="Inventory" parent="MarginContainer" instance=ExtResource("2_e2vrk")]
 visible = false
+
+[node name="InventoryOpen" parent="." instance=ExtResource("4_gkbp4")]

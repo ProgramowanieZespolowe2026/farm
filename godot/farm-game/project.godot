@@ -14,6 +14,10 @@ config/name="farm"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://botlk7j73epd3"
+
 [autoload]
 
 TestGameTimeCycleManager="*res://scripts/globals/test_game_time_cycle_manager.gd"

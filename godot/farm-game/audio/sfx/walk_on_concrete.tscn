@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkd4p4a1k6qtb"]
+
+[ext_resource type="AudioStream" uid="uid://yrwjvajbk2a6" path="res://assets/audio/sfx/step_concrete.ogg" id="1_j3kp4"]
+
+[node name="WalkOnConcrete" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_j3kp4")
+bus = &"Sfx"

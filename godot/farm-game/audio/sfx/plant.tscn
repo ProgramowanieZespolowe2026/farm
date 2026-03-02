@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://do8mn5ta25my6"]
+
+[ext_resource type="AudioStream" uid="uid://doc5r3pq86l4s" path="res://assets/audio/sfx/plant.ogg" id="1_j2n28"]
+
+[node name="Plant" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_j2n28")
+bus = &"Sfx"
