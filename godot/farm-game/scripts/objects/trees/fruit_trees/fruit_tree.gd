@@ -1,7 +1,7 @@
 extends AnimatedSprite2D
 
 var growth_points_to_collect: int = 1000
-@export var tree_name: String
+@export var object_name: String
 @export var item_produce_amount: int
 @export var item_scene: PackedScene
 @export var log_scene: PackedScene
@@ -29,13 +29,10 @@ func _on_time_tick(day: int, hour: int, minute: int) -> void:
 	print(growth_points)
 	
 func grow() -> void:
-	
 	if growth_points < growth_points_to_collect / 3.0:
 		growth_points += 5
 	else:
 		tree_has_grown = true
-		#tree_is_watered = false
-		
 	
 func bloom() -> void:
 	if tree_has_grown and tree_is_watered: 

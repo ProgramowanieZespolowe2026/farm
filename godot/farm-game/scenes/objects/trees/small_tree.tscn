@@ -17,7 +17,7 @@ scale = Vector2(1.5, 1.5)
 texture = SubResource("AtlasTexture_21b8l")
 offset = Vector2(-1, -13)
 script = ExtResource("2_xyb6m")
-object_name = "Small_Tree"
+object_name = "Tree"
 item_scene = ExtResource("3_au4vd")
 health = 3
 

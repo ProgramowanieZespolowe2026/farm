@@ -124,10 +124,11 @@ func use_shovel():
 		
 	elif WorldObjects.objects.has(Vector2i(current_target_grid_pos)):
 		var tree = WorldObjects.objects[Vector2i(current_target_grid_pos)]
-		if tree.animation == "plant":
-			tree.queue_free()
-			WorldObjects.objects.erase(Vector2i(current_target_grid_pos))
-			player_sfx_controller.play_shovel_sound()
+		if tree.object_name == "Fruit_Tree":
+			if tree.animation == "plant":
+				tree.queue_free()
+				WorldObjects.objects.erase(Vector2i(current_target_grid_pos))
+				player_sfx_controller.play_shovel_sound()
 		
 		
 		
