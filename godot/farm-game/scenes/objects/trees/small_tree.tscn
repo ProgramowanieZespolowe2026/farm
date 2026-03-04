@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://ch45hiuvb5ovm"]
+[gd_scene load_steps=6 format=3 uid="uid://ch45hiuvb5ovm"]
 
 [ext_resource type="Texture2D" uid="uid://d4jkml0rthmgt" path="res://assets/map/Trees.png" id="1_xyb6m"]
-[ext_resource type="Script" uid="uid://d0nb8oemhfxfj" path="res://scripts/objects/trees/small_tree.gd" id="2_xyb6m"]
+[ext_resource type="Script" uid="uid://d0nb8oemhfxfj" path="res://scripts/objects/trees/tree.gd" id="2_xyb6m"]
+[ext_resource type="PackedScene" uid="uid://8mxf18swfvam" path="res://scenes/objects/trees/small_log.tscn" id="3_au4vd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_21b8l"]
 atlas = ExtResource("1_xyb6m")
@@ -16,6 +17,9 @@ scale = Vector2(1.5, 1.5)
 texture = SubResource("AtlasTexture_21b8l")
 offset = Vector2(-1, -13)
 script = ExtResource("2_xyb6m")
+object_name = "Small_Tree"
+item_scene = ExtResource("3_au4vd")
+health = 3
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_mask = 2

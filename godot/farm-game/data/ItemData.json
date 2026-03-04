@@ -1,4 +1,19 @@
 {
+"Apple_Item": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Zwykłe drewienko"
+  },
+"Cherry_Item": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Zwykłe drewienko"
+  },
+"Peach_Item": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Zwykłe drewienko"
+  },
   "Log": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,

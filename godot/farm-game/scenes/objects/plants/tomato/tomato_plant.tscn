@@ -68,5 +68,6 @@ regrowing = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -7)
 sprite_frames = SubResource("SpriteFrames_q5g8b")
-animation = &"ready_to_collect"
+animation = &"sprouting"
 autoplay = "sprouting"
+frame_progress = 0.040784284

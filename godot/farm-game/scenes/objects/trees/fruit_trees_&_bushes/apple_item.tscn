@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqrccc4suhpux"]
+
+[ext_resource type="Texture2D" uid="uid://bxlk613m6xgdr" path="res://assets/items/Icons/Apple_Item.png" id="1_p4fl3"]
+[ext_resource type="Script" uid="uid://dflxb6a3a8uos" path="res://scripts/objects/plants/CropItemOrSeed.gd" id="2_f70d4"]
+[ext_resource type="PackedScene" uid="uid://c522b6f3babgw" path="res://scenes/components/collectable_component.tscn" id="3_tr57t"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4ahkj"]
+radius = 5.0
+
+[node name="AppleItem" type="Sprite2D"]
+texture = ExtResource("1_p4fl3")
+script = ExtResource("2_f70d4")
+item_name = "Apple_Item"
+item_value = 3
+
+[node name="CollectableComponent" parent="." instance=ExtResource("3_tr57t")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent"]
+shape = SubResource("CircleShape2D_4ahkj")

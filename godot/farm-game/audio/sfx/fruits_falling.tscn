@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bajrmevbhpc1s"]
+
+[ext_resource type="AudioStream" uid="uid://bcs6cwr06e1r1" path="res://assets/audio/sfx/fruit_falling.ogg" id="1_dm268"]
+
+[node name="FruitsFalling" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_dm268")
+bus = &"Sfx"

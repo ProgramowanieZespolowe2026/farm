@@ -1,20 +1,21 @@
 extends Sprite2D
 
-var type = "Wood"
-var health = 3
+@export var object_name: String
+@export var item_scene: PackedScene
+@export var health: int
+
 var grid_pos: Vector2i
 const TILE_SIZE = 16
 
-var log_scene = preload("res://scenes/objects/trees/small_log.tscn")
+
 
 func _ready() -> void:
 	grid_pos = global_position / TILE_SIZE
 	WorldObjects.objects[grid_pos] = self
-	#print(WorldObjects.objects)
 	
-func hit():
+func hit(chop_sound: AudioStreamPlayer2D):
 	health -= 1
-	
+	chop_sound.play()
 	# EFEKT WIZUALNY: Lekkie drżenie (Tween)
 	var tween = create_tween()
 	tween.tween_property(self, "rotation_degrees", 5.0, 0.05)
@@ -27,9 +28,9 @@ func hit():
 func die():
 	WorldObjects.objects.erase(grid_pos)
 	queue_free()
-	call_deferred("load_log_scene")
+	call_deferred("load_item_scene")
 	
-func load_log_scene() -> void:
-	var log_scene_instance = log_scene.instantiate() as Sprite2D
-	log_scene_instance.global_position = global_position
-	get_parent().add_child(log_scene_instance)
+func load_item_scene() -> void:
+	var item_scene_instance = item_scene.instantiate() as Sprite2D
+	item_scene_instance.global_position = global_position
+	get_parent().add_child(item_scene_instance)
