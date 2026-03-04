@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bg502rtyhok1r"]
+[gd_scene load_steps=6 format=4 uid="uid://bg502rtyhok1r"]
 
 [ext_resource type="PackedScene" uid="uid://c8qju1qxars1t" path="res://scenes/components/day_night_cycle_component.tscn" id="1_b38ys"]
 [ext_resource type="PackedScene" uid="uid://m5w4eggderw0" path="res://scenes/Temporary/temporary_player.tscn" id="2_p0v8n"]
@@ -14,14 +14,14 @@ y_sort_enabled = true
 [node name="TemporaryPlayer" parent="." instance=ExtResource("2_p0v8n")]
 z_index = 0
 position = Vector2(265, 137)
-current_tool = 1
+current_tool = 3
 
 [node name="test-scene-tile-map" parent="." instance=ExtResource("3_gd3cn")]
 position = Vector2(1, 1)
 
 [node name="Trees" type="TileMapLayer" parent="test-scene-tile-map"]
 y_sort_enabled = true
-tile_map_data = PackedByteArray(0, 0, 23, 0, 12, 0, 0, 0, 0, 0, 0, 0, 3, 0, 21, 0, 14, 0, 0, 0, 0, 0, 0, 0, 3, 0, 23, 0, 5, 0, 0, 0, 0, 0, 0, 0, 3, 0)
+tile_map_data = PackedByteArray("AAAXAAwAAAAAAAAAAwAVAA4AAAAAAAAAAwAXAAUAAAAAAAAAAwAdAA0AAAAAAAAAAQAaABAAAAAAAAAAAQAbAA4AAAAAAAAAAgARABIAAAAAAAAAAgA=")
 tile_set = ExtResource("4_erlyq")
 
 [node name="GameScreen" parent="." instance=ExtResource("5_q32fc")]

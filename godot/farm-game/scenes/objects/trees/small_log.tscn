@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://8mxf18swfvam"]
 
 [ext_resource type="Texture2D" uid="uid://d4jkml0rthmgt" path="res://assets/map/Trees.png" id="1_22hf0"]
-[ext_resource type="Script" uid="uid://dp11o0jmh47l" path="res://scripts/objects/trees/small_log.gd" id="2_uylwd"]
+[ext_resource type="Script" uid="uid://dp11o0jmh47l" path="res://scripts/objects/trees/log.gd" id="2_uylwd"]
 [ext_resource type="PackedScene" uid="uid://c522b6f3babgw" path="res://scenes/components/collectable_component.tscn" id="3_hdx0x"]
 [ext_resource type="PackedScene" uid="uid://1bu5wul7kg1b" path="res://scenes/components/new_item_sfx_component.tscn" id="4_uylwd"]
 
@@ -24,3 +24,4 @@ collectable_name = "log"
 shape = SubResource("CircleShape2D_5dohg")
 
 [node name="NewItemAudioComponent" parent="." instance=ExtResource("4_uylwd")]
+script = null

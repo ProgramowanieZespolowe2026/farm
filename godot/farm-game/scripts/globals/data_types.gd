@@ -13,5 +13,8 @@ enum Tools {
 	Corn_Seed,
 	Potato_Item,
 	Carrot_Seed,
-	Beet_Seed
+	Beet_Seed,
+	Peach_Plant,
+	Cherry_Plant,
+	Apple_Plant
 }

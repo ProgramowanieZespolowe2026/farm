@@ -1,11 +1,13 @@
-[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://gymfb77lk45e"]
+[gd_resource type="TileSet" load_steps=10 format=3 uid="uid://gymfb77lk45e"]
 
 [ext_resource type="PackedScene" uid="uid://ch45hiuvb5ovm" path="res://scenes/objects/trees/small_tree.tscn" id="1_1v51a"]
 [ext_resource type="Texture2D" uid="uid://fpt45c0x0fug" path="res://assets/map/Grass Summer.png" id="1_8p6j2"]
+[ext_resource type="PackedScene" uid="uid://dqhtxmdscucdc" path="res://scenes/objects/trees/big_tree.tscn" id="1_cjvij"]
 [ext_resource type="Texture2D" uid="uid://cc2qj75kq47ap" path="res://assets/map/Props.png" id="2_1v51a"]
 [ext_resource type="Texture2D" uid="uid://7downapvk8kb" path="res://assets/map/Tileset Grass Water Summer.png" id="2_8p6j2"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_cjvij"]
+scenes/2/scene = ExtResource("1_cjvij")
 scenes/3/scene = ExtResource("1_1v51a")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xl3bn"]

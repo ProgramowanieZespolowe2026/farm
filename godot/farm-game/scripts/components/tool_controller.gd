@@ -9,6 +9,11 @@ const potato_scene = preload("uid://bboxssfxh5d70")
 const corn_scene = preload("uid://dn8j0kg051qv0")
 const carrot_scene = preload("uid://dqdme10exp2k8")
 const beet_scene = preload("uid://dyka3kbunmshh")
+const peach_scene = preload("uid://cnndi0w44wqr6")
+const cherry_scene = preload("uid://c02001sr6d7g7")
+const apple_scene = preload("uid://cr71x7drir8lg")
+
+
 
 @onready var highlight: Sprite2D = $Highlight
 @onready var player = get_parent() 
@@ -65,6 +70,12 @@ func _input(event):
 			plant(carrot_scene)
 		elif current_tool == DataTypes.Tools.Beet_Seed:
 			plant(beet_scene)
+		elif current_tool == DataTypes.Tools.Peach_Plant:
+			plant_tree(peach_scene)
+		elif current_tool == DataTypes.Tools.Cherry_Plant:
+			plant_tree(cherry_scene)
+		elif current_tool == DataTypes.Tools.Apple_Plant:
+			plant_tree(apple_scene)
 			
 func use_hoe():
 	#Jesli jest zaorana ziemia i jakas roslina to zniszcz sama rosline
@@ -87,6 +98,7 @@ func use_hoe():
 		
 		player.get_parent().add_child(new_dirt) 
 		map_tiles[current_target_grid_pos]["dirt"] = new_dirt
+		
 	player_sfx_controller.play_hoe_sound()
 		
 func use_shovel():
@@ -110,6 +122,15 @@ func use_shovel():
 			
 		player_sfx_controller.play_shovel_sound()
 		
+	elif WorldObjects.objects.has(Vector2i(current_target_grid_pos)):
+		var tree = WorldObjects.objects[Vector2i(current_target_grid_pos)]
+		if tree.animation == "plant":
+			tree.queue_free()
+			WorldObjects.objects.erase(Vector2i(current_target_grid_pos))
+			player_sfx_controller.play_shovel_sound()
+		
+		
+		
 func use_watering_can():
 	if map_tiles.has(current_target_grid_pos):
 		var target_object = map_tiles[current_target_grid_pos]["dirt"]
@@ -117,6 +138,13 @@ func use_watering_can():
 		if is_instance_valid(target_object):
 			if target_object.has_method("water"):
 				target_object.water()
+				player_sfx_controller.play_water_plants_sound()
+				
+	else:
+		if WorldObjects.objects.has(Vector2i(current_target_grid_pos)):
+			var target_tree = WorldObjects.objects[Vector2i(current_target_grid_pos)]
+			if target_tree.has_method("water"):
+				target_tree.water()
 				player_sfx_controller.play_water_plants_sound()
 				
 		
@@ -137,8 +165,8 @@ func use_axe():
 		var target_object = WorldObjects.objects[target_grid_pos_i]
 		
 		if is_instance_valid(target_object) and target_object.has_method("hit"):
-			target_object.hit()
-			player_sfx_controller.chop_wood.play()
+			target_object.hit(player_sfx_controller.chop_wood)
+			#player_sfx_controller.chop_wood.play()
 			return 
 
 #AUTOMATYCZNIE DZIALA FUNKCJA ZBIERANIA OWOCOW Z ROSLIN
@@ -153,6 +181,12 @@ func collect_plant(currentTool: DataTypes.Tools):
 				if target_crop.has_method("harvest"):
 					target_crop.harvest()
 					player_sfx_controller.play_pick_up_item()
+#	zbieranie owocow z drzew
+	else:
+		if WorldObjects.objects.has(Vector2i(current_target_grid_pos)):
+			var target_tree = WorldObjects.objects[Vector2i(current_target_grid_pos)]
+			if target_tree.has_method("harvest"):
+				target_tree.harvest()
 
 
 func plant(scene):
@@ -171,3 +205,13 @@ func plant(scene):
 				player.get_parent().add_child(new_plant) 
 				tile["crop"] = new_plant
 				player_sfx_controller.play_plant_sound()
+				
+func plant_tree(scene):
+	if WorldObjects.objects.has(Vector2i(current_target_grid_pos)):
+		return
+	else:
+		var new_tree = scene.instantiate()
+		new_tree.global_position = highlight.global_position
+		WorldObjects.objects[Vector2i(current_target_grid_pos)] = new_tree
+		player.get_parent().add_child(new_tree) 
+		player_sfx_controller.play_plant_sound()
