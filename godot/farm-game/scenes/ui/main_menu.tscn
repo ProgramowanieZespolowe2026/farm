@@ -77,10 +77,11 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -141.25
-offset_top = -66.0
-offset_right = 141.25
-offset_bottom = 234.0
+
+offset_left = -135.0
+offset_top = -60.0
+offset_right = 262.8125
+offset_bottom = 217.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.8, 0.8)
@@ -165,17 +166,17 @@ horizontal_alignment = 1
 [node name="Options" type="Panel" parent="."]
 visible = false
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -272.0
-offset_top = -47.0
-offset_right = 272.0
-offset_bottom = 180.0
+
+anchor_bottom = 1.0
+offset_left = -267.5
+offset_top = -227.0
+offset_right = 267.5
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 
 [node name="Label" type="Label" parent="Options"]
 layout_mode = 1
@@ -232,9 +233,9 @@ text = "Powrót"
 [node name="AudioControl" type="HSlider" parent="Options"]
 layout_mode = 0
 offset_left = 260.0
-offset_top = 60.0
+offset_top = 61.0
 offset_right = 430.0
-offset_bottom = 92.0
+offset_bottom = 93.0
 theme_override_styles/slider = SubResource("StyleBoxLine_m1kxf")
 theme_override_styles/grabber_area = SubResource("StyleBoxLine_x2yvf")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_uhagc")
