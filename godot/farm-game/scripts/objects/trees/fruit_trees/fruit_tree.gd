@@ -26,7 +26,7 @@ func _on_time_tick(day: int, hour: int, minute: int) -> void:
 	grow()
 	bloom()
 	update_sprite()
-	print(growth_points)
+	#print(growth_points)
 	
 func grow() -> void:
 	
@@ -55,20 +55,21 @@ func update_sprite():
 		shape2d.shape.set_deferred("radius", 4)
 
 func harvest():
-	var tween = create_tween()
-	tween.tween_property(self, "rotation_degrees", 5.0, 0.05)
-	tween.tween_property(self, "rotation_degrees", -5.0, 0.05)
-	tween.tween_property(self, "rotation_degrees", 0.0, 0.05)
-	fruits_falling.play()
-	
-	growth_points = ceil(growth_points_to_collect / 3.0)
-	self.play("large")
-	tree_is_watered = false
-	
-	if item_scene:
-		for i in range(item_produce_amount):
-			spawn_item(item_scene)
-			new_item.play()
+	if growth_points > growth_points_to_collect:
+		var tween = create_tween()
+		tween.tween_property(self, "rotation_degrees", 5.0, 0.05)
+		tween.tween_property(self, "rotation_degrees", -5.0, 0.05)
+		tween.tween_property(self, "rotation_degrees", 0.0, 0.05)
+		fruits_falling.play()
+		
+		growth_points = ceil(growth_points_to_collect / 3.0)
+		self.play("large")
+		tree_is_watered = false
+		
+		if item_scene:
+			for i in range(item_produce_amount):
+				spawn_item(item_scene)
+				new_item.play()
 
 func spawn_item(scene_to_spawn: PackedScene):
 	var item = scene_to_spawn.instantiate() as Node2D

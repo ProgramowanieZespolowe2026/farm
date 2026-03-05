@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dptjdkvpo33n2"
-path="res://.godot/imported/plants.png-afbe0c28c7794c98870e6002f194598e.ctex"
+uid="uid://c2xbyu400vf87"
+path="res://.godot/imported/Wheat_Seed.png-ecf062b719ec388b18dbad8897991368.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/map/plants.png"
-dest_files=["res://.godot/imported/plants.png-afbe0c28c7794c98870e6002f194598e.ctex"]
+source_file="res://assets/items/Icons/Wheat_Seed.png"
+dest_files=["res://.godot/imported/Wheat_Seed.png-ecf062b719ec388b18dbad8897991368.ctex"]
 
 [params]
 
