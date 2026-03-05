@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dptjdkvpo33n2"
-path="res://.godot/imported/plants.png-afbe0c28c7794c98870e6002f194598e.ctex"
+uid="uid://cnyfe1ghmk7gv"
+path="res://.godot/imported/Corn_Seed.png-a2ea1f0ed9742fbba8d2269657f9501d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/map/plants.png"
-dest_files=["res://.godot/imported/plants.png-afbe0c28c7794c98870e6002f194598e.ctex"]
+source_file="res://assets/items/Icons/Corn_Seed.png"
+dest_files=["res://.godot/imported/Corn_Seed.png-a2ea1f0ed9742fbba8d2269657f9501d.ctex"]
 
 [params]
 

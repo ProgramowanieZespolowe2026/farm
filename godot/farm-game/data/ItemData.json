@@ -2,22 +2,22 @@
 "Apple_Item": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
-	"Description": "Zwykłe drewienko"
+	"Description": "Jabłko"
   },
 "Cherry_Item": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
-	"Description": "Zwykłe drewienko"
+	"Description": "Wiśnia"
   },
 "Peach_Item": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
-	"Description": "Zwykłe drewienko"
+	"Description": "Brzoskwinia"
   },
   "Log": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
-	"Description": "Zwykłe drewienko"
+	"Description": "Kłoda"
   },
   "Beet_Item": {
 	"ItemCategory": "Resource",
@@ -34,6 +34,11 @@
 	"StackSize": 99,
 	"Description": "Kukurydza"
   },
+ "Corn_Seed": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Nasiono kukurydzy"
+  },
   "Potato_Item": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
@@ -44,10 +49,20 @@
 	"StackSize": 99,
 	"Description": "Pomidor"
   },
+ "Tomato_Seed": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Nasiono pomidora"
+  },
   "Wheat_Item": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
-	"Description": "Pomidor"
+	"Description": "Pszenica"
+  },
+ "Wheat_Seed": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Nasiono pszenicy"
   },
   "Axe": {
 	"ItemCategory": "Axe",
