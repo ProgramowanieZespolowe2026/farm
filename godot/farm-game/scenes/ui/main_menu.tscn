@@ -1,10 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://cuct641uhibiv"]
+[gd_scene load_steps=13 format=3 uid="uid://cuct641uhibiv"]
 
 [ext_resource type="Script" uid="uid://c8toyk8cl8kjv" path="res://scripts/ui/main_menu.gd" id="1_1g8jr"]
 [ext_resource type="Texture2D" uid="uid://bw41dahssgn3e" path="res://assets/ui/background.png" id="1_sl1te"]
 [ext_resource type="FontFile" uid="uid://capoihxunrgmm" path="res://assets/ui/pixelFont-7-8x14-sproutLands.ttf" id="2_fe2o3"]
 [ext_resource type="Script" uid="uid://d2ickw45fsc32" path="res://scripts/ui/audio_control.gd" id="4_x2yvf"]
-[ext_resource type="Script" uid="uid://5i87dnd8uokv" path="res://scripts/ui/full_screen_control.gd" id="5_uhagc"]
 [ext_resource type="AudioStream" uid="uid://d1p8agloassk3" path="res://assets/audio/music/farm_music.mp3" id="6_uhagc"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fe2o3"]
@@ -72,19 +71,20 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_fe2o3")
 
 [node name="MainButtons" type="VBoxContainer" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -141.25
-offset_top = -35.0
-offset_right = 141.25
-offset_bottom = 265.0
+
+offset_left = -135.0
+offset_top = -60.0
+offset_right = 262.8125
+offset_bottom = 217.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.8, 0.8)
 theme_override_constants/separation = 5
 
 [node name="NewGame" type="Button" parent="MainButtons"]
@@ -164,18 +164,19 @@ text = "Along the Farm"
 horizontal_alignment = 1
 
 [node name="Options" type="Panel" parent="."]
+visible = false
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -272.0
-offset_top = -47.0
-offset_right = 272.0
-offset_bottom = 221.0
+
+anchor_bottom = 1.0
+offset_left = -267.5
+offset_top = -227.0
+offset_right = 267.5
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 
 [node name="Label" type="Label" parent="Options"]
 layout_mode = 1
@@ -232,9 +233,9 @@ text = "Powrót"
 [node name="AudioControl" type="HSlider" parent="Options"]
 layout_mode = 0
 offset_left = 260.0
-offset_top = 81.0
+offset_top = 61.0
 offset_right = 430.0
-offset_bottom = 113.0
+offset_bottom = 93.0
 theme_override_styles/slider = SubResource("StyleBoxLine_m1kxf")
 theme_override_styles/grabber_area = SubResource("StyleBoxLine_x2yvf")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_uhagc")
@@ -243,24 +244,6 @@ step = 0.05
 value = 1.0
 script = ExtResource("4_x2yvf")
 audio_bus_name = "Music"
-
-[node name="FullScreenControl" type="CheckButton" parent="Options"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -174.0
-offset_top = -16.25
-offset_right = 167.0
-offset_bottom = 15.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 20
-button_pressed = true
-text = "Fullscreen"
-script = ExtResource("5_uhagc")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_uhagc")
@@ -275,4 +258,3 @@ bus = &"Music"
 [connection signal="pressed" from="MainButtons/Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="Options/BackToMenu" to="." method="_on_back_to_menu_pressed"]
 [connection signal="value_changed" from="Options/AudioControl" to="Options/AudioControl" method="_on_value_changed"]
-[connection signal="toggled" from="Options/FullScreenControl" to="Options/FullScreenControl" method="_on_toggled"]

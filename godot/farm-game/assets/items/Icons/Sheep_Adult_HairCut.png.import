@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dptjdkvpo33n2"
-path="res://.godot/imported/plants.png-afbe0c28c7794c98870e6002f194598e.ctex"
+uid="uid://bqmlkdhj84rrw"
+path="res://.godot/imported/Sheep_Adult_HairCut.png-0145b908e4225bd57025e243ed6a2f50.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/map/plants.png"
-dest_files=["res://.godot/imported/plants.png-afbe0c28c7794c98870e6002f194598e.ctex"]
+source_file="res://assets/items/Icons/Sheep_Adult_HairCut.png"
+dest_files=["res://.godot/imported/Sheep_Adult_HairCut.png-0145b908e4225bd57025e243ed6a2f50.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dptjdkvpo33n2"
-path="res://.godot/imported/plants.png-afbe0c28c7794c98870e6002f194598e.ctex"
+uid="uid://bo3ifj4pj7gub"
+path="res://.godot/imported/Cow_Died.png-2486f2f053c3d55cfe6a28f65a1436d9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/map/plants.png"
-dest_files=["res://.godot/imported/plants.png-afbe0c28c7794c98870e6002f194598e.ctex"]
+source_file="res://assets/items/Icons/Cow_Died.png"
+dest_files=["res://.godot/imported/Cow_Died.png-2486f2f053c3d55cfe6a28f65a1436d9.ctex"]
 
 [params]
 

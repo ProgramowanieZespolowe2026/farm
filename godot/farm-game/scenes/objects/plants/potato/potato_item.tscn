@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cxqh6d0uxhgj1"]
 
-[ext_resource type="Texture2D" uid="uid://dptjdkvpo33n2" path="res://assets/map/Plants.png" id="1_03dj1"]
+[ext_resource type="Texture2D" uid="uid://dptjdkvpo33n2" path="res://assets/map/plants.png" id="1_03dj1"]
 [ext_resource type="Script" uid="uid://dflxb6a3a8uos" path="res://scripts/objects/plants/CropItemOrSeed.gd" id="2_03dj1"]
 [ext_resource type="PackedScene" uid="uid://c522b6f3babgw" path="res://scenes/components/collectable_component.tscn" id="3_kraj3"]
 
@@ -18,6 +18,7 @@ scale = Vector2(0.56250006, 0.56250006)
 texture = SubResource("AtlasTexture_3hi4k")
 script = ExtResource("2_03dj1")
 item_name = "Potato_Item"
+item_value = 1
 
 [node name="CollectableComponent" parent="." instance=ExtResource("3_kraj3")]
 

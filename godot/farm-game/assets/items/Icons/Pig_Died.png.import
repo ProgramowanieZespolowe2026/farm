@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dptjdkvpo33n2"
-path="res://.godot/imported/plants.png-afbe0c28c7794c98870e6002f194598e.ctex"
+uid="uid://j8ruefmphc2s"
+path="res://.godot/imported/Pig_Died.png-1cfc724089025e05934d66b2dbe57c8c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/map/plants.png"
-dest_files=["res://.godot/imported/plants.png-afbe0c28c7794c98870e6002f194598e.ctex"]
+source_file="res://assets/items/Icons/Pig_Died.png"
+dest_files=["res://.godot/imported/Pig_Died.png-1cfc724089025e05934d66b2dbe57c8c.ctex"]
 
 [params]
 

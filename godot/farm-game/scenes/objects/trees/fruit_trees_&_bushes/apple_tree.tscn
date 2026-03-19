@@ -75,7 +75,7 @@ radius = 4.1231055
 
 [node name="AppleTree" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_wdy0v")
-animation = &"large"
+animation = &"bloom"
 autoplay = "plant"
 offset = Vector2(0, -28)
 script = ExtResource("2_qqs01")

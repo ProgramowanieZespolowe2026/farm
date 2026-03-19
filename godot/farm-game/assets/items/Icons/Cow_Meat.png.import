@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dptjdkvpo33n2"
-path="res://.godot/imported/plants.png-afbe0c28c7794c98870e6002f194598e.ctex"
+uid="uid://dk2qn5m4ugv0w"
+path="res://.godot/imported/Cow_Meat.png-56959ec89d2e5b2ee46285688bcb76bf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/map/plants.png"
-dest_files=["res://.godot/imported/plants.png-afbe0c28c7794c98870e6002f194598e.ctex"]
+source_file="res://assets/items/Icons/Cow_Meat.png"
+dest_files=["res://.godot/imported/Cow_Meat.png-56959ec89d2e5b2ee46285688bcb76bf.ctex"]
 
 [params]
 

@@ -88,16 +88,17 @@ func use_hoe():
 			return
 	
 	#Jesli pole jest puste stworz slownik
-	if not map_tiles.has(current_target_grid_pos):
+	if not map_tiles.has(current_target_grid_pos) and not WorldObjects.objects.has(Vector2i(current_target_grid_pos)):
 		map_tiles[current_target_grid_pos] = {"dirt": null, "crop": null}
 		
 	#Jesli nie ma zaoranej ziemi to ja dodaj
-	if map_tiles[current_target_grid_pos]["dirt"] == null:
-		var new_dirt = dirt_scene.instantiate()
-		new_dirt.global_position = highlight.global_position 
-		
-		player.get_parent().add_child(new_dirt) 
-		map_tiles[current_target_grid_pos]["dirt"] = new_dirt
+	if not WorldObjects.objects.has(Vector2i(current_target_grid_pos)):
+		if map_tiles[current_target_grid_pos]["dirt"] == null:
+			var new_dirt = dirt_scene.instantiate()
+			new_dirt.global_position = highlight.global_position 
+			
+			player.get_parent().add_child(new_dirt) 
+			map_tiles[current_target_grid_pos]["dirt"] = new_dirt
 		
 	player_sfx_controller.play_hoe_sound()
 		
@@ -176,7 +177,7 @@ func collect_plant(currentTool: DataTypes.Tools):
 	if map_tiles.has(current_target_grid_pos):
 		var target_crop = map_tiles[current_target_grid_pos]["crop"]
 		if is_instance_valid(target_crop):
-			print(target_crop.plant_name)
+			#print(target_crop.plant_name)
 			
 			if (currentTool == DataTypes.Tools.None and target_crop.regrowing == true) or (currentTool == DataTypes.Tools.Hoe and target_crop.regrowing == false)  :
 				if target_crop.has_method("harvest"):
@@ -208,7 +209,7 @@ func plant(scene):
 				player_sfx_controller.play_plant_sound()
 				
 func plant_tree(scene):
-	if WorldObjects.objects.has(Vector2i(current_target_grid_pos)):
+	if WorldObjects.objects.has(Vector2i(current_target_grid_pos)) or map_tiles.has(current_target_grid_pos):
 		return
 	else:
 		var new_tree = scene.instantiate()

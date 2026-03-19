@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dptjdkvpo33n2"
-path="res://.godot/imported/plants.png-afbe0c28c7794c98870e6002f194598e.ctex"
+uid="uid://da7bunj6woi5p"
+path="res://.godot/imported/Wool.png-7f0dbba96e8908b99e06f8ecc04af105.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/map/plants.png"
-dest_files=["res://.godot/imported/plants.png-afbe0c28c7794c98870e6002f194598e.ctex"]
+source_file="res://assets/items/Icons/Wool.png"
+dest_files=["res://.godot/imported/Wool.png-7f0dbba96e8908b99e06f8ecc04af105.ctex"]
 
 [params]
 

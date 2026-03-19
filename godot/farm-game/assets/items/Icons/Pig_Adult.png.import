@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dptjdkvpo33n2"
-path="res://.godot/imported/plants.png-afbe0c28c7794c98870e6002f194598e.ctex"
+uid="uid://2op0wphh2ftd"
+path="res://.godot/imported/Pig_Adult.png-ea0f7f7154a519c7536c747599ad2b96.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/map/plants.png"
-dest_files=["res://.godot/imported/plants.png-afbe0c28c7794c98870e6002f194598e.ctex"]
+source_file="res://assets/items/Icons/Pig_Adult.png"
+dest_files=["res://.godot/imported/Pig_Adult.png-ea0f7f7154a519c7536c747599ad2b96.ctex"]
 
 [params]
 
