@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3 uid="uid://cg544m6pyng38"]
+
+[ext_resource type="Script" uid="uid://cmif1b3odn44a" path="res://scenes/plot/plot.gd" id="1_ql7sw"]
+[ext_resource type="Texture2D" uid="uid://b13wnb4eadstg" path="res://assets/items/Icons/Sprite-0001.png" id="2_xe0sp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xe0sp"]
+size = Vector2(128, 128)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ql7sw"]
+bg_color = Color(0.6, 0, 0, 0.15686275)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.5882353, 0, 0, 0.39215687)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xe0sp"]
+
+[node name="Plot" type="Area2D" groups=["plots"]]
+collision_layer = 64
+collision_mask = 2
+script = ExtResource("1_ql7sw")
+plot_id = "fdsdsfdf"
+is_owned = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(128, 128)
+shape = SubResource("RectangleShape2D_xe0sp")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Border" type="Panel" parent="."]
+z_index = -1
+offset_right = 128.0
+offset_bottom = 128.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ql7sw")
+
+[node name="PriceTag" type="Panel" parent="."]
+offset_right = 32.0
+offset_bottom = 32.0
+pivot_offset = Vector2(16, 16)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_xe0sp")
+
+[node name="Sprite2D" type="Sprite2D" parent="PriceTag"]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_xe0sp")

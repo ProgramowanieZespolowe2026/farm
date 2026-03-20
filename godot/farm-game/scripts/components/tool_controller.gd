@@ -42,6 +42,13 @@ func _input(event):
 		if not highlight.visible:
 			return 
 			
+		# !!! extra condition checking if we own plot !!!
+		if not is_plot_owned_at_target():
+			print("it's not yours!")
+			# player_sfx_controller.play_error_sound()
+			return 
+	
+			
 		var current_tool = player.current_tool
 		#Tu dodajemy wywoływanie funkcji narzędzia ( ktora ma byc na dole )
 		if current_tool == DataTypes.Tools.Hoe:
@@ -217,3 +224,19 @@ func plant_tree(scene):
 		WorldObjects.objects[Vector2i(current_target_grid_pos)] = new_tree
 		player.get_parent().add_child(new_tree) 
 		player_sfx_controller.play_plant_sound()
+		
+func is_plot_owned_at_target() -> bool:
+	var current_target_px = current_target_grid_pos * TILE_SIZE
+	
+	# get all plots
+	var plots = get_tree().get_nodes_in_group("plots")
+	
+	# check one by one if current target rectangle  is in plot recatngle
+	for plot in plots:
+		var plot_rect = Rect2(plot.global_position, Vector2(plot.plot_px, plot.plot_px))
+		# return ownership of plot
+		if plot_rect.has_point(current_target_px):
+			return plot.is_owned
+	
+	# if area is over all plots we can't use it, as if we dont owne it
+	return false
