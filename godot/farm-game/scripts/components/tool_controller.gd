@@ -236,7 +236,7 @@ func is_plot_owned_at_target() -> bool:
 		var plot_rect = Rect2(plot.global_position, Vector2(plot.plot_px, plot.plot_px))
 		# return ownership of plot
 		if plot_rect.has_point(current_target_px):
-			return plot.is_owned
-	
+			if plot.current_owner == plot.OwnerType.PLAYER_TEAM:
+				return true
 	# if area is over all plots we can't use it, as if we dont owne it
 	return false
