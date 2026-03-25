@@ -59,13 +59,13 @@ func generate_plots():
 			
 			# make player owner of plot he stands on
 			if plot_rect.has_point(player.global_position):
-				new_plot.set_ownership(new_plot.OwnerType.PLAYER_TEAM)
+				new_plot.set_ownership(AuctionManager.OwnerType.PLAYER_TEAM)
 			# optional make some npc's own some random plots
 			elif randf() < 0.15: 
-				new_plot.set_ownership(new_plot.OwnerType.NPC)
+				new_plot.set_ownership(AuctionManager.OwnerType.NPC)
 			## optional make some plots public - not to use by players or npc's
 			#elif is_public:
 				#new_plot.set_ownership(new_plot.OwnerType.PUBLIC)
 			# rest of the plots are ready to be bought on auction
 			else:
-				new_plot.set_ownership(new_plot.OwnerType.NONE)
+				new_plot.set_ownership(AuctionManager.OwnerType.NONE)

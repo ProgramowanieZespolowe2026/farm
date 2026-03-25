@@ -4,5 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://cg544m6pyng38" path="res://scenes/plot/plot.tscn" id="2_2rjwf"]
 
 [node name="PlotManager" type="Node2D"]
+z_index = 1
 script = ExtResource("1_0k3pq")
 plot_scene = ExtResource("2_2rjwf")

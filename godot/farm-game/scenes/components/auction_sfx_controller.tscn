@@ -1,0 +1,27 @@
+[gd_scene load_steps=7 format=3 uid="uid://li7efwyjr0qt"]
+
+[ext_resource type="Script" uid="uid://dl1n7ccer4iu7" path="res://scripts/components/auction_sfx_controller.gd" id="1_7p5sf"]
+[ext_resource type="PackedScene" uid="uid://ylhduw5fblc5" path="res://audio/sfx/menu_open.tscn" id="2_dwec2"]
+[ext_resource type="PackedScene" uid="uid://bud18uhd151hc" path="res://audio/sfx/auction.tscn" id="3_ly3s7"]
+[ext_resource type="PackedScene" uid="uid://bao7fak23g3xd" path="res://audio/sfx/knock.tscn" id="4_dwec2"]
+[ext_resource type="PackedScene" uid="uid://ndg5sr2cbt77" path="res://audio/sfx/cha_ching.tscn" id="5_ly3s7"]
+[ext_resource type="PackedScene" uid="uid://cy1v1ss4ol42j" path="res://audio/sfx/error.tscn" id="6_e57e0"]
+
+[node name="AuctionSfxController" type="Node2D"]
+script = ExtResource("1_7p5sf")
+
+[node name="MenuOpen" parent="." instance=ExtResource("2_dwec2")]
+unique_name_in_owner = true
+
+[node name="Auction" parent="." instance=ExtResource("3_ly3s7")]
+unique_name_in_owner = true
+volume_db = -20.0
+
+[node name="Knock" parent="." instance=ExtResource("4_dwec2")]
+unique_name_in_owner = true
+
+[node name="ChaChing" parent="." instance=ExtResource("5_ly3s7")]
+unique_name_in_owner = true
+
+[node name="Error" parent="." instance=ExtResource("6_e57e0")]
+unique_name_in_owner = true

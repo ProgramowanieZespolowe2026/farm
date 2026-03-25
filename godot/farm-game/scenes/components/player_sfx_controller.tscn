@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bmljfppu5lu6p"]
+[gd_scene load_steps=12 format=3 uid="uid://bmljfppu5lu6p"]
 
 [ext_resource type="PackedScene" uid="uid://bcr4x2brtalu4" path="res://audio/sfx/walk_on_grass.tscn" id="1_ihbny"]
 [ext_resource type="Script" uid="uid://y3ka22r23ate" path="res://scripts/components/player_sfx_controller.gd" id="1_wr2t7"]
@@ -10,24 +10,37 @@
 [ext_resource type="PackedScene" uid="uid://bbll0rnoeqijo" path="res://audio/sfx/water_plants.tscn" id="7_tu0j7"]
 [ext_resource type="PackedScene" uid="uid://bhvklmfp02uk1" path="res://audio/sfx/fertilize_plants.tscn" id="8_8483i"]
 [ext_resource type="PackedScene" uid="uid://do8mn5ta25my6" path="res://audio/sfx/plant.tscn" id="9_8483i"]
+[ext_resource type="PackedScene" uid="uid://cy1v1ss4ol42j" path="res://audio/sfx/error.tscn" id="11_pe6dd"]
 
 [node name="PlayerSfxController" type="Node2D"]
 script = ExtResource("1_wr2t7")
 
 [node name="WalkOnGrass" parent="." instance=ExtResource("1_ihbny")]
+unique_name_in_owner = true
 
 [node name="WalkOnDirt" parent="." instance=ExtResource("2_bsymr")]
+unique_name_in_owner = true
 
 [node name="ChopWood" parent="." instance=ExtResource("3_wr2t7")]
+unique_name_in_owner = true
 
 [node name="HoeSoil" parent="." instance=ExtResource("5_do1ih")]
+unique_name_in_owner = true
 
 [node name="ShovelSoil" parent="." instance=ExtResource("7_a5pya")]
+unique_name_in_owner = true
 
 [node name="WaterPlants" parent="." instance=ExtResource("7_tu0j7")]
+unique_name_in_owner = true
 
 [node name="FertilizePlants" parent="." instance=ExtResource("8_8483i")]
+unique_name_in_owner = true
 
 [node name="Plant" parent="." instance=ExtResource("9_8483i")]
+unique_name_in_owner = true
 
 [node name="PickUpItem" parent="." instance=ExtResource("4_bsymr")]
+unique_name_in_owner = true
+
+[node name="Error" parent="." instance=ExtResource("11_pe6dd")]
+unique_name_in_owner = true

@@ -44,11 +44,8 @@ func _input(event):
 			
 		# !!! extra condition checking if we own plot !!!
 		if not is_plot_owned_at_target():
-			print("it's not yours!")
-			# player_sfx_controller.play_error_sound()
 			return 
 	
-			
 		var current_tool = player.current_tool
 		#Tu dodajemy wywoływanie funkcji narzędzia ( ktora ma byc na dole )
 		if current_tool == DataTypes.Tools.Hoe:
@@ -236,7 +233,13 @@ func is_plot_owned_at_target() -> bool:
 		var plot_rect = Rect2(plot.global_position, Vector2(plot.plot_px, plot.plot_px))
 		# return ownership of plot
 		if plot_rect.has_point(current_target_px):
-			if plot.current_owner == plot.OwnerType.PLAYER_TEAM:
+			if plot.current_owner == AuctionManager.OwnerType.PLAYER_TEAM:
 				return true
+			elif plot.current_owner == AuctionManager.OwnerType.NONE:
+				AuctionManager.select_plot(plot)
+			elif plot.current_owner == AuctionManager.OwnerType.NPC:
+				player_sfx_controller.play_error()
+				plot.flash_border()
+					
 	# if area is over all plots we can't use it, as if we dont owne it
 	return false

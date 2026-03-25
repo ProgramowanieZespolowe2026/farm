@@ -5,15 +5,17 @@ extends Node2D
 # dzwiek uzycia narzedzi w skrypcie tool_controller wraz z wykonaniem odpowiedniej funkcji
 # dzwiek zebranego item w scrypcie new_item_sfx_component. scene ta doklejamy do zbieranego item 
 
-@onready var walk_on_dirt: AudioStreamPlayer2D = $WalkOnDirt
-@onready var walk_on_grass: AudioStreamPlayer2D = $WalkOnGrass
-@onready var chop_wood: AudioStreamPlayer2D = $ChopWood
-@onready var pick_up_item: AudioStreamPlayer2D = $PickUpItem
-@onready var hoe_soil: AudioStreamPlayer2D = $HoeSoil
-@onready var shovel_soil: AudioStreamPlayer2D = $ShovelSoil
-@onready var water_plants: AudioStreamPlayer2D = $WaterPlants
-@onready var fertilize_plants: AudioStreamPlayer2D = $FertilizePlants
-@onready var plant: AudioStreamPlayer2D = $Plant
+
+@onready var walk_on_grass: AudioStreamPlayer2D = %WalkOnGrass
+@onready var walk_on_dirt: AudioStreamPlayer2D = %WalkOnDirt
+@onready var chop_wood: AudioStreamPlayer2D = %ChopWood
+@onready var hoe_soil: AudioStreamPlayer2D = %HoeSoil
+@onready var shovel_soil: AudioStreamPlayer2D = %ShovelSoil
+@onready var water_plants: AudioStreamPlayer2D = %WaterPlants
+@onready var fertilize_plants: AudioStreamPlayer2D = %FertilizePlants
+@onready var plant: AudioStreamPlayer2D = %Plant
+@onready var pick_up_item: AudioStreamPlayer2D = %PickUpItem
+@onready var error: AudioStreamPlayer2D = %Error
 
 var map_layers = [] 
 
@@ -78,3 +80,6 @@ func play_fertilize_plants_sound():
 	
 func play_plant_sound():
 	plant.play()
+	
+func play_error():
+	error.play()
