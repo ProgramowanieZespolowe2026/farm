@@ -79,7 +79,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ag6uu"]
 size = Vector2(16, 6)
 
-[node name="TemporaryPlayer" type="CharacterBody2D"]
+[node name="TemporaryPlayer" type="CharacterBody2D" groups=["player"]]
 z_index = 1
 y_sort_enabled = true
 collision_layer = 2

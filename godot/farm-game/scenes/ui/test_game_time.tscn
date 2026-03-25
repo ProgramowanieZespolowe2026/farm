@@ -17,7 +17,8 @@ script = ExtResource("2_1pdl5")
 
 [node name="DayPanel" type="PanelContainer" parent="."]
 layout_mode = 0
-offset_left = -95.0
+offset_left = -95.33333
+offset_right = -0.33332825
 offset_bottom = 43.0
 theme_type_variation = &"TestCounterPanel"
 
