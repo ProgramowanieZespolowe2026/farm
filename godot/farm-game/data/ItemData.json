@@ -2,22 +2,22 @@
 "Apple_Item": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
-	"Description": "Zwykłe drewienko"
+	"Description": "Jabłko"
   },
 "Cherry_Item": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
-	"Description": "Zwykłe drewienko"
+	"Description": "Wiśnia"
   },
 "Peach_Item": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
-	"Description": "Zwykłe drewienko"
+	"Description": "Brzoskwinia"
   },
   "Log": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
-	"Description": "Zwykłe drewienko"
+	"Description": "Kłoda"
   },
   "Beet_Item": {
 	"ItemCategory": "Resource",
@@ -34,6 +34,11 @@
 	"StackSize": 99,
 	"Description": "Kukurydza"
   },
+ "Corn_Seed": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Nasiono kukurydzy"
+  },
   "Potato_Item": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
@@ -44,10 +49,20 @@
 	"StackSize": 99,
 	"Description": "Pomidor"
   },
+ "Tomato_Seed": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Nasiono pomidora"
+  },
   "Wheat_Item": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
-	"Description": "Pomidor"
+	"Description": "Pszenica"
+  },
+ "Wheat_Seed": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Nasiono pszenicy"
   },
   "Axe": {
 	"ItemCategory": "Axe",
@@ -60,5 +75,96 @@
 	"ItemSpeed": 0.75, 
 	"StackSize": 1,
 	"Description": "Motyka"
+  },
+  "Shovel": {
+	"ItemCategory": "Shovel",
+	"ItemSpeed": 0.75, 
+	"StackSize": 1,
+	"Description": "Lopata"
+  },
+  "Egg": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Jajko"
+  },
+  "Chicken_Meat": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Mięso kurczaka"
+  },
+  "Feather": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Pióro"
+  },
+  "Chicken_Baby": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Pisklę"
+  },
+  "Chicken_Adult": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Kurczak"
+  },
+  "Cow_Meat": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Mięso krowy"
+  },
+  "Milk": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Mleko"
+  },
+  "Cow_Baby": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Cielę"
+  },
+  "Cow_Adult": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Krowa"
+  },
+  "Pig_Meat": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Mięso świni"
+  },
+  "Pig_Baby": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Mała świnka"
+  },
+  "Pig_Adult": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Świnia"
+  },
+  "Sheep_Meat": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Mięso owcy"
+  },
+  "Wool": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Wełna"
+  },
+  "Sheep_Baby": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Mała owca"
+  },
+  "Sheep_Adult": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Owca"
+  },
+  "Sheep_Adult_HairCut": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Ostrzyżona owca"
   }
 }

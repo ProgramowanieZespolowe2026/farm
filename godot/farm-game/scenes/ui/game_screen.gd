@@ -2,8 +2,15 @@ extends CanvasLayer
 
 @onready var inventory_open: AudioStreamPlayer2D = $InventoryOpen
 
+var holding_item = null
+
 func _input(event):
 	if event.is_action_pressed("Inventory"):
 		$MarginContainer/Inventory.visible = !$MarginContainer/Inventory.visible
 		$MarginContainer/Inventory.initialize_inventory()
 		inventory_open.play()
+		
+	if event.is_action_pressed("scroll_up"):
+		InventoryManager.active_item_scroll_up()
+	elif event.is_action_pressed("scroll_down"):
+		InventoryManager.active_item_scroll_down()

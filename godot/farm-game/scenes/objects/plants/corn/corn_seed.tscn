@@ -11,7 +11,7 @@ region = Rect2(0, 80, 16, 16)
 [sub_resource type="CircleShape2D" id="CircleShape2D_bjov3"]
 radius = 7.0
 
-[node name="Tomato_seed" type="Sprite2D"]
+[node name="Corn_Seed" type="Sprite2D"]
 z_index = 1
 position = Vector2(-5.9604645e-08, -4)
 scale = Vector2(1.375, 1.375)

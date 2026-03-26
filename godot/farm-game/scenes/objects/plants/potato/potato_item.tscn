@@ -18,6 +18,7 @@ scale = Vector2(0.56250006, 0.56250006)
 texture = SubResource("AtlasTexture_3hi4k")
 script = ExtResource("2_03dj1")
 item_name = "Potato_Item"
+item_value = 1
 
 [node name="CollectableComponent" parent="." instance=ExtResource("3_kraj3")]
 

@@ -17,6 +17,8 @@ position = Vector2(-5.9604645e-08, -4)
 scale = Vector2(1.375, 1.375)
 texture = SubResource("AtlasTexture_7by1t")
 script = ExtResource("2_4t3eb")
+item_name = "Tomato_Seed"
+item_value = 1
 
 [node name="CollectableComponent" parent="." instance=ExtResource("3_picu2")]
 
