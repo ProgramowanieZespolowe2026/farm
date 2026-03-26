@@ -1,0 +1,348 @@
+[gd_scene load_steps=25 format=3 uid="uid://c4ymdwgq7ly0l"]
+
+[ext_resource type="Script" uid="uid://domqn2j1u4t36" path="res://scripts/ui/auction_window.gd" id="1_jw0mf"]
+[ext_resource type="Texture2D" uid="uid://b1i2v36yxp6ef" path="res://assets/ui/button.png" id="1_ufhuf"]
+[ext_resource type="Texture2D" uid="uid://dpgm2nia6n5iq" path="res://assets/ui/auction_ui.png" id="2_2h613"]
+[ext_resource type="FontFile" uid="uid://capoihxunrgmm" path="res://assets/ui/pixelFont-7-8x14-sproutLands.ttf" id="2_ufhuf"]
+[ext_resource type="FontFile" uid="uid://c02huierhjkt" path="res://assets/fonts/m5x7.ttf" id="3_2d7iy"]
+[ext_resource type="Texture2D" uid="uid://b4scl15btotf" path="res://assets/ui/farmer_player.png" id="3_d5pb6"]
+[ext_resource type="Texture2D" uid="uid://cw862hmiru5xo" path="res://assets/ui/farmer_player_1.png" id="4_jw0mf"]
+[ext_resource type="Texture2D" uid="uid://cqqrpk7lpff8s" path="res://assets/ui/farmer_npc.png" id="8_ho7jy"]
+[ext_resource type="Texture2D" uid="uid://buyt62pvam1ud" path="res://assets/ui/farmer_npc_1.png" id="9_y3tt2"]
+[ext_resource type="PackedScene" uid="uid://li7efwyjr0qt" path="res://scenes/components/auction_sfx_controller.tscn" id="10_y3tt2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5klac"]
+atlas = ExtResource("1_ufhuf")
+region = Rect2(400, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ho7jy"]
+atlas = ExtResource("1_ufhuf")
+region = Rect2(400, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqhl0"]
+atlas = ExtResource("1_ufhuf")
+region = Rect2(400, 64, 16, 16)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ufhuf"]
+bg_color = Color(0.9372549, 0.07058824, 0.23921569, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 2
+border_color = Color(0.4865837, 0.241745, 0.07796889, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0, 0, 0, 0.6509804)
+shadow_size = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2d7iy"]
+bg_color = Color(7.6287242e-06, 0.53917885, 0.1039288, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 1
+border_width_bottom = 2
+border_color = Color(0.4862745, 0.24313726, 0.078431375, 1)
+corner_radius_top_left = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5klac"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_ho7jy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_y3tt2")
+}],
+"loop": false,
+"name": &"bid",
+"speed": 0.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2h613"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_d5pb6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jw0mf")
+}],
+"loop": false,
+"name": &"bid",
+"speed": 0.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2d7iy"]
+atlas = ExtResource("1_ufhuf")
+region = Rect2(48, 400, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tnydi"]
+atlas = ExtResource("1_ufhuf")
+region = Rect2(96, 448, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2h613"]
+atlas = ExtResource("1_ufhuf")
+region = Rect2(48, 448, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jw0mf"]
+atlas = ExtResource("1_ufhuf")
+region = Rect2(48, 208, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y3tt2"]
+atlas = ExtResource("1_ufhuf")
+region = Rect2(96, 256, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3a778"]
+atlas = ExtResource("1_ufhuf")
+region = Rect2(48, 256, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wu6b6"]
+atlas = ExtResource("1_ufhuf")
+region = Rect2(48, 112, 48, 48)
+
+[node name="AuctionWindow" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jw0mf")
+npc_chance = 30
+
+[node name="WoodenPanel" type="NinePatchRect" parent="."]
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -150.0
+offset_right = 200.0
+offset_bottom = 164.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(200, 150)
+texture = ExtResource("2_2h613")
+
+[node name="MarginContainer" type="MarginContainer" parent="WoodenPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -6.0
+offset_right = 5.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="Content" type="VBoxContainer" parent="WoodenPanel/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 8
+
+[node name="CancelButton" type="TextureButton" parent="WoodenPanel/MarginContainer/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_5klac")
+texture_pressed = SubResource("AtlasTexture_ho7jy")
+texture_hover = SubResource("AtlasTexture_kqhl0")
+
+[node name="PanelLabel" type="Label" parent="WoodenPanel/MarginContainer/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 0.96603304, 0.90195733, 1)
+theme_override_colors/font_outline_color = Color(0.40789393, 0.26767626, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_outline_size = 4
+theme_override_fonts/font = ExtResource("2_ufhuf")
+theme_override_font_sizes/font_size = 32
+text = "AUCTION"
+
+[node name="MarginContainer" type="MarginContainer" parent="WoodenPanel/MarginContainer/Content"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="TimeBar" type="ProgressBar" parent="WoodenPanel/MarginContainer/Content/MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_ufhuf")
+theme_override_styles/fill = SubResource("StyleBoxFlat_2d7iy")
+max_value = 10.0
+value = 10.0
+show_percentage = false
+
+[node name="StatusLabel" type="Label" parent="WoodenPanel/MarginContainer/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 0.9647059, 0.9019608, 1)
+theme_override_colors/font_outline_color = Color(0.40784314, 0.26666668, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("2_ufhuf")
+text = "Waiting for 1st bid..."
+
+[node name="Control" type="HBoxContainer" parent="WoodenPanel/MarginContainer/Content"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 210
+
+[node name="PlayerWinner" type="Label" parent="WoodenPanel/MarginContainer/Content/Control"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0.63529414, 0.63529414, 0.63529414, 1)
+theme_override_colors/font_outline_color = Color(0.40784314, 0.26666668, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("2_ufhuf")
+text = "PLAYER"
+
+[node name="NPCWinner" type="Label" parent="WoodenPanel/MarginContainer/Content/Control"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0.63715446, 0.63715446, 0.63715446, 1)
+theme_override_colors/font_outline_color = Color(0.40784314, 0.26666668, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("2_ufhuf")
+text = "NPC"
+
+[node name="MiddleSection" type="Control" parent="WoodenPanel/MarginContainer/Content"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Licitators" type="HBoxContainer" parent="WoodenPanel/MarginContainer/Content/MiddleSection"]
+layout_mode = 0
+offset_left = -4.0
+offset_top = 7.0
+offset_right = 120.0
+offset_bottom = 58.0
+
+[node name="NPC" type="AnimatedSprite2D" parent="WoodenPanel/MarginContainer/Content/MiddleSection/Licitators"]
+unique_name_in_owner = true
+position = Vector2(132, 47)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_5klac")
+animation = &"bid"
+
+[node name="PriceBox" type="Control" parent="WoodenPanel/MarginContainer/Content/MiddleSection/Licitators"]
+layout_mode = 2
+
+[node name="PriceLabel" type="Label" parent="WoodenPanel/MarginContainer/Content/MiddleSection/Licitators/PriceBox"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -54.0
+offset_top = -16.0
+offset_right = 52.0
+offset_bottom = 89.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 0.77254903, 0.26666668, 1)
+theme_override_colors/font_outline_color = Color(0.30856347, 0.20401251, 7.219613e-08, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("3_2d7iy")
+theme_override_font_sizes/font_size = 64
+text = "200"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Player" type="AnimatedSprite2D" parent="WoodenPanel/MarginContainer/Content/MiddleSection/Licitators"]
+unique_name_in_owner = true
+position = Vector2(-113, 47)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_2h613")
+animation = &"bid"
+
+[node name="Buttons" type="HBoxContainer" parent="WoodenPanel/MarginContainer/Content"]
+layout_mode = 2
+alignment = 1
+
+[node name="StartBox" type="VBoxContainer" parent="WoodenPanel/MarginContainer/Content/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="StartBtn" type="TextureButton" parent="WoodenPanel/MarginContainer/Content/Buttons/StartBox"]
+unique_name_in_owner = true
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_2d7iy")
+texture_pressed = SubResource("AtlasTexture_tnydi")
+texture_hover = SubResource("AtlasTexture_2h613")
+
+[node name="StartLabel" type="Label" parent="WoodenPanel/MarginContainer/Content/Buttons/StartBox/StartBtn"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 20.0
+offset_right = 39.0
+offset_bottom = 28.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.5219931, 0.9999996, 0.5506826, 1)
+theme_override_colors/font_outline_color = Color(0.16565639, 0.16565642, 0.16565639, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("2_ufhuf")
+theme_override_font_sizes/font_size = 10
+text = "START"
+
+[node name="BidBox" type="VBoxContainer" parent="WoodenPanel/MarginContainer/Content/Buttons"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="BidBtn" type="TextureButton" parent="WoodenPanel/MarginContainer/Content/Buttons/BidBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_jw0mf")
+texture_pressed = SubResource("AtlasTexture_y3tt2")
+texture_hover = SubResource("AtlasTexture_3a778")
+texture_disabled = SubResource("AtlasTexture_wu6b6")
+
+[node name="BidLabel" type="Label" parent="WoodenPanel/MarginContainer/Content/Buttons/BidBox/BidBtn"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 7.0
+offset_top = 13.0
+offset_right = 41.0
+offset_bottom = 33.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 0.89411765, 0.015686275, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("2_ufhuf")
+theme_override_font_sizes/font_size = 14
+text = "100 $"
+uppercase = true
+
+[node name="FinalLabel" type="Label" parent="WoodenPanel/MarginContainer/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="AuctionSfxController" parent="." instance=ExtResource("10_y3tt2")]
+unique_name_in_owner = true

@@ -76,12 +76,6 @@
 	"StackSize": 1,
 	"Description": "Motyka"
   },
-  "Shovel": {
-	"ItemCategory": "Shovel",
-	"ItemSpeed": 0.75, 
-	"StackSize": 1,
-	"Description": "Lopata"
-  },
   "Egg": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,

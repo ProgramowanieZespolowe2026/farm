@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@onready var inventory_open: AudioStreamPlayer2D = $InventoryOpen
+@onready var menu_open: AudioStreamPlayer2D = $MenuOpen
 
 var holding_item = null
 

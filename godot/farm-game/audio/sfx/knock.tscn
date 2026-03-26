@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bao7fak23g3xd"]
+
+[ext_resource type="AudioStream" uid="uid://dlrdcrtcj0cqw" path="res://assets/audio/sfx/knock.ogg" id="1_3olw5"]
+
+[node name="Knock" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_3olw5")
+bus = &"Sfx"

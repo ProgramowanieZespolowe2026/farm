@@ -79,6 +79,7 @@ animation = &"small"
 autoplay = "plant"
 offset = Vector2(0, -20)
 script = ExtResource("2_3pwar")
+object_name = "Fruit_Tree"
 item_produce_amount = 4
 item_scene = ExtResource("3_4qmp1")
 log_scene = ExtResource("4_thbdv")

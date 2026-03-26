@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://csg1yvoduuxoh"]
+
+[ext_resource type="Script" uid="uid://cyvjeh4as025p" path="res://scripts/components/plot_manager.gd" id="1_0k3pq"]
+[ext_resource type="PackedScene" uid="uid://cg544m6pyng38" path="res://scenes/plot/plot.tscn" id="2_2rjwf"]
+
+[node name="PlotManager" type="Node2D"]
+z_index = 1
+script = ExtResource("1_0k3pq")
+plot_scene = ExtResource("2_2rjwf")
