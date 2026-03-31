@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://d23cpav84ureu"]
+
+[ext_resource type="Texture2D" uid="uid://cdbdq0vue2snd" path="res://assets/buildings/chickenCoop.png" id="1_if18u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjlqt"]
+atlas = ExtResource("1_if18u")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_if18u"]
+size = Vector2(39, 33)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_if18u"]
+radius = 48.010414
+
+[node name="ChickenCoopBuilding" type="Sprite2D"]
+position = Vector2(-2, -4)
+texture = SubResource("AtlasTexture_xjlqt")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+y_sort_enabled = true
+position = Vector2(-0.5, 10.5)
+shape = SubResource("RectangleShape2D_if18u")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_if18u")
+debug_color = Color(0.86913913, 0.20141038, 0.71570957, 0.41960785)
