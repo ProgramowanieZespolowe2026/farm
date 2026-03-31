@@ -47,10 +47,15 @@ func _ready():
 	hide()
 
 func _on_auction_started(initial_bid):
+	
+	if %Inventory.visible == true || %ChickenCoopPanel.visible == true :
+		return
+	
 	if is_fading_out: 
 		return 
 	if not visible:
 		auction_sfx_controller.menu_open.play()
+		
 	show()
 	
 	cancel_button.modulate.a = 1.0
