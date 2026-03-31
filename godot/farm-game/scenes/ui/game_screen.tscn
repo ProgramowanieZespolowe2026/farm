@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://coe7o5imj3tw6"]
+[gd_scene load_steps=9 format=3 uid="uid://coe7o5imj3tw6"]
 
 [ext_resource type="PackedScene" uid="uid://clcluxi7rp3ni" path="res://scenes/ui/test_game_time.tscn" id="1_8hmcv"]
 [ext_resource type="Script" uid="uid://cxnw3cis3e2ao" path="res://scenes/ui/game_screen.gd" id="1_gusqm"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://dmfm2ff7lnpyt" path="res://scenes/ui/WalletDisplay.tscn" id="2_nwa5a"]
 [ext_resource type="PackedScene" uid="uid://c4ymdwgq7ly0l" path="res://scenes/ui/auction_window.tscn" id="3_ooiym"]
 [ext_resource type="PackedScene" uid="uid://ylhduw5fblc5" path="res://audio/sfx/menu_open.tscn" id="4_gkbp4"]
+[ext_resource type="PackedScene" uid="uid://drjspv32c5mwu" path="res://scenes/ui/hotbar.tscn" id="7_ooiym"]
+[ext_resource type="PackedScene" uid="uid://buh3v7l8w15br" path="res://scenes/objects/buildings/chickenCoop_panel.tscn" id="8_ce4rh"]
 
 [node name="GameScreen" type="CanvasLayer"]
 script = ExtResource("1_gusqm")
@@ -32,10 +34,17 @@ size_flags_horizontal = 8
 size_flags_vertical = 0
 
 [node name="Inventory" parent="MarginContainer" instance=ExtResource("2_e2vrk")]
-visible = false
+position = Vector2(97, 4)
 
 [node name="AuctionWindow" parent="MarginContainer" instance=ExtResource("3_ooiym")]
+visible = false
 layout_mode = 2
+
+[node name="ChickenCoopPanel" parent="MarginContainer" instance=ExtResource("8_ce4rh")]
+position = Vector2(-93, -10)
 
 [node name="MenuOpen" parent="." instance=ExtResource("4_gkbp4")]
 unique_name_in_owner = true
+
+[node name="Hotbar" parent="." instance=ExtResource("7_ooiym")]
+position = Vector2(-18, 0)
