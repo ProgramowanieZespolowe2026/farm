@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://d23cpav84ureu"]
+[gd_scene load_steps=6 format=3 uid="uid://d23cpav84ureu"]
 
 [ext_resource type="Texture2D" uid="uid://cdbdq0vue2snd" path="res://assets/buildings/chickenCoop.png" id="1_if18u"]
+[ext_resource type="Script" uid="uid://bf1y3ffwctau" path="res://scripts/objects/buildings/chickenCoopArena.gd" id="2_xjlqt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xjlqt"]
 atlas = ExtResource("1_if18u")
@@ -9,21 +10,31 @@ atlas = ExtResource("1_if18u")
 size = Vector2(39, 33)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_if18u"]
-radius = 48.010414
+radius = 70.0
 
-[node name="ChickenCoopBuilding" type="Sprite2D"]
-position = Vector2(-2, -4)
+[node name="ChickenCoopBuilding" type="Node2D"]
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(-1, 3)
 texture = SubResource("AtlasTexture_xjlqt")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 y_sort_enabled = true
-position = Vector2(-0.5, 10.5)
+position = Vector2(-3, 14)
 shape = SubResource("RectangleShape2D_if18u")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="BuildingEntered" type="Area2D" parent="." groups=["ChickenCoop"]]
+position = Vector2(1, 0)
+collision_layer = 32
+collision_mask = 2
+script = ExtResource("2_xjlqt")
+metadata/_custom_type_script = "uid://bf1y3ffwctau"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BuildingEntered"]
 shape = SubResource("CircleShape2D_if18u")
 debug_color = Color(0.86913913, 0.20141038, 0.71570957, 0.41960785)
+
+[connection signal="body_entered" from="BuildingEntered" to="BuildingEntered" method="_on_body_entered"]
+[connection signal="body_exited" from="BuildingEntered" to="BuildingEntered" method="_on_body_exited"]

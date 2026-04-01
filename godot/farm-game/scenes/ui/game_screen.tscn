@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://drjspv32c5mwu" path="res://scenes/ui/hotbar.tscn" id="7_ooiym"]
 [ext_resource type="PackedScene" uid="uid://buh3v7l8w15br" path="res://scenes/objects/buildings/chickenCoop_panel.tscn" id="8_ce4rh"]
 
-[node name="GameScreen" type="CanvasLayer"]
+[node name="GameScreen" type="CanvasLayer" groups=["GameScreen"]]
 script = ExtResource("1_gusqm")
 
 [node name="WalletDisplay" parent="." instance=ExtResource("2_nwa5a")]
