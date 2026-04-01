@@ -14,7 +14,8 @@ var slot_type
 enum SlotType {
 	HOTBAR = 0,
 	INVENTORY,
-	CHICKENCOOP
+	CHICKENCOOP,
+	CHICKENCOOP_FOOD
 }
 
 func _ready():

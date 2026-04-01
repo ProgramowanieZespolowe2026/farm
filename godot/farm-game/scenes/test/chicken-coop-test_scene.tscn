@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bs8llu3yt6cb4"]
+[gd_scene load_steps=8 format=3 uid="uid://bs8llu3yt6cb4"]
 
 [ext_resource type="PackedScene" uid="uid://c8qju1qxars1t" path="res://scenes/components/day_night_cycle_component.tscn" id="1_kq8sj"]
 [ext_resource type="PackedScene" uid="uid://m5w4eggderw0" path="res://scenes/Temporary/temporary_player.tscn" id="2_a4pnp"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://coe7o5imj3tw6" path="res://scenes/ui/game_screen.tscn" id="4_ne2bi"]
 [ext_resource type="PackedScene" uid="uid://csg1yvoduuxoh" path="res://scenes/components/plot_manager.tscn" id="5_oo5en"]
 [ext_resource type="PackedScene" uid="uid://ndmuv1r3ok3c" path="res://scenes/objects/plants/carrot/carrot_item.tscn" id="6_a4pnp"]
-[ext_resource type="PackedScene" uid="uid://d23cpav84ureu" path="res://scenes/objects/buildings/chicken_coop_building.tscn" id="7_t15j7"]
 [ext_resource type="PackedScene" uid="uid://dqhtxmdscucdc" path="res://scenes/objects/trees/big_tree.tscn" id="8_ne2bi"]
 
 [node name="TestLevel" type="Node2D"]
@@ -33,9 +32,6 @@ position = Vector2(335.5, 178.5)
 
 [node name="Carrot_item3" parent="." instance=ExtResource("6_a4pnp")]
 position = Vector2(309.5, 197.5)
-
-[node name="ChickenCoopBuilding" parent="." instance=ExtResource("7_t15j7")]
-position = Vector2(366, 155)
 
 [node name="BigTree" parent="." instance=ExtResource("8_ne2bi")]
 position = Vector2(208, 154)

@@ -27,6 +27,7 @@ InventoryManager="*res://scripts/globals/inventory_manager.gd"
 WorldObjects="*res://scripts/globals/world_objects.gd"
 Wallet="*res://scripts/globals/wallet_manager.gd"
 AuctionManager="*res://scripts/globals/auction_manager.gd"
+BuildingDataManager="*res://scripts/globals/BuildingDataManager.gd"
 
 [display]
 

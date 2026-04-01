@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://buh3v7l8w15br"]
+[gd_scene load_steps=12 format=3 uid="uid://buh3v7l8w15br"]
 
 [ext_resource type="Script" uid="uid://c1nf1r38ybbau" path="res://scripts/objects/buildings/chicken_coop_panel.gd" id="1_2lkp4"]
 [ext_resource type="Texture2D" uid="uid://b1i2v36yxp6ef" path="res://assets/ui/button.png" id="2_wcrna"]
@@ -9,6 +9,9 @@ atlas = ExtResource("2_wcrna")
 region = Rect2(99, 20, 42, 40)
 
 [sub_resource type="LabelSettings" id="LabelSettings_4lk4h"]
+font_size = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_amovd"]
 font_size = 10
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7ck5g"]
@@ -28,7 +31,7 @@ font_size = 10
 [sub_resource type="LabelSettings" id="LabelSettings_6pm5v"]
 font_size = 10
 
-[node name="ChickenCoopPanel" type="Node2D"]
+[node name="ChickenCoopPanel" type="Node2D" groups=["ChickenCoopPanel"]]
 script = ExtResource("1_2lkp4")
 
 [node name="Control" type="Control" parent="."]
@@ -45,14 +48,22 @@ offset_bottom = 192.0
 texture = SubResource("AtlasTexture_17uwj")
 
 [node name="ChickenCoopText" type="Label" parent="."]
-offset_left = 257.0
+offset_left = 250.0
 offset_top = 43.0
-offset_right = 363.0
+offset_right = 356.0
 offset_bottom = 66.0
 text = "Chicken Coop"
 label_settings = SubResource("LabelSettings_4lk4h")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ChickenCoopId" type="Label" parent="."]
+offset_left = 343.0
+offset_top = 48.0
+offset_right = 358.0
+offset_bottom = 63.0
+text = "1"
+label_settings = SubResource("LabelSettings_amovd")
 
 [node name="GridContainer" type="GridContainer" parent="."]
 offset_left = 261.0
@@ -203,7 +214,7 @@ offset_left = 272.0
 offset_top = 174.0
 offset_right = 312.0
 offset_bottom = 197.0
-text = "600"
+text = "0"
 label_settings = SubResource("LabelSettings_brlsg")
 
 [node name="Instructions" type="Label" parent="."]

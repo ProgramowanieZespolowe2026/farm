@@ -7,16 +7,22 @@ const SlotClass = preload("res://scripts/ui/slot.gd")
 const ItemClass = preload("res://scripts/items/item.gd")
 const NUM_INVENTORY_SLOTS = 20
 const NUM_HOTBAR_SLOTS = 10
-const NUM_CHICKENCOOP_SLOTS = 20
 
 var items: Array = []
 var hotbar: Array = []
-var chickenCoop: Array = []
+
+var active_coop_data_ref = null
 
 func _ready():
 	items.resize(NUM_INVENTORY_SLOTS)
 	hotbar.resize(NUM_HOTBAR_SLOTS)
-	chickenCoop.resize(NUM_CHICKENCOOP_SLOTS)
+	
+	items[0] = {
+			"name": "Egg",
+			"value": 5}
+	items[1] = {
+			"name": "Chicken_Baby",
+			"value": 1}
 
 var active_item_slot = 0
 
@@ -60,38 +66,21 @@ func add_item(item_name: String, value_to_add: int):
 	inventory_updated.emit()
 
 
-func remove_item(slot: SlotClass, is_hotbar: bool = false, is_chickenCoop: bool = false):
+func remove_item(slot: SlotClass, is_hotbar: bool = false):
 	if is_hotbar:
 		hotbar[slot.slot_index] = null
-	elif is_chickenCoop:
-		chickenCoop[slot.slot_index] = null
 	else:
 		items[slot.slot_index] = null
-#	inventory_updated.emit()
 
-func add_item_to_empty_slot(item: ItemClass, slot: SlotClass, is_hotbar: bool = false, is_chickenCoop: bool = false):
+func add_item_to_empty_slot(item: ItemClass, slot: SlotClass, is_hotbar: bool = false):
 	if is_hotbar:
-		hotbar[slot.slot_index] = {
-		"name": item.item_name,
-		"value": item.item_value
-	}
-	elif is_chickenCoop:
-		chickenCoop[slot.slot_index] = {
-		"name": item.item_name,
-		"value": item.item_value
-	}
+		hotbar[slot.slot_index] = {"name": item.item_name, "value": item.item_value}
 	else:
-		items[slot.slot_index] = {
-			"name": item.item_name,
-			"value": item.item_value
-		}
-#	inventory_updated.emit()
+		items[slot.slot_index] = {"name": item.item_name, "value": item.item_value}
 
-func add_item_value (slot: SlotClass, value_to_add: int, is_hotbar: bool = false, is_chickenCoop: bool = false):
+func add_item_value (slot: SlotClass, value_to_add: int, is_hotbar: bool = false):
 	if is_hotbar:
 		hotbar[slot.slot_index]["value"] += value_to_add
-	elif is_chickenCoop:
-		chickenCoop[slot.slot_index]["value"] += value_to_add
 	else:
 		items[slot.slot_index]["value"] += value_to_add
 

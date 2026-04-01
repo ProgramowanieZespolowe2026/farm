@@ -93,12 +93,12 @@
   },
   "Chicken_Baby": {
 	"ItemCategory": "Resource",
-	"StackSize": 99,
+	"StackSize": 1,
 	"Description": "Pisklę"
   },
   "Chicken_Adult": {
 	"ItemCategory": "Resource",
-	"StackSize": 99,
+	"StackSize": 1,
 	"Description": "Kurczak"
   },
   "Cow_Meat": {
@@ -113,12 +113,12 @@
   },
   "Cow_Baby": {
 	"ItemCategory": "Resource",
-	"StackSize": 99,
+	"StackSize": 1,
 	"Description": "Cielę"
   },
   "Cow_Adult": {
 	"ItemCategory": "Resource",
-	"StackSize": 99,
+	"StackSize": 1,
 	"Description": "Krowa"
   },
   "Pig_Meat": {
@@ -128,12 +128,12 @@
   },
   "Pig_Baby": {
 	"ItemCategory": "Resource",
-	"StackSize": 99,
+	"StackSize": 1,
 	"Description": "Mała świnka"
   },
   "Pig_Adult": {
 	"ItemCategory": "Resource",
-	"StackSize": 99,
+	"StackSize": 1,
 	"Description": "Świnia"
   },
   "Sheep_Meat": {
@@ -148,17 +148,17 @@
   },
   "Sheep_Baby": {
 	"ItemCategory": "Resource",
-	"StackSize": 99,
+	"StackSize": 1,
 	"Description": "Mała owca"
   },
   "Sheep_Adult": {
 	"ItemCategory": "Resource",
-	"StackSize": 99,
+	"StackSize": 1,
 	"Description": "Owca"
   },
   "Sheep_Adult_HairCut": {
 	"ItemCategory": "Resource",
-	"StackSize": 99,
+	"StackSize": 1,
 	"Description": "Ostrzyżona owca"
   }
 }

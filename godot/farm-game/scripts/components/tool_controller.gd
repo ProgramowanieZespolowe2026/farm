@@ -35,7 +35,7 @@ func _ready():
 	
 	if game_screen:
 		game_screen.inventory_open.connect(getInventoryVisible)
-		game_screen.inventory_open.connect(getChickenCoopPanelVisible)
+		#game_screen.chicken_coop_panel_open.connect(getChickenCoopPanelVisible)
 
 func getInventoryVisible(is_open: bool):
 	inventory_visible = is_open
@@ -308,6 +308,7 @@ func place_building(scene, building_name: String = "Building", size_in_tiles: Ve
 				return
 
 	var new_building = scene.instantiate()
+	var grid_pos_i = Vector2i(current_target_grid_pos)
 	
 	if "object_name" in new_building:
 		new_building.object_name = building_name
@@ -317,6 +318,12 @@ func place_building(scene, building_name: String = "Building", size_in_tiles: Ve
 	else:
 		new_building.global_position = highlight.global_position
 	
+	if building_name == "ChickenCoop":
+		BuildingDataManager.add_new_coop(grid_pos_i)
+		
+		if "grid_position" in new_building:
+			new_building.grid_position = grid_pos_i
+
 	player.get_parent().add_child(new_building)
 	
 	for x in range(size_in_tiles.x):
