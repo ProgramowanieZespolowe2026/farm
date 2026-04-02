@@ -1,7 +1,7 @@
 class_name BuildingEntered
 extends Area2D
 
-@onready var menu_open: AudioStreamPlayer2D = $MenuOpen
+#@onready var menu_open: AudioStreamPlayer2D = $MenuOpen
 
 var playerInArea = false
 

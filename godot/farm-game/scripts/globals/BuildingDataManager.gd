@@ -14,7 +14,6 @@ func add_new_coop(grid_pos: Vector2i):
 	}
 	
 	buildings_data[grid_pos] = new_data
-	print("Stworzono unikalny kurnik na pozycji: ", grid_pos)
 
 func remove_item_from_coop(grid_pos: Vector2i, slot_index: int):
 	if buildings_data.has(grid_pos):

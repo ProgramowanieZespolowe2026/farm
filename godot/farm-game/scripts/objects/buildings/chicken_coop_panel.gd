@@ -7,6 +7,32 @@ const SlotClass = preload("res://scripts/ui/slot.gd")
 var current_coop_pos: Vector2i
 var active_coop_data = {} 
 var foodLevel = 0
+var availabilityFood = [
+  "Apple_Item",
+  "Cherry_Item",
+  "Peach_Item",
+  "Beet_Item",
+  "Carrot_Item",
+  "Corn_Item",
+  "Corn_Seed",
+  "Potato_Item",
+  "Tomato_Item",
+  "Tomato_Seed",
+  "Wheat_Item",
+  "Wheat_Seed"
+]
+var animals = [
+  "Egg",
+  "Chicken_Baby",
+  "Chicken_Adult",
+  "Cow_Baby",
+  "Cow_Adult",
+  "Pig_Baby",
+  "Pig_Adult",
+  "Sheep_Baby",
+  "Sheep_Adult",
+  "Sheep_Adult_HairCut"
+]
 
 @onready var food_level_amount_text: Label = $FoodLevelAmountText
 @onready var chicken_coop_panel: Node2D = $"."
@@ -64,15 +90,22 @@ func left_click_empty_slot(slot: SlotClass):
 	var holding_item = find_parent("GameScreen").holding_item
 	
 	if is_food:
-		add_food(holding_item.item_value)
-		holding_item.queue_free()
-		find_parent("GameScreen").holding_item = null
+		if holding_item.item_name in availabilityFood:
+			add_food(holding_item.item_value)
+			holding_item.queue_free()
+			find_parent("GameScreen").holding_item = null
 		return
-	
-	BuildingDataManager.add_item_to_coop(current_coop_pos, slot.slot_index, holding_item.item_name, holding_item.item_value)
-	
-	slot.putIntoSlot(holding_item)
-	find_parent("GameScreen").holding_item = null
+	if holding_item.item_name in animals:
+		if holding_item.item_value > 1:
+			BuildingDataManager.add_item_to_coop(current_coop_pos, slot.slot_index, holding_item.item_name, 1)
+			
+			slot.initialize_item(holding_item.item_name, 1)
+			holding_item.decrease_item_value(1)
+		else:
+			
+			BuildingDataManager.add_item_to_coop(current_coop_pos, slot.slot_index, holding_item.item_name, holding_item.item_value)
+			slot.putIntoSlot(holding_item)
+			find_parent("GameScreen").holding_item = null
 
 func left_click_different_item(event: InputEvent, slot: SlotClass):
 	var holding_item = find_parent("GameScreen").holding_item
@@ -86,19 +119,20 @@ func left_click_different_item(event: InputEvent, slot: SlotClass):
 	find_parent("GameScreen").holding_item = temp_item
 
 func left_click_same_item(slot: SlotClass):
-	var holding_item = find_parent("GameScreen").holding_item
-	var stack_size = int(JsonData.item_data[slot.item.item_name]["StackSize"])
-	var able_to_add = stack_size - slot.item.item_value
-	
-	if able_to_add >= holding_item.item_value:
-		BuildingDataManager.add_value_to_coop_item(current_coop_pos, slot.slot_index, holding_item.item_value)
-		slot.item.add_item_value(holding_item.item_value)
-		holding_item.queue_free()
-		find_parent("GameScreen").holding_item = null
-	else:
-		BuildingDataManager.add_value_to_coop_item(current_coop_pos, slot.slot_index, able_to_add)
-		slot.item.add_item_value(able_to_add)
-		holding_item.decrease_item_value(able_to_add)
+	null
+	#var holding_item = find_parent("GameScreen").holding_item
+	#var stack_size = int(JsonData.item_data[slot.item.item_name]["StackSize"])
+	#var able_to_add = stack_size - slot.item.item_value
+	#
+	#if able_to_add >= holding_item.item_value:
+		#BuildingDataManager.add_value_to_coop_item(current_coop_pos, slot.slot_index, holding_item.item_value)
+		#slot.item.add_item_value(holding_item.item_value)
+		#holding_item.queue_free()
+		#find_parent("GameScreen").holding_item = null
+	#else:
+		#BuildingDataManager.add_value_to_coop_item(current_coop_pos, slot.slot_index, able_to_add)
+		#slot.item.add_item_value(able_to_add)
+		#holding_item.decrease_item_value(able_to_add)
 
 func left_click_not_holding(slot: SlotClass):
 	find_parent("GameScreen").holding_item = slot.item
