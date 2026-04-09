@@ -33,12 +33,15 @@ var animals = [
   "Sheep_Adult",
   "Sheep_Adult_HairCut"
 ]
+const requiredPointsToFirstUpgrade:int = 60
+const progresPointsToDie:int = 1009
 
 @onready var food_level_amount_text: Label = $FoodLevelAmountText
 @onready var chicken_coop_panel: Node2D = $"."
 @onready var chicken_coop_id: Label = $ChickenCoopId
 
 func _ready():
+	TestGameTimeCycleManager.time_tick.connect(_on_time_tick)
 	var slots = chickenCoopItems.get_children()
 	for i in range(slots.size()):
 		var slot = slots[i]
@@ -49,6 +52,9 @@ func _ready():
 	food_slot.gui_input.connect(slot_gui_input.bind(food_slot))
 	food_slot.slot_index = 0
 	food_slot.slot_type = SlotClass.SlotType.CHICKENCOOP_FOOD
+	
+func _on_time_tick(day: int, hour: int, minute: int) -> void:
+	updateUI()
 	
 func initialize_inventory():
 	var slots = chickenCoopItems.get_children()
@@ -101,6 +107,7 @@ func left_click_empty_slot(slot: SlotClass):
 			
 			slot.initialize_item(holding_item.item_name, 1)
 			holding_item.decrease_item_value(1)
+			
 		else:
 			
 			BuildingDataManager.add_item_to_coop(current_coop_pos, slot.slot_index, holding_item.item_name, holding_item.item_value)
@@ -178,3 +185,58 @@ func add_food(item_value: int):
 	food_level_amount_text.text = str(foodLevel)
 	if !active_coop_data.is_empty():
 		active_coop_data["food_level"] = foodLevel
+
+func updateUI():
+	var slots = chickenCoopItems.get_children()
+	for i in range(slots.size()):
+		if slots[i].item != null:
+			var slot = slots[i];
+			slot.update_progress(BuildingDataManager.get_slot_progres_points(current_coop_pos, slot.slot_index))
+			var currentPoints = BuildingDataManager.get_slot_progres_points(current_coop_pos,slot.slot_index)
+			var itemName = slots[i].item.item_name
+			
+			if currentPoints > requiredPointsToFirstUpgrade/2:
+				if itemName == "Egg":
+					BuildingDataManager.replace_item_to_coop_with_same_progres_points(current_coop_pos, slot.slot_index, "Chicken_Baby", 1)
+					slot.initialize_item("Chicken_Baby", 1)
+					slot.update_progress(0)
+			if currentPoints > requiredPointsToFirstUpgrade:
+				
+				if itemName == "Chicken_Baby":
+					BuildingDataManager.replace_item_to_coop_with_same_progres_points(current_coop_pos, slot.slot_index, "Chicken_Adult", 1)
+					slot.initialize_item("Chicken_Adult", 1)
+				if itemName == "Chicken_Adult" and currentPoints % requiredPointsToFirstUpgrade == 0:
+					print("jajo do zbioru")
+				if currentPoints > progresPointsToDie:
+					BuildingDataManager.replace_item_to_coop_with_same_progres_points(current_coop_pos, slot.slot_index, "Chicken_Died", 1)
+					slot.initialize_item("Chicken_Died", 1)
+					
+				slot.update_progress(0)
+			#if currentPoints > requiredPointsToUpgrade:
+				#if itemName == "Egg":
+					#BuildingDataManager.add_item_to_coop(current_coop_pos, slot.slot_index, "Chicken_Baby", 1)
+					#slot.initialize_item("Chicken_Baby", 1)
+				#if itemName == "Chicken_Baby":
+					#BuildingDataManager.add_item_to_coop(current_coop_pos, slot.slot_index, "Chicken_Adult", 1)
+					#slot.initialize_item("Chicken_Adult", 1)
+					#
+				#slot.update_progress(0)
+				#
+			#if itemName == "Chicken_Adult" and currentPoints % requiredPointsToUpgrade == 0:
+				#print("jajo do zbioru")
+				#slot.update_progress(0)
+				#
+			#if currentPoints > requiredPointsToDieAnimal:
+				#BuildingDataManager.add_item_to_coop(current_coop_pos, slot.slot_index, "Chicken_Died", 1)
+				#slot.initialize_item("Chicken_Died", 1)
+				#slot.update_progress(0)
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			

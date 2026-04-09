@@ -1,8 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://buh3v7l8w15br"]
+[gd_scene load_steps=16 format=3 uid="uid://buh3v7l8w15br"]
 
 [ext_resource type="Script" uid="uid://c1nf1r38ybbau" path="res://scripts/objects/buildings/chicken_coop_panel.gd" id="1_2lkp4"]
 [ext_resource type="Texture2D" uid="uid://b1i2v36yxp6ef" path="res://assets/ui/button.png" id="2_wcrna"]
 [ext_resource type="Script" uid="uid://dqfdg7wwx6cps" path="res://scripts/ui/slot.gd" id="3_4bqs6"]
+[ext_resource type="Texture2D" uid="uid://c10savuqp5cxq" path="res://assets/ui/progresBar_empty.png" id="4_6pm5v"]
+[ext_resource type="Texture2D" uid="uid://u8dyqpcl5gib" path="res://assets/ui/progresBar_content.png" id="5_amovd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_17uwj"]
 atlas = ExtResource("2_wcrna")
@@ -21,6 +23,12 @@ region = Rect2(48, 496, 48, 48)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_17uwj"]
 texture = SubResource("AtlasTexture_7ck5g")
 region_rect = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_scgoj"]
+atlas = ExtResource("4_6pm5v")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ec1d4"]
+atlas = ExtResource("5_amovd")
 
 [sub_resource type="LabelSettings" id="LabelSettings_2lkp4"]
 font_size = 10
@@ -78,6 +86,16 @@ columns = 5
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_4bqs6")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot1"]
+layout_mode = 0
+offset_right = 18.0
+offset_bottom = 18.0
+texture_under = SubResource("AtlasTexture_scgoj")
+texture_progress = SubResource("AtlasTexture_ec1d4")
+texture_progress_offset = Vector2(3, 0)
+tint_under = Color(1, 0.60247463, 0.35299444, 1)
+tint_progress = Color(0, 0.9569079, 0.34731165, 1)
 
 [node name="Slot2" type="Panel" parent="GridContainer"]
 custom_minimum_size = Vector2(18, 18)
