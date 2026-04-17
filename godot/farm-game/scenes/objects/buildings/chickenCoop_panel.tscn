@@ -88,6 +88,7 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_4bqs6")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot1"]
+z_index = 10
 layout_mode = 0
 offset_right = 18.0
 offset_bottom = 18.0
@@ -103,11 +104,33 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_4bqs6")
 
+[node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot2"]
+z_index = 10
+layout_mode = 0
+offset_right = 18.0
+offset_bottom = 18.0
+texture_under = SubResource("AtlasTexture_scgoj")
+texture_progress = SubResource("AtlasTexture_ec1d4")
+texture_progress_offset = Vector2(3, 0)
+tint_under = Color(1, 0.60247463, 0.35299444, 1)
+tint_progress = Color(0, 0.9569079, 0.34731165, 1)
+
 [node name="Slot3" type="Panel" parent="GridContainer"]
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_4bqs6")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot3"]
+z_index = 10
+layout_mode = 0
+offset_right = 18.0
+offset_bottom = 18.0
+texture_under = SubResource("AtlasTexture_scgoj")
+texture_progress = SubResource("AtlasTexture_ec1d4")
+texture_progress_offset = Vector2(3, 0)
+tint_under = Color(1, 0.60247463, 0.35299444, 1)
+tint_progress = Color(0, 0.9569079, 0.34731165, 1)
 
 [node name="Slot4" type="Panel" parent="GridContainer"]
 custom_minimum_size = Vector2(18, 18)
@@ -115,11 +138,33 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_4bqs6")
 
+[node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot4"]
+z_index = 10
+layout_mode = 0
+offset_right = 18.0
+offset_bottom = 18.0
+texture_under = SubResource("AtlasTexture_scgoj")
+texture_progress = SubResource("AtlasTexture_ec1d4")
+texture_progress_offset = Vector2(3, 0)
+tint_under = Color(1, 0.60247463, 0.35299444, 1)
+tint_progress = Color(0, 0.9569079, 0.34731165, 1)
+
 [node name="Slot5" type="Panel" parent="GridContainer"]
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_4bqs6")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot5"]
+z_index = 10
+layout_mode = 0
+offset_right = 18.0
+offset_bottom = 18.0
+texture_under = SubResource("AtlasTexture_scgoj")
+texture_progress = SubResource("AtlasTexture_ec1d4")
+texture_progress_offset = Vector2(3, 0)
+tint_under = Color(1, 0.60247463, 0.35299444, 1)
+tint_progress = Color(0, 0.9569079, 0.34731165, 1)
 
 [node name="Slot6" type="Panel" parent="GridContainer"]
 custom_minimum_size = Vector2(18, 18)
@@ -127,11 +172,33 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_4bqs6")
 
+[node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot6"]
+z_index = 10
+layout_mode = 0
+offset_right = 18.0
+offset_bottom = 18.0
+texture_under = SubResource("AtlasTexture_scgoj")
+texture_progress = SubResource("AtlasTexture_ec1d4")
+texture_progress_offset = Vector2(3, 0)
+tint_under = Color(1, 0.60247463, 0.35299444, 1)
+tint_progress = Color(0, 0.9569079, 0.34731165, 1)
+
 [node name="Slot7" type="Panel" parent="GridContainer"]
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_4bqs6")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot7"]
+z_index = 10
+layout_mode = 0
+offset_right = 18.0
+offset_bottom = 18.0
+texture_under = SubResource("AtlasTexture_scgoj")
+texture_progress = SubResource("AtlasTexture_ec1d4")
+texture_progress_offset = Vector2(3, 0)
+tint_under = Color(1, 0.60247463, 0.35299444, 1)
+tint_progress = Color(0, 0.9569079, 0.34731165, 1)
 
 [node name="Slot8" type="Panel" parent="GridContainer"]
 custom_minimum_size = Vector2(18, 18)
@@ -139,11 +206,33 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_4bqs6")
 
+[node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot8"]
+z_index = 10
+layout_mode = 0
+offset_right = 18.0
+offset_bottom = 18.0
+texture_under = SubResource("AtlasTexture_scgoj")
+texture_progress = SubResource("AtlasTexture_ec1d4")
+texture_progress_offset = Vector2(3, 0)
+tint_under = Color(1, 0.60247463, 0.35299444, 1)
+tint_progress = Color(0, 0.9569079, 0.34731165, 1)
+
 [node name="Slot9" type="Panel" parent="GridContainer"]
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_4bqs6")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot9"]
+z_index = 10
+layout_mode = 0
+offset_right = 18.0
+offset_bottom = 18.0
+texture_under = SubResource("AtlasTexture_scgoj")
+texture_progress = SubResource("AtlasTexture_ec1d4")
+texture_progress_offset = Vector2(3, 0)
+tint_under = Color(1, 0.60247463, 0.35299444, 1)
+tint_progress = Color(0, 0.9569079, 0.34731165, 1)
 
 [node name="Slot10" type="Panel" parent="GridContainer"]
 custom_minimum_size = Vector2(18, 18)
@@ -151,11 +240,33 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_4bqs6")
 
+[node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot10"]
+z_index = 10
+layout_mode = 0
+offset_right = 18.0
+offset_bottom = 18.0
+texture_under = SubResource("AtlasTexture_scgoj")
+texture_progress = SubResource("AtlasTexture_ec1d4")
+texture_progress_offset = Vector2(3, 0)
+tint_under = Color(1, 0.60247463, 0.35299444, 1)
+tint_progress = Color(0, 0.9569079, 0.34731165, 1)
+
 [node name="Slot11" type="Panel" parent="GridContainer"]
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_4bqs6")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot11"]
+z_index = 10
+layout_mode = 0
+offset_right = 18.0
+offset_bottom = 18.0
+texture_under = SubResource("AtlasTexture_scgoj")
+texture_progress = SubResource("AtlasTexture_ec1d4")
+texture_progress_offset = Vector2(3, 0)
+tint_under = Color(1, 0.60247463, 0.35299444, 1)
+tint_progress = Color(0, 0.9569079, 0.34731165, 1)
 
 [node name="Slot12" type="Panel" parent="GridContainer"]
 custom_minimum_size = Vector2(18, 18)
@@ -163,11 +274,33 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_4bqs6")
 
+[node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot12"]
+z_index = 10
+layout_mode = 0
+offset_right = 18.0
+offset_bottom = 18.0
+texture_under = SubResource("AtlasTexture_scgoj")
+texture_progress = SubResource("AtlasTexture_ec1d4")
+texture_progress_offset = Vector2(3, 0)
+tint_under = Color(1, 0.60247463, 0.35299444, 1)
+tint_progress = Color(0, 0.9569079, 0.34731165, 1)
+
 [node name="Slot13" type="Panel" parent="GridContainer"]
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_4bqs6")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot13"]
+z_index = 10
+layout_mode = 0
+offset_right = 18.0
+offset_bottom = 18.0
+texture_under = SubResource("AtlasTexture_scgoj")
+texture_progress = SubResource("AtlasTexture_ec1d4")
+texture_progress_offset = Vector2(3, 0)
+tint_under = Color(1, 0.60247463, 0.35299444, 1)
+tint_progress = Color(0, 0.9569079, 0.34731165, 1)
 
 [node name="Slot14" type="Panel" parent="GridContainer"]
 custom_minimum_size = Vector2(18, 18)
@@ -175,11 +308,33 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_4bqs6")
 
+[node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot14"]
+z_index = 10
+layout_mode = 0
+offset_right = 18.0
+offset_bottom = 18.0
+texture_under = SubResource("AtlasTexture_scgoj")
+texture_progress = SubResource("AtlasTexture_ec1d4")
+texture_progress_offset = Vector2(3, 0)
+tint_under = Color(1, 0.60247463, 0.35299444, 1)
+tint_progress = Color(0, 0.9569079, 0.34731165, 1)
+
 [node name="Slot15" type="Panel" parent="GridContainer"]
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_4bqs6")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot15"]
+z_index = 10
+layout_mode = 0
+offset_right = 18.0
+offset_bottom = 18.0
+texture_under = SubResource("AtlasTexture_scgoj")
+texture_progress = SubResource("AtlasTexture_ec1d4")
+texture_progress_offset = Vector2(3, 0)
+tint_under = Color(1, 0.60247463, 0.35299444, 1)
+tint_progress = Color(0, 0.9569079, 0.34731165, 1)
 
 [node name="Slot16" type="Panel" parent="GridContainer"]
 custom_minimum_size = Vector2(18, 18)
@@ -187,11 +342,33 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_4bqs6")
 
+[node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot16"]
+z_index = 10
+layout_mode = 0
+offset_right = 18.0
+offset_bottom = 18.0
+texture_under = SubResource("AtlasTexture_scgoj")
+texture_progress = SubResource("AtlasTexture_ec1d4")
+texture_progress_offset = Vector2(3, 0)
+tint_under = Color(1, 0.60247463, 0.35299444, 1)
+tint_progress = Color(0, 0.9569079, 0.34731165, 1)
+
 [node name="Slot17" type="Panel" parent="GridContainer"]
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_4bqs6")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot17"]
+z_index = 10
+layout_mode = 0
+offset_right = 18.0
+offset_bottom = 18.0
+texture_under = SubResource("AtlasTexture_scgoj")
+texture_progress = SubResource("AtlasTexture_ec1d4")
+texture_progress_offset = Vector2(3, 0)
+tint_under = Color(1, 0.60247463, 0.35299444, 1)
+tint_progress = Color(0, 0.9569079, 0.34731165, 1)
 
 [node name="Slot18" type="Panel" parent="GridContainer"]
 custom_minimum_size = Vector2(18, 18)
@@ -199,17 +376,50 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_4bqs6")
 
+[node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot18"]
+z_index = 10
+layout_mode = 0
+offset_right = 18.0
+offset_bottom = 18.0
+texture_under = SubResource("AtlasTexture_scgoj")
+texture_progress = SubResource("AtlasTexture_ec1d4")
+texture_progress_offset = Vector2(3, 0)
+tint_under = Color(1, 0.60247463, 0.35299444, 1)
+tint_progress = Color(0, 0.9569079, 0.34731165, 1)
+
 [node name="Slot19" type="Panel" parent="GridContainer"]
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_4bqs6")
 
+[node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot19"]
+z_index = 10
+layout_mode = 0
+offset_right = 18.0
+offset_bottom = 18.0
+texture_under = SubResource("AtlasTexture_scgoj")
+texture_progress = SubResource("AtlasTexture_ec1d4")
+texture_progress_offset = Vector2(3, 0)
+tint_under = Color(1, 0.60247463, 0.35299444, 1)
+tint_progress = Color(0, 0.9569079, 0.34731165, 1)
+
 [node name="Slot20" type="Panel" parent="GridContainer"]
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_4bqs6")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot20"]
+z_index = 10
+layout_mode = 0
+offset_right = 18.0
+offset_bottom = 18.0
+texture_under = SubResource("AtlasTexture_scgoj")
+texture_progress = SubResource("AtlasTexture_ec1d4")
+texture_progress_offset = Vector2(3, 0)
+tint_under = Color(1, 0.60247463, 0.35299444, 1)
+tint_progress = Color(0, 0.9569079, 0.34731165, 1)
 
 [node name="Slot21" type="Panel" parent="."]
 offset_left = 235.0

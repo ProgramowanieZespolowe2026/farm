@@ -26,7 +26,8 @@ func _ready():
 	default_style.texture = default_tex
 	selected_style.texture = selected_texture
 	if progress_bar:
-		progress_bar.visible = false
+		progress_bar.max_value = 30.0
+		#progress_bar.visible = false
 
 func refresh_style():
 	if SlotType.HOTBAR == slot_type and InventoryManager.active_item_slot == slot_index:
@@ -66,10 +67,10 @@ func initialize_item(item_name, item_value):
 func update_progress(current_value: int):
 	if progress_bar:
 		progress_bar.value = current_value
-		if progress_bar.value == 0:
-			progress_bar.visible = false
-		else:
-			progress_bar.visible = true
+		#if progress_bar.value == 0:
+			#progress_bar.visible = false
+		#else:
+			#progress_bar.visible = true
 		
 func remove_item():
 	if item != null:

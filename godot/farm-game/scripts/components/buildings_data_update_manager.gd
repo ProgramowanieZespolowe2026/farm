@@ -16,6 +16,7 @@ func updateAnimalsGrowth():
 		for slot_index in range(items_array.size()):
 			var slot = items_array[slot_index]
 			if slot != null:
-				BuildingDataManager.update_progres_Points(grid_pos,slot_index)
-				print("slot ",slot_index, " ",BuildingDataManager.get_slot_progres_points(grid_pos,slot_index))
+				if BuildingDataManager.get_item_to_collect(grid_pos,slot_index) == null:
+					BuildingDataManager.update_progres_Points(grid_pos,slot_index)
+					#print("slot ",slot_index, " ",BuildingDataManager.get_slot_progres_points(grid_pos,slot_index))
 				
