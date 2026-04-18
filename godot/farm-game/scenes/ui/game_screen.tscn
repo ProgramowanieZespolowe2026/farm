@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c4ymdwgq7ly0l" path="res://scenes/ui/auction_window.tscn" id="3_ooiym"]
 [ext_resource type="PackedScene" uid="uid://ylhduw5fblc5" path="res://audio/sfx/menu_open.tscn" id="4_gkbp4"]
 [ext_resource type="PackedScene" uid="uid://drjspv32c5mwu" path="res://scenes/ui/hotbar.tscn" id="7_ooiym"]
-[ext_resource type="PackedScene" uid="uid://buh3v7l8w15br" path="res://scenes/objects/buildings/chickenCoop_panel.tscn" id="8_ce4rh"]
+[ext_resource type="PackedScene" uid="uid://buh3v7l8w15br" path="res://scenes/objects/buildings/animal_building_panel.tscn" id="8_ce4rh"]
 
 [node name="GameScreen" type="CanvasLayer" groups=["GameScreen"]]
 script = ExtResource("1_gusqm")

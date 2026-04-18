@@ -17,5 +17,6 @@ enum Tools {
 	Peach_Plant,
 	Cherry_Plant,
 	Apple_Plant,
-	ChickenCoopBuilding
+	ChickenCoopBuilding,
+	BarnBuilding
 }

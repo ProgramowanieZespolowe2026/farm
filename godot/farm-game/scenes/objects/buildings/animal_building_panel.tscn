@@ -1,13 +1,13 @@
 [gd_scene load_steps=16 format=3 uid="uid://buh3v7l8w15br"]
 
-[ext_resource type="Script" uid="uid://c1nf1r38ybbau" path="res://scripts/objects/buildings/chicken_coop_panel.gd" id="1_2lkp4"]
-[ext_resource type="Texture2D" uid="uid://b1i2v36yxp6ef" path="res://assets/ui/button.png" id="2_wcrna"]
-[ext_resource type="Script" uid="uid://dqfdg7wwx6cps" path="res://scripts/ui/slot.gd" id="3_4bqs6"]
-[ext_resource type="Texture2D" uid="uid://c10savuqp5cxq" path="res://assets/ui/progresBar_empty.png" id="4_6pm5v"]
-[ext_resource type="Texture2D" uid="uid://u8dyqpcl5gib" path="res://assets/ui/progresBar_content.png" id="5_amovd"]
+[ext_resource type="Script" uid="uid://c1nf1r38ybbau" path="res://scripts/objects/buildings/animal_building_panel.gd" id="1_mbn8n"]
+[ext_resource type="Texture2D" uid="uid://b1i2v36yxp6ef" path="res://assets/ui/button.png" id="2_tmgeu"]
+[ext_resource type="Script" uid="uid://dqfdg7wwx6cps" path="res://scripts/ui/slot.gd" id="3_pwxqa"]
+[ext_resource type="Texture2D" uid="uid://c10savuqp5cxq" path="res://assets/ui/progresBar_empty.png" id="4_f8j5q"]
+[ext_resource type="Texture2D" uid="uid://u8dyqpcl5gib" path="res://assets/ui/progresBar_content.png" id="5_r02a4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_17uwj"]
-atlas = ExtResource("2_wcrna")
+atlas = ExtResource("2_tmgeu")
 region = Rect2(99, 20, 42, 40)
 
 [sub_resource type="LabelSettings" id="LabelSettings_4lk4h"]
@@ -17,7 +17,7 @@ font_size = 10
 font_size = 10
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7ck5g"]
-atlas = ExtResource("2_wcrna")
+atlas = ExtResource("2_tmgeu")
 region = Rect2(48, 496, 48, 48)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_17uwj"]
@@ -25,10 +25,10 @@ texture = SubResource("AtlasTexture_7ck5g")
 region_rect = Rect2(0, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_scgoj"]
-atlas = ExtResource("4_6pm5v")
+atlas = ExtResource("4_f8j5q")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ec1d4"]
-atlas = ExtResource("5_amovd")
+atlas = ExtResource("5_r02a4")
 
 [sub_resource type="LabelSettings" id="LabelSettings_2lkp4"]
 font_size = 10
@@ -40,7 +40,7 @@ font_size = 10
 font_size = 10
 
 [node name="ChickenCoopPanel" type="Node2D" groups=["ChickenCoopPanel"]]
-script = ExtResource("1_2lkp4")
+script = ExtResource("1_mbn8n")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -84,7 +84,7 @@ columns = 5
 [node name="Slot1" type="Panel" parent="GridContainer"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
-script = ExtResource("3_4bqs6")
+script = ExtResource("3_pwxqa")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot1"]
 layout_mode = 0
@@ -101,7 +101,7 @@ tint_progress = Color(0, 0.9569079, 0.34731165, 1)
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
-script = ExtResource("3_4bqs6")
+script = ExtResource("3_pwxqa")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot2"]
 layout_mode = 0
@@ -118,7 +118,7 @@ tint_progress = Color(0, 0.9569079, 0.34731165, 1)
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
-script = ExtResource("3_4bqs6")
+script = ExtResource("3_pwxqa")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot3"]
 layout_mode = 0
@@ -135,7 +135,7 @@ tint_progress = Color(0, 0.9569079, 0.34731165, 1)
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
-script = ExtResource("3_4bqs6")
+script = ExtResource("3_pwxqa")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot4"]
 layout_mode = 0
@@ -152,7 +152,7 @@ tint_progress = Color(0, 0.9569079, 0.34731165, 1)
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
-script = ExtResource("3_4bqs6")
+script = ExtResource("3_pwxqa")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot5"]
 layout_mode = 0
@@ -169,7 +169,7 @@ tint_progress = Color(0, 0.9569079, 0.34731165, 1)
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
-script = ExtResource("3_4bqs6")
+script = ExtResource("3_pwxqa")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot6"]
 layout_mode = 0
@@ -186,7 +186,7 @@ tint_progress = Color(0, 0.9569079, 0.34731165, 1)
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
-script = ExtResource("3_4bqs6")
+script = ExtResource("3_pwxqa")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot7"]
 layout_mode = 0
@@ -203,7 +203,7 @@ tint_progress = Color(0, 0.9569079, 0.34731165, 1)
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
-script = ExtResource("3_4bqs6")
+script = ExtResource("3_pwxqa")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot8"]
 layout_mode = 0
@@ -220,7 +220,7 @@ tint_progress = Color(0, 0.9569079, 0.34731165, 1)
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
-script = ExtResource("3_4bqs6")
+script = ExtResource("3_pwxqa")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot9"]
 layout_mode = 0
@@ -237,7 +237,7 @@ tint_progress = Color(0, 0.9569079, 0.34731165, 1)
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
-script = ExtResource("3_4bqs6")
+script = ExtResource("3_pwxqa")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot10"]
 layout_mode = 0
@@ -254,7 +254,7 @@ tint_progress = Color(0, 0.9569079, 0.34731165, 1)
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
-script = ExtResource("3_4bqs6")
+script = ExtResource("3_pwxqa")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot11"]
 layout_mode = 0
@@ -271,7 +271,7 @@ tint_progress = Color(0, 0.9569079, 0.34731165, 1)
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
-script = ExtResource("3_4bqs6")
+script = ExtResource("3_pwxqa")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot12"]
 layout_mode = 0
@@ -288,7 +288,7 @@ tint_progress = Color(0, 0.9569079, 0.34731165, 1)
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
-script = ExtResource("3_4bqs6")
+script = ExtResource("3_pwxqa")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot13"]
 layout_mode = 0
@@ -305,7 +305,7 @@ tint_progress = Color(0, 0.9569079, 0.34731165, 1)
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
-script = ExtResource("3_4bqs6")
+script = ExtResource("3_pwxqa")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot14"]
 layout_mode = 0
@@ -322,7 +322,7 @@ tint_progress = Color(0, 0.9569079, 0.34731165, 1)
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
-script = ExtResource("3_4bqs6")
+script = ExtResource("3_pwxqa")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot15"]
 layout_mode = 0
@@ -339,7 +339,7 @@ tint_progress = Color(0, 0.9569079, 0.34731165, 1)
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
-script = ExtResource("3_4bqs6")
+script = ExtResource("3_pwxqa")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot16"]
 layout_mode = 0
@@ -356,7 +356,7 @@ tint_progress = Color(0, 0.9569079, 0.34731165, 1)
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
-script = ExtResource("3_4bqs6")
+script = ExtResource("3_pwxqa")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot17"]
 layout_mode = 0
@@ -373,7 +373,7 @@ tint_progress = Color(0, 0.9569079, 0.34731165, 1)
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
-script = ExtResource("3_4bqs6")
+script = ExtResource("3_pwxqa")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot18"]
 layout_mode = 0
@@ -390,7 +390,7 @@ tint_progress = Color(0, 0.9569079, 0.34731165, 1)
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
-script = ExtResource("3_4bqs6")
+script = ExtResource("3_pwxqa")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot19"]
 layout_mode = 0
@@ -407,7 +407,7 @@ tint_progress = Color(0, 0.9569079, 0.34731165, 1)
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
-script = ExtResource("3_4bqs6")
+script = ExtResource("3_pwxqa")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot20"]
 layout_mode = 0
@@ -426,7 +426,7 @@ offset_top = 166.0
 offset_right = 253.0
 offset_bottom = 184.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
-script = ExtResource("3_4bqs6")
+script = ExtResource("3_pwxqa")
 
 [node name="FoodLevelText" type="Label" parent="."]
 offset_left = 257.0
