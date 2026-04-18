@@ -13,39 +13,94 @@ const peach_scene = preload("uid://cnndi0w44wqr6")
 const cherry_scene = preload("uid://c02001sr6d7g7")
 const apple_scene = preload("uid://cr71x7drir8lg")
 
+const chicken_coop_scene = preload("uid://d23cpav84ureu")
+const inventory = preload("uid://y3lcfv2dd6wt")
+const chicken_coop_building = preload("uid://buh3v7l8w15br")
 
 
 @onready var highlight: Sprite2D = $Highlight
+@onready var chicken_coop_highlight: Sprite2D = $ChickenCoopHighlight
+
 @onready var player = get_parent() 
 @onready var player_sfx_controller: PlayerSfxController = $"../PlayerSfxController"
 
 var map_tiles = {}
 var current_target_grid_pos = Vector2.ZERO
 
+var inventory_visible = false;
+var chicken_coop_panel_visible = false;
+
+func _ready():
+	var game_screen = get_tree().get_first_node_in_group("GameScreen")
+	var chicken_coop = get_tree().get_first_node_in_group("ChickenCoopPanel")
+	
+	if game_screen:
+		game_screen.inventory_open.connect(getInventoryVisible)
+		chicken_coop.chicken_coop_panel_open.connect(getChickenCoopPanelVisible)
+
+func getInventoryVisible(is_open: bool):
+	inventory_visible = is_open
+func getChickenCoopPanelVisible(is_open: bool):
+	chicken_coop_panel_visible = is_open
+
 func _process(_delta):
 	update_highlight()
 
 func update_highlight():
-	
-	highlight.visible = true
-	
+	var current_tool = player.current_tool
 	var facing_dir = player.last_facing_direction
 	
 	var height_offset = Vector2(0, -TILE_SIZE / 2.0)
 	var player_grid_pos = ((player.global_position + height_offset) / TILE_SIZE).floor()
 	
-	current_target_grid_pos = player_grid_pos + facing_dir
-	highlight.global_position = (current_target_grid_pos * TILE_SIZE) + Vector2(TILE_SIZE / 2.0, TILE_SIZE / 2.0)
+	if current_tool == DataTypes.Tools.ChickenCoopBuilding:
+		chicken_coop_highlight.visible = true
+		highlight.visible = false
+		
+		var building_tiles = Vector2(3, 4)
+		var offset_tiles = Vector2.ZERO
+		
+		if facing_dir == Vector2(1, 0):
+			offset_tiles = Vector2(1, -floor(building_tiles.y / 2.0))
+			
+		elif facing_dir == Vector2(-1, 0):
+			offset_tiles = Vector2(-building_tiles.x, -floor(building_tiles.y / 2.0))
+			
+		elif facing_dir == Vector2(0, 1):
+			offset_tiles = Vector2(-floor(building_tiles.x / 2.0), 1)
+			
+		elif facing_dir == Vector2(0, -1):
+			offset_tiles = Vector2(-floor(building_tiles.x / 2.0), -building_tiles.y)
+			
+		else:
+			offset_tiles = Vector2(-floor(building_tiles.x / 2.0), 1)
+			
+		current_target_grid_pos = player_grid_pos + offset_tiles
+		
+		var chicken_coop_size = Vector2(48.0, 64.0)
+		chicken_coop_highlight.global_position = (current_target_grid_pos * TILE_SIZE) + (chicken_coop_size / 2.0)
+		
+	else:
+		chicken_coop_highlight.visible = false
+		highlight.visible = true
+		
+		current_target_grid_pos = player_grid_pos + facing_dir
+		highlight.global_position = (current_target_grid_pos * TILE_SIZE) + Vector2(TILE_SIZE / 2.0, TILE_SIZE / 2.0)
+
+
 
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		if not highlight.visible:
+		if not highlight.visible && not chicken_coop_highlight.visible:
 			return 
+		
+		if inventory_visible or chicken_coop_panel_visible:
+			return
 			
 		# !!! extra condition checking if we own plot !!!
 		if not is_plot_owned_at_target():
 			return 
-	
+			
 		var current_tool = player.current_tool
 		#Tu dodajemy wywoływanie funkcji narzędzia ( ktora ma byc na dole )
 		if current_tool == DataTypes.Tools.Hoe:
@@ -80,6 +135,9 @@ func _input(event):
 			plant_tree(cherry_scene)
 		elif current_tool == DataTypes.Tools.Apple_Plant:
 			plant_tree(apple_scene)
+			
+		elif current_tool == DataTypes.Tools.ChickenCoopBuilding:
+			place_building(chicken_coop_scene, "ChickenCoop", Vector2i(3, 4))
 			
 func use_hoe():
 	#Jesli jest zaorana ziemia i jakas roslina to zniszcz sama rosline
@@ -135,8 +193,6 @@ func use_shovel():
 				WorldObjects.objects.erase(Vector2i(current_target_grid_pos))
 				player_sfx_controller.play_shovel_sound()
 		
-		
-		
 func use_watering_can():
 	if map_tiles.has(current_target_grid_pos):
 		var target_object = map_tiles[current_target_grid_pos]["dirt"]
@@ -153,8 +209,6 @@ func use_watering_can():
 				target_tree.water()
 				player_sfx_controller.play_water_plants_sound()
 				
-		
-
 func use_fertilizer():
 	if map_tiles.has(current_target_grid_pos):
 		var target_object = map_tiles[current_target_grid_pos]["dirt"]
@@ -243,3 +297,42 @@ func is_plot_owned_at_target() -> bool:
 					
 	# if area is over all plots we can't use it, as if we dont owne it
 	return false
+
+func place_building(scene, building_name: String = "Building", size_in_tiles: Vector2i = Vector2i(1, 1)):
+	for x in range(size_in_tiles.x):
+		for y in range(size_in_tiles.y):
+			var check_pos = current_target_grid_pos + Vector2(x, y)
+			var check_pos_i = Vector2i(check_pos)
+			
+			if WorldObjects.objects.has(check_pos_i) or map_tiles.has(check_pos):
+				player_sfx_controller.play_error() 
+				return
+
+	var new_building = scene.instantiate()
+	var grid_pos_i = Vector2i(current_target_grid_pos)
+	
+	if "object_name" in new_building:
+		new_building.object_name = building_name
+		
+	if player.current_tool == DataTypes.Tools.ChickenCoopBuilding:
+		new_building.global_position = chicken_coop_highlight.global_position
+	else:
+		new_building.global_position = highlight.global_position
+	
+	if building_name == "ChickenCoop":
+		BuildingDataManager.add_new_coop(grid_pos_i)
+		
+		if "grid_position" in new_building:
+			new_building.grid_position = grid_pos_i
+
+	player.get_parent().add_child(new_building)
+	
+	for x in range(size_in_tiles.x):
+		for y in range(size_in_tiles.y):
+			var tile_pos_i = Vector2i(current_target_grid_pos + Vector2(x, y))
+			WorldObjects.objects[tile_pos_i] = new_building
+	
+	if player_sfx_controller.has_method("play_build_sound"):
+		player_sfx_controller.play_build_sound()
+	else:
+		player_sfx_controller.play_plant_sound()

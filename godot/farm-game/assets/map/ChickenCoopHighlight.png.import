@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dptjdkvpo33n2"
-path="res://.godot/imported/plants.png-afbe0c28c7794c98870e6002f194598e.ctex"
+uid="uid://2gpvyx3os6mm"
+path="res://.godot/imported/ChickenCoopHighlight.png-1c4401d737008df8315c357f00ef49d7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/map/plants.png"
-dest_files=["res://.godot/imported/plants.png-afbe0c28c7794c98870e6002f194598e.ctex"]
+source_file="res://assets/map/ChickenCoopHighlight.png"
+dest_files=["res://.godot/imported/ChickenCoopHighlight.png-1c4401d737008df8315c357f00ef49d7.ctex"]
 
 [params]
 

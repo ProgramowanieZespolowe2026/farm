@@ -1,0 +1,454 @@
+[gd_scene load_steps=16 format=3 uid="uid://buh3v7l8w15br"]
+
+[ext_resource type="Script" uid="uid://c1nf1r38ybbau" path="res://scripts/objects/buildings/chicken_coop_panel.gd" id="1_2lkp4"]
+[ext_resource type="Texture2D" uid="uid://b1i2v36yxp6ef" path="res://assets/ui/button.png" id="2_wcrna"]
+[ext_resource type="Script" uid="uid://dqfdg7wwx6cps" path="res://scripts/ui/slot.gd" id="3_4bqs6"]
+[ext_resource type="Texture2D" uid="uid://c10savuqp5cxq" path="res://assets/ui/progresBar_empty.png" id="4_6pm5v"]
+[ext_resource type="Texture2D" uid="uid://u8dyqpcl5gib" path="res://assets/ui/progresBar_content.png" id="5_amovd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17uwj"]
+atlas = ExtResource("2_wcrna")
+region = Rect2(99, 20, 42, 40)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4lk4h"]
+font_size = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_amovd"]
+font_size = 10
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ck5g"]
+atlas = ExtResource("2_wcrna")
+region = Rect2(48, 496, 48, 48)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_17uwj"]
+texture = SubResource("AtlasTexture_7ck5g")
+region_rect = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_scgoj"]
+atlas = ExtResource("4_6pm5v")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ec1d4"]
+atlas = ExtResource("5_amovd")
+
+[sub_resource type="LabelSettings" id="LabelSettings_2lkp4"]
+font_size = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_brlsg"]
+font_size = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_6pm5v"]
+font_size = 10
+
+[node name="ChickenCoopPanel" type="Node2D" groups=["ChickenCoopPanel"]]
+script = ExtResource("1_2lkp4")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 230.0
+offset_top = 40.0
+offset_right = 384.0
+offset_bottom = 192.0
+texture = SubResource("AtlasTexture_17uwj")
+
+[node name="ChickenCoopText" type="Label" parent="."]
+offset_left = 260.0
+offset_top = 43.0
+offset_right = 366.0
+offset_bottom = 66.0
+text = "Chicken Coop"
+label_settings = SubResource("LabelSettings_4lk4h")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ChickenCoopId" type="Label" parent="."]
+offset_left = 343.0
+offset_top = 48.0
+offset_right = 358.0
+offset_bottom = 63.0
+label_settings = SubResource("LabelSettings_amovd")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+offset_left = 261.0
+offset_top = 70.0
+offset_right = 363.0
+offset_bottom = 151.0
+theme_override_constants/h_separation = 3
+theme_override_constants/v_separation = 3
+columns = 5
+
+[node name="Slot1" type="Panel" parent="GridContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
+script = ExtResource("3_4bqs6")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot1"]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 18.0
+offset_bottom = 22.0
+texture_under = SubResource("AtlasTexture_scgoj")
+texture_progress = SubResource("AtlasTexture_ec1d4")
+texture_progress_offset = Vector2(3, 0)
+tint_under = Color(1, 0.60247463, 0.35299444, 1)
+tint_progress = Color(0, 0.9569079, 0.34731165, 1)
+
+[node name="Slot2" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
+script = ExtResource("3_4bqs6")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot2"]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 18.0
+offset_bottom = 22.0
+texture_under = SubResource("AtlasTexture_scgoj")
+texture_progress = SubResource("AtlasTexture_ec1d4")
+texture_progress_offset = Vector2(3, 0)
+tint_under = Color(1, 0.60247463, 0.35299444, 1)
+tint_progress = Color(0, 0.9569079, 0.34731165, 1)
+
+[node name="Slot3" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
+script = ExtResource("3_4bqs6")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot3"]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 18.0
+offset_bottom = 22.0
+texture_under = SubResource("AtlasTexture_scgoj")
+texture_progress = SubResource("AtlasTexture_ec1d4")
+texture_progress_offset = Vector2(3, 0)
+tint_under = Color(1, 0.60247463, 0.35299444, 1)
+tint_progress = Color(0, 0.9569079, 0.34731165, 1)
+
+[node name="Slot4" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
+script = ExtResource("3_4bqs6")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot4"]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 18.0
+offset_bottom = 22.0
+texture_under = SubResource("AtlasTexture_scgoj")
+texture_progress = SubResource("AtlasTexture_ec1d4")
+texture_progress_offset = Vector2(3, 0)
+tint_under = Color(1, 0.60247463, 0.35299444, 1)
+tint_progress = Color(0, 0.9569079, 0.34731165, 1)
+
+[node name="Slot5" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
+script = ExtResource("3_4bqs6")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot5"]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 18.0
+offset_bottom = 22.0
+texture_under = SubResource("AtlasTexture_scgoj")
+texture_progress = SubResource("AtlasTexture_ec1d4")
+texture_progress_offset = Vector2(3, 0)
+tint_under = Color(1, 0.60247463, 0.35299444, 1)
+tint_progress = Color(0, 0.9569079, 0.34731165, 1)
+
+[node name="Slot6" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
+script = ExtResource("3_4bqs6")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot6"]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 18.0
+offset_bottom = 22.0
+texture_under = SubResource("AtlasTexture_scgoj")
+texture_progress = SubResource("AtlasTexture_ec1d4")
+texture_progress_offset = Vector2(3, 0)
+tint_under = Color(1, 0.60247463, 0.35299444, 1)
+tint_progress = Color(0, 0.9569079, 0.34731165, 1)
+
+[node name="Slot7" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
+script = ExtResource("3_4bqs6")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot7"]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 18.0
+offset_bottom = 22.0
+texture_under = SubResource("AtlasTexture_scgoj")
+texture_progress = SubResource("AtlasTexture_ec1d4")
+texture_progress_offset = Vector2(3, 0)
+tint_under = Color(1, 0.60247463, 0.35299444, 1)
+tint_progress = Color(0, 0.9569079, 0.34731165, 1)
+
+[node name="Slot8" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
+script = ExtResource("3_4bqs6")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot8"]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 18.0
+offset_bottom = 22.0
+texture_under = SubResource("AtlasTexture_scgoj")
+texture_progress = SubResource("AtlasTexture_ec1d4")
+texture_progress_offset = Vector2(3, 0)
+tint_under = Color(1, 0.60247463, 0.35299444, 1)
+tint_progress = Color(0, 0.9569079, 0.34731165, 1)
+
+[node name="Slot9" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
+script = ExtResource("3_4bqs6")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot9"]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 18.0
+offset_bottom = 22.0
+texture_under = SubResource("AtlasTexture_scgoj")
+texture_progress = SubResource("AtlasTexture_ec1d4")
+texture_progress_offset = Vector2(3, 0)
+tint_under = Color(1, 0.60247463, 0.35299444, 1)
+tint_progress = Color(0, 0.9569079, 0.34731165, 1)
+
+[node name="Slot10" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
+script = ExtResource("3_4bqs6")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot10"]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 18.0
+offset_bottom = 22.0
+texture_under = SubResource("AtlasTexture_scgoj")
+texture_progress = SubResource("AtlasTexture_ec1d4")
+texture_progress_offset = Vector2(3, 0)
+tint_under = Color(1, 0.60247463, 0.35299444, 1)
+tint_progress = Color(0, 0.9569079, 0.34731165, 1)
+
+[node name="Slot11" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
+script = ExtResource("3_4bqs6")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot11"]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 18.0
+offset_bottom = 22.0
+texture_under = SubResource("AtlasTexture_scgoj")
+texture_progress = SubResource("AtlasTexture_ec1d4")
+texture_progress_offset = Vector2(3, 0)
+tint_under = Color(1, 0.60247463, 0.35299444, 1)
+tint_progress = Color(0, 0.9569079, 0.34731165, 1)
+
+[node name="Slot12" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
+script = ExtResource("3_4bqs6")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot12"]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 18.0
+offset_bottom = 22.0
+texture_under = SubResource("AtlasTexture_scgoj")
+texture_progress = SubResource("AtlasTexture_ec1d4")
+texture_progress_offset = Vector2(3, 0)
+tint_under = Color(1, 0.60247463, 0.35299444, 1)
+tint_progress = Color(0, 0.9569079, 0.34731165, 1)
+
+[node name="Slot13" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
+script = ExtResource("3_4bqs6")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot13"]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 18.0
+offset_bottom = 22.0
+texture_under = SubResource("AtlasTexture_scgoj")
+texture_progress = SubResource("AtlasTexture_ec1d4")
+texture_progress_offset = Vector2(3, 0)
+tint_under = Color(1, 0.60247463, 0.35299444, 1)
+tint_progress = Color(0, 0.9569079, 0.34731165, 1)
+
+[node name="Slot14" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
+script = ExtResource("3_4bqs6")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot14"]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 18.0
+offset_bottom = 22.0
+texture_under = SubResource("AtlasTexture_scgoj")
+texture_progress = SubResource("AtlasTexture_ec1d4")
+texture_progress_offset = Vector2(3, 0)
+tint_under = Color(1, 0.60247463, 0.35299444, 1)
+tint_progress = Color(0, 0.9569079, 0.34731165, 1)
+
+[node name="Slot15" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
+script = ExtResource("3_4bqs6")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot15"]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 18.0
+offset_bottom = 22.0
+texture_under = SubResource("AtlasTexture_scgoj")
+texture_progress = SubResource("AtlasTexture_ec1d4")
+texture_progress_offset = Vector2(3, 0)
+tint_under = Color(1, 0.60247463, 0.35299444, 1)
+tint_progress = Color(0, 0.9569079, 0.34731165, 1)
+
+[node name="Slot16" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
+script = ExtResource("3_4bqs6")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot16"]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 18.0
+offset_bottom = 22.0
+texture_under = SubResource("AtlasTexture_scgoj")
+texture_progress = SubResource("AtlasTexture_ec1d4")
+texture_progress_offset = Vector2(3, 0)
+tint_under = Color(1, 0.60247463, 0.35299444, 1)
+tint_progress = Color(0, 0.9569079, 0.34731165, 1)
+
+[node name="Slot17" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
+script = ExtResource("3_4bqs6")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot17"]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 18.0
+offset_bottom = 22.0
+texture_under = SubResource("AtlasTexture_scgoj")
+texture_progress = SubResource("AtlasTexture_ec1d4")
+texture_progress_offset = Vector2(3, 0)
+tint_under = Color(1, 0.60247463, 0.35299444, 1)
+tint_progress = Color(0, 0.9569079, 0.34731165, 1)
+
+[node name="Slot18" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
+script = ExtResource("3_4bqs6")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot18"]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 18.0
+offset_bottom = 22.0
+texture_under = SubResource("AtlasTexture_scgoj")
+texture_progress = SubResource("AtlasTexture_ec1d4")
+texture_progress_offset = Vector2(3, 0)
+tint_under = Color(1, 0.60247463, 0.35299444, 1)
+tint_progress = Color(0, 0.9569079, 0.34731165, 1)
+
+[node name="Slot19" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
+script = ExtResource("3_4bqs6")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot19"]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 18.0
+offset_bottom = 22.0
+texture_under = SubResource("AtlasTexture_scgoj")
+texture_progress = SubResource("AtlasTexture_ec1d4")
+texture_progress_offset = Vector2(3, 0)
+tint_under = Color(1, 0.60247463, 0.35299444, 1)
+tint_progress = Color(0, 0.9569079, 0.34731165, 1)
+
+[node name="Slot20" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
+script = ExtResource("3_4bqs6")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot20"]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 18.0
+offset_bottom = 22.0
+texture_under = SubResource("AtlasTexture_scgoj")
+texture_progress = SubResource("AtlasTexture_ec1d4")
+texture_progress_offset = Vector2(3, 0)
+tint_under = Color(1, 0.60247463, 0.35299444, 1)
+tint_progress = Color(0, 0.9569079, 0.34731165, 1)
+
+[node name="Slot21" type="Panel" parent="."]
+offset_left = 235.0
+offset_top = 166.0
+offset_right = 253.0
+offset_bottom = 184.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
+script = ExtResource("3_4bqs6")
+
+[node name="FoodLevelText" type="Label" parent="."]
+offset_left = 257.0
+offset_top = 164.0
+offset_right = 330.0
+offset_bottom = 187.0
+text = "Food Level"
+label_settings = SubResource("LabelSettings_2lkp4")
+
+[node name="FoodLevelAmountText" type="Label" parent="."]
+offset_left = 272.0
+offset_top = 174.0
+offset_right = 312.0
+offset_bottom = 197.0
+text = "0"
+label_settings = SubResource("LabelSettings_brlsg")
+
+[node name="Instructions" type="Label" parent="."]
+offset_left = 319.0
+offset_top = 160.0
+offset_right = 386.0
+offset_bottom = 195.0
+text = "LPM - collect
+PPM - kill"
+label_settings = SubResource("LabelSettings_6pm5v")

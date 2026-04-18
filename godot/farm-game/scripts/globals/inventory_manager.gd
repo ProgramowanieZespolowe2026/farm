@@ -11,9 +11,27 @@ const NUM_HOTBAR_SLOTS = 10
 var items: Array = []
 var hotbar: Array = []
 
+var active_coop_data_ref = null
+
 func _ready():
 	items.resize(NUM_INVENTORY_SLOTS)
 	hotbar.resize(NUM_HOTBAR_SLOTS)
+	
+	items[0] = {
+			"name": "Egg",
+			"value": 5}
+	items[1] = {
+			"name": "Chicken_Baby",
+			"value": 1}
+	items[2] = {
+			"name": "Chicken_Adult",
+			"value": 1}
+	items[3] = {
+			"name": "Carrot_Item",
+			"value": 10}
+	items[4] = {
+			"name": "Carrot_Item",
+			"value": 50}
 
 var active_item_slot = 0
 
@@ -62,20 +80,12 @@ func remove_item(slot: SlotClass, is_hotbar: bool = false):
 		hotbar[slot.slot_index] = null
 	else:
 		items[slot.slot_index] = null
-#	inventory_updated.emit()
 
 func add_item_to_empty_slot(item: ItemClass, slot: SlotClass, is_hotbar: bool = false):
 	if is_hotbar:
-		hotbar[slot.slot_index] = {
-		"name": item.item_name,
-		"value": item.item_value
-	}
+		hotbar[slot.slot_index] = {"name": item.item_name, "value": item.item_value}
 	else:
-		items[slot.slot_index] = {
-			"name": item.item_name,
-			"value": item.item_value
-		}
-#	inventory_updated.emit()
+		items[slot.slot_index] = {"name": item.item_name, "value": item.item_value}
 
 func add_item_value (slot: SlotClass, value_to_add: int, is_hotbar: bool = false):
 	if is_hotbar:
