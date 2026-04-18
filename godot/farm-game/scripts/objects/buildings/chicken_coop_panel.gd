@@ -167,7 +167,7 @@ func left_click_not_holding(slot: SlotClass):
 		BuildingDataManager.remove_item_from_coop(current_coop_pos, slot.slot_index)
 		
 	else:
-		print("zbieram jajko")
+		#print("zbieram jajko")
 		BuildingDataManager.reduce_item_to_collect(current_coop_pos, slot.slot_index)
 		BuildingDataManager.increase_collected_amount_item(current_coop_pos, slot.slot_index)
 		var egg_node = slot.get_node_or_null("Egg")
@@ -188,9 +188,6 @@ func open_coop(coop_pos: Vector2i):
 	
 	foodLevel = active_coop_data["food_level"]
 	food_level_amount_text.text = str(foodLevel)
-	
-	if chicken_coop_id != null:
-		chicken_coop_id.text = str(active_coop_data["id"])
 	
 	initialize_inventory()
 	setVisiblePanel(true)

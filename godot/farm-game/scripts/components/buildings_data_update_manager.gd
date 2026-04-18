@@ -18,8 +18,4 @@ func updateAnimalsGrowth():
 			if slot != null:
 				if BuildingDataManager.get_item_to_collect(grid_pos,slot_index) == null:
 					#Nie ma itemu do zebrania
-					
 					BuildingDataManager.increase_progres_Points(grid_pos,slot_index)
-					#print("slot ",slot_index, " ",BuildingDataManager.get_slot_progres_points(grid_pos,slot_index))
-				#else:
-					#print("jajo ", slot_index)

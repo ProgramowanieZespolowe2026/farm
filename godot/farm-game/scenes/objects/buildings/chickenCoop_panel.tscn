@@ -56,9 +56,9 @@ offset_bottom = 192.0
 texture = SubResource("AtlasTexture_17uwj")
 
 [node name="ChickenCoopText" type="Label" parent="."]
-offset_left = 250.0
+offset_left = 260.0
 offset_top = 43.0
-offset_right = 356.0
+offset_right = 366.0
 offset_bottom = 66.0
 text = "Chicken Coop"
 label_settings = SubResource("LabelSettings_4lk4h")
@@ -70,7 +70,6 @@ offset_left = 343.0
 offset_top = 48.0
 offset_right = 358.0
 offset_bottom = 63.0
-text = "1"
 label_settings = SubResource("LabelSettings_amovd")
 
 [node name="GridContainer" type="GridContainer" parent="."]
