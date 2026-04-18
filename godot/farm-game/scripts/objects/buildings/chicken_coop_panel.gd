@@ -3,6 +3,7 @@ extends Node2D
 const SlotClass = preload("res://scripts/ui/slot.gd")
 @onready var chickenCoopItems: GridContainer = $GridContainer
 @onready var food_slot: Panel = $Slot21
+signal chicken_coop_panel_open(is_open: bool)
 
 var current_coop_pos: Vector2i
 var active_coop_data = {} 
@@ -33,15 +34,17 @@ var animals = [
   "Sheep_Adult",
   "Sheep_Adult_HairCut"
 ]
-const requiredPointsToFirstUpgrade:int = 30
-const progresPointsToDie:int = 1009
+const requiredPointsToFirstUpgrade:int = 100
+const remaningCycleAnimal = 10 #po tylu zbiorach zwierze umiera
 
 @onready var food_level_amount_text: Label = $FoodLevelAmountText
 @onready var chicken_coop_panel: Node2D = $"."
 @onready var chicken_coop_id: Label = $ChickenCoopId
 
 func _ready():
+	chicken_coop_panel_open.emit(false)
 	TestGameTimeCycleManager.time_tick.connect(_on_time_tick)
+	
 	var slots = chickenCoopItems.get_children()
 	for i in range(slots.size()):
 		var slot = slots[i]
@@ -86,7 +89,13 @@ func slot_gui_input(event: InputEvent, slot: SlotClass):
 						left_click_same_item(slot)
 			elif slot.item:
 				left_click_not_holding(slot)
-
+		elif event.button_index == MOUSE_BUTTON_RIGHT && event.pressed:
+			if slot.item.item_name == "Chicken_Adult":
+				slot.remove_item()
+				BuildingDataManager.remove_item_from_coop(current_coop_pos, slot.slot_index)
+				InventoryManager.add_item("Feather", 2)
+				InventoryManager.add_item("Chicken_Meat", 1)
+			
 func _input(_event):
 	if find_parent("GameScreen").holding_item:
 		find_parent("GameScreen").holding_item.global_position = get_global_mouse_position()
@@ -146,16 +155,21 @@ func left_click_not_holding(slot: SlotClass):
 	
 	var item_to_collect = BuildingDataManager.get_item_to_collect(current_coop_pos, slot.slot_index)
 	if item_to_collect == null:
-		find_parent("GameScreen").holding_item = slot.item
-		slot.pickFromSlot()
-		
+		if slot.item.item_name == "Chicken_Died":
+			slot.remove_item()
+		else:
+			find_parent("GameScreen").holding_item = slot.item
+			slot.pickFromSlot()
+			
+			if find_parent("GameScreen").holding_item != null:
+				find_parent("GameScreen").holding_item.global_position = get_global_mouse_position()
+				
 		BuildingDataManager.remove_item_from_coop(current_coop_pos, slot.slot_index)
 		
-		if find_parent("GameScreen").holding_item != null:
-			find_parent("GameScreen").holding_item.global_position = get_global_mouse_position()
 	else:
 		print("zbieram jajko")
-		BuildingDataManager.increase_item_to_collect(current_coop_pos, slot.slot_index)
+		BuildingDataManager.reduce_item_to_collect(current_coop_pos, slot.slot_index)
+		BuildingDataManager.increase_collected_amount_item(current_coop_pos, slot.slot_index)
 		var egg_node = slot.get_node_or_null("Egg")
 		if egg_node:
 			egg_node.queue_free()
@@ -166,6 +180,7 @@ func setVisiblePanel(is_open = null):
 		chicken_coop_panel.visible = !chicken_coop_panel.visible
 	else:
 		chicken_coop_panel.visible = is_open
+	chicken_coop_panel_open.emit(chicken_coop_panel.visible)
 
 func open_coop(coop_pos: Vector2i):
 	current_coop_pos = coop_pos
@@ -192,20 +207,19 @@ func close_coop():
 			slot.item = null
 
 func add_food(item_value: int):
-	foodLevel += item_value
-	food_level_amount_text.text = str(foodLevel)
-	if !active_coop_data.is_empty():
-		active_coop_data["food_level"] = foodLevel
+	BuildingDataManager.increase_food_level(current_coop_pos,item_value*10)
 
 func updateUI():
+	food_level_amount_text.text = str(BuildingDataManager.get_food_level(current_coop_pos))
+	
 	var slots = chickenCoopItems.get_children()
 	for i in range(slots.size()):
-		if slots[i].item != null:
-			
-			var slot = slots[i];
+		var slot = slots[i];
+		if slot.item != null:
+		
 			var itemName = slots[i].item.item_name
 			
-			#print("do zebrania ",BuildingDataManager.get_item_to_collect(current_coop_pos, slot.slot_index))
+			#sprawdza czy jest do zbioru
 			if BuildingDataManager.get_item_to_collect(current_coop_pos, slot.slot_index) != null:
 				if not slot.has_node("Egg"):
 					var egg_icon = TextureRect.new()
@@ -214,13 +228,13 @@ func updateUI():
 					slot.add_child(egg_icon)
 					egg_icon.position = Vector2(slot.size.x - 10, slot.size.y - 25)
 			
-			if itemName == "Chicken_Adult":
-				slot.update_progress(BuildingDataManager.get_slot_progres_points(current_coop_pos, slot.slot_index) % requiredPointsToFirstUpgrade)
-			else:
-				slot.update_progress(BuildingDataManager.get_slot_progres_points(current_coop_pos, slot.slot_index))
 			
+			slot.update_progress(BuildingDataManager.get_slot_progres_points(current_coop_pos, slot.slot_index))
 			var currentPoints = BuildingDataManager.get_slot_progres_points(current_coop_pos,slot.slot_index)
 			
+			if itemName == "Chicken_Died":
+					slot.update_progress(0)	
+					
 			if currentPoints > requiredPointsToFirstUpgrade:
 				if itemName == "Egg":
 					BuildingDataManager.add_item_to_coop(current_coop_pos, slot.slot_index, "Chicken_Baby", 1)
@@ -231,15 +245,18 @@ func updateUI():
 					slot.initialize_item("Chicken_Adult", 1)
 					#print("dorosle")
 					slot.update_progress(0)	
-				if itemName == "Chicken_Adult" and currentPoints % requiredPointsToFirstUpgrade == 0:
-					print("jajo do zbioru")
+				if itemName == "Chicken_Adult":
+					#print("jajo do zbioru")
 					BuildingDataManager.add_item_to_collect(current_coop_pos,slot.slot_index,"Egg",1)
 					slot.update_progress(0)	
-				if currentPoints > progresPointsToDie:
+				
+				if BuildingDataManager.get_collected_amount_item(current_coop_pos,slot.slot_index) >= remaningCycleAnimal:
+					#zwierze umiera
 					BuildingDataManager.add_item_to_coop(current_coop_pos, slot.slot_index, "Chicken_Died", 1)
 					slot.initialize_item("Chicken_Died", 1)
 					slot.update_progress(0)	
-				
+		else:
+			slot.update_progress(0)	
 			
 			
 			

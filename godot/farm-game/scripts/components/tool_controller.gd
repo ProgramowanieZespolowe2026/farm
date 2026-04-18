@@ -32,10 +32,11 @@ var chicken_coop_panel_visible = false;
 
 func _ready():
 	var game_screen = get_tree().get_first_node_in_group("GameScreen")
+	var chicken_coop = get_tree().get_first_node_in_group("ChickenCoopPanel")
 	
 	if game_screen:
 		game_screen.inventory_open.connect(getInventoryVisible)
-		#game_screen.chicken_coop_panel_open.connect(getChickenCoopPanelVisible)
+		chicken_coop.chicken_coop_panel_open.connect(getChickenCoopPanelVisible)
 
 func getInventoryVisible(is_open: bool):
 	inventory_visible = is_open

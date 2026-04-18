@@ -24,29 +24,60 @@ func remove_item_from_coop(grid_pos: Vector2i, slot_index: int):
 
 func add_item_to_coop(grid_pos: Vector2i, slot_index: int, item_name: String, item_value: int):
 	if buildings_data.has(grid_pos):
-		buildings_data[grid_pos]["items"][slot_index] = {"name": item_name, "value": item_value, "progresPoints": 0}
+		buildings_data[grid_pos]["items"][slot_index] = {"name": item_name, "value": item_value, "progresPoints": 0,"collectedAmount": 0}
 		buildings_data[grid_pos]["to_collect"][slot_index] = null
 		
 func add_value_to_coop_item(grid_pos: Vector2i, slot_index: int, value: int):
 	if buildings_data.has(grid_pos):
 		buildings_data[grid_pos]["items"][slot_index]["value"] += value
 
-func update_progres_Points(grid_pos: Vector2i, slot_index: int):
-	if buildings_data.has(grid_pos):
-		buildings_data[grid_pos]["items"][slot_index].progresPoints = buildings_data[grid_pos]["items"][slot_index].progresPoints+1;
 
+
+
+func increase_progres_Points(grid_pos: Vector2i, slot_index: int):
+	if buildings_data.has(grid_pos):
+		if buildings_data[grid_pos]["food_level"] > 0:
+			buildings_data[grid_pos]["items"][slot_index].progresPoints = buildings_data[grid_pos]["items"][slot_index].progresPoints+1;
+			buildings_data[grid_pos]["food_level"] = snapped(buildings_data[grid_pos]["food_level"]-0.1, 0.01)
+			
 func get_slot_progres_points(grid_pos: Vector2i, slot_index: int):
 	if buildings_data.has(grid_pos) and buildings_data[grid_pos]["items"][slot_index] != null:
 		return buildings_data[grid_pos]["items"][slot_index].progresPoints
 
+
+
+func increase_food_level(grid_pos: Vector2i, added_food: int):
+	if buildings_data.has(grid_pos):
+		buildings_data[grid_pos]["food_level"] = buildings_data[grid_pos]["food_level"] + added_food
+func reduce_food_level(grid_pos: Vector2i):
+	if buildings_data.has(grid_pos):
+		buildings_data[grid_pos]["food_level"] = buildings_data[grid_pos]["food_level"] + -1
+func get_food_level(grid_pos: Vector2i):
+	if buildings_data.has(grid_pos):
+		return buildings_data[grid_pos]["food_level"]	
+		
+		
+
 func add_item_to_collect(grid_pos: Vector2i, slot_index: int, item_name: String, item_value: int):
 	if buildings_data.has(grid_pos):
 		buildings_data[grid_pos]["to_collect"][slot_index] = ({"name": item_name, "value": item_value})
+		buildings_data[grid_pos]["items"][slot_index].progresPoints = 0;
 		
-func increase_item_to_collect(grid_pos: Vector2i, slot_index: int):
+func reduce_item_to_collect(grid_pos: Vector2i, slot_index: int):
 	if buildings_data.has(grid_pos):
 		buildings_data[grid_pos]["to_collect"][slot_index] = null
 		
 func get_item_to_collect(grid_pos: Vector2i, slot_index: int):
 	if buildings_data.has(grid_pos):
 		return buildings_data[grid_pos]["to_collect"][slot_index]
+
+
+
+
+func increase_collected_amount_item(grid_pos: Vector2i, slot_index: int):
+	if buildings_data.has(grid_pos):
+		buildings_data[grid_pos]["items"][slot_index].collectedAmount = buildings_data[grid_pos]["items"][slot_index].collectedAmount +1
+		
+func get_collected_amount_item(grid_pos: Vector2i, slot_index: int):
+	if buildings_data.has(grid_pos):
+		return buildings_data[grid_pos]["items"][slot_index].collectedAmount

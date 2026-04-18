@@ -88,10 +88,10 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_4bqs6")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot1"]
-z_index = 10
 layout_mode = 0
+offset_top = 4.0
 offset_right = 18.0
-offset_bottom = 18.0
+offset_bottom = 22.0
 texture_under = SubResource("AtlasTexture_scgoj")
 texture_progress = SubResource("AtlasTexture_ec1d4")
 texture_progress_offset = Vector2(3, 0)
@@ -105,10 +105,10 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_4bqs6")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot2"]
-z_index = 10
 layout_mode = 0
+offset_top = 4.0
 offset_right = 18.0
-offset_bottom = 18.0
+offset_bottom = 22.0
 texture_under = SubResource("AtlasTexture_scgoj")
 texture_progress = SubResource("AtlasTexture_ec1d4")
 texture_progress_offset = Vector2(3, 0)
@@ -122,10 +122,10 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_4bqs6")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot3"]
-z_index = 10
 layout_mode = 0
+offset_top = 4.0
 offset_right = 18.0
-offset_bottom = 18.0
+offset_bottom = 22.0
 texture_under = SubResource("AtlasTexture_scgoj")
 texture_progress = SubResource("AtlasTexture_ec1d4")
 texture_progress_offset = Vector2(3, 0)
@@ -139,10 +139,10 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_4bqs6")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot4"]
-z_index = 10
 layout_mode = 0
+offset_top = 4.0
 offset_right = 18.0
-offset_bottom = 18.0
+offset_bottom = 22.0
 texture_under = SubResource("AtlasTexture_scgoj")
 texture_progress = SubResource("AtlasTexture_ec1d4")
 texture_progress_offset = Vector2(3, 0)
@@ -156,10 +156,10 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_4bqs6")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot5"]
-z_index = 10
 layout_mode = 0
+offset_top = 4.0
 offset_right = 18.0
-offset_bottom = 18.0
+offset_bottom = 22.0
 texture_under = SubResource("AtlasTexture_scgoj")
 texture_progress = SubResource("AtlasTexture_ec1d4")
 texture_progress_offset = Vector2(3, 0)
@@ -173,10 +173,10 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_4bqs6")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot6"]
-z_index = 10
 layout_mode = 0
+offset_top = 4.0
 offset_right = 18.0
-offset_bottom = 18.0
+offset_bottom = 22.0
 texture_under = SubResource("AtlasTexture_scgoj")
 texture_progress = SubResource("AtlasTexture_ec1d4")
 texture_progress_offset = Vector2(3, 0)
@@ -190,10 +190,10 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_4bqs6")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot7"]
-z_index = 10
 layout_mode = 0
+offset_top = 4.0
 offset_right = 18.0
-offset_bottom = 18.0
+offset_bottom = 22.0
 texture_under = SubResource("AtlasTexture_scgoj")
 texture_progress = SubResource("AtlasTexture_ec1d4")
 texture_progress_offset = Vector2(3, 0)
@@ -207,10 +207,10 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_4bqs6")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot8"]
-z_index = 10
 layout_mode = 0
+offset_top = 4.0
 offset_right = 18.0
-offset_bottom = 18.0
+offset_bottom = 22.0
 texture_under = SubResource("AtlasTexture_scgoj")
 texture_progress = SubResource("AtlasTexture_ec1d4")
 texture_progress_offset = Vector2(3, 0)
@@ -224,10 +224,10 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_4bqs6")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot9"]
-z_index = 10
 layout_mode = 0
+offset_top = 4.0
 offset_right = 18.0
-offset_bottom = 18.0
+offset_bottom = 22.0
 texture_under = SubResource("AtlasTexture_scgoj")
 texture_progress = SubResource("AtlasTexture_ec1d4")
 texture_progress_offset = Vector2(3, 0)
@@ -241,10 +241,10 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_4bqs6")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot10"]
-z_index = 10
 layout_mode = 0
+offset_top = 4.0
 offset_right = 18.0
-offset_bottom = 18.0
+offset_bottom = 22.0
 texture_under = SubResource("AtlasTexture_scgoj")
 texture_progress = SubResource("AtlasTexture_ec1d4")
 texture_progress_offset = Vector2(3, 0)
@@ -258,10 +258,10 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_4bqs6")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot11"]
-z_index = 10
 layout_mode = 0
+offset_top = 4.0
 offset_right = 18.0
-offset_bottom = 18.0
+offset_bottom = 22.0
 texture_under = SubResource("AtlasTexture_scgoj")
 texture_progress = SubResource("AtlasTexture_ec1d4")
 texture_progress_offset = Vector2(3, 0)
@@ -275,10 +275,10 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_4bqs6")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot12"]
-z_index = 10
 layout_mode = 0
+offset_top = 4.0
 offset_right = 18.0
-offset_bottom = 18.0
+offset_bottom = 22.0
 texture_under = SubResource("AtlasTexture_scgoj")
 texture_progress = SubResource("AtlasTexture_ec1d4")
 texture_progress_offset = Vector2(3, 0)
@@ -292,10 +292,10 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_4bqs6")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot13"]
-z_index = 10
 layout_mode = 0
+offset_top = 4.0
 offset_right = 18.0
-offset_bottom = 18.0
+offset_bottom = 22.0
 texture_under = SubResource("AtlasTexture_scgoj")
 texture_progress = SubResource("AtlasTexture_ec1d4")
 texture_progress_offset = Vector2(3, 0)
@@ -309,10 +309,10 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_4bqs6")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot14"]
-z_index = 10
 layout_mode = 0
+offset_top = 4.0
 offset_right = 18.0
-offset_bottom = 18.0
+offset_bottom = 22.0
 texture_under = SubResource("AtlasTexture_scgoj")
 texture_progress = SubResource("AtlasTexture_ec1d4")
 texture_progress_offset = Vector2(3, 0)
@@ -326,10 +326,10 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_4bqs6")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot15"]
-z_index = 10
 layout_mode = 0
+offset_top = 4.0
 offset_right = 18.0
-offset_bottom = 18.0
+offset_bottom = 22.0
 texture_under = SubResource("AtlasTexture_scgoj")
 texture_progress = SubResource("AtlasTexture_ec1d4")
 texture_progress_offset = Vector2(3, 0)
@@ -343,10 +343,10 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_4bqs6")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot16"]
-z_index = 10
 layout_mode = 0
+offset_top = 4.0
 offset_right = 18.0
-offset_bottom = 18.0
+offset_bottom = 22.0
 texture_under = SubResource("AtlasTexture_scgoj")
 texture_progress = SubResource("AtlasTexture_ec1d4")
 texture_progress_offset = Vector2(3, 0)
@@ -360,10 +360,10 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_4bqs6")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot17"]
-z_index = 10
 layout_mode = 0
+offset_top = 4.0
 offset_right = 18.0
-offset_bottom = 18.0
+offset_bottom = 22.0
 texture_under = SubResource("AtlasTexture_scgoj")
 texture_progress = SubResource("AtlasTexture_ec1d4")
 texture_progress_offset = Vector2(3, 0)
@@ -377,10 +377,10 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_4bqs6")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot18"]
-z_index = 10
 layout_mode = 0
+offset_top = 4.0
 offset_right = 18.0
-offset_bottom = 18.0
+offset_bottom = 22.0
 texture_under = SubResource("AtlasTexture_scgoj")
 texture_progress = SubResource("AtlasTexture_ec1d4")
 texture_progress_offset = Vector2(3, 0)
@@ -394,10 +394,10 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_4bqs6")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot19"]
-z_index = 10
 layout_mode = 0
+offset_top = 4.0
 offset_right = 18.0
-offset_bottom = 18.0
+offset_bottom = 22.0
 texture_under = SubResource("AtlasTexture_scgoj")
 texture_progress = SubResource("AtlasTexture_ec1d4")
 texture_progress_offset = Vector2(3, 0)
@@ -411,10 +411,10 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_4bqs6")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="GridContainer/Slot20"]
-z_index = 10
 layout_mode = 0
+offset_top = 4.0
 offset_right = 18.0
-offset_bottom = 18.0
+offset_bottom = 22.0
 texture_under = SubResource("AtlasTexture_scgoj")
 texture_progress = SubResource("AtlasTexture_ec1d4")
 texture_progress_offset = Vector2(3, 0)

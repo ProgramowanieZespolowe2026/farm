@@ -26,6 +26,12 @@ func _ready():
 	items[2] = {
 			"name": "Chicken_Adult",
 			"value": 1}
+	items[3] = {
+			"name": "Carrot_Item",
+			"value": 10}
+	items[4] = {
+			"name": "Carrot_Item",
+			"value": 50}
 
 var active_item_slot = 0
 
