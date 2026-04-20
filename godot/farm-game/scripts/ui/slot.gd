@@ -21,6 +21,7 @@ enum SlotType {
 }
 
 func _ready():
+	InventoryManager.inventory_updated.connect(refresh_data)
 	default_style = StyleBoxTexture.new()
 	selected_style = StyleBoxTexture.new()
 	default_style.texture = default_tex
@@ -81,3 +82,14 @@ func remove_item():
 		update_progress(0)
 		if progress_bar:
 			progress_bar.visible = false
+
+func refresh_data():
+	var item = null
+	if slot_type == SlotType.HOTBAR:
+		item = InventoryManager.hotbar[slot_index]
+	elif slot_type == SlotType.INVENTORY:
+		item = InventoryManager.items[slot_index]
+	if item != null:
+		initialize_item(item["name"], item["value"])
+	else:
+		remove_item()

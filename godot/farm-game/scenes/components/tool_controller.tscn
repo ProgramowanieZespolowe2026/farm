@@ -14,7 +14,7 @@ atlas = ExtResource("3_8tjh4")
 [sub_resource type="AtlasTexture" id="AtlasTexture_ubsmi"]
 atlas = ExtResource("3_qmw5a")
 
-[node name="ToolController" type="Node2D"]
+[node name="ToolController" type="Node2D" groups=["tool_controller"]]
 script = ExtResource("1_qb26u")
 
 [node name="ChickenCoopHighlight" type="Sprite2D" parent="."]

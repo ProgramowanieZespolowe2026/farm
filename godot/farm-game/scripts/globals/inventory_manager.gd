@@ -28,7 +28,7 @@ func _ready():
 			"value": 1}
 	items[3] = {
 			"name": "Carrot_Item",
-			"value": 10}
+			"value": 1}
 	items[4] = {
 			"name": "Carrot_Item",
 			"value": 50}
@@ -100,6 +100,14 @@ func remove_item(slot: SlotClass, is_hotbar: bool = false):
 	else:
 		items[slot.slot_index] = null
 
+func decrease_item_value():
+	hotbar[active_item_slot]["value"] -= 1
+	if hotbar[active_item_slot]["value"] == 0:
+			hotbar[active_item_slot] = null
+			check_slot_for_tools()
+
+	inventory_updated.emit()
+
 func add_item_to_empty_slot(item: ItemClass, slot: SlotClass, is_hotbar: bool = false):
 	if is_hotbar:
 		hotbar[slot.slot_index] = {"name": item.item_name, "value": item.item_value}
@@ -138,6 +146,5 @@ func check_slot_for_tools():
 				player.current_tool = DataTypes.Tools[item_name]
 			else:
 				player.current_tool = DataTypes.Tools.None
-			print(item_name)
 		else:
 				player.current_tool = DataTypes.Tools.None

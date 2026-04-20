@@ -25,6 +25,7 @@ const inventory = preload("uid://y3lcfv2dd6wt")
 @onready var player = get_parent() 
 @onready var player_sfx_controller: PlayerSfxController = $"../PlayerSfxController"
 
+
 var map_tiles = {}
 var current_target_grid_pos = Vector2.ZERO
 
@@ -187,7 +188,9 @@ func use_hoe():
 			player.get_parent().add_child(new_dirt) 
 			map_tiles[current_target_grid_pos]["dirt"] = new_dirt
 		
-	player_sfx_controller.play_hoe_sound()
+		player_sfx_controller.play_hoe_sound()
+	else:
+		player_sfx_controller.play_error()
 		
 func use_shovel():
 	if map_tiles.has(current_target_grid_pos):
@@ -282,6 +285,7 @@ func plant(scene):
 		if is_instance_valid(target_object) and target_object.is_in_group("dirt"):
 			
 			if tile["crop"] == null:
+				InventoryManager.decrease_item_value()
 				var new_plant = scene.instantiate()
 				new_plant.global_position = highlight.global_position 
 				
