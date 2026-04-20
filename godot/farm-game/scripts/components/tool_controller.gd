@@ -16,8 +16,6 @@ const apple_scene = preload("uid://cr71x7drir8lg")
 const chicken_coop_scene = preload("uid://d23cpav84ureu")
 const barn_scene = preload("uid://3jfpkgoxyfij")
 const inventory = preload("uid://y3lcfv2dd6wt")
-#const chicken_coop_panel = preload("uid://buh3v7l8w15br")
-
 
 
 @onready var highlight: Sprite2D = $Highlight
@@ -150,9 +148,9 @@ func _input(event):
 			plant(corn_scene)
 		elif current_tool == DataTypes.Tools.Potato_Item:
 			plant(potato_scene)
-		elif current_tool == DataTypes.Tools.Carrot_Seed:
+		elif current_tool == DataTypes.Tools.Carrot_Item:
 			plant(carrot_scene)
-		elif current_tool == DataTypes.Tools.Beet_Seed:
+		elif current_tool == DataTypes.Tools.Beet_Item:
 			plant(beet_scene)
 		elif current_tool == DataTypes.Tools.Peach_Plant:
 			plant_tree(peach_scene)
