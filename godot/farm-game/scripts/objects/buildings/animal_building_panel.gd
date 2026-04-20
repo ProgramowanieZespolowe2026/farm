@@ -1,11 +1,11 @@
 extends Node2D
 
 const SlotClass = preload("res://scripts/ui/slot.gd")
-@onready var chickenCoopItems: GridContainer = $GridContainer
+@onready var animalBuildingItems: GridContainer = $GridContainer
 @onready var food_slot: Panel = $Slot21
-signal chicken_coop_panel_open(is_open: bool)
+signal animal_building_panel_open(is_open: bool)
 
-var current_coop_pos: Vector2i
+var current_animal_building_pos: Vector2i
 var active_coop_data = {} 
 var foodLevel = 0
 var availabilityFood = [
@@ -22,10 +22,12 @@ var availabilityFood = [
   "Wheat_Item",
   "Wheat_Seed"
 ]
-var animals = [
+var chickenCoopAnimals = [
   "Egg",
   "Chicken_Baby",
   "Chicken_Adult",
+]
+var barnAnimals = [
   "Cow_Baby",
   "Cow_Adult",
   "Pig_Baby",
@@ -39,13 +41,16 @@ const remaningCycleAnimal = 10 #po tylu zbiorach zwierze umiera
 
 @onready var food_level_amount_text: Label = $FoodLevelAmountText
 @onready var chicken_coop_panel: Node2D = $"."
-@onready var chicken_coop_id: Label = $ChickenCoopId
+@onready var building_name_text: Label = $BuildingNameText
+
+var buildingName = "";
+
 
 func _ready():
-	chicken_coop_panel_open.emit(false)
+	animal_building_panel_open.emit(false)
 	TestGameTimeCycleManager.time_tick.connect(_on_time_tick)
 	
-	var slots = chickenCoopItems.get_children()
+	var slots = animalBuildingItems.get_children()
 	for i in range(slots.size()):
 		var slot = slots[i]
 		slot.gui_input.connect(slot_gui_input.bind(slot))
@@ -60,7 +65,7 @@ func _on_time_tick(day: int, hour: int, minute: int) -> void:
 	updateUI()
 	
 func initialize_inventory():
-	var slots = chickenCoopItems.get_children()
+	var slots = animalBuildingItems.get_children()
 	
 	for slot in slots:
 		if slot.item != null:
@@ -90,11 +95,32 @@ func slot_gui_input(event: InputEvent, slot: SlotClass):
 			elif slot.item:
 				left_click_not_holding(slot)
 		elif event.button_index == MOUSE_BUTTON_RIGHT && event.pressed:
-			if slot.item.item_name == "Chicken_Adult":
+			var animalName = slot.item.item_name
+			
+			if animalName == "Chicken_Adult":
+				collect_product(slot)
 				slot.remove_item()
-				BuildingDataManager.remove_item_from_coop(current_coop_pos, slot.slot_index)
-				InventoryManager.add_item("Feather", 2)
+				BuildingDataManager.remove_item(current_animal_building_pos, slot.slot_index)
+				InventoryManager.add_item("Feather", 3)
 				InventoryManager.add_item("Chicken_Meat", 1)
+					
+			if animalName == "Cow_Adult":
+				collect_product(slot)
+				slot.remove_item()
+				BuildingDataManager.remove_item(current_animal_building_pos, slot.slot_index)
+				InventoryManager.add_item("Cow_Meat", 3)
+					
+			if animalName == "Sheep_Adult" or animalName == "Sheep_Adult_HairCut":
+				collect_product(slot)
+				slot.remove_item()
+				BuildingDataManager.remove_item(current_animal_building_pos, slot.slot_index)
+				InventoryManager.add_item("Sheep_Meat", 3)
+				
+					
+			if animalName == "Pig_Adult":
+				slot.remove_item()
+				BuildingDataManager.remove_item(current_animal_building_pos, slot.slot_index)
+				InventoryManager.add_item("Pig_Meat", 3)
 			
 func _input(_event):
 	if find_parent("GameScreen").holding_item:
@@ -110,29 +136,32 @@ func left_click_empty_slot(slot: SlotClass):
 			holding_item.queue_free()
 			find_parent("GameScreen").holding_item = null
 		return
-	if holding_item.item_name in animals:
+	if (buildingName == "ChickenCoop" and holding_item.item_name in chickenCoopAnimals) or (buildingName == "Barn" and holding_item.item_name in barnAnimals):
 		if holding_item.item_value > 1:
-			BuildingDataManager.add_item_to_coop(current_coop_pos, slot.slot_index, holding_item.item_name, 1)
+			BuildingDataManager.add_item(current_animal_building_pos, slot.slot_index, holding_item.item_name, 1)
 			
 			slot.initialize_item(holding_item.item_name, 1)
 			holding_item.decrease_item_value(1)
 			
 		else:
 			
-			BuildingDataManager.add_item_to_coop(current_coop_pos, slot.slot_index, holding_item.item_name, holding_item.item_value)
+			BuildingDataManager.add_item(current_animal_building_pos, slot.slot_index, holding_item.item_name, holding_item.item_value)
 			slot.putIntoSlot(holding_item)
 			find_parent("GameScreen").holding_item = null
 
 func left_click_different_item(event: InputEvent, slot: SlotClass):
+	collect_product(slot)
+	
 	var holding_item = find_parent("GameScreen").holding_item
+	if holding_item.item_value == 1:
 	
-	BuildingDataManager.add_item_to_coop(current_coop_pos, slot.slot_index, holding_item.item_name, holding_item.item_value)
-	
-	var temp_item = slot.item
-	slot.pickFromSlot()
-	temp_item.global_position = event.global_position
-	slot.putIntoSlot(holding_item)
-	find_parent("GameScreen").holding_item = temp_item
+		var temp_item = slot.item
+		slot.pickFromSlot()
+		temp_item.global_position = event.global_position
+		
+		BuildingDataManager.add_item(current_animal_building_pos, slot.slot_index, holding_item.item_name, holding_item.item_value)
+		slot.putIntoSlot(holding_item)
+		find_parent("GameScreen").holding_item = temp_item
 
 func left_click_same_item(slot: SlotClass):
 	#print("teraz")
@@ -153,9 +182,11 @@ func left_click_same_item(slot: SlotClass):
 
 func left_click_not_holding(slot: SlotClass):
 	
-	var item_to_collect = BuildingDataManager.get_item_to_collect(current_coop_pos, slot.slot_index)
+	var item_to_collect = BuildingDataManager.get_item_to_collect(current_animal_building_pos, slot.slot_index)
 	if item_to_collect == null:
-		if slot.item.item_name == "Chicken_Died":
+		var itemName = slot.item.item_name
+		
+		if itemName == "Chicken_Died" or itemName == "Cow_Died" or itemName == "Pig_Died" or itemName == "Sheep_Died":
 			slot.remove_item()
 		else:
 			find_parent("GameScreen").holding_item = slot.item
@@ -164,27 +195,27 @@ func left_click_not_holding(slot: SlotClass):
 			if find_parent("GameScreen").holding_item != null:
 				find_parent("GameScreen").holding_item.global_position = get_global_mouse_position()
 				
-		BuildingDataManager.remove_item_from_coop(current_coop_pos, slot.slot_index)
+		BuildingDataManager.remove_item(current_animal_building_pos, slot.slot_index)
 		
 	else:
-		#print("zbieram jajko")
-		BuildingDataManager.reduce_item_to_collect(current_coop_pos, slot.slot_index)
-		BuildingDataManager.increase_collected_amount_item(current_coop_pos, slot.slot_index)
-		var egg_node = slot.get_node_or_null("Egg")
-		if egg_node:
-			egg_node.queue_free()
-		InventoryManager.add_item(item_to_collect.name, item_to_collect.value)
+		collect_product(slot)
 
 func setVisiblePanel(is_open = null):
 	if is_open == null:
 		chicken_coop_panel.visible = !chicken_coop_panel.visible
 	else:
 		chicken_coop_panel.visible = is_open
-	chicken_coop_panel_open.emit(chicken_coop_panel.visible)
+	animal_building_panel_open.emit(chicken_coop_panel.visible)
 
-func open_coop(coop_pos: Vector2i):
-	current_coop_pos = coop_pos
+func open_panel(coop_pos: Vector2i):
+	current_animal_building_pos = coop_pos
 	active_coop_data = BuildingDataManager.buildings_data[coop_pos]
+	
+	buildingName = BuildingDataManager.get_building_name(current_animal_building_pos)
+	if(buildingName == "ChickenCoop"):
+		building_name_text.text = "Chicken Coop"
+	else:
+		building_name_text.text = buildingName
 	
 	foodLevel = active_coop_data["food_level"]
 	food_level_amount_text.text = str(foodLevel)
@@ -192,74 +223,135 @@ func open_coop(coop_pos: Vector2i):
 	initialize_inventory()
 	setVisiblePanel(true)
 
-func close_coop():
+func close_panel():
 	setVisiblePanel(false)
-	current_coop_pos = Vector2i.ZERO
+	current_animal_building_pos = Vector2i.ZERO
 	active_coop_data = {}
 	
-	var slots = chickenCoopItems.get_children()
+	var slots = animalBuildingItems.get_children()
 	for slot in slots:
 		if slot.item != null:
 			slot.item.queue_free()
 			slot.item = null
 
 func add_food(item_value: int):
-	BuildingDataManager.increase_food_level(current_coop_pos,item_value*10)
+	BuildingDataManager.increase_food_level(current_animal_building_pos,item_value*10)
 
 func updateUI():
-	food_level_amount_text.text = str(BuildingDataManager.get_food_level(current_coop_pos))
+	food_level_amount_text.text = str(BuildingDataManager.get_food_level(current_animal_building_pos))
 	
-	var slots = chickenCoopItems.get_children()
+	var slots = animalBuildingItems.get_children()
 	for i in range(slots.size()):
 		var slot = slots[i];
 		if slot.item != null:
-		
-			var itemName = slots[i].item.item_name
 			
-			#sprawdza czy jest do zbioru
-			if BuildingDataManager.get_item_to_collect(current_coop_pos, slot.slot_index) != null:
-				if not slot.has_node("Egg"):
-					var egg_icon = TextureRect.new()
-					egg_icon.texture = preload("uid://cs1gdd8apg456")
-					egg_icon.name = "Egg"
-					slot.add_child(egg_icon)
-					egg_icon.position = Vector2(slot.size.x - 10, slot.size.y - 25)
+			check_item_to_collect(slot)
 			
+			slot.update_progress(BuildingDataManager.get_slot_progres_points(current_animal_building_pos, slot.slot_index))
 			
-			slot.update_progress(BuildingDataManager.get_slot_progres_points(current_coop_pos, slot.slot_index))
-			var currentPoints = BuildingDataManager.get_slot_progres_points(current_coop_pos,slot.slot_index)
+			update_animal_state(slot)
 			
-			if itemName == "Chicken_Died":
-					slot.update_progress(0)	
-					
-			if currentPoints > requiredPointsToFirstUpgrade:
-				if itemName == "Egg":
-					BuildingDataManager.add_item_to_coop(current_coop_pos, slot.slot_index, "Chicken_Baby", 1)
-					slot.initialize_item("Chicken_Baby", 1)
-					slot.update_progress(0)	
-				if itemName == "Chicken_Baby":
-					BuildingDataManager.add_item_to_coop(current_coop_pos, slot.slot_index, "Chicken_Adult", 1)
-					slot.initialize_item("Chicken_Adult", 1)
-					#print("dorosle")
-					slot.update_progress(0)	
-				if itemName == "Chicken_Adult":
-					#print("jajo do zbioru")
-					BuildingDataManager.add_item_to_collect(current_coop_pos,slot.slot_index,"Egg",1)
-					slot.update_progress(0)	
-				
-				if BuildingDataManager.get_collected_amount_item(current_coop_pos,slot.slot_index) >= remaningCycleAnimal:
-					#zwierze umiera
-					BuildingDataManager.add_item_to_coop(current_coop_pos, slot.slot_index, "Chicken_Died", 1)
-					slot.initialize_item("Chicken_Died", 1)
-					slot.update_progress(0)	
 		else:
 			slot.update_progress(0)	
 			
+func check_item_to_collect(slot: SlotClass):
+	var item = BuildingDataManager.get_item_to_collect(current_animal_building_pos, slot.slot_index)
+	if item != null:
+		var icon = TextureRect.new()
+		
+		if item.name == "Egg" and not slot.has_node("Egg"):
+			icon.texture = preload("uid://cs1gdd8apg456")
+			icon.name = "Egg"
 			
+		if item.name == "Milk" and not slot.has_node("Milk"):
+			icon.texture = preload("uid://ccyaeiyyu6ju1")
+			icon.name = "Milk"
 			
+		slot.add_child(icon)
+		icon.position = Vector2(slot.size.x - 10, slot.size.y - 25)
+
+
+		
+func update_animal_state(slot: SlotClass):
+	var currentPoints = BuildingDataManager.get_slot_progres_points(current_animal_building_pos,slot.slot_index)
+	var itemName = slot.item.item_name
+	
+	if itemName == "Chicken_Died" or itemName == "Cow_Died" or itemName == "Pig_Died" or itemName == "Pig_Adult" or itemName == "Sheep_Died":
+					slot.update_progress(0)	
+					return
+	if currentPoints > requiredPointsToFirstUpgrade:
+				if itemName == "Egg":
+					BuildingDataManager.add_item(current_animal_building_pos, slot.slot_index, "Chicken_Baby", 1)
+					slot.initialize_item("Chicken_Baby", 1)
+					slot.update_progress(0)	
+				if itemName == "Chicken_Baby":
+					BuildingDataManager.add_item(current_animal_building_pos, slot.slot_index, "Chicken_Adult", 1)
+					slot.initialize_item("Chicken_Adult", 1)
+					slot.update_progress(0)	
+				if itemName == "Chicken_Adult":
+					#print("jajo do zbioru")
+					BuildingDataManager.add_item_to_collect(current_animal_building_pos,slot.slot_index,"Egg",1)
+					slot.update_progress(0)	
+					
+				if itemName == "Cow_Baby":
+					BuildingDataManager.add_item(current_animal_building_pos, slot.slot_index, "Cow_Adult", 1)
+					slot.initialize_item("Cow_Adult", 1)
+					slot.update_progress(0)	
+				if itemName == "Cow_Adult":
+					#print("mleko do zbioru")
+					BuildingDataManager.add_item_to_collect(current_animal_building_pos,slot.slot_index,"Milk",1)
+					slot.update_progress(0)
+					
+				if itemName == "Pig_Baby":
+					BuildingDataManager.add_item(current_animal_building_pos, slot.slot_index, "Pig_Adult", 1)
+					slot.initialize_item("Pig_Adult", 1)
+					slot.update_progress(0)	
+				#if itemName == "Pig_Adult":
+					#print("mleko do zbioru")
+					#BuildingDataManager.add_item_to_collect(current_animal_building_pos,slot.slot_index,"Milk",1)
+					#slot.update_progress(0)	
+				if itemName == "Sheep_Baby":
+					BuildingDataManager.add_item(current_animal_building_pos, slot.slot_index, "Sheep_Adult_HairCut", 1)
+					slot.initialize_item("Sheep_Adult_HairCut", 1)
+					slot.update_progress(0)	
+				if itemName == "Sheep_Adult_HairCut":
+					BuildingDataManager.add_item(current_animal_building_pos, slot.slot_index, "Sheep_Adult", 1)
+					slot.initialize_item("Sheep_Adult", 1)
+					BuildingDataManager.add_item_to_collect(current_animal_building_pos,slot.slot_index,"Wool",1)
+					slot.update_progress(0)
+					#slot.update_progress(0)	
+				#if itemName == "Sheep_Adult":
+					#print("mleko do zbioru")
+					#BuildingDataManager.add_item_to_collect(current_animal_building_pos,slot.slot_index,"Wool",1)
+					#slot.update_progress(0)
+				
+				if BuildingDataManager.get_collected_amount_item(current_animal_building_pos,slot.slot_index) >= remaningCycleAnimal:
+					#zwierze umiera
+					BuildingDataManager.add_item(current_animal_building_pos, slot.slot_index, "Chicken_Died", 1)
+					slot.initialize_item("Chicken_Died", 1)
+					slot.update_progress(0)	
 			
+func collect_product(slot:SlotClass):
+	var item_to_collect = BuildingDataManager.get_item_to_collect(current_animal_building_pos, slot.slot_index)
+	
+	if not item_to_collect == null:
+		BuildingDataManager.reduce_item_to_collect(current_animal_building_pos, slot.slot_index)
+		BuildingDataManager.increase_collected_amount_item(current_animal_building_pos, slot.slot_index)
+	
+		var egg_node = slot.get_node_or_null("Egg")
+		if item_to_collect.name == "Egg" and slot.get_node("Egg"):
+			egg_node.queue_free()
 			
+		var milk_node = slot.get_node_or_null("Milk")
+		if item_to_collect.name == "Milk" and milk_node:
+			milk_node.queue_free()
 			
+		
+		if item_to_collect.name == "Wool":
+			BuildingDataManager.add_item(current_animal_building_pos, slot.slot_index, "Sheep_Adult_Haircut", 1)
+			slot.initialize_item("Sheep_Adult_HairCut", 1)
+			
+		InventoryManager.add_item(item_to_collect.name, item_to_collect.value)
 			
 			
 			

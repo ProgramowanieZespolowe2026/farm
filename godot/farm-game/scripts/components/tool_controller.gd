@@ -35,15 +35,15 @@ var animal_building_panel_visible = false;
 
 func _ready():
 	var game_screen = get_tree().get_first_node_in_group("GameScreen")
-	var chicken_coop = get_tree().get_first_node_in_group("ChickenCoopPanel")
+	var animal_building_panel = get_tree().get_first_node_in_group("AnimalBuildingPanel")
 	
 	if game_screen:
 		game_screen.inventory_open.connect(getInventoryVisible)
-		chicken_coop.chicken_coop_panel_open.connect(getChickenCoopPanelVisible)
+		animal_building_panel.animal_building_panel_open.connect(getAnimalBuildingPanelVisible)
 
 func getInventoryVisible(is_open: bool):
 	inventory_visible = is_open
-func getChickenCoopPanelVisible(is_open: bool):
+func getAnimalBuildingPanelVisible(is_open: bool):
 	animal_building_panel_visible = is_open
 
 func _process(_delta):
@@ -306,13 +306,11 @@ func plant_tree(scene):
 func is_plot_owned_at_target() -> bool:
 	var current_target_px = current_target_grid_pos * TILE_SIZE
 	
-	# get all plots
 	var plots = get_tree().get_nodes_in_group("plots")
 	
-	# check one by one if current target rectangle  is in plot recatngle
 	for plot in plots:
 		var plot_rect = Rect2(plot.global_position, Vector2(plot.plot_px, plot.plot_px))
-		# return ownership of plot
+		
 		if plot_rect.has_point(current_target_px):
 			if plot.current_owner == AuctionManager.OwnerType.PLAYER_TEAM:
 				return true
@@ -322,9 +320,8 @@ func is_plot_owned_at_target() -> bool:
 				player_sfx_controller.play_error()
 				plot.flash_border()
 					
-	# if area is over all plots we can't use it, as if we dont owne it
 	return false
-
+	
 func place_building(scene, building_name: String = "Building", size_in_tiles: Vector2i = Vector2i(1, 1)):
 	for x in range(size_in_tiles.x):
 		for y in range(size_in_tiles.y):
@@ -349,8 +346,8 @@ func place_building(scene, building_name: String = "Building", size_in_tiles: Ve
 		new_building.global_position = highlight.global_position
 	
 	if building_name == "ChickenCoop" or building_name == "Barn":
-		BuildingDataManager.add_new_coop(grid_pos_i)
-		
+		BuildingDataManager.add_new_building(grid_pos_i, building_name)
+	
 		if "grid_position" in new_building:
 			new_building.grid_position = grid_pos_i
 
