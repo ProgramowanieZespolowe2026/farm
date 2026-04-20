@@ -12,10 +12,11 @@ enum Tools {
 	Wheat_Seed,
 	Corn_Seed,
 	Potato_Item,
-	Carrot_Seed,
-	Beet_Seed,
+	Carrot_Item,
+	Beet_Item,
 	Peach_Plant,
 	Cherry_Plant,
 	Apple_Plant,
-	ChickenCoopBuilding
+	ChickenCoopBuilding,
+	BarnBuilding
 }
