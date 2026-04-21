@@ -21,13 +21,14 @@ enum SlotType {
 }
 
 func _ready():
+	InventoryManager.inventory_updated.connect(refresh_data)
 	default_style = StyleBoxTexture.new()
 	selected_style = StyleBoxTexture.new()
 	default_style.texture = default_tex
 	selected_style.texture = selected_texture
 	if progress_bar:
 		progress_bar.max_value = 100.0
-		#progress_bar.visible = false
+		progress_bar.visible = false
 
 func refresh_style():
 	if SlotType.HOTBAR == slot_type and InventoryManager.active_item_slot == slot_index:
@@ -53,6 +54,8 @@ func putIntoSlot(new_item):
 	var inventoryNode = find_parent("GameScreen")
 	inventoryNode.remove_child(item)
 	add_child(item)
+	if progress_bar:
+		progress_bar.visible = true
 	refresh_style()
 	
 func initialize_item(item_name, item_value):
@@ -67,13 +70,26 @@ func initialize_item(item_name, item_value):
 func update_progress(current_value: int):
 	if progress_bar:
 		progress_bar.value = current_value
-		#if progress_bar.value == 0:
-			#progress_bar.visible = false
-		#else:
-			#progress_bar.visible = true
+		if progress_bar.value == 0:
+			progress_bar.visible = false
+		else:
+			progress_bar.visible = true
 		
 func remove_item():
 	if item != null:
 		item.queue_free()
 		item = null
 		update_progress(0)
+		if progress_bar:
+			progress_bar.visible = false
+
+func refresh_data():
+	var item = null
+	if slot_type == SlotType.HOTBAR:
+		item = InventoryManager.hotbar[slot_index]
+	elif slot_type == SlotType.INVENTORY:
+		item = InventoryManager.items[slot_index]
+	if item != null:
+		initialize_item(item["name"], item["value"])
+	else:
+		remove_item()

@@ -6,7 +6,6 @@ class_name TemporaryPlayer
 @onready var sprite = $AnimatedSprite2D
 @onready var player_sfx_controller: Node2D = $PlayerSfxController
 
-
 var last_facing_direction = Vector2.DOWN
 
 

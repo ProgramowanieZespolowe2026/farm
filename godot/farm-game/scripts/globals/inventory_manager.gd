@@ -28,10 +28,28 @@ func _ready():
 			"value": 1}
 	items[3] = {
 			"name": "Carrot_Item",
-			"value": 10}
+			"value": 1}
 	items[4] = {
 			"name": "Carrot_Item",
 			"value": 50}
+	items[5] = {
+			"name": "Cow_Baby",
+			"value": 1}
+	items[6] = {
+			"name": "Cow_Adult",
+			"value": 1}
+	items[7] = {
+			"name": "Sheep_Adult_HairCut",
+			"value": 1}
+	items[8] = {
+			"name": "Pig_Adult",
+			"value": 1}
+	items[9] = {
+			"name": "Pig_Baby",
+			"value": 1}
+	hotbar[1] = {
+			"name": "Hoe",
+			"value": 1}
 
 var active_item_slot = 0
 
@@ -78,24 +96,36 @@ func add_item(item_name: String, value_to_add: int):
 func remove_item(slot: SlotClass, is_hotbar: bool = false):
 	if is_hotbar:
 		hotbar[slot.slot_index] = null
+		check_slot_for_tools()
 	else:
 		items[slot.slot_index] = null
+
+func decrease_item_value():
+	hotbar[active_item_slot]["value"] -= 1
+	if hotbar[active_item_slot]["value"] == 0:
+			hotbar[active_item_slot] = null
+			check_slot_for_tools()
+
+	inventory_updated.emit()
 
 func add_item_to_empty_slot(item: ItemClass, slot: SlotClass, is_hotbar: bool = false):
 	if is_hotbar:
 		hotbar[slot.slot_index] = {"name": item.item_name, "value": item.item_value}
+		check_slot_for_tools()
 	else:
 		items[slot.slot_index] = {"name": item.item_name, "value": item.item_value}
 
 func add_item_value (slot: SlotClass, value_to_add: int, is_hotbar: bool = false):
 	if is_hotbar:
 		hotbar[slot.slot_index]["value"] += value_to_add
+		check_slot_for_tools()
 	else:
 		items[slot.slot_index]["value"] += value_to_add
 
 func active_item_scroll_up():
 	active_item_slot = (active_item_slot + 1) % NUM_HOTBAR_SLOTS
 	active_item_updated.emit()
+	check_slot_for_tools()
 
 func active_item_scroll_down():
 	if active_item_slot == 0:
@@ -103,3 +133,18 @@ func active_item_scroll_down():
 	else:
 		active_item_slot -= 1
 	active_item_updated.emit()
+	check_slot_for_tools()
+	
+func check_slot_for_tools():
+	
+	var player = get_tree().get_first_node_in_group("player")
+	if player:
+		if hotbar[active_item_slot]:
+			var item_name = hotbar[active_item_slot].name
+			
+			if item_name in DataTypes.Tools:
+				player.current_tool = DataTypes.Tools[item_name]
+			else:
+				player.current_tool = DataTypes.Tools.None
+		else:
+				player.current_tool = DataTypes.Tools.None
