@@ -2,168 +2,201 @@
 "Apple_Item": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
-	"Description": "Jabłko"
+	"Description": "Jabłko",
+	"Price": 100
   },
 "Cherry_Item": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
-	"Description": "Wiśnia"
+	"Description": "Wiśnia",
+	"Price": 100
   },
 "Peach_Item": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
-	"Description": "Brzoskwinia"
+	"Description": "Brzoskwinia",
+	"Price": 100
   },
   "Log": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
-	"Description": "Kłoda"
+	"Description": "Kłoda",
+	"Price": 100
   },
   "Beet_Item": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
-	"Description": "Burak"
+	"Description": "Burak",
+	"Price": 100
   },
   "Carrot_Item": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
-	"Description": "Marchew"
+	"Description": "Marchew",
+	"Price": 20
   },
   "Corn_Item": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
-	"Description": "Kukurydza"
+	"Description": "Kukurydza",
+	"Price": 100
   },
  "Corn_Seed": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
-	"Description": "Nasiono kukurydzy"
+	"Description": "Nasiono kukurydzy",
+	"Price": 100
   },
   "Potato_Item": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
-	"Description": "Ziemniak"
+	"Description": "Ziemniak",
+	"Price": 100
   },
   "Tomato_Item": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
-	"Description": "Pomidor"
+	"Description": "Pomidor",
+	"Price": 100
   },
  "Tomato_Seed": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
-	"Description": "Nasiono pomidora"
+	"Description": "Nasiono pomidora",
+	"Price": 100
   },
   "Wheat_Item": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
-	"Description": "Pszenica"
+	"Description": "Pszenica",
+	"Price": 100
   },
  "Wheat_Seed": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
-	"Description": "Nasiono pszenicy"
+	"Description": "Nasiono pszenicy",
+	"Price": 100
   },
   "Axe": {
 	"ItemCategory": "Axe",
 	"ItemSpeed": 0.75, 
 	"StackSize": 1,
-	"Description": "Siekiera"
+	"Description": "Siekiera",
+	"Price": 100
   },
   "Hoe": {
 	"ItemCategory": "Hoe",
 	"ItemSpeed": 0.75, 
 	"StackSize": 1,
-	"Description": "Motyka"
+	"Description": "Motyka",
+	"Price": 100
   },
   "Egg": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
-	"Description": "Jajko"
+	"Description": "Jajko",
+	"Price": 100
   },
   "Chicken_Meat": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
-	"Description": "Mięso kurczaka"
+	"Description": "Mięso kurczaka",
+	"Price": 100
   },
   "Feather": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
-	"Description": "Pióro"
+	"Description": "Pióro",
+	"Price": 100
   },
   "Chicken_Baby": {
 	"ItemCategory": "Resource",
 	"StackSize": 1,
-	"Description": "Pisklę"
+	"Description": "Pisklę",
+	"Price": 100
   },
   "Chicken_Adult": {
 	"ItemCategory": "Resource",
 	"StackSize": 1,
-	"Description": "Kurczak"
+	"Description": "Kurczak",
+	"Price": 100
   },
   "Chicken_Died": {
 	"ItemCategory": "Resource",
 	"StackSize": 1,
-	"Description": "Martwy kurczak"
+	"Description": "Martwy kurczak",
+	"Price": 100
   },
   "Cow_Meat": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
-	"Description": "Mięso krowy"
+	"Description": "Mięso krowy",
+	"Price": 100
   },
   "Milk": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
-	"Description": "Mleko"
+	"Description": "Mleko",
+	"Price": 100
   },
   "Cow_Baby": {
 	"ItemCategory": "Resource",
 	"StackSize": 1,
-	"Description": "Cielę"
+	"Description": "Cielę",
+	"Price": 100
   },
   "Cow_Adult": {
 	"ItemCategory": "Resource",
 	"StackSize": 1,
-	"Description": "Krowa"
+	"Description": "Krowa",
+	"Price": 100
   },
   "Pig_Meat": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
-	"Description": "Mięso świni"
+	"Description": "Mięso świni",
+	"Price": 100
   },
   "Pig_Baby": {
 	"ItemCategory": "Resource",
 	"StackSize": 1,
-	"Description": "Mała świnka"
+	"Description": "Mała świnka",
+	"Price": 100
   },
   "Pig_Adult": {
 	"ItemCategory": "Resource",
 	"StackSize": 1,
-	"Description": "Świnia"
+	"Description": "Świnia",
+	"Price": 100
   },
   "Sheep_Meat": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
-	"Description": "Mięso owcy"
+	"Description": "Mięso owcy",
+	"Price": 100
   },
   "Wool": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
-	"Description": "Wełna"
+	"Description": "Wełna",
+	"Price": 100
   },
   "Sheep_Baby": {
 	"ItemCategory": "Resource",
 	"StackSize": 1,
-	"Description": "Mała owca"
+	"Description": "Mała owca",
+	"Price": 100
   },
   "Sheep_Adult": {
 	"ItemCategory": "Resource",
 	"StackSize": 1,
-	"Description": "Owca"
+	"Description": "Owca",
+	"Price": 100
   },
   "Sheep_Adult_HairCut": {
 	"ItemCategory": "Resource",
 	"StackSize": 1,
-	"Description": "Ostrzyżona owca"
+	"Description": "Ostrzyżona owca",
+	"Price": 100
   }
 }

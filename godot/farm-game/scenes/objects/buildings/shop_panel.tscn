@@ -1,0 +1,250 @@
+[gd_scene load_steps=10 format=3 uid="uid://dr4pmi7x11ee4"]
+
+[ext_resource type="Script" uid="uid://bh1jft4h6e50" path="res://scripts/objects/buildings/shop_panel.gd" id="1_kjhtu"]
+[ext_resource type="Texture2D" uid="uid://b1i2v36yxp6ef" path="res://assets/ui/button.png" id="2_11532"]
+[ext_resource type="Script" uid="uid://dqfdg7wwx6cps" path="res://scripts/ui/slot.gd" id="3_1vyh8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17uwj"]
+atlas = ExtResource("2_11532")
+region = Rect2(99, 20, 42, 40)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4lk4h"]
+font_size = 10
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ck5g"]
+atlas = ExtResource("2_11532")
+region = Rect2(48, 496, 48, 48)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_17uwj"]
+texture = SubResource("AtlasTexture_7ck5g")
+region_rect = Rect2(0, 0, 48, 48)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2lkp4"]
+font_size = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_brlsg"]
+font_size = 10
+
+[node name="ShopPanel" type="Node2D" groups=["ShopPanel"]]
+script = ExtResource("1_kjhtu")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 230.0
+offset_top = 40.0
+offset_right = 384.0
+offset_bottom = 192.0
+texture = SubResource("AtlasTexture_17uwj")
+
+[node name="BuildingNameText" type="Label" parent="."]
+offset_left = 260.0
+offset_top = 43.0
+offset_right = 366.0
+offset_bottom = 66.0
+text = "Shop"
+label_settings = SubResource("LabelSettings_4lk4h")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control2" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="GridContainer" type="GridContainer" parent="Control2"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 259.0
+offset_top = 66.0
+offset_right = 365.0
+offset_bottom = 159.0
+columns = 5
+
+[node name="Slot1" type="Panel" parent="Control2/GridContainer"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
+script = ExtResource("3_1vyh8")
+
+[node name="Slot2" type="Panel" parent="Control2/GridContainer"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
+script = ExtResource("3_1vyh8")
+
+[node name="Slot3" type="Panel" parent="Control2/GridContainer"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
+script = ExtResource("3_1vyh8")
+
+[node name="Slot4" type="Panel" parent="Control2/GridContainer"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
+script = ExtResource("3_1vyh8")
+
+[node name="Slot5" type="Panel" parent="Control2/GridContainer"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
+script = ExtResource("3_1vyh8")
+
+[node name="Slot6" type="Panel" parent="Control2/GridContainer"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
+script = ExtResource("3_1vyh8")
+
+[node name="Slot7" type="Panel" parent="Control2/GridContainer"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
+script = ExtResource("3_1vyh8")
+
+[node name="Slot8" type="Panel" parent="Control2/GridContainer"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
+script = ExtResource("3_1vyh8")
+
+[node name="Slot9" type="Panel" parent="Control2/GridContainer"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
+script = ExtResource("3_1vyh8")
+
+[node name="Slot10" type="Panel" parent="Control2/GridContainer"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
+script = ExtResource("3_1vyh8")
+
+[node name="Slot11" type="Panel" parent="Control2/GridContainer"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
+script = ExtResource("3_1vyh8")
+
+[node name="Slot12" type="Panel" parent="Control2/GridContainer"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
+script = ExtResource("3_1vyh8")
+
+[node name="Slot13" type="Panel" parent="Control2/GridContainer"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
+script = ExtResource("3_1vyh8")
+
+[node name="Slot14" type="Panel" parent="Control2/GridContainer"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
+script = ExtResource("3_1vyh8")
+
+[node name="Slot15" type="Panel" parent="Control2/GridContainer"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
+script = ExtResource("3_1vyh8")
+
+[node name="Slot16" type="Panel" parent="Control2/GridContainer"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
+script = ExtResource("3_1vyh8")
+
+[node name="Slot17" type="Panel" parent="Control2/GridContainer"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
+script = ExtResource("3_1vyh8")
+
+[node name="Slot18" type="Panel" parent="Control2/GridContainer"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
+script = ExtResource("3_1vyh8")
+
+[node name="Slot19" type="Panel" parent="Control2/GridContainer"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
+script = ExtResource("3_1vyh8")
+
+[node name="Slot20" type="Panel" parent="Control2/GridContainer"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
+script = ExtResource("3_1vyh8")
+
+[node name="Slot21" type="Panel" parent="."]
+offset_left = 235.0
+offset_top = 166.0
+offset_right = 253.0
+offset_bottom = 184.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
+script = ExtResource("3_1vyh8")
+
+[node name="TextSellFor" type="Label" parent="."]
+offset_left = 257.0
+offset_top = 161.0
+offset_right = 292.0
+offset_bottom = 184.0
+text = "Sell for"
+label_settings = SubResource("LabelSettings_2lkp4")
+
+[node name="ProductPrice" type="Label" parent="."]
+offset_left = 255.0
+offset_top = 175.0
+offset_right = 295.0
+offset_bottom = 198.0
+text = "0"
+label_settings = SubResource("LabelSettings_brlsg")
+horizontal_alignment = 1
