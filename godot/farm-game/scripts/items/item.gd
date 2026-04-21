@@ -41,3 +41,6 @@ func add_item_value(amount_to_add: int) -> void:
 func decrease_item_value(amount_to_remove: int) -> void:
 	item_value -= amount_to_remove
 	label.text = str(item_value)
+	
+func hide_label_visibility():
+	label.visible = false

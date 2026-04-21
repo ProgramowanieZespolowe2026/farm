@@ -270,7 +270,6 @@ func check_item_to_collect(slot: SlotClass):
 		slot.add_child(icon)
 		icon.position = Vector2(slot.size.x - 10, slot.size.y - 25)
 
-
 		
 func update_animal_state(slot: SlotClass):
 	var currentPoints = BuildingDataManager.get_slot_progres_points(current_animal_building_pos,slot.slot_index)

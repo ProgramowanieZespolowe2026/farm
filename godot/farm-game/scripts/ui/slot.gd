@@ -4,6 +4,7 @@ var default_tex = preload("res://assets/ui/button1.png")
 var selected_texture = preload("res://assets/ui/button2.png")
 
 @onready var progress_bar: TextureProgressBar = get_node_or_null("TextureProgressBar")
+@onready var buy_button: Button = get_node_or_null("BuyButton")
 
 var default_style: StyleBoxTexture = null
 var selected_style: StyleBoxTexture = null
@@ -18,6 +19,7 @@ enum SlotType {
 	INVENTORY,
 	CHICKENCOOP,
 	CHICKENCOOP_FOOD,
+	SHOP,
 	PRODUCT_FOR_SELL
 }
 
@@ -76,6 +78,18 @@ func update_progress(current_value: int):
 		else:
 			progress_bar.visible = true
 		
+
+func update_product_price_label(price:int):
+	if buy_button:
+		buy_button.text = str(price," $")
+
+func get_buy_product_price():
+	if item:
+		for i in JsonData.item_data:
+				if item.item_name == i:
+					return JsonData.item_data[i]["BuyPrice"]
+					
+
 func remove_item():
 	if item != null:
 		item.queue_free()
@@ -94,3 +108,6 @@ func refresh_data():
 		initialize_item(item["name"], item["value"])
 	else:
 		remove_item()
+
+func hide_label_visibility():
+	item.hide_label_visibility()

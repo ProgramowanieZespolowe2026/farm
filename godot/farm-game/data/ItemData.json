@@ -3,200 +3,233 @@
 	"ItemCategory": "Resource",
 	"StackSize": 99,
 	"Description": "Jabłko",
-	"Price": 100
+	"BuyPrice": 100,
+	"SellPrice": 50
   },
 "Cherry_Item": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
 	"Description": "Wiśnia",
-	"Price": 100
+	"BuyPrice": 100,
+	"SellPrice": 50
   },
 "Peach_Item": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
 	"Description": "Brzoskwinia",
-	"Price": 100
+	"BuyPrice": 100,
+	"SellPrice": 50
   },
   "Log": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
 	"Description": "Kłoda",
-	"Price": 100
+	"BuyPrice": 100,
+	"SellPrice": 50
   },
   "Beet_Item": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
 	"Description": "Burak",
-	"Price": 100
+	"BuyPrice": 100,
+	"SellPrice": 50
   },
   "Carrot_Item": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
 	"Description": "Marchew",
-	"Price": 20
+	"BuyPrice": 20,
+	"SellPrice": 10
   },
   "Corn_Item": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
 	"Description": "Kukurydza",
-	"Price": 100
+	"BuyPrice": 100,
+	"SellPrice": 50
   },
  "Corn_Seed": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
 	"Description": "Nasiono kukurydzy",
-	"Price": 100
+	"BuyPrice": 100,
+	"SellPrice": 50
   },
   "Potato_Item": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
 	"Description": "Ziemniak",
-	"Price": 100
+	"BuyPrice": 100,
+	"SellPrice": 50
   },
   "Tomato_Item": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
 	"Description": "Pomidor",
-	"Price": 100
+	"BuyPrice": 100,
+	"SellPrice": 50
   },
  "Tomato_Seed": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
 	"Description": "Nasiono pomidora",
-	"Price": 100
+	"BuyPrice": 100,
+	"SellPrice": 50
   },
   "Wheat_Item": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
 	"Description": "Pszenica",
-	"Price": 100
+	"BuyPrice": 100,
+	"SellPrice": 50
   },
  "Wheat_Seed": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
 	"Description": "Nasiono pszenicy",
-	"Price": 100
+	"BuyPrice": 100,
+	"SellPrice": 50
   },
   "Axe": {
 	"ItemCategory": "Axe",
 	"ItemSpeed": 0.75, 
 	"StackSize": 1,
 	"Description": "Siekiera",
-	"Price": 100
+	"BuyPrice": 100,
+	"SellPrice": 50
   },
   "Hoe": {
 	"ItemCategory": "Hoe",
 	"ItemSpeed": 0.75, 
 	"StackSize": 1,
 	"Description": "Motyka",
-	"Price": 100
+	"BuyPrice": 100,
+	"SellPrice": 50
   },
   "Egg": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
 	"Description": "Jajko",
-	"Price": 100
+	"BuyPrice": 100,
+	"SellPrice": 50
   },
   "Chicken_Meat": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
 	"Description": "Mięso kurczaka",
-	"Price": 100
+	"BuyPrice": 100,
+	"SellPrice": 50
   },
   "Feather": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
 	"Description": "Pióro",
-	"Price": 100
+	"BuyPrice": 100,
+	"SellPrice": 50
   },
   "Chicken_Baby": {
 	"ItemCategory": "Resource",
 	"StackSize": 1,
 	"Description": "Pisklę",
-	"Price": 100
+	"BuyPrice": 100,
+	"SellPrice": 50
   },
   "Chicken_Adult": {
 	"ItemCategory": "Resource",
 	"StackSize": 1,
 	"Description": "Kurczak",
-	"Price": 100
+	"BuyPrice": 100,
+	"SellPrice": 50
   },
   "Chicken_Died": {
 	"ItemCategory": "Resource",
 	"StackSize": 1,
 	"Description": "Martwy kurczak",
-	"Price": 100
+	"BuyPrice": 100,
+	"SellPrice": 50
   },
   "Cow_Meat": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
 	"Description": "Mięso krowy",
-	"Price": 100
+	"BuyPrice": 100,
+	"SellPrice": 50
   },
   "Milk": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
 	"Description": "Mleko",
-	"Price": 100
+	"BuyPrice": 100,
+	"SellPrice": 50
   },
   "Cow_Baby": {
 	"ItemCategory": "Resource",
 	"StackSize": 1,
 	"Description": "Cielę",
-	"Price": 100
+	"BuyPrice": 100,
+	"SellPrice": 50
   },
   "Cow_Adult": {
 	"ItemCategory": "Resource",
 	"StackSize": 1,
 	"Description": "Krowa",
-	"Price": 100
+	"BuyPrice": 100,
+	"SellPrice": 50
   },
   "Pig_Meat": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
 	"Description": "Mięso świni",
-	"Price": 100
+	"BuyPrice": 100,
+	"SellPrice": 50
   },
   "Pig_Baby": {
 	"ItemCategory": "Resource",
 	"StackSize": 1,
 	"Description": "Mała świnka",
-	"Price": 100
+	"BuyPrice": 100,
+	"SellPrice": 50
   },
   "Pig_Adult": {
 	"ItemCategory": "Resource",
 	"StackSize": 1,
 	"Description": "Świnia",
-	"Price": 100
+	"BuyPrice": 100,
+	"SellPrice": 50
   },
   "Sheep_Meat": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
 	"Description": "Mięso owcy",
-	"Price": 100
+	"BuyPrice": 100,
+	"SellPrice": 50
   },
   "Wool": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
 	"Description": "Wełna",
-	"Price": 100
+	"BuyPrice": 100,
+	"SellPrice": 50
   },
   "Sheep_Baby": {
 	"ItemCategory": "Resource",
 	"StackSize": 1,
 	"Description": "Mała owca",
-	"Price": 100
+	"BuyPrice": 100,
+	"SellPrice": 50
   },
   "Sheep_Adult": {
 	"ItemCategory": "Resource",
 	"StackSize": 1,
 	"Description": "Owca",
-	"Price": 100
+	"BuyPrice": 100,
+	"SellPrice": 50
   },
   "Sheep_Adult_HairCut": {
 	"ItemCategory": "Resource",
 	"StackSize": 1,
 	"Description": "Ostrzyżona owca",
-	"Price": 100
+	"BuyPrice": 100,
+	"SellPrice": 50
   }
 }

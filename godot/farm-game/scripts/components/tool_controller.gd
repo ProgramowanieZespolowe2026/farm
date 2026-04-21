@@ -109,7 +109,7 @@ func _input(event):
 		if not highlight.visible:
 			return 
 		
-		if inventory_visible or animal_building_panel_visible:
+		if inventory_visible or animal_building_panel_visible or shop_panel_visible:
 			return
 			
 		if not is_plot_owned_at_target():

@@ -1,8 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dr4pmi7x11ee4"]
+[gd_scene load_steps=17 format=3 uid="uid://dr4pmi7x11ee4"]
 
 [ext_resource type="Script" uid="uid://bh1jft4h6e50" path="res://scripts/objects/buildings/shop_panel.gd" id="1_kjhtu"]
 [ext_resource type="Texture2D" uid="uid://b1i2v36yxp6ef" path="res://assets/ui/button.png" id="2_11532"]
 [ext_resource type="Script" uid="uid://dqfdg7wwx6cps" path="res://scripts/ui/slot.gd" id="3_1vyh8"]
+[ext_resource type="Texture2D" uid="uid://bh7jks7tm8ktr" path="res://assets/ui/button1.png" id="4_0t6tn"]
+[ext_resource type="Texture2D" uid="uid://dq7deg40blf8d" path="res://assets/ui/Sprite sheet for Basic Pack.png" id="5_vlcgx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_17uwj"]
 atlas = ExtResource("2_11532")
@@ -19,11 +21,29 @@ region = Rect2(48, 496, 48, 48)
 texture = SubResource("AtlasTexture_7ck5g")
 region_rect = Rect2(0, 0, 48, 48)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0t6tn"]
+texture = ExtResource("4_0t6tn")
+modulate_color = Color(0.9699662, 0.9699662, 0.9699662, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_11532"]
+texture = ExtResource("4_0t6tn")
+modulate_color = Color(1.1996135, 1.1996135, 1.1996135, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vlcgx"]
+texture = ExtResource("4_0t6tn")
+modulate_color = Color(1.1996135, 1.1996135, 1.1996135, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0t6tn"]
+
 [sub_resource type="LabelSettings" id="LabelSettings_2lkp4"]
 font_size = 10
 
 [sub_resource type="LabelSettings" id="LabelSettings_brlsg"]
 font_size = 10
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11532"]
+atlas = ExtResource("5_vlcgx")
+region = Rect2(261, 2, 7, 12)
 
 [node name="ShopPanel" type="Node2D" groups=["ShopPanel"]]
 script = ExtResource("1_kjhtu")
@@ -35,10 +55,10 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_left = 230.0
+offset_left = 226.0
 offset_top = 40.0
-offset_right = 384.0
-offset_bottom = 192.0
+offset_right = 403.0
+offset_bottom = 228.0
 texture = SubResource("AtlasTexture_17uwj")
 
 [node name="BuildingNameText" type="Label" parent="."]
@@ -58,10 +78,10 @@ anchors_preset = 0
 [node name="GridContainer" type="GridContainer" parent="Control2"]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 259.0
-offset_top = 66.0
-offset_right = 365.0
-offset_bottom = 159.0
+offset_left = 257.0
+offset_top = 61.0
+offset_right = 373.0
+offset_bottom = 178.0
 columns = 5
 
 [node name="Slot1" type="Panel" parent="Control2/GridContainer"]
@@ -72,6 +92,19 @@ size_flags_vertical = 6
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_1vyh8")
 
+[node name="BuyButton" type="Button" parent="Control2/GridContainer/Slot1"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = 19.0
+offset_right = 18.0
+offset_bottom = 27.0
+theme_override_font_sizes/font_size = 5
+theme_override_styles/normal = SubResource("StyleBoxTexture_0t6tn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_11532")
+theme_override_styles/hover = SubResource("StyleBoxTexture_vlcgx")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0t6tn")
+text = "100 $"
+
 [node name="Slot2" type="Panel" parent="Control2/GridContainer"]
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
@@ -79,6 +112,18 @@ size_flags_horizontal = 6
 size_flags_vertical = 6
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_1vyh8")
+
+[node name="BuyButton" type="Button" parent="Control2/GridContainer/Slot2"]
+layout_mode = 0
+offset_top = 19.0
+offset_right = 18.0
+offset_bottom = 27.0
+theme_override_font_sizes/font_size = 5
+theme_override_styles/normal = SubResource("StyleBoxTexture_0t6tn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_11532")
+theme_override_styles/hover = SubResource("StyleBoxTexture_vlcgx")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0t6tn")
+text = "100 $"
 
 [node name="Slot3" type="Panel" parent="Control2/GridContainer"]
 custom_minimum_size = Vector2(18, 18)
@@ -88,6 +133,18 @@ size_flags_vertical = 6
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_1vyh8")
 
+[node name="BuyButton" type="Button" parent="Control2/GridContainer/Slot3"]
+layout_mode = 0
+offset_top = 19.0
+offset_right = 18.0
+offset_bottom = 27.0
+theme_override_font_sizes/font_size = 5
+theme_override_styles/normal = SubResource("StyleBoxTexture_0t6tn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_11532")
+theme_override_styles/hover = SubResource("StyleBoxTexture_vlcgx")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0t6tn")
+text = "100 $"
+
 [node name="Slot4" type="Panel" parent="Control2/GridContainer"]
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
@@ -95,6 +152,18 @@ size_flags_horizontal = 6
 size_flags_vertical = 6
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_1vyh8")
+
+[node name="BuyButton" type="Button" parent="Control2/GridContainer/Slot4"]
+layout_mode = 0
+offset_top = 19.0
+offset_right = 18.0
+offset_bottom = 27.0
+theme_override_font_sizes/font_size = 5
+theme_override_styles/normal = SubResource("StyleBoxTexture_0t6tn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_11532")
+theme_override_styles/hover = SubResource("StyleBoxTexture_vlcgx")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0t6tn")
+text = "100 $"
 
 [node name="Slot5" type="Panel" parent="Control2/GridContainer"]
 custom_minimum_size = Vector2(18, 18)
@@ -104,6 +173,18 @@ size_flags_vertical = 6
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_1vyh8")
 
+[node name="BuyButton" type="Button" parent="Control2/GridContainer/Slot5"]
+layout_mode = 0
+offset_top = 19.0
+offset_right = 18.0
+offset_bottom = 27.0
+theme_override_font_sizes/font_size = 5
+theme_override_styles/normal = SubResource("StyleBoxTexture_0t6tn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_11532")
+theme_override_styles/hover = SubResource("StyleBoxTexture_vlcgx")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0t6tn")
+text = "100 $"
+
 [node name="Slot6" type="Panel" parent="Control2/GridContainer"]
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
@@ -111,6 +192,18 @@ size_flags_horizontal = 6
 size_flags_vertical = 6
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_1vyh8")
+
+[node name="BuyButton" type="Button" parent="Control2/GridContainer/Slot6"]
+layout_mode = 0
+offset_top = 19.0
+offset_right = 18.0
+offset_bottom = 27.0
+theme_override_font_sizes/font_size = 5
+theme_override_styles/normal = SubResource("StyleBoxTexture_0t6tn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_11532")
+theme_override_styles/hover = SubResource("StyleBoxTexture_vlcgx")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0t6tn")
+text = "100 $"
 
 [node name="Slot7" type="Panel" parent="Control2/GridContainer"]
 custom_minimum_size = Vector2(18, 18)
@@ -120,6 +213,18 @@ size_flags_vertical = 6
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_1vyh8")
 
+[node name="BuyButton" type="Button" parent="Control2/GridContainer/Slot7"]
+layout_mode = 0
+offset_top = 19.0
+offset_right = 18.0
+offset_bottom = 27.0
+theme_override_font_sizes/font_size = 5
+theme_override_styles/normal = SubResource("StyleBoxTexture_0t6tn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_11532")
+theme_override_styles/hover = SubResource("StyleBoxTexture_vlcgx")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0t6tn")
+text = "100 $"
+
 [node name="Slot8" type="Panel" parent="Control2/GridContainer"]
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
@@ -127,6 +232,18 @@ size_flags_horizontal = 6
 size_flags_vertical = 6
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_1vyh8")
+
+[node name="BuyButton" type="Button" parent="Control2/GridContainer/Slot8"]
+layout_mode = 0
+offset_top = 19.0
+offset_right = 18.0
+offset_bottom = 27.0
+theme_override_font_sizes/font_size = 5
+theme_override_styles/normal = SubResource("StyleBoxTexture_0t6tn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_11532")
+theme_override_styles/hover = SubResource("StyleBoxTexture_vlcgx")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0t6tn")
+text = "100 $"
 
 [node name="Slot9" type="Panel" parent="Control2/GridContainer"]
 custom_minimum_size = Vector2(18, 18)
@@ -136,6 +253,18 @@ size_flags_vertical = 6
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_1vyh8")
 
+[node name="BuyButton" type="Button" parent="Control2/GridContainer/Slot9"]
+layout_mode = 0
+offset_top = 19.0
+offset_right = 18.0
+offset_bottom = 27.0
+theme_override_font_sizes/font_size = 5
+theme_override_styles/normal = SubResource("StyleBoxTexture_0t6tn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_11532")
+theme_override_styles/hover = SubResource("StyleBoxTexture_vlcgx")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0t6tn")
+text = "100 $"
+
 [node name="Slot10" type="Panel" parent="Control2/GridContainer"]
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
@@ -143,6 +272,18 @@ size_flags_horizontal = 6
 size_flags_vertical = 6
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_1vyh8")
+
+[node name="BuyButton" type="Button" parent="Control2/GridContainer/Slot10"]
+layout_mode = 0
+offset_top = 19.0
+offset_right = 18.0
+offset_bottom = 27.0
+theme_override_font_sizes/font_size = 5
+theme_override_styles/normal = SubResource("StyleBoxTexture_0t6tn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_11532")
+theme_override_styles/hover = SubResource("StyleBoxTexture_vlcgx")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0t6tn")
+text = "100 $"
 
 [node name="Slot11" type="Panel" parent="Control2/GridContainer"]
 custom_minimum_size = Vector2(18, 18)
@@ -152,6 +293,18 @@ size_flags_vertical = 6
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_1vyh8")
 
+[node name="BuyButton" type="Button" parent="Control2/GridContainer/Slot11"]
+layout_mode = 0
+offset_top = 19.0
+offset_right = 18.0
+offset_bottom = 27.0
+theme_override_font_sizes/font_size = 5
+theme_override_styles/normal = SubResource("StyleBoxTexture_0t6tn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_11532")
+theme_override_styles/hover = SubResource("StyleBoxTexture_vlcgx")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0t6tn")
+text = "100 $"
+
 [node name="Slot12" type="Panel" parent="Control2/GridContainer"]
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
@@ -159,6 +312,18 @@ size_flags_horizontal = 6
 size_flags_vertical = 6
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_1vyh8")
+
+[node name="BuyButton" type="Button" parent="Control2/GridContainer/Slot12"]
+layout_mode = 0
+offset_top = 19.0
+offset_right = 18.0
+offset_bottom = 27.0
+theme_override_font_sizes/font_size = 5
+theme_override_styles/normal = SubResource("StyleBoxTexture_0t6tn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_11532")
+theme_override_styles/hover = SubResource("StyleBoxTexture_vlcgx")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0t6tn")
+text = "100 $"
 
 [node name="Slot13" type="Panel" parent="Control2/GridContainer"]
 custom_minimum_size = Vector2(18, 18)
@@ -168,6 +333,18 @@ size_flags_vertical = 6
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_1vyh8")
 
+[node name="BuyButton" type="Button" parent="Control2/GridContainer/Slot13"]
+layout_mode = 0
+offset_top = 19.0
+offset_right = 18.0
+offset_bottom = 27.0
+theme_override_font_sizes/font_size = 5
+theme_override_styles/normal = SubResource("StyleBoxTexture_0t6tn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_11532")
+theme_override_styles/hover = SubResource("StyleBoxTexture_vlcgx")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0t6tn")
+text = "100 $"
+
 [node name="Slot14" type="Panel" parent="Control2/GridContainer"]
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
@@ -175,6 +352,18 @@ size_flags_horizontal = 6
 size_flags_vertical = 6
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_1vyh8")
+
+[node name="BuyButton" type="Button" parent="Control2/GridContainer/Slot14"]
+layout_mode = 0
+offset_top = 19.0
+offset_right = 18.0
+offset_bottom = 27.0
+theme_override_font_sizes/font_size = 5
+theme_override_styles/normal = SubResource("StyleBoxTexture_0t6tn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_11532")
+theme_override_styles/hover = SubResource("StyleBoxTexture_vlcgx")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0t6tn")
+text = "100 $"
 
 [node name="Slot15" type="Panel" parent="Control2/GridContainer"]
 custom_minimum_size = Vector2(18, 18)
@@ -184,6 +373,18 @@ size_flags_vertical = 6
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_1vyh8")
 
+[node name="BuyButton" type="Button" parent="Control2/GridContainer/Slot15"]
+layout_mode = 0
+offset_top = 19.0
+offset_right = 18.0
+offset_bottom = 27.0
+theme_override_font_sizes/font_size = 5
+theme_override_styles/normal = SubResource("StyleBoxTexture_0t6tn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_11532")
+theme_override_styles/hover = SubResource("StyleBoxTexture_vlcgx")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0t6tn")
+text = "100 $"
+
 [node name="Slot16" type="Panel" parent="Control2/GridContainer"]
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
@@ -191,6 +392,18 @@ size_flags_horizontal = 6
 size_flags_vertical = 6
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_1vyh8")
+
+[node name="BuyButton" type="Button" parent="Control2/GridContainer/Slot16"]
+layout_mode = 0
+offset_top = 19.0
+offset_right = 18.0
+offset_bottom = 27.0
+theme_override_font_sizes/font_size = 5
+theme_override_styles/normal = SubResource("StyleBoxTexture_0t6tn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_11532")
+theme_override_styles/hover = SubResource("StyleBoxTexture_vlcgx")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0t6tn")
+text = "100 $"
 
 [node name="Slot17" type="Panel" parent="Control2/GridContainer"]
 custom_minimum_size = Vector2(18, 18)
@@ -200,6 +413,18 @@ size_flags_vertical = 6
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_1vyh8")
 
+[node name="BuyButton" type="Button" parent="Control2/GridContainer/Slot17"]
+layout_mode = 0
+offset_top = 19.0
+offset_right = 18.0
+offset_bottom = 27.0
+theme_override_font_sizes/font_size = 5
+theme_override_styles/normal = SubResource("StyleBoxTexture_0t6tn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_11532")
+theme_override_styles/hover = SubResource("StyleBoxTexture_vlcgx")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0t6tn")
+text = "100 $"
+
 [node name="Slot18" type="Panel" parent="Control2/GridContainer"]
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
@@ -207,6 +432,18 @@ size_flags_horizontal = 6
 size_flags_vertical = 6
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_1vyh8")
+
+[node name="BuyButton" type="Button" parent="Control2/GridContainer/Slot18"]
+layout_mode = 0
+offset_top = 19.0
+offset_right = 18.0
+offset_bottom = 27.0
+theme_override_font_sizes/font_size = 5
+theme_override_styles/normal = SubResource("StyleBoxTexture_0t6tn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_11532")
+theme_override_styles/hover = SubResource("StyleBoxTexture_vlcgx")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0t6tn")
+text = "100 $"
 
 [node name="Slot19" type="Panel" parent="Control2/GridContainer"]
 custom_minimum_size = Vector2(18, 18)
@@ -216,6 +453,18 @@ size_flags_vertical = 6
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_1vyh8")
 
+[node name="BuyButton" type="Button" parent="Control2/GridContainer/Slot19"]
+layout_mode = 0
+offset_top = 19.0
+offset_right = 18.0
+offset_bottom = 27.0
+theme_override_font_sizes/font_size = 5
+theme_override_styles/normal = SubResource("StyleBoxTexture_0t6tn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_11532")
+theme_override_styles/hover = SubResource("StyleBoxTexture_vlcgx")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0t6tn")
+text = "100 $"
+
 [node name="Slot20" type="Panel" parent="Control2/GridContainer"]
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
@@ -224,27 +473,112 @@ size_flags_vertical = 6
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_1vyh8")
 
+[node name="BuyButton" type="Button" parent="Control2/GridContainer/Slot20"]
+layout_mode = 0
+offset_top = 19.0
+offset_right = 18.0
+offset_bottom = 27.0
+theme_override_font_sizes/font_size = 5
+theme_override_styles/normal = SubResource("StyleBoxTexture_0t6tn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_11532")
+theme_override_styles/hover = SubResource("StyleBoxTexture_vlcgx")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0t6tn")
+text = "100 $"
+
 [node name="Slot21" type="Panel" parent="."]
-offset_left = 235.0
-offset_top = 166.0
-offset_right = 253.0
-offset_bottom = 184.0
+offset_left = 267.0
+offset_top = 196.0
+offset_right = 285.0
+offset_bottom = 214.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_1vyh8")
 
 [node name="TextSellFor" type="Label" parent="."]
-offset_left = 257.0
-offset_top = 161.0
-offset_right = 292.0
-offset_bottom = 184.0
+offset_left = 297.0
+offset_top = 191.0
+offset_right = 332.0
+offset_bottom = 214.0
 text = "Sell for"
 label_settings = SubResource("LabelSettings_2lkp4")
 
 [node name="ProductPrice" type="Label" parent="."]
-offset_left = 255.0
-offset_top = 175.0
-offset_right = 295.0
-offset_bottom = 198.0
-text = "0"
+offset_left = 295.0
+offset_top = 205.0
+offset_right = 335.0
+offset_bottom = 228.0
+text = "0$"
 label_settings = SubResource("LabelSettings_brlsg")
 horizontal_alignment = 1
+
+[node name="SellButton" type="Button" parent="."]
+offset_left = 342.0
+offset_top = 197.0
+offset_right = 374.0
+offset_bottom = 213.0
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxTexture_0t6tn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_11532")
+theme_override_styles/hover = SubResource("StyleBoxTexture_vlcgx")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0t6tn")
+text = "Sell"
+
+[node name="PreviousPage" type="Button" parent="."]
+offset_left = 233.0
+offset_top = 64.0
+offset_right = 250.0
+offset_bottom = 80.0
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxTexture_0t6tn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_11532")
+theme_override_styles/hover = SubResource("StyleBoxTexture_vlcgx")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0t6tn")
+
+[node name="TextureRect" type="TextureRect" parent="PreviousPage"]
+layout_mode = 0
+offset_left = 2.6666718
+offset_top = 2.0
+offset_right = 12.666672
+offset_bottom = 14.0
+texture = SubResource("AtlasTexture_11532")
+flip_h = true
+
+[node name="NextPage" type="Button" parent="."]
+offset_left = 380.0
+offset_top = 65.0
+offset_right = 397.0
+offset_bottom = 81.0
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxTexture_0t6tn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_11532")
+theme_override_styles/hover = SubResource("StyleBoxTexture_vlcgx")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0t6tn")
+
+[node name="TextureRect" type="TextureRect" parent="NextPage"]
+layout_mode = 0
+offset_left = 2.6666718
+offset_top = 2.0
+offset_right = 12.666672
+offset_bottom = 14.0
+texture = SubResource("AtlasTexture_11532")
+
+[connection signal="pressed" from="Control2/GridContainer/Slot1/BuyButton" to="." method="_on_buy_button_pressed"]
+[connection signal="pressed" from="Control2/GridContainer/Slot2/BuyButton" to="." method="_on_buy_button_pressed"]
+[connection signal="pressed" from="Control2/GridContainer/Slot3/BuyButton" to="." method="_on_buy_button_pressed"]
+[connection signal="pressed" from="Control2/GridContainer/Slot4/BuyButton" to="." method="_on_buy_button_pressed"]
+[connection signal="pressed" from="Control2/GridContainer/Slot5/BuyButton" to="." method="_on_buy_button_pressed"]
+[connection signal="pressed" from="Control2/GridContainer/Slot6/BuyButton" to="." method="_on_buy_button_pressed"]
+[connection signal="pressed" from="Control2/GridContainer/Slot7/BuyButton" to="." method="_on_buy_button_pressed"]
+[connection signal="pressed" from="Control2/GridContainer/Slot8/BuyButton" to="." method="_on_buy_button_pressed"]
+[connection signal="pressed" from="Control2/GridContainer/Slot9/BuyButton" to="." method="_on_buy_button_pressed"]
+[connection signal="pressed" from="Control2/GridContainer/Slot10/BuyButton" to="." method="_on_buy_button_pressed"]
+[connection signal="pressed" from="Control2/GridContainer/Slot11/BuyButton" to="." method="_on_buy_button_pressed"]
+[connection signal="pressed" from="Control2/GridContainer/Slot12/BuyButton" to="." method="_on_buy_button_pressed"]
+[connection signal="pressed" from="Control2/GridContainer/Slot13/BuyButton" to="." method="_on_buy_button_pressed"]
+[connection signal="pressed" from="Control2/GridContainer/Slot14/BuyButton" to="." method="_on_buy_button_pressed"]
+[connection signal="pressed" from="Control2/GridContainer/Slot15/BuyButton" to="." method="_on_buy_button_pressed"]
+[connection signal="pressed" from="Control2/GridContainer/Slot16/BuyButton" to="." method="_on_buy_button_pressed"]
+[connection signal="pressed" from="Control2/GridContainer/Slot17/BuyButton" to="." method="_on_buy_button_pressed"]
+[connection signal="pressed" from="Control2/GridContainer/Slot18/BuyButton" to="." method="_on_buy_button_pressed"]
+[connection signal="pressed" from="Control2/GridContainer/Slot19/BuyButton" to="." method="_on_buy_button_pressed"]
+[connection signal="pressed" from="Control2/GridContainer/Slot20/BuyButton" to="." method="_on_buy_button_pressed"]
+[connection signal="pressed" from="SellButton" to="." method="_on_sell_button_pressed"]
