@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://coe7o5imj3tw6"]
+[gd_scene load_steps=10 format=3 uid="uid://coe7o5imj3tw6"]
 
 [ext_resource type="PackedScene" uid="uid://clcluxi7rp3ni" path="res://scenes/ui/test_game_time.tscn" id="1_8hmcv"]
 [ext_resource type="Script" uid="uid://cxnw3cis3e2ao" path="res://scenes/ui/game_screen.gd" id="1_gusqm"]
@@ -49,6 +49,9 @@ position = Vector2(-18, 12)
 unique_name_in_owner = true
 visible = false
 position = Vector2(-93, -10)
+
+[node name="SettingsMenu" parent="MarginContainer" instance=ExtResource("8_r1vnj")]
+layout_mode = 2
 
 [node name="MenuOpen" parent="." instance=ExtResource("4_gkbp4")]
 unique_name_in_owner = true
