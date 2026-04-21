@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://e84pqknnflr6"]
+[gd_scene load_steps=11 format=3 uid="uid://e84pqknnflr6"]
 
 [ext_resource type="PackedScene" uid="uid://c8qju1qxars1t" path="res://scenes/components/day_night_cycle_component.tscn" id="1_dqhgi"]
+[ext_resource type="Script" uid="uid://m2xd0055140i" path="res://scenes/ui/settings_menu.gd" id="1_x6kod"]
 [ext_resource type="PackedScene" uid="uid://m5w4eggderw0" path="res://scenes/Temporary/temporary_player.tscn" id="2_2ub8r"]
 [ext_resource type="PackedScene" uid="uid://ckphra5tyfs3b" path="res://scenes/map/test_scene_tile_map.tscn" id="3_usklj"]
 [ext_resource type="PackedScene" uid="uid://coe7o5imj3tw6" path="res://scenes/ui/game_screen.tscn" id="4_7cony"]
@@ -12,6 +13,7 @@
 
 [node name="TestLevel" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_x6kod")
 
 [node name="DayNightCycleComponent" parent="." instance=ExtResource("1_dqhgi")]
 
@@ -51,11 +53,9 @@ item_value = 30
 [node name="Tomato_seed" parent="." instance=ExtResource("7_7cony")]
 position = Vector2(302.99997, 91.99999)
 item_name = "Tomato_Seed"
-item_value = 1
 
 [node name="Carrot_item" parent="." instance=ExtResource("7_x6kod")]
 position = Vector2(246, 78)
-item_value = 1
 
 [node name="Potato_item" parent="." instance=ExtResource("9_fp727")]
 position = Vector2(302, 156)

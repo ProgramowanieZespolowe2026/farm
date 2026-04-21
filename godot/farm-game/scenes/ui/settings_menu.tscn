@@ -1,0 +1,247 @@
+[gd_scene load_steps=11 format=3 uid="uid://bdhst4l7ave8q"]
+
+[ext_resource type="Script" uid="uid://m2xd0055140i" path="res://scenes/ui/settings_menu.gd" id="1_0b1cv"]
+[ext_resource type="Texture2D" uid="uid://dpgm2nia6n5iq" path="res://assets/ui/auction_ui.png" id="1_mhswj"]
+[ext_resource type="FontFile" uid="uid://capoihxunrgmm" path="res://assets/ui/pixelFont-7-8x14-sproutLands.ttf" id="2_x3vyp"]
+[ext_resource type="Script" uid="uid://d2ickw45fsc32" path="res://scripts/ui/audio_control.gd" id="3_x3vyp"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_ngbvi"]
+color = Color(1, 1, 1, 1)
+thickness = 6
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_mishw"]
+color = Color(0.8509804, 0.5921569, 0.25490198, 1)
+thickness = 6
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_h271e"]
+color = Color(0.8509804, 0.5921569, 0.25490198, 1)
+thickness = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0b1cv"]
+bg_color = Color(0.85, 0.59216666, 0.25500003, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.30980393)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yu862"]
+bg_color = Color(0.94526225, 0.53827393, 7.70092e-07, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.30980393)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ywggk"]
+bg_color = Color(0.85, 0.48166668, 0, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.30980393)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.4)
+
+[node name="SettingsMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0b1cv")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 115.0
+offset_top = 53.0
+offset_right = 545.0
+offset_bottom = 314.0
+color = Color(0, 0, 0, 0)
+
+[node name="WoodenPanel" type="NinePatchRect" parent="."]
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -127.5
+offset_top = -102.0
+offset_right = 143.0
+offset_bottom = 78.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(200, 150)
+mouse_filter = 0
+texture = ExtResource("1_mhswj")
+
+[node name="MarginContainer" type="MarginContainer" parent="WoodenPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -6.0
+offset_right = 5.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="Control" type="Control" parent="WoodenPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="Settings" type="Label" parent="WoodenPanel/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -80.5
+offset_top = -11.0
+offset_right = 80.5
+offset_bottom = 19.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/paragraph_spacing = 2
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("2_x3vyp")
+theme_override_font_sizes/font_size = 28
+text = "Ustawienia"
+horizontal_alignment = 1
+
+[node name="Muzyka" type="Label" parent="WoodenPanel/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -30.5
+offset_top = 18.0
+offset_right = 30.5
+offset_bottom = 39.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 14
+text = "Muzyka"
+horizontal_alignment = 1
+
+[node name="AudioControl" type="HSlider" parent="WoodenPanel/MarginContainer/Control"]
+layout_mode = 0
+offset_left = 11.5
+offset_top = 37.0
+offset_right = 150.5
+offset_bottom = 53.0
+theme_override_styles/slider = SubResource("StyleBoxLine_ngbvi")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_mishw")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_h271e")
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("3_x3vyp")
+audio_bus_name = "Music"
+
+[node name="MusicMuteCheckbox" type="CheckBox" parent="WoodenPanel/MarginContainer/Control"]
+layout_mode = 0
+offset_left = 155.5
+offset_top = 30.0
+offset_right = 219.5
+offset_bottom = 58.0
+theme_override_font_sizes/font_size = 14
+text = "Mute"
+
+[node name="SFX" type="Label" parent="WoodenPanel/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -25.5
+offset_right = 29.0
+offset_bottom = -4.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 14
+text = "SFX"
+horizontal_alignment = 1
+
+[node name="SFXControl" type="HSlider" parent="WoodenPanel/MarginContainer/Control"]
+layout_mode = 0
+offset_left = 11.5
+offset_top = 71.0
+offset_right = 152.5
+offset_bottom = 87.0
+theme_override_styles/slider = SubResource("StyleBoxLine_ngbvi")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_mishw")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_h271e")
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("3_x3vyp")
+audio_bus_name = "Sfx"
+
+[node name="SFXMuteCheckbox" type="CheckBox" parent="WoodenPanel/MarginContainer/Control"]
+layout_mode = 0
+offset_left = 158.5
+offset_top = 64.0
+offset_right = 222.5
+offset_bottom = 92.0
+theme_override_font_sizes/font_size = 14
+text = "Mute
+"
+
+[node name="BackToMenu" type="Button" parent="WoodenPanel/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -36.5
+offset_top = -27.0
+offset_right = 36.5
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_0b1cv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_yu862")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ywggk")
+text = "Powrót"
+
+[node name="FullScreen" type="CheckBox" parent="WoodenPanel/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -48.5
+offset_top = -61.0
+offset_right = 48.5
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 14
+text = "Fullscreen"
+
+[connection signal="value_changed" from="WoodenPanel/MarginContainer/Control/AudioControl" to="." method="_on_audio_control_value_changed"]
+[connection signal="value_changed" from="WoodenPanel/MarginContainer/Control/AudioControl" to="WoodenPanel/MarginContainer/Control/AudioControl" method="_on_value_changed"]
+[connection signal="toggled" from="WoodenPanel/MarginContainer/Control/MusicMuteCheckbox" to="." method="_on_music_mute_checkbox_toggled"]
+[connection signal="value_changed" from="WoodenPanel/MarginContainer/Control/SFXControl" to="." method="_on_sfx_control_value_changed"]
+[connection signal="value_changed" from="WoodenPanel/MarginContainer/Control/SFXControl" to="WoodenPanel/MarginContainer/Control/SFXControl" method="_on_value_changed"]
+[connection signal="toggled" from="WoodenPanel/MarginContainer/Control/SFXMuteCheckbox" to="." method="_on_sfx_mute_checkbox_toggled"]
+[connection signal="pressed" from="WoodenPanel/MarginContainer/Control/BackToMenu" to="." method="_on_back_to_menu_pressed"]
+[connection signal="toggled" from="WoodenPanel/MarginContainer/Control/FullScreen" to="." method="_on_full_screen_toggled"]
