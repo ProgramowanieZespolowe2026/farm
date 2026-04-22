@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dr4pmi7x11ee4"]
+[gd_scene load_steps=18 format=3 uid="uid://dr4pmi7x11ee4"]
 
 [ext_resource type="Script" uid="uid://bh1jft4h6e50" path="res://scripts/objects/buildings/shop_panel.gd" id="1_kjhtu"]
 [ext_resource type="Texture2D" uid="uid://b1i2v36yxp6ef" path="res://assets/ui/button.png" id="2_11532"]
@@ -44,6 +44,9 @@ font_size = 10
 [sub_resource type="AtlasTexture" id="AtlasTexture_11532"]
 atlas = ExtResource("5_vlcgx")
 region = Rect2(261, 2, 7, 12)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vlcgx"]
+font_size = 10
 
 [node name="ShopPanel" type="Node2D" groups=["ShopPanel"]]
 script = ExtResource("1_kjhtu")
@@ -561,6 +564,15 @@ offset_right = 12.666672
 offset_bottom = 14.0
 texture = SubResource("AtlasTexture_11532")
 
+[node name="PageNumber" type="Label" parent="."]
+offset_left = 350.0
+offset_top = 47.0
+offset_right = 384.0
+offset_bottom = 61.0
+text = "Page 1"
+label_settings = SubResource("LabelSettings_vlcgx")
+horizontal_alignment = 1
+
 [connection signal="pressed" from="Control2/GridContainer/Slot1/BuyButton" to="." method="_on_buy_button_pressed"]
 [connection signal="pressed" from="Control2/GridContainer/Slot2/BuyButton" to="." method="_on_buy_button_pressed"]
 [connection signal="pressed" from="Control2/GridContainer/Slot3/BuyButton" to="." method="_on_buy_button_pressed"]
@@ -582,3 +594,5 @@ texture = SubResource("AtlasTexture_11532")
 [connection signal="pressed" from="Control2/GridContainer/Slot19/BuyButton" to="." method="_on_buy_button_pressed"]
 [connection signal="pressed" from="Control2/GridContainer/Slot20/BuyButton" to="." method="_on_buy_button_pressed"]
 [connection signal="pressed" from="SellButton" to="." method="_on_sell_button_pressed"]
+[connection signal="pressed" from="PreviousPage" to="." method="_on_previous_page_pressed"]
+[connection signal="pressed" from="NextPage" to="." method="_on_next_page_pressed"]

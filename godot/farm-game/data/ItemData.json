@@ -1,4 +1,20 @@
 {
+"Axe": {
+	"ItemCategory": "Axe",
+	"ItemSpeed": 0.75, 
+	"StackSize": 1,
+	"Description": "Siekiera",
+	"BuyPrice": 100,
+	"SellPrice": 50
+},
+"Hoe": {
+	"ItemCategory": "Hoe",
+	"ItemSpeed": 0.75, 
+	"StackSize": 1,
+	"Description": "Motyka",
+	"BuyPrice": 100,
+	"SellPrice": 50
+},
 "Apple_Item": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
@@ -90,22 +106,6 @@
 	"BuyPrice": 100,
 	"SellPrice": 50
   },
-  "Axe": {
-	"ItemCategory": "Axe",
-	"ItemSpeed": 0.75, 
-	"StackSize": 1,
-	"Description": "Siekiera",
-	"BuyPrice": 100,
-	"SellPrice": 50
-  },
-  "Hoe": {
-	"ItemCategory": "Hoe",
-	"ItemSpeed": 0.75, 
-	"StackSize": 1,
-	"Description": "Motyka",
-	"BuyPrice": 100,
-	"SellPrice": 50
-  },
   "Egg": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
@@ -127,6 +127,41 @@
 	"BuyPrice": 100,
 	"SellPrice": 50
   },
+"Cow_Meat": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Mięso krowy",
+	"BuyPrice": 100,
+	"SellPrice": 50
+  },
+  "Milk": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Mleko",
+	"BuyPrice": 100,
+	"SellPrice": 50
+  },
+"Pig_Meat": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Mięso świni",
+	"BuyPrice": 100,
+	"SellPrice": 50
+  },
+"Sheep_Meat": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Mięso owcy",
+	"BuyPrice": 100,
+	"SellPrice": 50
+  },
+  "Wool": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Wełna",
+	"BuyPrice": 100,
+	"SellPrice": 50
+  },
   "Chicken_Baby": {
 	"ItemCategory": "Resource",
 	"StackSize": 1,
@@ -145,22 +180,8 @@
 	"ItemCategory": "Resource",
 	"StackSize": 1,
 	"Description": "Martwy kurczak",
-	"BuyPrice": 100,
-	"SellPrice": 50
-  },
-  "Cow_Meat": {
-	"ItemCategory": "Resource",
-	"StackSize": 99,
-	"Description": "Mięso krowy",
-	"BuyPrice": 100,
-	"SellPrice": 50
-  },
-  "Milk": {
-	"ItemCategory": "Resource",
-	"StackSize": 99,
-	"Description": "Mleko",
-	"BuyPrice": 100,
-	"SellPrice": 50
+	"BuyPrice": 0,
+	"SellPrice": 0
   },
   "Cow_Baby": {
 	"ItemCategory": "Resource",
@@ -176,12 +197,12 @@
 	"BuyPrice": 100,
 	"SellPrice": 50
   },
-  "Pig_Meat": {
+"Cow_Died": {
 	"ItemCategory": "Resource",
-	"StackSize": 99,
-	"Description": "Mięso świni",
-	"BuyPrice": 100,
-	"SellPrice": 50
+	"StackSize": 1,
+	"Description": "Martwa krowa",
+	"BuyPrice": 0,
+	"SellPrice": 0
   },
   "Pig_Baby": {
 	"ItemCategory": "Resource",
@@ -197,19 +218,12 @@
 	"BuyPrice": 100,
 	"SellPrice": 50
   },
-  "Sheep_Meat": {
+"Pig_Died": {
 	"ItemCategory": "Resource",
-	"StackSize": 99,
-	"Description": "Mięso owcy",
-	"BuyPrice": 100,
-	"SellPrice": 50
-  },
-  "Wool": {
-	"ItemCategory": "Resource",
-	"StackSize": 99,
-	"Description": "Wełna",
-	"BuyPrice": 100,
-	"SellPrice": 50
+	"StackSize": 1,
+	"Description": "Martwa świnia",
+	"BuyPrice": 0,
+	"SellPrice": 0
   },
   "Sheep_Baby": {
 	"ItemCategory": "Resource",
@@ -231,5 +245,12 @@
 	"Description": "Ostrzyżona owca",
 	"BuyPrice": 100,
 	"SellPrice": 50
-  }
+  },
+"Sheep_Died": {
+	"ItemCategory": "Resource",
+	"StackSize": 1,
+	"Description": "Martwa owca",
+	"BuyPrice": 0,
+	"SellPrice": 0
+  },
 }

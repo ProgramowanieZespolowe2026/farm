@@ -6,11 +6,24 @@ const ItemClass = preload("res://scripts/items/item.gd")
 @onready var slot_product_to_sell: Panel = $Slot21
 @onready var product_price: Label = $ProductPrice
 @onready var shop_slots: GridContainer = $Control2/GridContainer
+@onready var page_number: Label = $PageNumber
 
 signal shop_panel_open(is_open: bool)
 
 var product_to_sell: SlotClass
+var page = 0;
 
+var items_not_for_sale=[
+	"Chicken_Adult",
+	"Chicken_Died",
+	"Cow_Adult",
+	"Cow_Died",
+	"Pig_Adult",
+	"Pig_Died",
+	"Sheep_Adult",
+	"Sheep_Adult_HairCut",
+	"Sheep_Died"
+	]
 
 func _ready():
 	var slots = shop_slots.get_children()
@@ -109,18 +122,30 @@ func calc_product_price():
 				product_price.text = str(item["SellPrice"]*product_to_sell.item.item_value,"$")
 				break
 	else:
-		print("pusto")
 		product_price.text = "0$"
 	
 func fetch_products_price():
 	var slots = shop_slots.get_children()
 	var all_item_keys = JsonData.item_data.keys()
+	
+	var items_to_show = []
+	for key in all_item_keys:
+		if key not in items_not_for_sale:
+			items_to_show.append(key)
+
 	for i in range(20):
-			var item_id = all_item_keys[i]
-			slots[i].initialize_item(item_id,1)
+		var index_na_liscie = i + (page * 20)
+		
+		if index_na_liscie < items_to_show.size():
+			var item_id = items_to_show[index_na_liscie]
+			
+			slots[i].initialize_item(item_id, 1)
 			slots[i].update_product_price_label(JsonData.item_data[item_id]["BuyPrice"])
 			slots[i].hide_label_visibility()
-			
+			slots[i].change_visibility_buy_button(true)
+		else:
+			slots[i].remove_item()
+			slots[i].change_visibility_buy_button(false)
 
 func _on_sell_button_pressed() -> void:
 	if product_to_sell:
@@ -137,7 +162,21 @@ func _on_sell_button_pressed() -> void:
 func _on_buy_button_pressed() -> void:
 	var button = get_viewport().gui_get_focus_owner()
 	var slot = button.get_parent()
-	print(slot.item.item_name)
-	InventoryManager.add_item(slot.item.item_name,1)
-	fetch_products_price()
-	Wallet.spend_money(slot.get_buy_product_price())
+	if not slot.item == null:
+		InventoryManager.add_item(slot.item.item_name,1)
+		fetch_products_price()
+		Wallet.spend_money(slot.get_buy_product_price())
+
+
+func _on_previous_page_pressed() -> void:
+	if not page == 0:
+		page -= 1
+		fetch_products_price()
+		page_number.text = str("Page ", page+1)
+
+
+func _on_next_page_pressed() -> void:
+	if ((page+1)*20) < JsonData.item_data.size():
+		page += 1
+		fetch_products_price()
+		page_number.text = str("Page ", page+1)

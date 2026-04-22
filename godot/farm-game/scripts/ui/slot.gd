@@ -109,5 +109,9 @@ func refresh_data():
 	else:
 		remove_item()
 
+func change_visibility_buy_button(is_visible:bool):
+	if buy_button:
+		buy_button.visible = is_visible
+
 func hide_label_visibility():
 	item.hide_label_visibility()
