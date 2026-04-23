@@ -11,11 +11,10 @@ func add_new_building(grid_pos: Vector2i, buildingName: String):
 		new_data = {
 			"id": buildings_data.size() + 1,
 			"name": buildingName,
-			"items": new_items_array,
-			"sell_slots": [null],
 		}
 	else:
 		# dla kurnika i stodoły
+		print("tworze ", buildingName)
 		var to_collect_array = []
 		to_collect_array.resize(20)
 		
@@ -42,11 +41,8 @@ func remove_item(grid_pos: Vector2i, slot_index: int):
 
 func add_item(grid_pos: Vector2i, slot_index: int, item_name: String, item_value: int, item_price: int = 0):
 	if buildings_data.has(grid_pos):
-		if(buildings_data[grid_pos]["name"] == "Shop"):
-			buildings_data[grid_pos]["items"][slot_index] = {"name": item_name, "value": item_value,"price": item_price}
-		else:
-			buildings_data[grid_pos]["items"][slot_index] = {"name": item_name, "value": item_value, "progresPoints": 0,"collectedAmount": 0}
-			buildings_data[grid_pos]["to_collect"][slot_index] = null
+		buildings_data[grid_pos]["items"][slot_index] = {"name": item_name, "value": item_value, "progresPoints": 0,"collectedAmount": 0}
+		buildings_data[grid_pos]["to_collect"][slot_index] = null
 		
 func add_value_to_item(grid_pos: Vector2i, slot_index: int, value: int):
 	if buildings_data.has(grid_pos):

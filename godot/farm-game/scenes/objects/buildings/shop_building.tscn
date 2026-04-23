@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dp06kgowl326l"]
 
-[ext_resource type="Script" uid="uid://7s8d2326dmb1" path="res://scripts/objects/buildings/animal_building.gd" id="1_nd8mq"]
+[ext_resource type="Script" uid="uid://7s8d2326dmb1" path="res://scripts/objects/buildings/building.gd" id="1_nd8mq"]
 [ext_resource type="Texture2D" uid="uid://cyeeexxxoae1e" path="res://assets/buildings/shop.png" id="2_nd8mq"]
 [ext_resource type="Script" uid="uid://bf1y3ffwctau" path="res://scripts/objects/buildings/animal_building_Arena.gd" id="3_ftbm6"]
 

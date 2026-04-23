@@ -36,7 +36,7 @@ var barnAnimals = [
   "Sheep_Adult",
   "Sheep_Adult_HairCut"
 ]
-const requiredPointsToFirstUpgrade:int = 100
+const requiredPointsToFirstUpgrade:int = 30
 const remaningCycleAnimal = 10 #po tylu zbiorach zwierze umiera
 
 @onready var food_level_amount_text: Label = $FoodLevelAmountText
@@ -64,7 +64,7 @@ func _ready():
 func _on_time_tick(day: int, hour: int, minute: int) -> void:
 	updateUI()
 	
-func initialize_inventory():
+func initialize_slots():
 	var slots = animalBuildingItems.get_children()
 	
 	for slot in slots:
@@ -220,19 +220,21 @@ func open_panel(coop_pos: Vector2i):
 	foodLevel = active_coop_data["food_level"]
 	food_level_amount_text.text = str(foodLevel)
 	
-	initialize_inventory()
+	initialize_slots()
 	setVisiblePanel(true)
 
 func close_panel():
 	setVisiblePanel(false)
-	current_animal_building_pos = Vector2i.ZERO
-	active_coop_data = {}
+	
 	
 	var slots = animalBuildingItems.get_children()
 	for slot in slots:
 		if slot.item != null:
-			slot.item.queue_free()
-			slot.item = null
+			slot.remove_item()
+			#slot.item.queue_free()
+			#slot.item = null
+	current_animal_building_pos = Vector2i.ZERO
+	active_coop_data = {}
 
 func add_food(item_value: int):
 	BuildingDataManager.increase_food_level(current_animal_building_pos,item_value*10)
@@ -256,19 +258,15 @@ func updateUI():
 			
 func check_item_to_collect(slot: SlotClass):
 	var item = BuildingDataManager.get_item_to_collect(current_animal_building_pos, slot.slot_index)
+	print(item)
+	
 	if item != null:
-		var icon = TextureRect.new()
-		
-		if item.name == "Egg" and not slot.has_node("Egg"):
-			icon.texture = preload("uid://cs1gdd8apg456")
-			icon.name = "Egg"
-			
-		if item.name == "Milk" and not slot.has_node("Milk"):
-			icon.texture = preload("uid://ccyaeiyyu6ju1")
-			icon.name = "Milk"
-			
-		slot.add_child(icon)
-		icon.position = Vector2(slot.size.x - 10, slot.size.y - 25)
+		# Dodajemy jajko tylko jeśli go tam jeszcze nie ma
+		if item.name == "Egg":
+			slot.set_product_icon_texture("uid://cs1gdd8apg456")
+		if item.name == "Milk":
+			slot.set_product_icon_texture("uid://ccyaeiyyu6ju1")
+		slot.change_visibility_product_icon(true)
 		
 func update_animal_state(slot: SlotClass):
 	var currentPoints = BuildingDataManager.get_slot_progres_points(current_animal_building_pos,slot.slot_index)
@@ -336,17 +334,11 @@ func collect_product(slot:SlotClass):
 		BuildingDataManager.reduce_item_to_collect(current_animal_building_pos, slot.slot_index)
 		BuildingDataManager.increase_collected_amount_item(current_animal_building_pos, slot.slot_index)
 	
-		var egg_node = slot.get_node_or_null("Egg")
-		if item_to_collect.name == "Egg" and slot.get_node("Egg"):
-			egg_node.queue_free()
-			
-		var milk_node = slot.get_node_or_null("Milk")
-		if item_to_collect.name == "Milk" and milk_node:
-			milk_node.queue_free()
+		slot.change_visibility_product_icon(false)
 			
 		
 		if item_to_collect.name == "Wool":
-			BuildingDataManager.add_item(current_animal_building_pos, slot.slot_index, "Sheep_Adult_Haircut", 1)
+			BuildingDataManager.add_item(current_animal_building_pos, slot.slot_index, "Sheep_Adult_HairCut", 1)
 			slot.initialize_item("Sheep_Adult_HairCut", 1)
 			
 		InventoryManager.add_item(item_to_collect.name, item_to_collect.value)

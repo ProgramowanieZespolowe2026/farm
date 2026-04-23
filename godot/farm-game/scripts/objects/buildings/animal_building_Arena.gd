@@ -12,9 +12,9 @@ func _input(event):
 		var shop_ui_panel = get_tree().get_first_node_in_group("ShopPanel")
 		var panel = null
 		
-		if animal_ui_panel and (buildingName == "ChickenCoopBuilding" or buildingName == "BarnBuilding"):
+		if animal_ui_panel and (buildingName == "ChickenCoop" or buildingName == "Barn"):
 			panel = animal_ui_panel
-		if shop_ui_panel and buildingName == "ShopBuilding":
+		if shop_ui_panel and buildingName == "Shop":
 			panel = shop_ui_panel
 			
 			
@@ -29,7 +29,10 @@ func _input(event):
 			
 func _on_body_entered(body: Node2D) -> void:
 	if body is TemporaryPlayer:
-		buildingName = get_parent().name
+		var parent = get_parent()
+		if "object_name" in parent:
+			buildingName = parent.object_name
+			
 		playerInArea = true
 
 func _on_body_exited(body: Node2D) -> void:
