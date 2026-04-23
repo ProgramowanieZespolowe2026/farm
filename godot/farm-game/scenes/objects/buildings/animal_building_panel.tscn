@@ -1,17 +1,23 @@
-[gd_scene load_steps=15 format=3 uid="uid://buh3v7l8w15br"]
+[gd_scene load_steps=18 format=3 uid="uid://buh3v7l8w15br"]
 
 [ext_resource type="Script" uid="uid://c1nf1r38ybbau" path="res://scripts/objects/buildings/animal_building_panel.gd" id="1_mbn8n"]
+[ext_resource type="Texture2D" uid="uid://cn48qmn3m5n0l" path="res://assets/ui/Slots.png" id="2_pwxqa"]
 [ext_resource type="Texture2D" uid="uid://b1i2v36yxp6ef" path="res://assets/ui/button.png" id="2_tmgeu"]
+[ext_resource type="Texture2D" uid="uid://b4vg3wyplpkye" path="res://assets/ui/board_ui.png" id="3_f8j5q"]
 [ext_resource type="Script" uid="uid://dqfdg7wwx6cps" path="res://scripts/ui/slot.gd" id="3_pwxqa"]
 [ext_resource type="Texture2D" uid="uid://c10savuqp5cxq" path="res://assets/ui/progresBar_empty.png" id="4_f8j5q"]
 [ext_resource type="Texture2D" uid="uid://u8dyqpcl5gib" path="res://assets/ui/progresBar_content.png" id="5_r02a4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_17uwj"]
-atlas = ExtResource("2_tmgeu")
-region = Rect2(99, 20, 42, 40)
+atlas = ExtResource("2_pwxqa")
+region = Rect2(6, 105, 164, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r02a4"]
+atlas = ExtResource("3_f8j5q")
 
 [sub_resource type="LabelSettings" id="LabelSettings_4lk4h"]
 font_size = 10
+font_color = Color(0.23921569, 0.08627451, 0.02745098, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7ck5g"]
 atlas = ExtResource("2_tmgeu")
@@ -45,18 +51,29 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Background" type="NinePatchRect" parent="."]
 offset_left = 230.0
-offset_top = 40.0
-offset_right = 384.0
-offset_bottom = 192.0
+offset_top = 29.0
+offset_right = 395.0
+offset_bottom = 199.0
 texture = SubResource("AtlasTexture_17uwj")
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 6
+patch_margin_bottom = 5
+
+[node name="Board" type="NinePatchRect" parent="."]
+offset_left = 258.0
+offset_top = 36.0
+offset_right = 374.0
+offset_bottom = 68.0
+texture = SubResource("AtlasTexture_r02a4")
 
 [node name="BuildingNameText" type="Label" parent="."]
-offset_left = 260.0
-offset_top = 43.0
-offset_right = 366.0
-offset_bottom = 66.0
+offset_left = 261.0
+offset_top = 39.0
+offset_right = 367.0
+offset_bottom = 62.0
 text = "Chicken Coop"
 label_settings = SubResource("LabelSettings_4lk4h")
 horizontal_alignment = 1
@@ -591,33 +608,33 @@ scale = Vector2(0.8, 0.8)
 mouse_filter = 2
 
 [node name="Slot21" type="Panel" parent="."]
-offset_left = 235.0
+offset_left = 243.0
 offset_top = 166.0
-offset_right = 253.0
+offset_right = 261.0
 offset_bottom = 184.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_17uwj")
 script = ExtResource("3_pwxqa")
 
 [node name="FoodLevelText" type="Label" parent="."]
-offset_left = 257.0
+offset_left = 265.0
 offset_top = 164.0
-offset_right = 330.0
+offset_right = 338.0
 offset_bottom = 187.0
 text = "Food Level"
 label_settings = SubResource("LabelSettings_2lkp4")
 
 [node name="FoodLevelAmountText" type="Label" parent="."]
-offset_left = 272.0
+offset_left = 280.0
 offset_top = 174.0
-offset_right = 312.0
+offset_right = 320.0
 offset_bottom = 197.0
 text = "0"
 label_settings = SubResource("LabelSettings_brlsg")
 
 [node name="Instructions" type="Label" parent="."]
-offset_left = 319.0
+offset_left = 327.0
 offset_top = 160.0
-offset_right = 386.0
+offset_right = 394.0
 offset_bottom = 195.0
 text = "LPM - collect
 PPM - kill"

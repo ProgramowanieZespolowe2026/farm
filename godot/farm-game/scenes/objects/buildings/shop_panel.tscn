@@ -1,17 +1,27 @@
-[gd_scene load_steps=18 format=3 uid="uid://dr4pmi7x11ee4"]
+[gd_scene load_steps=21 format=3 uid="uid://dr4pmi7x11ee4"]
 
 [ext_resource type="Script" uid="uid://bh1jft4h6e50" path="res://scripts/objects/buildings/shop_panel.gd" id="1_kjhtu"]
+[ext_resource type="Texture2D" uid="uid://cn48qmn3m5n0l" path="res://assets/ui/Slots.png" id="2_1vyh8"]
 [ext_resource type="Texture2D" uid="uid://b1i2v36yxp6ef" path="res://assets/ui/button.png" id="2_11532"]
 [ext_resource type="Script" uid="uid://dqfdg7wwx6cps" path="res://scripts/ui/slot.gd" id="3_1vyh8"]
+[ext_resource type="Texture2D" uid="uid://b4vg3wyplpkye" path="res://assets/ui/board_ui.png" id="3_pd3ga"]
 [ext_resource type="Texture2D" uid="uid://bh7jks7tm8ktr" path="res://assets/ui/button1.png" id="4_0t6tn"]
 [ext_resource type="Texture2D" uid="uid://dq7deg40blf8d" path="res://assets/ui/Sprite sheet for Basic Pack.png" id="5_vlcgx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_17uwj"]
-atlas = ExtResource("2_11532")
-region = Rect2(99, 20, 42, 40)
+atlas = ExtResource("2_1vyh8")
+region = Rect2(6, 105, 164, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mkcmr"]
+atlas = ExtResource("3_pd3ga")
+
+[sub_resource type="LabelSettings" id="LabelSettings_vlcgx"]
+font_size = 8
+font_color = Color(0.23921569, 0.08627451, 0.02745098, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_4lk4h"]
-font_size = 10
+font_size = 13
+font_color = Color(0.23921569, 0.08627451, 0.02745098, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7ck5g"]
 atlas = ExtResource("2_11532")
@@ -45,10 +55,8 @@ font_size = 10
 atlas = ExtResource("5_vlcgx")
 region = Rect2(261, 2, 7, 12)
 
-[sub_resource type="LabelSettings" id="LabelSettings_vlcgx"]
-font_size = 10
-
 [node name="ShopPanel" type="Node2D" groups=["ShopPanel"]]
+position = Vector2(0, 3)
 script = ExtResource("1_kjhtu")
 
 [node name="Control" type="Control" parent="."]
@@ -57,18 +65,46 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_left = 226.0
-offset_top = 40.0
-offset_right = 403.0
+[node name="Background" type="NinePatchRect" parent="."]
+offset_left = 217.0
+offset_top = 18.0
+offset_right = 413.0
 offset_bottom = 228.0
 texture = SubResource("AtlasTexture_17uwj")
+region_rect = Rect2(0, 0, 164, 28)
+patch_margin_left = 6
+patch_margin_top = 7
+patch_margin_right = 6
+patch_margin_bottom = 5
+
+[node name="Board" type="NinePatchRect" parent="."]
+offset_left = 269.0
+offset_top = 26.0
+offset_right = 362.0
+offset_bottom = 58.0
+texture = SubResource("AtlasTexture_mkcmr")
+
+[node name="Board2" type="NinePatchRect" parent="."]
+offset_left = 366.0
+offset_top = 38.0
+offset_right = 402.0
+offset_bottom = 58.0
+texture = SubResource("AtlasTexture_mkcmr")
+
+[node name="PageNumber" type="Label" parent="."]
+offset_left = 368.0
+offset_top = 41.0
+offset_right = 402.0
+offset_bottom = 55.0
+text = "Page 1"
+label_settings = SubResource("LabelSettings_vlcgx")
+horizontal_alignment = 1
 
 [node name="BuildingNameText" type="Label" parent="."]
-offset_left = 260.0
-offset_top = 43.0
-offset_right = 366.0
-offset_bottom = 66.0
+offset_left = 265.0
+offset_top = 29.0
+offset_right = 371.0
+offset_bottom = 52.0
 text = "Shop"
 label_settings = SubResource("LabelSettings_4lk4h")
 horizontal_alignment = 1
@@ -563,15 +599,6 @@ offset_top = 2.0
 offset_right = 12.666672
 offset_bottom = 14.0
 texture = SubResource("AtlasTexture_11532")
-
-[node name="PageNumber" type="Label" parent="."]
-offset_left = 350.0
-offset_top = 47.0
-offset_right = 384.0
-offset_bottom = 61.0
-text = "Page 1"
-label_settings = SubResource("LabelSettings_vlcgx")
-horizontal_alignment = 1
 
 [connection signal="pressed" from="Control2/GridContainer/Slot1/BuyButton" to="." method="_on_buy_button_pressed"]
 [connection signal="pressed" from="Control2/GridContainer/Slot2/BuyButton" to="." method="_on_buy_button_pressed"]

@@ -49,11 +49,11 @@ position = Vector2(-18, 12)
 [node name="ChickenCoopPanel" parent="MarginContainer" instance=ExtResource("8_ce4rh")]
 unique_name_in_owner = true
 visible = false
-position = Vector2(-93, -10)
+position = Vector2(-93, 11)
 
 [node name="ShopPanel" parent="MarginContainer" instance=ExtResource("8_r1vnj")]
 visible = false
-position = Vector2(-92.78967, -5.6740036)
+position = Vector2(-92.78967, 22.325996)
 
 [node name="MenuOpen" parent="." instance=ExtResource("4_gkbp4")]
 unique_name_in_owner = true
