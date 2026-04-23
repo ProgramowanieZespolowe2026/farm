@@ -15,6 +15,14 @@
 	"BuyPrice": 100,
 	"SellPrice": 50
 },
+"Fertlizer": {
+	"ItemCategory": "Fertlizer",
+	"ItemSpeed": 0.75, 
+	"StackSize": 99,
+	"Description": "Nawóz",
+	"BuyPrice": 100,
+	"SellPrice": 50
+},
 "Apple_Item": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,

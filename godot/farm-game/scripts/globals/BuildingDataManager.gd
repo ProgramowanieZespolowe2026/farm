@@ -12,6 +12,13 @@ func add_new_building(grid_pos: Vector2i, buildingName: String):
 			"id": buildings_data.size() + 1,
 			"name": buildingName,
 		}
+	elif buildingName == "Composer":
+		new_data = {
+			"id": buildings_data.size() + 1,
+			"name": buildingName,
+			"progressPoints": 0,
+			"to_collect": {}
+		}
 	else:
 		# dla kurnika i stodoły
 		print("tworze ", buildingName)

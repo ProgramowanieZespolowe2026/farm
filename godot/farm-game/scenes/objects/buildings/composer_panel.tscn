@@ -1,0 +1,115 @@
+[gd_scene load_steps=16 format=3 uid="uid://kgbocqhqlu7g"]
+
+[ext_resource type="Script" uid="uid://d2q0wppw1rf12" path="res://scripts/objects/buildings/composer_panel.gd" id="1_bbbf3"]
+[ext_resource type="Texture2D" uid="uid://cn48qmn3m5n0l" path="res://assets/ui/Slots.png" id="1_y870a"]
+[ext_resource type="Texture2D" uid="uid://b4vg3wyplpkye" path="res://assets/ui/board_ui.png" id="2_bbbf3"]
+[ext_resource type="Texture2D" uid="uid://b1i2v36yxp6ef" path="res://assets/ui/button.png" id="4_ekeao"]
+[ext_resource type="Script" uid="uid://dqfdg7wwx6cps" path="res://scripts/ui/slot.gd" id="5_v0u4s"]
+[ext_resource type="Texture2D" uid="uid://c10savuqp5cxq" path="res://assets/ui/progresBar_empty.png" id="6_5b32n"]
+[ext_resource type="Texture2D" uid="uid://u8dyqpcl5gib" path="res://assets/ui/progresBar_content.png" id="7_dnoga"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_au5lx"]
+atlas = ExtResource("1_y870a")
+region = Rect2(6, 105, 164, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m7ic4"]
+atlas = ExtResource("2_bbbf3")
+
+[sub_resource type="LabelSettings" id="LabelSettings_1d1ud"]
+font_size = 10
+font_color = Color(0.23921569, 0.08627451, 0.02745098, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ck5g"]
+atlas = ExtResource("4_ekeao")
+region = Rect2(48, 496, 48, 48)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rqq12"]
+texture = SubResource("AtlasTexture_7ck5g")
+region_rect = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d201f"]
+atlas = ExtResource("6_5b32n")
+region = Rect2(2, 13, 14, 3)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eg12x"]
+atlas = ExtResource("7_dnoga")
+region = Rect2(-2, 13, 16, 3)
+margin = Rect2(1, 0, 2, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_dbs84"]
+font_size = 10
+
+[node name="ComposerPanel" type="Node2D" groups=["ComposerBuildingPanel"]]
+script = ExtResource("1_bbbf3")
+
+[node name="Background" type="NinePatchRect" parent="."]
+offset_left = 230.0
+offset_top = 29.0
+offset_right = 395.0
+offset_bottom = 170.0
+texture = SubResource("AtlasTexture_au5lx")
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 6
+patch_margin_bottom = 5
+
+[node name="Board" type="NinePatchRect" parent="."]
+offset_left = 258.0
+offset_top = 19.0
+offset_right = 374.0
+offset_bottom = 51.0
+texture = SubResource("AtlasTexture_m7ic4")
+
+[node name="BuildingNameText" type="Label" parent="."]
+offset_left = 261.0
+offset_top = 22.0
+offset_right = 367.0
+offset_bottom = 45.0
+text = "Composer"
+label_settings = SubResource("LabelSettings_1d1ud")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlantSlot" type="Panel" parent="."]
+offset_left = 305.0
+offset_top = 71.0
+offset_right = 323.0
+offset_bottom = 89.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_rqq12")
+script = ExtResource("5_v0u4s")
+
+[node name="FertlizerSlot" type="Panel" parent="."]
+offset_left = 305.0
+offset_top = 121.0
+offset_right = 323.0
+offset_bottom = 139.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_rqq12")
+script = ExtResource("5_v0u4s")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+offset_left = 258.0
+offset_top = 96.0
+offset_right = 377.0
+offset_bottom = 113.0
+value = 50.0
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_d201f")
+texture_progress = SubResource("AtlasTexture_eg12x")
+tint_under = Color(1, 0.60247463, 0.35299444, 1)
+tint_progress = Color(0, 0.9569079, 0.34731165, 1)
+
+[node name="PlantSlotInfo" type="Label" parent="."]
+offset_left = 299.0
+offset_top = 56.0
+offset_right = 329.0
+offset_bottom = 70.0
+text = "Plants"
+label_settings = SubResource("LabelSettings_dbs84")
+
+[node name="FertlizerSlotInfo" type="Label" parent="."]
+offset_left = 295.0
+offset_top = 146.0
+offset_right = 335.0
+offset_bottom = 160.0
+text = "Fertlizer"
+label_settings = SubResource("LabelSettings_dbs84")

@@ -10,12 +10,15 @@ func _input(event):
 	if event.is_action_pressed("Building") and playerInArea:
 		var animal_ui_panel = get_tree().get_first_node_in_group("AnimalBuildingPanel")
 		var shop_ui_panel = get_tree().get_first_node_in_group("ShopPanel")
+		var composer_ui_panel = get_tree().get_first_node_in_group("ComposerBuildingPanel")
 		var panel = null
 		
 		if animal_ui_panel and (buildingName == "ChickenCoop" or buildingName == "Barn"):
 			panel = animal_ui_panel
 		if shop_ui_panel and buildingName == "Shop":
 			panel = shop_ui_panel
+		if composer_ui_panel and buildingName == "Composer":
+			panel = composer_ui_panel
 			
 			
 		if panel:
@@ -40,8 +43,11 @@ func _on_body_exited(body: Node2D) -> void:
 		playerInArea = false
 		var animal_ui_panel = get_tree().get_first_node_in_group("AnimalBuildingPanel")
 		var shop_ui_panel = get_tree().get_first_node_in_group("ShopPanel")
+		var composer_ui_panel = get_tree().get_first_node_in_group("ComposerBuildingPanel")
 		
 		if animal_ui_panel:
 			animal_ui_panel.close_panel()
 		if shop_ui_panel:
 			shop_ui_panel.close_panel()
+		if composer_ui_panel:
+			composer_ui_panel.close_panel()

@@ -11,7 +11,7 @@ func _on_time_tick(day: int, hour: int, minute: int) -> void:
 
 func updateAnimalsGrowth():
 	for grid_pos in buildings_data:
-		if buildings_data[grid_pos]["name"] != "Shop":
+		if buildings_data[grid_pos]["name"] == "ChickenCoop" or buildings_data[grid_pos]["name"] == "Barn":
 			var items_array = buildings_data[grid_pos]["items"]
 			
 			for slot_index in range(items_array.size()):
