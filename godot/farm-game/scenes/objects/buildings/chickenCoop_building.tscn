@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://d23cpav84ureu"]
 
-[ext_resource type="Script" uid="uid://7s8d2326dmb1" path="res://scripts/objects/buildings/animal_building.gd" id="1_tm6ko"]
+[ext_resource type="Script" uid="uid://7s8d2326dmb1" path="res://scripts/objects/buildings/building.gd" id="1_tm6ko"]
 [ext_resource type="Texture2D" uid="uid://cdbdq0vue2snd" path="res://assets/buildings/chickenCoop.png" id="2_k4tyg"]
 [ext_resource type="Script" uid="uid://bf1y3ffwctau" path="res://scripts/objects/buildings/animal_building_Arena.gd" id="3_llnt6"]
 

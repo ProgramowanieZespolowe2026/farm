@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://ylhduw5fblc5" path="res://audio/sfx/menu_open.tscn" id="4_gkbp4"]
 [ext_resource type="PackedScene" uid="uid://drjspv32c5mwu" path="res://scenes/ui/hotbar.tscn" id="7_ooiym"]
 [ext_resource type="PackedScene" uid="uid://buh3v7l8w15br" path="res://scenes/objects/buildings/animal_building_panel.tscn" id="8_ce4rh"]
+[ext_resource type="PackedScene" uid="uid://dr4pmi7x11ee4" path="res://scenes/objects/buildings/shop_panel.tscn" id="8_r1vnj"]
 
 [node name="GameScreen" type="CanvasLayer" groups=["GameScreen"]]
 script = ExtResource("1_gusqm")
@@ -48,7 +49,11 @@ position = Vector2(-18, 12)
 [node name="ChickenCoopPanel" parent="MarginContainer" instance=ExtResource("8_ce4rh")]
 unique_name_in_owner = true
 visible = false
-position = Vector2(-93, -10)
+position = Vector2(-93, 11)
+
+[node name="ShopPanel" parent="MarginContainer" instance=ExtResource("8_r1vnj")]
+visible = false
+position = Vector2(-92.78967, 22.325996)
 
 [node name="SettingsMenu" parent="MarginContainer" instance=ExtResource("8_r1vnj")]
 layout_mode = 2

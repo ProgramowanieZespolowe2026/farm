@@ -3,19 +3,29 @@ extends Node
 var buildings_data = {}
 
 func add_new_building(grid_pos: Vector2i, buildingName: String):
+	var new_data = {}
 	var new_items_array = []
 	new_items_array.resize(20)
-	var to_collect_array = []
-	to_collect_array.resize(20)
-	
-	var new_data = {
-		"id": buildings_data.size() + 1,
-		"name": buildingName,
-		"food_level": 500,
-		"items": new_items_array,
-		"food_slots": [null],
-		"to_collect": to_collect_array
-	}
+		
+	if buildingName == "Shop":
+		new_data = {
+			"id": buildings_data.size() + 1,
+			"name": buildingName,
+		}
+	else:
+		# dla kurnika i stodoły
+		print("tworze ", buildingName)
+		var to_collect_array = []
+		to_collect_array.resize(20)
+		
+		new_data = {
+			"id": buildings_data.size() + 1,
+			"name": buildingName,
+			"food_level": 500,
+			"items": new_items_array,
+			"food_slots": [null],
+			"to_collect": to_collect_array
+		}
 	
 	buildings_data[grid_pos] = new_data
 
@@ -29,7 +39,7 @@ func remove_item(grid_pos: Vector2i, slot_index: int):
 	if buildings_data.has(grid_pos):
 		buildings_data[grid_pos]["items"][slot_index] = null
 
-func add_item(grid_pos: Vector2i, slot_index: int, item_name: String, item_value: int):
+func add_item(grid_pos: Vector2i, slot_index: int, item_name: String, item_value: int, item_price: int = 0):
 	if buildings_data.has(grid_pos):
 		buildings_data[grid_pos]["items"][slot_index] = {"name": item_name, "value": item_value, "progresPoints": 0,"collectedAmount": 0}
 		buildings_data[grid_pos]["to_collect"][slot_index] = null

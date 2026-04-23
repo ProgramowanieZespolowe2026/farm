@@ -3,7 +3,9 @@ extends Panel
 var default_tex = preload("res://assets/ui/button1.png")
 var selected_texture = preload("res://assets/ui/button2.png")
 
+@onready var product_icon: TextureRect = get_node_or_null("ProductIcon")
 @onready var progress_bar: TextureProgressBar = get_node_or_null("TextureProgressBar")
+@onready var buy_button: Button = get_node_or_null("BuyButton")
 
 var default_style: StyleBoxTexture = null
 var selected_style: StyleBoxTexture = null
@@ -17,7 +19,9 @@ enum SlotType {
 	HOTBAR = 0,
 	INVENTORY,
 	CHICKENCOOP,
-	CHICKENCOOP_FOOD
+	CHICKENCOOP_FOOD,
+	SHOP,
+	PRODUCT_FOR_SELL
 }
 
 func _ready():
@@ -27,8 +31,10 @@ func _ready():
 	default_style.texture = default_tex
 	selected_style.texture = selected_texture
 	if progress_bar:
-		progress_bar.max_value = 100.0
+		progress_bar.max_value = 30.0
 		progress_bar.visible = false
+	if product_icon:
+		product_icon.visible = false
 
 func refresh_style():
 	if SlotType.HOTBAR == slot_type and InventoryManager.active_item_slot == slot_index:
@@ -47,6 +53,8 @@ func pickFromSlot():
 	item = null
 	refresh_style()
 	update_progress(0)
+	if product_icon:
+		product_icon.visible = false
 	
 func putIntoSlot(new_item):
 	item = new_item
@@ -75,6 +83,18 @@ func update_progress(current_value: int):
 		else:
 			progress_bar.visible = true
 		
+
+func update_product_price_label(price:int):
+	if buy_button:
+		buy_button.text = str(price," $")
+
+func get_buy_product_price():
+	if item:
+		for i in JsonData.item_data:
+				if item.item_name == i:
+					return JsonData.item_data[i]["BuyPrice"]
+					
+
 func remove_item():
 	if item != null:
 		item.queue_free()
@@ -82,9 +102,14 @@ func remove_item():
 		update_progress(0)
 		if progress_bar:
 			progress_bar.visible = false
+		if product_icon:
+			product_icon.visible = false
 
 func refresh_data():
 	var item = null
+	if slot_type != SlotType.HOTBAR and slot_type != SlotType.INVENTORY:
+		return
+		
 	if slot_type == SlotType.HOTBAR:
 		item = InventoryManager.hotbar[slot_index]
 	elif slot_type == SlotType.INVENTORY:
@@ -93,3 +118,23 @@ func refresh_data():
 		initialize_item(item["name"], item["value"])
 	else:
 		remove_item()
+
+func change_visibility_product_icon(is_visible:bool):
+	if product_icon:
+		product_icon.visible = is_visible
+func set_product_icon_texture(texture_path: String):
+	if product_icon:
+		product_icon.texture = load(texture_path)
+		product_icon.visible = true
+		
+
+func change_visibility_buy_button(is_visible:bool):
+	if buy_button:
+		buy_button.visible = is_visible
+
+func hide_label_visibility():
+	item.hide_label_visibility()
+
+
+func _on_mouse_entered():
+	print("Entered")
