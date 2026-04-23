@@ -134,3 +134,7 @@ func change_visibility_buy_button(is_visible:bool):
 
 func hide_label_visibility():
 	item.hide_label_visibility()
+
+
+func _on_mouse_entered():
+	print("Entered")
