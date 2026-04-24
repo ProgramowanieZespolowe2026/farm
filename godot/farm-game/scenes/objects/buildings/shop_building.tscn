@@ -8,12 +8,14 @@
 atlas = ExtResource("2_nd8mq")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_if18u"]
-size = Vector2(56, 46)
+size = Vector2(56, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xjlqt"]
 size = Vector2(56, 20)
 
 [node name="ShopBuilding" type="Node2D"]
+z_index = 1
+y_sort_enabled = true
 script = ExtResource("1_nd8mq")
 
 [node name="Sprite" type="Sprite2D" parent="."]
@@ -23,7 +25,7 @@ texture = SubResource("AtlasTexture_xjlqt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 y_sort_enabled = true
-position = Vector2(1, 3)
+position = Vector2(1, 16)
 shape = SubResource("RectangleShape2D_if18u")
 
 [node name="BuildingEntered" type="Area2D" parent="." groups=["ChickenCoop"]]

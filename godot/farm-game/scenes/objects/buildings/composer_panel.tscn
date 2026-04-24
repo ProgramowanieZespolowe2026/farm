@@ -1,12 +1,12 @@
-[gd_scene load_steps=16 format=3 uid="uid://kgbocqhqlu7g"]
+[gd_scene load_steps=17 format=3 uid="uid://kgbocqhqlu7g"]
 
 [ext_resource type="Script" uid="uid://d2q0wppw1rf12" path="res://scripts/objects/buildings/composer_panel.gd" id="1_bbbf3"]
 [ext_resource type="Texture2D" uid="uid://cn48qmn3m5n0l" path="res://assets/ui/Slots.png" id="1_y870a"]
 [ext_resource type="Texture2D" uid="uid://b4vg3wyplpkye" path="res://assets/ui/board_ui.png" id="2_bbbf3"]
 [ext_resource type="Texture2D" uid="uid://b1i2v36yxp6ef" path="res://assets/ui/button.png" id="4_ekeao"]
 [ext_resource type="Script" uid="uid://dqfdg7wwx6cps" path="res://scripts/ui/slot.gd" id="5_v0u4s"]
-[ext_resource type="Texture2D" uid="uid://c10savuqp5cxq" path="res://assets/ui/progresBar_empty.png" id="6_5b32n"]
-[ext_resource type="Texture2D" uid="uid://u8dyqpcl5gib" path="res://assets/ui/progresBar_content.png" id="7_dnoga"]
+[ext_resource type="Texture2D" uid="uid://otcgs5qkkk0c" path="res://assets/ui/progresBar_empty2.png" id="6_ekeao"]
+[ext_resource type="Texture2D" uid="uid://dt2l7ccrcs3sl" path="res://assets/ui/progresBar_content2.png" id="7_v0u4s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_au5lx"]
 atlas = ExtResource("1_y870a")
@@ -28,25 +28,27 @@ texture = SubResource("AtlasTexture_7ck5g")
 region_rect = Rect2(0, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d201f"]
-atlas = ExtResource("6_5b32n")
-region = Rect2(2, 13, 14, 3)
+atlas = ExtResource("6_ekeao")
+region = Rect2(0, 0, 5, 120)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eg12x"]
-atlas = ExtResource("7_dnoga")
-region = Rect2(-2, 13, 16, 3)
-margin = Rect2(1, 0, 2, 0)
+atlas = ExtResource("7_v0u4s")
+region = Rect2(0, 0, 5, 120)
 
 [sub_resource type="LabelSettings" id="LabelSettings_dbs84"]
 font_size = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_ekeao"]
+font_size = 8
 
 [node name="ComposerPanel" type="Node2D" groups=["ComposerBuildingPanel"]]
 script = ExtResource("1_bbbf3")
 
 [node name="Background" type="NinePatchRect" parent="."]
-offset_left = 230.0
+offset_left = 250.0
 offset_top = 29.0
-offset_right = 395.0
-offset_bottom = 170.0
+offset_right = 379.0
+offset_bottom = 223.0
 texture = SubResource("AtlasTexture_au5lx")
 patch_margin_left = 7
 patch_margin_top = 7
@@ -71,45 +73,92 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="PlantSlot" type="Panel" parent="."]
-offset_left = 305.0
-offset_top = 71.0
-offset_right = 323.0
-offset_bottom = 89.0
+offset_left = 280.0
+offset_top = 177.0
+offset_right = 298.0
+offset_bottom = 195.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_rqq12")
 script = ExtResource("5_v0u4s")
 
 [node name="FertlizerSlot" type="Panel" parent="."]
-offset_left = 305.0
-offset_top = 121.0
-offset_right = 323.0
-offset_bottom = 139.0
+offset_left = 333.0
+offset_top = 70.0
+offset_right = 351.0
+offset_bottom = 88.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_rqq12")
 script = ExtResource("5_v0u4s")
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
-offset_left = 258.0
-offset_top = 96.0
-offset_right = 377.0
-offset_bottom = 113.0
-value = 50.0
+[node name="FertilizerProgressBar" type="TextureProgressBar" parent="."]
+offset_left = 333.0
+offset_top = 93.0
+offset_right = 350.0
+offset_bottom = 208.0
+max_value = 30.0
+value = 10.0
+fill_mode = 3
 nine_patch_stretch = true
+stretch_margin_left = 1
+stretch_margin_right = 1
 texture_under = SubResource("AtlasTexture_d201f")
 texture_progress = SubResource("AtlasTexture_eg12x")
-tint_under = Color(1, 0.60247463, 0.35299444, 1)
+tint_progress = Color(0, 0.9569079, 0.34731165, 1)
+
+[node name="PlantsProgressBar" type="TextureProgressBar" parent="."]
+unique_name_in_owner = true
+offset_left = 281.0
+offset_top = 53.0
+offset_right = 301.0
+offset_bottom = 173.0
+max_value = 30.0
+value = 10.0
+fill_mode = 3
+nine_patch_stretch = true
+stretch_margin_left = 1
+stretch_margin_right = 1
+texture_under = SubResource("AtlasTexture_d201f")
+texture_progress = SubResource("AtlasTexture_eg12x")
 tint_progress = Color(0, 0.9569079, 0.34731165, 1)
 
 [node name="PlantSlotInfo" type="Label" parent="."]
-offset_left = 299.0
-offset_top = 56.0
-offset_right = 329.0
-offset_bottom = 70.0
+offset_left = 274.0
+offset_top = 198.0
+offset_right = 304.0
+offset_bottom = 212.0
 text = "Plants"
 label_settings = SubResource("LabelSettings_dbs84")
 
-[node name="FertlizerSlotInfo" type="Label" parent="."]
-offset_left = 295.0
-offset_top = 146.0
-offset_right = 335.0
-offset_bottom = 160.0
-text = "Fertlizer"
+[node name="FertilizerSlotInfo" type="Label" parent="."]
+offset_left = 320.0
+offset_top = 52.0
+offset_right = 363.0
+offset_bottom = 66.0
+text = "Fertilizer"
 label_settings = SubResource("LabelSettings_dbs84")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 356.0
+offset_top = 94.0
+offset_right = 396.0
+offset_bottom = 211.0
+text = "P
+R
+O
+G
+R
+E
+S
+S"
+label_settings = SubResource("LabelSettings_ekeao")
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 258.0
+offset_top = 61.0
+offset_right = 278.0
+offset_bottom = 178.0
+text = "P    L
+L    E
+A    V
+N   E
+T    L
+S"
+label_settings = SubResource("LabelSettings_ekeao")

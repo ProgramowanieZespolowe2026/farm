@@ -15,8 +15,8 @@
 	"BuyPrice": 100,
 	"SellPrice": 50
 },
-"Fertlizer": {
-	"ItemCategory": "Fertlizer",
+"Fertilizer": {
+	"ItemCategory": "Fertilizer",
 	"ItemSpeed": 0.75, 
 	"StackSize": 99,
 	"Description": "Nawóz",

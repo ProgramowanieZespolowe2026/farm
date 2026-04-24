@@ -6,7 +6,7 @@ extends Area2D
 var playerInArea = false
 var buildingName:String = ""
 
-func _input(event):
+func _unhandled_input(event):
 	if event.is_action_pressed("Building") and playerInArea:
 		var animal_ui_panel = get_tree().get_first_node_in_group("AnimalBuildingPanel")
 		var shop_ui_panel = get_tree().get_first_node_in_group("ShopPanel")
@@ -28,6 +28,7 @@ func _input(event):
 				var building_pos = get_parent().grid_position
 				if BuildingDataManager.buildings_data.has(building_pos):
 					panel.open_panel(building_pos)
+			get_viewport().set_input_as_handled()
 			
 			
 func _on_body_entered(body: Node2D) -> void:

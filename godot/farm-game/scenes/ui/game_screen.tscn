@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://coe7o5imj3tw6"]
+[gd_scene load_steps=12 format=3 uid="uid://coe7o5imj3tw6"]
 
 [ext_resource type="PackedScene" uid="uid://clcluxi7rp3ni" path="res://scenes/ui/test_game_time.tscn" id="1_8hmcv"]
 [ext_resource type="Script" uid="uid://cxnw3cis3e2ao" path="res://scenes/ui/game_screen.gd" id="1_gusqm"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://buh3v7l8w15br" path="res://scenes/objects/buildings/animal_building_panel.tscn" id="8_ce4rh"]
 [ext_resource type="PackedScene" uid="uid://dr4pmi7x11ee4" path="res://scenes/objects/buildings/shop_panel.tscn" id="8_r1vnj"]
 [ext_resource type="PackedScene" uid="uid://kgbocqhqlu7g" path="res://scenes/objects/buildings/composer_panel.tscn" id="9_c0p0g"]
+[ext_resource type="PackedScene" uid="uid://bdhst4l7ave8q" path="res://scenes/ui/settings_menu.tscn" id="9_nktmq"]
 
 [node name="GameScreen" type="CanvasLayer" groups=["GameScreen"]]
 script = ExtResource("1_gusqm")
@@ -56,8 +57,9 @@ position = Vector2(-93, 11)
 visible = false
 position = Vector2(-92.78967, 22.325996)
 
-[node name="SettingsMenu" parent="MarginContainer" instance=ExtResource("8_r1vnj")]
+[node name="SettingsMenu" parent="MarginContainer" instance=ExtResource("9_nktmq")]
 visible = false
+layout_mode = 2
 
 [node name="ComposerPanel" parent="MarginContainer" instance=ExtResource("9_c0p0g")]
 visible = false

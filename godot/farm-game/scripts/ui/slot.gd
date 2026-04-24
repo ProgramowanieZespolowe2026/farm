@@ -32,7 +32,6 @@ func _ready():
 	default_style.texture = default_tex
 	selected_style.texture = selected_texture
 	if progress_bar:
-		progress_bar.max_value = 30.0
 		progress_bar.visible = false
 	if product_icon:
 		product_icon.visible = false

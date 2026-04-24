@@ -243,7 +243,7 @@ func use_fertilizer():
 			if target_object.has_method("fertilize"):
 				target_object.fertilize()
 				player_sfx_controller.play_fertilize_plants_sound()
-				
+				InventoryManager.decrease_item_value()
 func use_axe():
 	var target_grid_pos_i = Vector2i(current_target_grid_pos)
 	

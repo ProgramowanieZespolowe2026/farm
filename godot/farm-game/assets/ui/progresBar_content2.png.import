@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bn541qlh21jjr"
-path="res://.godot/imported/Fertlizer.png-428c65cfe903f895b48f425dbcb5b4eb.ctex"
+uid="uid://dt2l7ccrcs3sl"
+path="res://.godot/imported/progresBar_content2.png-9ab26b2083eae0c3be5128ae6a923802.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/items/Icons/Fertlizer.png"
-dest_files=["res://.godot/imported/Fertlizer.png-428c65cfe903f895b48f425dbcb5b4eb.ctex"]
+source_file="res://assets/ui/progresBar_content2.png"
+dest_files=["res://.godot/imported/progresBar_content2.png-9ab26b2083eae0c3be5128ae6a923802.ctex"]
 
 [params]
 
