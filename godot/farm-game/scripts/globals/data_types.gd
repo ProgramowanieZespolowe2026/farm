@@ -19,5 +19,6 @@ enum Tools {
 	Apple_Plant,
 	ChickenCoopBuilding,
 	BarnBuilding,
-	ShopBuilding
+	ShopBuilding,
+	ComposerBuilding
 }

@@ -14,6 +14,7 @@ size = Vector2(39, 33)
 size = Vector2(37, 20)
 
 [node name="ChickenCoopBuilding" type="Node2D"]
+z_index = 1
 script = ExtResource("1_tm6ko")
 
 [node name="Sprite" type="Sprite2D" parent="."]

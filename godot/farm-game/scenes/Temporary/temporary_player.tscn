@@ -80,6 +80,7 @@ animations = [{
 size = Vector2(16, 6)
 
 [node name="TemporaryPlayer" type="CharacterBody2D" groups=["player"]]
+light_mask = 2
 z_index = 1
 y_sort_enabled = true
 collision_layer = 2
