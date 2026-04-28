@@ -29,6 +29,7 @@ Wallet="*res://scripts/globals/wallet_manager.gd"
 AuctionManager="*res://scripts/globals/auction_manager.gd"
 BuildingDataManager="*res://scripts/globals/BuildingDataManager.gd"
 BuildingsDataUpdateManager="*res://scripts/components/buildings_data_update_manager.gd"
+ItemTooltipManager="*res://scripts/ui/ItemTooltipManager.gd"
 
 [display]
 

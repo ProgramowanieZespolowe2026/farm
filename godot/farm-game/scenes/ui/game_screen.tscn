@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://drjspv32c5mwu" path="res://scenes/ui/hotbar.tscn" id="7_ooiym"]
 [ext_resource type="PackedScene" uid="uid://buh3v7l8w15br" path="res://scenes/objects/buildings/animal_building_panel.tscn" id="8_ce4rh"]
 [ext_resource type="PackedScene" uid="uid://dr4pmi7x11ee4" path="res://scenes/objects/buildings/shop_panel.tscn" id="8_r1vnj"]
+[ext_resource type="PackedScene" uid="uid://c7h8pc1feikys" path="res://scenes/ui/item_tooltip.tscn" id="9_c0p0g"]
 [ext_resource type="PackedScene" uid="uid://kgbocqhqlu7g" path="res://scenes/objects/buildings/composer_panel.tscn" id="9_c0p0g"]
 [ext_resource type="PackedScene" uid="uid://bdhst4l7ave8q" path="res://scenes/ui/settings_menu.tscn" id="9_nktmq"]
 
@@ -55,8 +56,10 @@ position = Vector2(-93, 11)
 
 [node name="ShopPanel" parent="MarginContainer" instance=ExtResource("8_r1vnj")]
 visible = false
-position = Vector2(-92.78967, 22.325996)
 
+[node name="SettingsMenu" parent="MarginContainer" instance=ExtResource("8_r1vnj")]
+
+[node name="ItemTooltip" parent="MarginContainer" instance=ExtResource("9_c0p0g")]
 [node name="SettingsMenu" parent="MarginContainer" instance=ExtResource("9_nktmq")]
 visible = false
 layout_mode = 2
