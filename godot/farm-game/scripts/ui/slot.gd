@@ -35,6 +35,10 @@ func _ready():
 		progress_bar.visible = false
 	if product_icon:
 		product_icon.visible = false
+		
+	mouse_entered.connect(_on_mouse_entered)
+	mouse_exited.connect(_on_mouse_exited)
+		
 
 func refresh_style():
 	if SlotType.HOTBAR == slot_type and InventoryManager.active_item_slot == slot_index:
@@ -135,6 +139,11 @@ func change_visibility_buy_button(is_visible:bool):
 func hide_label_visibility():
 	item.hide_label_visibility()
 
-
 func _on_mouse_entered():
-	print("Entered")
+	if item != null:
+		var description = JsonData.item_data[item.item_name]["Description"]
+		ItemTooltipManager.show(description, get_viewport().get_mouse_position() + Vector2(10, -20))
+
+func _on_mouse_exited():
+
+	ItemTooltipManager.hide()

@@ -6,10 +6,9 @@ var holding_item = null
 @export var building_entered: BuildingEntered
 signal inventory_open(is_open: bool)
 
-
 func _ready():
 	inventory_open.emit(false)
-	
+	ItemTooltipManager.tooltip = $MarginContainer/ItemTooltip
 func _input(event):
 	if event.is_action_pressed("Inventory"):
 		$MarginContainer/Inventory.visible = !$MarginContainer/Inventory.visible
@@ -22,3 +21,7 @@ func _input(event):
 	elif event.is_action_pressed("scroll_down"):
 		InventoryManager.active_item_scroll_down()
 		
+func _process(_delta):
+	var tooltip = $MarginContainer/ItemTooltip
+	if tooltip.visible:
+		tooltip.global_position = get_viewport().get_mouse_position() + Vector2(10, -5)
