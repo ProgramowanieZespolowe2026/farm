@@ -28,7 +28,7 @@ func _ready():
 			"value": 1}
 	items[3] = {
 			"name": "Carrot_Item",
-			"value": 1}
+			"value": 4}
 	items[4] = {
 			"name": "Carrot_Item",
 			"value": 50}
@@ -49,6 +49,9 @@ func _ready():
 			"value": 1}
 	hotbar[1] = {
 			"name": "Hoe",
+			"value": 1}
+	hotbar[4] = {
+			"name": "Fertilizer",
 			"value": 1}
 
 var active_item_slot = 0

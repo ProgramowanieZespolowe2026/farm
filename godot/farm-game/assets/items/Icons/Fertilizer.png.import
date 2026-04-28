@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dptjdkvpo33n2"
-path="res://.godot/imported/plants.png-afbe0c28c7794c98870e6002f194598e.ctex"
+uid="uid://bn541qlh21jjr"
+path="res://.godot/imported/Fertilizer.png-a7992d7ef84230227cb5155a3314a24f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/map/plants.png"
-dest_files=["res://.godot/imported/plants.png-afbe0c28c7794c98870e6002f194598e.ctex"]
+source_file="res://assets/items/Icons/Fertilizer.png"
+dest_files=["res://.godot/imported/Fertilizer.png-a7992d7ef84230227cb5155a3314a24f.ctex"]
 
 [params]
 

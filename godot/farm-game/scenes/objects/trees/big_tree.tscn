@@ -12,7 +12,9 @@ region = Rect2(32, 48, 32, 48)
 radius = 5.374839
 
 [node name="BigTree" type="Sprite2D"]
+z_index = 1
 y_sort_enabled = true
+position = Vector2(-2, 5)
 scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_q7tvr")
 offset = Vector2(0, -19)
@@ -22,8 +24,10 @@ item_scene = ExtResource("3_hd616")
 health = 6
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+z_index = 1
+position = Vector2(1, -6)
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0.6666667, -2.6666667)
+position = Vector2(0, 3.5)
 shape = SubResource("CircleShape2D_ikhx0")

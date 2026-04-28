@@ -36,7 +36,7 @@ var barnAnimals = [
   "Sheep_Adult",
   "Sheep_Adult_HairCut"
 ]
-const requiredPointsToFirstUpgrade:int = 30
+const requiredPointsToFirstUpgrade:int = 10
 const remaningCycleAnimal = 10 #po tylu zbiorach zwierze umiera
 
 @onready var food_level_amount_text: Label = $FoodLevelAmountText
@@ -54,8 +54,10 @@ func _ready():
 	for i in range(slots.size()):
 		var slot = slots[i]
 		slot.gui_input.connect(slot_gui_input.bind(slot))
-		slots[i].slot_index = i
-		slots[i].slot_type = SlotClass.SlotType.CHICKENCOOP
+		slot.slot_index = i
+		slot.slot_type = SlotClass.SlotType.CHICKENCOOP
+		if slot.progress_bar:
+			slot.progress_bar.max_value = requiredPointsToFirstUpgrade
 	
 	food_slot.gui_input.connect(slot_gui_input.bind(food_slot))
 	food_slot.slot_index = 0
@@ -164,21 +166,7 @@ func left_click_different_item(event: InputEvent, slot: SlotClass):
 		find_parent("GameScreen").holding_item = temp_item
 
 func left_click_same_item(slot: SlotClass):
-	#print("teraz")
-	null
-	#var holding_item = find_parent("GameScreen").holding_item
-	#var stack_size = int(JsonData.item_data[slot.item.item_name]["StackSize"])
-	#var able_to_add = stack_size - slot.item.item_value
-	#
-	#if able_to_add >= holding_item.item_value:
-		#BuildingDataManager.add_value_to_coop_item(current_coop_pos, slot.slot_index, holding_item.item_value)
-		#slot.item.add_item_value(holding_item.item_value)
-		#holding_item.queue_free()
-		#find_parent("GameScreen").holding_item = null
-	#else:
-		#BuildingDataManager.add_value_to_coop_item(current_coop_pos, slot.slot_index, able_to_add)
-		#slot.item.add_item_value(able_to_add)
-		#holding_item.decrease_item_value(able_to_add)
+	pass
 
 func left_click_not_holding(slot: SlotClass):
 	
@@ -213,9 +201,9 @@ func open_panel(coop_pos: Vector2i):
 	
 	buildingName = BuildingDataManager.get_building_name(current_animal_building_pos)
 	if(buildingName == "ChickenCoop"):
-		building_name_text.text = "Chicken Coop"
+		building_name_text.text = str("Chicken Coop ",BuildingDataManager.get_building_type_id(coop_pos))
 	else:
-		building_name_text.text = buildingName
+		building_name_text.text = str(buildingName," ",BuildingDataManager.get_building_type_id(coop_pos))
 	
 	foodLevel = active_coop_data["food_level"]
 	food_level_amount_text.text = str(foodLevel)
@@ -258,15 +246,16 @@ func updateUI():
 			
 func check_item_to_collect(slot: SlotClass):
 	var item = BuildingDataManager.get_item_to_collect(current_animal_building_pos, slot.slot_index)
-	print(item)
+	
 	
 	if item != null:
 		# Dodajemy jajko tylko jeśli go tam jeszcze nie ma
 		if item.name == "Egg":
 			slot.set_product_icon_texture("uid://cs1gdd8apg456")
+			slot.change_visibility_product_icon(true)
 		if item.name == "Milk":
 			slot.set_product_icon_texture("uid://ccyaeiyyu6ju1")
-		slot.change_visibility_product_icon(true)
+			slot.change_visibility_product_icon(true)
 		
 func update_animal_state(slot: SlotClass):
 	var currentPoints = BuildingDataManager.get_slot_progres_points(current_animal_building_pos,slot.slot_index)
@@ -286,16 +275,15 @@ func update_animal_state(slot: SlotClass):
 					slot.update_progress(0)	
 				if itemName == "Chicken_Adult":
 					#print("jajo do zbioru")
-					BuildingDataManager.add_item_to_collect(current_animal_building_pos,slot.slot_index,"Egg",1)
+					BuildingDataManager.add_item_to_collect(current_animal_building_pos,"Egg",1,slot.slot_index)
 					slot.update_progress(0)	
 					
 				if itemName == "Cow_Baby":
-					BuildingDataManager.add_item(current_animal_building_pos, slot.slot_index, "Cow_Adult", 1)
 					slot.initialize_item("Cow_Adult", 1)
 					slot.update_progress(0)	
 				if itemName == "Cow_Adult":
 					#print("mleko do zbioru")
-					BuildingDataManager.add_item_to_collect(current_animal_building_pos,slot.slot_index,"Milk",1)
+					BuildingDataManager.add_item_to_collect(current_animal_building_pos,"Milk",1,slot.slot_index)
 					slot.update_progress(0)
 					
 				if itemName == "Pig_Baby":
@@ -313,7 +301,7 @@ func update_animal_state(slot: SlotClass):
 				if itemName == "Sheep_Adult_HairCut":
 					BuildingDataManager.add_item(current_animal_building_pos, slot.slot_index, "Sheep_Adult", 1)
 					slot.initialize_item("Sheep_Adult", 1)
-					BuildingDataManager.add_item_to_collect(current_animal_building_pos,slot.slot_index,"Wool",1)
+					BuildingDataManager.add_item_to_collect(current_animal_building_pos,"Wool",1,slot.slot_index)
 					slot.update_progress(0)
 					#slot.update_progress(0)	
 				#if itemName == "Sheep_Adult":
