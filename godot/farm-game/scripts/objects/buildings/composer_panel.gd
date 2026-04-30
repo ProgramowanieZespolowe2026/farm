@@ -8,7 +8,6 @@ signal composer_panel_open(is_open: bool)
 @onready var fertlizer_slot: Panel = $FertlizerSlot
 @onready var fertilizer_progress_bar: TextureProgressBar = $FertilizerProgressBar
 @onready var plants_progress_bar: TextureProgressBar = $PlantsProgressBar
-@onready var texture_progress_bar: TextureProgressBar = $TextureProgressBar
 
 
 @onready var building_name_text: Label = $BuildingNameText
