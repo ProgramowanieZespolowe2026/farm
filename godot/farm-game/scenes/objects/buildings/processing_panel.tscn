@@ -1,0 +1,106 @@
+[gd_scene load_steps=12 format=3 uid="uid://b5emlt8l1oxae"]
+
+[ext_resource type="Texture2D" uid="uid://cn48qmn3m5n0l" path="res://assets/ui/Slots.png" id="1_1xuu8"]
+[ext_resource type="Texture2D" uid="uid://b4vg3wyplpkye" path="res://assets/ui/board_ui.png" id="2_xvmjd"]
+[ext_resource type="Texture2D" uid="uid://b1i2v36yxp6ef" path="res://assets/ui/button.png" id="3_s3ejm"]
+[ext_resource type="Script" uid="uid://dqfdg7wwx6cps" path="res://scripts/ui/slot.gd" id="4_fy0h6"]
+[ext_resource type="Texture2D" uid="uid://cbo2wsjycwv4k" path="res://assets/ui/Arrow.png" id="5_1tc8e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n177h"]
+atlas = ExtResource("1_1xuu8")
+region = Rect2(6, 105, 164, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmde5"]
+atlas = ExtResource("2_xvmjd")
+
+[sub_resource type="LabelSettings" id="LabelSettings_fcjsu"]
+font_size = 10
+font_color = Color(0.23921569, 0.08627451, 0.02745098, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ck5g"]
+atlas = ExtResource("3_s3ejm")
+region = Rect2(48, 496, 48, 48)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_memgi"]
+texture = SubResource("AtlasTexture_7ck5g")
+region_rect = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_14urv"]
+atlas = ExtResource("5_1tc8e")
+
+[node name="ProcessingPanel" type="Node2D"]
+
+[node name="Background" type="NinePatchRect" parent="."]
+offset_left = 244.0
+offset_top = 29.0
+offset_right = 386.0
+offset_bottom = 125.0
+texture = SubResource("AtlasTexture_n177h")
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 6
+patch_margin_bottom = 5
+
+[node name="Board" type="NinePatchRect" parent="."]
+offset_left = 258.0
+offset_top = 19.0
+offset_right = 374.0
+offset_bottom = 51.0
+texture = SubResource("AtlasTexture_lmde5")
+
+[node name="BuildingNameText" type="Label" parent="."]
+offset_left = 261.0
+offset_top = 22.0
+offset_right = 367.0
+offset_bottom = 45.0
+text = "Processing"
+label_settings = SubResource("LabelSettings_fcjsu")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Slot_in" type="Panel" parent="."]
+offset_left = 263.0
+offset_top = 62.0
+offset_right = 281.0
+offset_bottom = 80.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_memgi")
+script = ExtResource("4_fy0h6")
+
+[node name="Slot_in2" type="Panel" parent="."]
+offset_left = 284.0
+offset_top = 62.0
+offset_right = 302.0
+offset_bottom = 80.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_memgi")
+script = ExtResource("4_fy0h6")
+
+[node name="Slot_in3" type="Panel" parent="."]
+offset_left = 263.0
+offset_top = 82.0
+offset_right = 281.0
+offset_bottom = 100.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_memgi")
+script = ExtResource("4_fy0h6")
+
+[node name="Slot_in4" type="Panel" parent="."]
+offset_left = 284.0
+offset_top = 82.0
+offset_right = 302.0
+offset_bottom = 100.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_memgi")
+script = ExtResource("4_fy0h6")
+
+[node name="Slot_out" type="Panel" parent="."]
+offset_left = 349.0
+offset_top = 70.0
+offset_right = 367.0
+offset_bottom = 88.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_memgi")
+script = ExtResource("4_fy0h6")
+
+[node name="Arrow" type="TextureRect" parent="."]
+offset_left = 308.0
+offset_top = 70.0
+offset_right = 344.0
+offset_bottom = 88.0
+texture = SubResource("AtlasTexture_14urv")
