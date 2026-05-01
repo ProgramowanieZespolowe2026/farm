@@ -35,17 +35,20 @@ var current_target_grid_pos = Vector2.ZERO
 var inventory_visible = false;
 var animal_building_panel_visible = false;
 var shop_panel_visible = false
+var processing_panel_visible = false
 
 func _ready():
 	call_deferred("place_building_at", shop_scene, Vector2(16, 4), "Shop", Vector2i(4, 4))
 	var game_screen = get_tree().get_first_node_in_group("GameScreen")
 	var animal_building_panel = get_tree().get_first_node_in_group("AnimalBuildingPanel")
 	var shop_panel = get_tree().get_first_node_in_group("ShopPanel")
+	var processing_panel = get_tree().get_first_node_in_group("ProcessingPanel")
 	
 	if game_screen:
 		game_screen.inventory_open.connect(getInventoryVisible)
 		animal_building_panel.animal_building_panel_open.connect(getAnimalBuildingPanelVisible)
 		shop_panel.shop_panel_open.connect(getShopPanelVisible)
+		processing_panel.processing_panel_open.connect(getProcessingPanelVisible)
 
 func getInventoryVisible(is_open: bool):
 	inventory_visible = is_open
@@ -53,6 +56,8 @@ func getAnimalBuildingPanelVisible(is_open: bool):
 	animal_building_panel_visible = is_open
 func getShopPanelVisible(is_open: bool):
 	shop_panel_visible = is_open
+func getProcessingPanelVisible(is_open: bool):
+	processing_panel_visible = is_open
 
 func _process(_delta):
 	update_highlight()
@@ -113,7 +118,7 @@ func _input(event):
 		if not highlight.visible:
 			return 
 		
-		if inventory_visible or animal_building_panel_visible or shop_panel_visible:
+		if inventory_visible or animal_building_panel_visible or shop_panel_visible or processing_panel_visible:
 			return
 			
 		if not is_plot_owned_at_target():

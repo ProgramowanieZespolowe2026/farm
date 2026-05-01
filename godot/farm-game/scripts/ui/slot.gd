@@ -22,7 +22,8 @@ enum SlotType {
 	CHICKENCOOP_FOOD,
 	SHOP,
 	PRODUCT_FOR_SELL,
-	COMPOSER
+	COMPOSER,
+	PROCESSING
 }
 
 func _ready():
