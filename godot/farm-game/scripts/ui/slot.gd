@@ -78,6 +78,10 @@ func initialize_item(item_name, item_value):
 		item.set_item(item_name, item_value)
 	else:
 		item.set_item(item_name, item_value)
+	
+	item.position = Vector2.ZERO
+	await get_tree().process_frame
+	
 	item.position = (size / 2) - (item_size / 2)
 	refresh_style()
 
