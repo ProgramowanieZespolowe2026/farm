@@ -176,10 +176,11 @@ texture = SubResource("AtlasTexture_b165d")
 expand_mode = 1
 flip_h = true
 
-[node name="Recipes" type="Node2D" parent="."]
+[node name="RecipesContainer" type="Node2D" parent="."]
+visible = false
 position = Vector2(166, 97)
 
-[node name="Background" type="NinePatchRect" parent="Recipes"]
+[node name="Background" type="NinePatchRect" parent="RecipesContainer"]
 offset_left = 95.0
 offset_top = 29.0
 offset_right = 209.0
@@ -190,7 +191,7 @@ patch_margin_top = 7
 patch_margin_right = 6
 patch_margin_bottom = 5
 
-[node name="PreviousProduct" type="Button" parent="Recipes"]
+[node name="PreviousProduct" type="Button" parent="RecipesContainer"]
 offset_left = 106.0
 offset_top = 41.0
 offset_right = 123.0
@@ -201,7 +202,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_lmde5")
 theme_override_styles/hover = SubResource("StyleBoxTexture_fcjsu")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_memgi")
 
-[node name="TextureRect" type="TextureRect" parent="Recipes/PreviousProduct"]
+[node name="TextureRect" type="TextureRect" parent="RecipesContainer/PreviousProduct"]
 layout_mode = 0
 offset_left = 2.6666718
 offset_top = 2.0
@@ -210,7 +211,7 @@ offset_bottom = 14.0
 texture = SubResource("AtlasTexture_qc327")
 flip_h = true
 
-[node name="NextProduct" type="Button" parent="Recipes"]
+[node name="NextProduct" type="Button" parent="RecipesContainer"]
 offset_left = 182.0
 offset_top = 41.0
 offset_right = 199.0
@@ -221,7 +222,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_lmde5")
 theme_override_styles/hover = SubResource("StyleBoxTexture_fcjsu")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_memgi")
 
-[node name="TextureRect" type="TextureRect" parent="Recipes/NextProduct"]
+[node name="TextureRect" type="TextureRect" parent="RecipesContainer/NextProduct"]
 layout_mode = 0
 offset_left = 2.6666718
 offset_top = 2.0
@@ -229,7 +230,7 @@ offset_right = 12.666672
 offset_bottom = 14.0
 texture = SubResource("AtlasTexture_qc327")
 
-[node name="Arrow" type="NinePatchRect" parent="Recipes"]
+[node name="Arrow" type="NinePatchRect" parent="RecipesContainer"]
 offset_left = 150.0
 offset_top = 75.0
 offset_right = 176.0
@@ -237,15 +238,16 @@ offset_bottom = 93.0
 texture = SubResource("AtlasTexture_14urv")
 patch_margin_right = 10
 
-[node name="ProductName" type="Label" parent="Recipes"]
+[node name="ProductName" type="Label" parent="RecipesContainer"]
 offset_left = 128.0
 offset_top = 42.0
 offset_right = 179.0
 offset_bottom = 56.0
 text = "Name"
 label_settings = SubResource("LabelSettings_fy0h6")
+horizontal_alignment = 1
 
-[node name="RecipesGridContainer" type="GridContainer" parent="Recipes"]
+[node name="RecipesGridContainer" type="GridContainer" parent="RecipesContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -257,35 +259,35 @@ grow_horizontal = 2
 grow_vertical = 2
 columns = 2
 
-[node name="Slot_in_crafting1" type="Panel" parent="Recipes/RecipesGridContainer"]
+[node name="Slot_in_crafting1" type="Panel" parent="RecipesContainer/RecipesGridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxTexture_memgi")
 script = ExtResource("4_fy0h6")
 
-[node name="Slot_in_crafting2" type="Panel" parent="Recipes/RecipesGridContainer"]
+[node name="Slot_in_crafting2" type="Panel" parent="RecipesContainer/RecipesGridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxTexture_memgi")
 script = ExtResource("4_fy0h6")
 
-[node name="Slot_in_crafting3" type="Panel" parent="Recipes/RecipesGridContainer"]
+[node name="Slot_in_crafting3" type="Panel" parent="RecipesContainer/RecipesGridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxTexture_memgi")
 script = ExtResource("4_fy0h6")
 
-[node name="Slot_in_crafting4" type="Panel" parent="Recipes/RecipesGridContainer"]
+[node name="Slot_in_crafting4" type="Panel" parent="RecipesContainer/RecipesGridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxTexture_memgi")
 script = ExtResource("4_fy0h6")
 
-[node name="Slot_out_crafting" type="Panel" parent="Recipes"]
+[node name="Slot_out_crafting" type="Panel" parent="RecipesContainer"]
 offset_left = 181.0
 offset_top = 75.0
 offset_right = 199.0
@@ -294,3 +296,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxTexture_memgi")
 script = ExtResource("4_fy0h6")
+
+[connection signal="pressed" from="RecipesButton" to="." method="_on_recipes_button_pressed"]
+[connection signal="pressed" from="RecipesContainer/PreviousProduct" to="." method="_on_previous_product_pressed"]
+[connection signal="pressed" from="RecipesContainer/NextProduct" to="." method="_on_next_product_pressed"]

@@ -17,6 +17,7 @@ const chicken_coop_scene = preload("uid://d23cpav84ureu")
 const barn_scene = preload("uid://3jfpkgoxyfij")
 const shop_scene = preload("uid://dp06kgowl326l")
 const composer_scene = preload("uid://baxl2ua0yor8x")
+const processing_scene = preload("uid://dqmcf74s6y5x2")
 
 const inventory = preload("uid://y3lcfv2dd6wt")
 
@@ -84,6 +85,9 @@ func update_highlight():
 			is_building = true
 		DataTypes.Tools.ComposerBuilding:
 			building_tiles = Vector2(2, 2)
+			is_building = true
+		DataTypes.Tools.ProcessingBuilding:
+			building_tiles = Vector2(4, 4)
 			is_building = true
 		_:
 			is_building = false
@@ -167,6 +171,8 @@ func _input(event):
 			place_building(shop_scene, "Shop", Vector2i(4, 4))
 		elif current_tool == DataTypes.Tools.ComposerBuilding:
 			place_building(composer_scene, "Composer", Vector2i(2, 2))
+		elif current_tool == DataTypes.Tools.ProcessingBuilding:
+			place_building(processing_scene, "Processing", Vector2i(4, 4))
 			
 func use_hoe():
 	#Jesli jest zaorana ziemia i jakas roslina to zniszcz sama rosline

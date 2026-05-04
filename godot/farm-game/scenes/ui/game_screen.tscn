@@ -71,6 +71,7 @@ visible = false
 position = Vector2(-76, 12)
 
 [node name="ProcessingPanel" parent="MarginContainer" instance=ExtResource("12_wwq64")]
+visible = false
 position = Vector2(-65, 34)
 
 [node name="MenuOpen" parent="." instance=ExtResource("4_gkbp4")]
