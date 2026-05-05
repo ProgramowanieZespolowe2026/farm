@@ -1,0 +1,60 @@
+{
+	"Barn": {
+		"CurrentStoredItems": {
+			"Carrot_Item": 0,
+			"Egg": 0
+		},
+		"Description": "Barn",
+		"IconPath": "res://assets/buildings/barn.png",
+		"Requirements": {
+			"Carrot_Item": 3.0,
+			"Egg": 1.0
+		},
+		"ScenePath": "res://scenes/objects/buildings/Barn_building.tscn"
+	},
+	"ChickenCoop": {
+		"CurrentStoredItems": {
+			"Carrot_Item": 0,
+			"Log": 0,
+			"Wheat_Item": 0
+		},
+		"Description": "Chicken Coop",
+		"IconPath": "res://assets/buildings/chickenCoop.png",
+		"Requirements": {
+			"Carrot_Item": 2.0,
+			"Log": 10.0,
+			"Wheat_Item": 5.0
+		},
+		"ScenePath": "res://scenes/objects/buildings/chickenCoop_building.tscn"
+	},
+	"Composer": {
+		"CurrentStoredItems": {
+			"Carrot_Item": 0,
+			"Log": 0,
+			"Wheat_Item": 0
+		},
+		"Description": "Composter",
+		"IconPath": "res://assets/buildings/composer.png",
+		"Requirements": {
+			"Carrot_Item": 2.0,
+			"Log": 10.0,
+			"Wheat_Item": 5.0
+		},
+		"ScenePath": "res://scenes/objects/buildings/composer_building.tscn"
+	},
+	"Shop": {
+		"CurrentStoredItems": {
+			"Carrot_Item": 0,
+			"Log": 0,
+			"Wheat_Item": 0
+		},
+		"Description": "Shop",
+		"IconPath": "res://assets/buildings/shop.png",
+		"Requirements": {
+			"Carrot_Item": 2.0,
+			"Log": 10.0,
+			"Wheat_Item": 5.0
+		},
+		"ScenePath": "res://scenes/objects/buildings/shop_building.tscn"
+	}
+}
