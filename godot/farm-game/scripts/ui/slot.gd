@@ -83,8 +83,9 @@ func initialize_item(item_name, item_value):
 	item.position = Vector2.ZERO
 	await get_tree().process_frame
 	
-	item.position = (size / 2) - (item_size / 2)
-	refresh_style()
+	if item != null:
+		item.position = (size / 2) - (item_size / 2)
+		refresh_style()
 
 func update_progress(current_value: int):
 	if progress_bar:
