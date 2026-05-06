@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b567nnxeaag1p"]
 
-[ext_resource type="Script" uid="uid://c5bchhpoi5fqy" path="res://scripts/items/item.gd" id="1_jgeia"]
+[ext_resource type="Script" uid="uid://cpsod1wrhpaf3" path="res://scripts/items/item.gd" id="1_jgeia"]
 [ext_resource type="Texture2D" uid="uid://diwa01iyl7rgd" path="res://assets/items/Icons/Axe.png" id="2_jgeia"]
 
 [node name="Item" type="Node2D"]
