@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://coe7o5imj3tw6"]
+[gd_scene load_steps=14 format=3 uid="uid://coe7o5imj3tw6"]
 
 [ext_resource type="PackedScene" uid="uid://clcluxi7rp3ni" path="res://scenes/ui/test_game_time.tscn" id="1_8hmcv"]
 [ext_resource type="Script" uid="uid://cxnw3cis3e2ao" path="res://scenes/ui/game_screen.gd" id="1_gusqm"]
 [ext_resource type="PackedScene" uid="uid://y3lcfv2dd6wt" path="res://scenes/ui/inventory_panel.tscn" id="2_e2vrk"]
 [ext_resource type="PackedScene" uid="uid://dmfm2ff7lnpyt" path="res://scenes/ui/WalletDisplay.tscn" id="2_nwa5a"]
 [ext_resource type="PackedScene" uid="uid://c4ymdwgq7ly0l" path="res://scenes/ui/auction_window.tscn" id="3_ooiym"]
+[ext_resource type="PackedScene" uid="uid://duykdffthpeuk" path="res://scenes/recipe_book/recipe_book_panel.tscn" id="3_wwq64"]
 [ext_resource type="PackedScene" uid="uid://ylhduw5fblc5" path="res://audio/sfx/menu_open.tscn" id="4_gkbp4"]
 [ext_resource type="PackedScene" uid="uid://drjspv32c5mwu" path="res://scenes/ui/hotbar.tscn" id="7_ooiym"]
 [ext_resource type="PackedScene" uid="uid://buh3v7l8w15br" path="res://scenes/objects/buildings/animal_building_panel.tscn" id="8_ce4rh"]
@@ -68,6 +69,11 @@ layout_mode = 2
 [node name="ComposerPanel" parent="MarginContainer" instance=ExtResource("9_c0p0g")]
 visible = false
 position = Vector2(-76, 12)
+
+[node name="RecipeBookPanel" parent="MarginContainer" instance=ExtResource("3_wwq64")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
 
 [node name="MenuOpen" parent="." instance=ExtResource("4_gkbp4")]
 unique_name_in_owner = true

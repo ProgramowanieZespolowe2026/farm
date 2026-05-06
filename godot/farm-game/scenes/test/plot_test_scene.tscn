@@ -14,7 +14,7 @@ y_sort_enabled = true
 [node name="TemporaryPlayer" parent="." instance=ExtResource("2_bj16r")]
 z_index = 0
 position = Vector2(265, 137)
-current_tool = 2
+current_tool = 15
 
 [node name="GameScreen" parent="." instance=ExtResource("4_bux16")]
 
