@@ -14,16 +14,12 @@
 	},
 	"ChickenCoop": {
 		"CurrentStoredItems": {
-			"Carrot_Item": 0,
-			"Log": 0,
-			"Wheat_Item": 0
+			"Carrot_Item": 0
 		},
 		"Description": "Chicken Coop",
 		"IconPath": "res://assets/buildings/chickenCoop.png",
 		"Requirements": {
-			"Carrot_Item": 2.0,
-			"Log": 10.0,
-			"Wheat_Item": 5.0
+			"Carrot_Item": 2.0
 		},
 		"ScenePath": "res://scenes/objects/buildings/chickenCoop_building.tscn"
 	},

@@ -11,6 +11,8 @@ var current_index = 0
 
 const SlotClass = preload("res://scripts/ui/slot.gd")
 
+var current_building_name
+
 func _ready():
 	GlobalSignals.building_constructed.connect(_on_building_constructed)
 	load_buildings_json()
@@ -27,7 +29,7 @@ func load_buildings_json():
 func update_recipe_page():
 	if building_keys.size() == 0:
 		return
-	var current_building_name = building_keys[current_index]
+	current_building_name = building_keys[current_index]
 	var data = buildings_data[current_building_name]
 	
 	building_name.text = buildings_data[current_building_name]["Description"]
@@ -103,7 +105,7 @@ func slot_gui_input(event: InputEvent, slot: SlotClass):
 
 func check_build_conditions():
 	var all_met = true
-	var current_building_name = building_keys[current_index]
+	current_building_name = building_keys[current_index]
 	var data = buildings_data[current_building_name]
 	
 	# Pobieramy wymagania i aktualnie przechowywane przedmioty z danych
@@ -140,7 +142,7 @@ func save_current_slots_state():
 	
 	if building_keys.size() == 0: return
 	
-	var current_building_name = building_keys[current_index]
+	current_building_name = building_keys[current_index]
 	var current_data = buildings_data[current_building_name]
 	var requirements = current_data["Requirements"]
 	
@@ -168,14 +170,26 @@ func _on_build_button_pressed():
 	
 	var players = get_tree().get_nodes_in_group("player")
 	if players.size() > 0:
-		players[0].current_tool = DataTypes.Tools.BarnBuilding
+		print(current_building_name)
+		match current_building_name:
+			"Barn":
+				players[0].current_tool = DataTypes.Tools.BarnBuilding
+			"ChickenCoop":
+				players[0].current_tool = DataTypes.Tools.ChickenCoopBuilding
+			"Composer":
+				players[0].current_tool = DataTypes.Tools.ComposerBuilding
+			"Shop":
+				players[0].current_tool = DataTypes.Tools.ShopBuilding
+			_:
+				players[0].current_tool = DataTypes.Tools.None
+				print("Nieznany budynek: ", building_name)
 			
-func _on_building_constructed(current_building_name: String):
+func _on_building_constructed(bld_name: String):
 	
-	if !buildings_data.has(current_building_name): 
+	if !buildings_data.has(bld_name): 
 		return
 	
-	var data = buildings_data[current_building_name]
+	var data = buildings_data[bld_name]
 	var stored_items = data["CurrentStoredItems"]
 	var requirements = data["Requirements"]
 
