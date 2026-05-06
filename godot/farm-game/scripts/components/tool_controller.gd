@@ -35,6 +35,8 @@ var current_target_grid_pos = Vector2.ZERO
 var inventory_visible = false;
 var animal_building_panel_visible = false;
 var shop_panel_visible = false
+var recipe_book_visible = false
+
 
 func _ready():
 	call_deferred("place_building_at", shop_scene, Vector2(16, 4), "Shop", Vector2i(4, 4))
@@ -46,6 +48,7 @@ func _ready():
 		game_screen.inventory_open.connect(getInventoryVisible)
 		animal_building_panel.animal_building_panel_open.connect(getAnimalBuildingPanelVisible)
 		shop_panel.shop_panel_open.connect(getShopPanelVisible)
+		game_screen.recipe_book_open.connect(getRecipeBookVisible)
 
 func getInventoryVisible(is_open: bool):
 	inventory_visible = is_open
@@ -53,6 +56,8 @@ func getAnimalBuildingPanelVisible(is_open: bool):
 	animal_building_panel_visible = is_open
 func getShopPanelVisible(is_open: bool):
 	shop_panel_visible = is_open
+func getRecipeBookVisible(is_open: bool):
+	recipe_book_visible = is_open
 
 func _process(_delta):
 	update_highlight()
@@ -113,7 +118,7 @@ func _input(event):
 		if not highlight.visible:
 			return 
 		
-		if inventory_visible or animal_building_panel_visible or shop_panel_visible:
+		if inventory_visible or animal_building_panel_visible or shop_panel_visible or recipe_book_visible:
 			return
 			
 		if not is_plot_owned_at_target():
@@ -156,12 +161,20 @@ func _input(event):
 			
 		elif current_tool == DataTypes.Tools.ChickenCoopBuilding:
 			place_building(chicken_coop_scene, "ChickenCoop", Vector2i(3, 4))
+			GlobalSignals.building_constructed.emit("ChickenCoop")
+			player.current_tool = DataTypes.Tools.None
 		elif current_tool == DataTypes.Tools.BarnBuilding:
 			place_building(barn_scene, "Barn", Vector2i(4, 5))
+			GlobalSignals.building_constructed.emit("Barn")
+			player.current_tool = DataTypes.Tools.None
 		elif current_tool == DataTypes.Tools.ShopBuilding:
 			place_building(shop_scene, "Shop", Vector2i(4, 4))
+			GlobalSignals.building_constructed.emit("Shop")
+			player.current_tool = DataTypes.Tools.None
 		elif current_tool == DataTypes.Tools.ComposerBuilding:
 			place_building(composer_scene, "Composer", Vector2i(2, 2))
+			GlobalSignals.building_constructed.emit("Composer")
+			player.current_tool = DataTypes.Tools.None
 			
 func use_hoe():
 	#Jesli jest zaorana ziemia i jakas roslina to zniszcz sama rosline

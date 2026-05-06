@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=4 uid="uid://bg502rtyhok1r"]
+[gd_scene load_steps=8 format=4 uid="uid://bg502rtyhok1r"]
 
 [ext_resource type="PackedScene" uid="uid://c8qju1qxars1t" path="res://scenes/components/day_night_cycle_component.tscn" id="1_b38ys"]
 [ext_resource type="PackedScene" uid="uid://m5w4eggderw0" path="res://scenes/Temporary/temporary_player.tscn" id="2_p0v8n"]
 [ext_resource type="PackedScene" uid="uid://ckphra5tyfs3b" path="res://scenes/map/test_scene_tile_map.tscn" id="3_gd3cn"]
 [ext_resource type="TileSet" uid="uid://gymfb77lk45e" path="res://TileSets/map/MapTileSet.tres" id="4_erlyq"]
 [ext_resource type="PackedScene" uid="uid://coe7o5imj3tw6" path="res://scenes/ui/game_screen.tscn" id="5_q32fc"]
+[ext_resource type="PackedScene" uid="uid://duykdffthpeuk" path="res://scenes/recipe_book/recipe_book_panel.tscn" id="7_gd3cn"]
 [ext_resource type="PackedScene" uid="uid://csg1yvoduuxoh" path="res://scenes/components/plot_manager.tscn" id="8_q32fc"]
 
 [node name="TestLevel" type="Node2D"]
@@ -26,5 +27,7 @@ tile_map_data = PackedByteArray("AAAXAAwAAAAAAAAAAwAVAA4AAAAAAAAAAwAXAAUAAAAAAAA
 tile_set = ExtResource("4_erlyq")
 
 [node name="GameScreen" parent="." instance=ExtResource("5_q32fc")]
+
+[node name="RecipeBookPanel" parent="GameScreen" instance=ExtResource("7_gd3cn")]
 
 [node name="PlotManager" parent="." instance=ExtResource("8_q32fc")]
