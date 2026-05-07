@@ -5,6 +5,7 @@
 			"Egg": 0
 		},
 		"Description": "Barn",
+		"Category": "Building",
 		"IconPath": "res://assets/buildings/barn.png",
 		"Requirements": {
 			"Carrot_Item": 3.0,
@@ -17,6 +18,7 @@
 			"Carrot_Item": 0
 		},
 		"Description": "Chicken Coop",
+		"Category": "Building",
 		"IconPath": "res://assets/buildings/chickenCoop.png",
 		"Requirements": {
 			"Carrot_Item": 2.0
@@ -30,6 +32,7 @@
 			"Wheat_Item": 0
 		},
 		"Description": "Composter",
+		"Category": "Building",
 		"IconPath": "res://assets/buildings/composer.png",
 		"Requirements": {
 			"Carrot_Item": 2.0,
@@ -45,6 +48,7 @@
 			"Wheat_Item": 0
 		},
 		"Description": "Shop",
+		"Category": "Building",
 		"IconPath": "res://assets/buildings/shop.png",
 		"Requirements": {
 			"Carrot_Item": 2.0,

@@ -4,8 +4,8 @@
 	"ItemSpeed": 0.75, 
 	"StackSize": 1,
 	"Description": "Siekiera",
-	"BuyPrice": 100,
-	"SellPrice": 50
+	"BuyPrice": 500,
+	"SellPrice": 250
 },
 "Hoe": {
 	"ItemCategory": "Hoe",
@@ -20,8 +20,8 @@
 	"ItemSpeed": 0.75, 
 	"StackSize": 99,
 	"Description": "Nawóz",
-	"BuyPrice": 100,
-	"SellPrice": 50
+	"BuyPrice": 20,
+	"SellPrice": 10
 },
 "Apple_Item": {
 	"ItemCategory": "Resource",
