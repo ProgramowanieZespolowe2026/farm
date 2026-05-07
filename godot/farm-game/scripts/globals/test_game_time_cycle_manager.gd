@@ -12,7 +12,7 @@ var initial_minute: int = 30
 
 var time: float = 0.0
 var current_minute: int = -1
-var current_day: int =0
+var current_day: int = -1
 
 signal game_time(time:float)
 signal time_tick(day: int, hour: int, minute: int)

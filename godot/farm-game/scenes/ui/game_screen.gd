@@ -4,14 +4,22 @@ extends CanvasLayer
 @onready var recipe_book = %RecipeBookPanel
 
 @export var building_entered: BuildingEntered
+@onready var event_notification = %EventNotification
 signal inventory_open(is_open: bool)
 signal recipe_book_open(is_open: bool)
+
 
 var holding_item = null
 
 func _ready():
 	inventory_open.emit(false)
 	ItemTooltipManager.tooltip = $MarginContainer/ItemTooltip
+	GlobalSignals.request_notification.connect(_on_notification_requested)
+	
+func _on_notification_requested(message: String):
+	# Wywołujemy logikę pokazywania/resetowania w skrypcie notyfikacji
+	event_notification.display_event(message)
+	
 func _input(event):
 	if event.is_action_pressed("Inventory"):
 		$MarginContainer/Inventory.visible = !$MarginContainer/Inventory.visible

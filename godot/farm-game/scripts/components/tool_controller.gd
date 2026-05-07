@@ -113,7 +113,9 @@ func update_highlight():
 	
 	highlight.global_position = (current_target_grid_pos * TILE_SIZE) + (building_pixel_size / 2.0)
 
-func _input(event):
+#   WAZNA ZMIANA ZMIENILEM  _input NA _unhandled_input. PODCZAS KLIKANIA NA PANELE I GUZIKI SYGNAL 
+#   PRZECHODZIL DO GRY I GRACZ WYKONYWAL SWOJE FUNKCJE. JESLI COS NIE BEDZIE DZIALALO WARTO TO SPRAWDZIC
+func _unhandled_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		if not highlight.visible:
 			return 
