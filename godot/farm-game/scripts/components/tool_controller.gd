@@ -360,6 +360,7 @@ func place_building(scene, building_name: String = "Building", size_in_tiles: Ve
 	var pixel_pos = current_target_grid_pos * TILE_SIZE
 	
 	var size_in_pixels = Vector2(size_in_tiles) * TILE_SIZE
+	
 	new_building.global_position = pixel_pos + (size_in_pixels / 2.0)
 	
 	#if building_name == "ChickenCoop" or building_name == "Barn":
@@ -373,6 +374,7 @@ func place_building(scene, building_name: String = "Building", size_in_tiles: Ve
 	for x in range(size_in_tiles.x):
 		for y in range(size_in_tiles.y):
 			var tile_pos_i = Vector2i(current_target_grid_pos + Vector2(x, y))
+			nature.erase_cell(Vector2i(current_target_grid_pos + Vector2(x, y)))
 			WorldObjects.objects[tile_pos_i] = new_building
 	
 	if player_sfx_controller.has_method("play_build_sound"):
