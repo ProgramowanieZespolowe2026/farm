@@ -20,7 +20,6 @@ const composer_scene = preload("uid://baxl2ua0yor8x")
 
 const inventory = preload("uid://y3lcfv2dd6wt")
 
-
 @onready var highlight: Sprite2D = $Highlight
 @onready var chicken_coop_highlight: Sprite2D = $ChickenCoopHighlight
 @onready var barn_highlight: Sprite2D = $BarnHighlight
@@ -31,6 +30,8 @@ const inventory = preload("uid://y3lcfv2dd6wt")
 
 var map_tiles = {}
 var current_target_grid_pos = Vector2.ZERO
+
+var nature: TileMapLayer
 
 var inventory_visible = false;
 var animal_building_panel_visible = false;
@@ -43,6 +44,7 @@ func _ready():
 	var game_screen = get_tree().get_first_node_in_group("GameScreen")
 	var animal_building_panel = get_tree().get_first_node_in_group("AnimalBuildingPanel")
 	var shop_panel = get_tree().get_first_node_in_group("ShopPanel")
+	nature = get_tree().get_first_node_in_group("props_layer")
 	
 	if game_screen:
 		game_screen.inventory_open.connect(getInventoryVisible)
@@ -195,6 +197,8 @@ func use_hoe():
 	#Jesli nie ma zaoranej ziemi to ja dodaj
 	if not WorldObjects.objects.has(Vector2i(current_target_grid_pos)):
 		if map_tiles[current_target_grid_pos]["dirt"] == null:
+			nature.erase_cell(Vector2i(current_target_grid_pos))
+			
 			var new_dirt = dirt_scene.instantiate()
 			new_dirt.global_position = highlight.global_position 
 			
