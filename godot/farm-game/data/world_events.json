@@ -1,0 +1,87 @@
+{
+	"Rodent_invasion": {
+	  "name": "Rodent Invasion in the Granaries",
+	  "notification": "Rat plague in the cellars! Potatoes under threat!",
+	  "description": "Uninvited rodents have broken into the city's main storage for root vegetables. The potato supply has been almost completely destroyed. Traders are desperately searching for new shipments. In a panic, residents are buying up beets as an alternative to potatoes.",
+	  "affected_items": {
+	  "Potato_Item": 2.0, "Beet_Item": 1.3},
+	  "day_duration": 2.0
+	},
+	"City_bake": {
+	  "name": "The Great City Baking Competition",
+	  "notification": "Sweet madness! The city needs tons of cake!",
+	  "description": "The annual Baking Competition is approaching. All the pastry chefs in the region are reporting a massive demand for high-quality grains. Local bakeries are buying out everything from the warehouses. Since the confectioners have focused heavily on cakes, interest in the production of fruit desserts is declining.",
+	  "affected_items": {
+	  "Wheat_Item": 1.5, "Cream": 1.3, "Egg": 1.2, "Apple_Item": 0.4, "Cherry_item": 0.4, "Peach_Item": 0.4},
+	  "day_duration": 4.0
+  },
+"Vege_trend": {
+	  "name": "Trendy Vegetarianism: \"The Cult of the Carrot\"",
+	  "notification": "New fashion trend? Carrots in the spotlight!",
+	  "description": "A famous culinary influencer has posted a photo of the \"Carrot Elixir of Youth.\" The entire city has gone crazy for orange vegetables. Demand has exceeded all expectations.",
+	  "affected_items": {
+	  "Carrot_Item": 1.8, "Cow_Meat": 0.3, "Sheep_Meat": 0.3},
+	  "day_duration": 4.0
+	},
+	"Nasty_foxes": {
+	  "name": "Crisis in the Nesting Grounds: \"Nasty Foxes\"",
+	  "notification": "Fox in the henhouse! Breeders concerned!",
+	  "description": "A series of predator attacks in nearby farmsteads has caused a drastic drop in the chicken population. Fresh eggs have become a luxury commodity, available only in select shops. Interest in poultry feed has plummeted.",
+	  "affected_items": {
+	  "Egg": 2.2, "Beet_Item": 0.5, "Carrot_Item": 0.5, "Potato_Item": 0.5, "Tomato_Item": 0.5},
+	  "day_duration": 5.0
+	},
+	"Corn_fest": {
+	  "name": "Corn Festival Days",
+	  "notification": "Corn rules! Everyone to the festival!",
+	  "description": "The annual Corn Festival is beginning. Corn on the cob, popcorn, and corn decorations are everywhere. Tourism is booming, and restaurants are serving only corn-based dishes. Potatoes have been pushed off the menu and are piling up in the pantries!",
+	  "affected_items": {
+	  "Corn_Item": 1.6, "Potato_Item": 0.4},
+	  "day_duration": 3.0
+	},
+	"Cold_nights": {
+  "name": "Cold Nights: \"Early Frosts\"",
+  "notification": "Arctic blast! Fruits in danger!",
+  "description": "A sudden weather collapse has severely damaged a large portion of the fruit orchards. Fruit has become a scarce commodity, and wholesale prices are soaring. Farmers are mass-buying wheat for insulation and fuel.",
+  "affected_items": {
+	"Apple_Item": 1.9, 
+	"Cherry_Item": 1.9, 
+	"Peach_Item": 1.9, 
+	"Wheat_Item": 1.2
+  },
+  "day_duration": 4.0
+	},
+	"Wool_export": {
+  "name": "The Great Wool Export",
+  "notification": "Ship departing! Wool is worth its weight in gold!",
+  "description": "A massive order from abroad! The royal garrison needs thousands of wool uniforms. They are buying up everything local sheep farmers have to offer. Corn, as the most popular sheep feed, is disappearing from local stalls at an extreme pace, and farmers prefer to keep their sheep for wool rather than meat.",
+  "affected_items": {
+	"Wool_Item": 2.5,
+	"Corn_Item": 1.3,
+	"Sheep_Meat": 1.2
+  },
+  "day_duration": 2.0
+},
+"Beet_scandal": {
+  "name": "The Office Scandal: \"Beetroot Detox\"",
+  "notification": "Beets for blood health? Record-breaking demand!",
+  "description": "Local radio reported that beetroot juice is the ultimate cure for spring fatigue. Long queues have been forming in front of vegetable shops since dawn as everyone rushes to start their detox.",
+  "affected_items": {
+	"Beet_Item": 2.0,
+	"Carrot_Item": 0.8
+  },
+  "day_duration": 2.0
+},
+"Golden_route_disaster": {
+  "name": "Disaster on the \"Golden Route\"",
+  "notification": "Massive crash under the viaduct! Thousands of tons of grain in the mud!",
+  "description": "The 'Field Express' freight train, carrying a huge shipment of wheat for export, derailed on a local bend due to a broken rail. The tracks are blocked, and the wagons are lying in the ditch. Most of the cargo has been contaminated and is unusable. Regional mills and wholesalers have been cut off from supplies, sparking panic among bakers.",
+  "affected_items": {
+	"Wheat_Item": 2.1,
+	"Corn_Item": 1.4,
+	"Potato_Item": 0.8
+  },
+  "day_duration": 3.0
+},
+
+}

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://coe7o5imj3tw6"]
+[gd_scene load_steps=17 format=3 uid="uid://coe7o5imj3tw6"]
 
 [ext_resource type="PackedScene" uid="uid://clcluxi7rp3ni" path="res://scenes/ui/test_game_time.tscn" id="1_8hmcv"]
 [ext_resource type="Script" uid="uid://cxnw3cis3e2ao" path="res://scenes/ui/game_screen.gd" id="1_gusqm"]
@@ -13,6 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://kgbocqhqlu7g" path="res://scenes/objects/buildings/composer_panel.tscn" id="9_c0p0g"]
 [ext_resource type="PackedScene" uid="uid://c7h8pc1feikys" path="res://scenes/ui/item_tooltip.tscn" id="9_dscta"]
 [ext_resource type="PackedScene" uid="uid://bdhst4l7ave8q" path="res://scenes/ui/settings_menu.tscn" id="9_nktmq"]
+[ext_resource type="PackedScene" uid="uid://dykgnjg316jbt" path="res://scenes/components/world_event_controler.tscn" id="13_ywp2c"]
+[ext_resource type="PackedScene" uid="uid://pwn8u5ncdjjc" path="res://scenes/ui/event_notification.tscn" id="14_pwika"]
+[ext_resource type="PackedScene" uid="uid://d3b56g3eworcr" path="res://scenes/ui/event_detail_window.tscn" id="15_4gsc8"]
 
 [node name="GameScreen" type="CanvasLayer" groups=["GameScreen"]]
 script = ExtResource("1_gusqm")
@@ -57,7 +60,7 @@ position = Vector2(-93, 11)
 
 [node name="ShopPanel" parent="MarginContainer" instance=ExtResource("8_r1vnj")]
 visible = false
-position = Vector2(-95, 30)
+position = Vector2(-95, 50)
 
 [node name="ItemTooltip" parent="MarginContainer" instance=ExtResource("9_dscta")]
 layout_mode = 2
@@ -73,6 +76,15 @@ position = Vector2(-76, 12)
 [node name="RecipeBookPanel" parent="MarginContainer" instance=ExtResource("3_wwq64")]
 unique_name_in_owner = true
 visible = false
+layout_mode = 2
+
+[node name="MarketEventControler" parent="MarginContainer" instance=ExtResource("13_ywp2c")]
+
+[node name="EventNotification" parent="MarginContainer" instance=ExtResource("14_pwika")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="EventDetailWindow" parent="MarginContainer" instance=ExtResource("15_4gsc8")]
 layout_mode = 2
 
 [node name="MenuOpen" parent="." instance=ExtResource("4_gkbp4")]

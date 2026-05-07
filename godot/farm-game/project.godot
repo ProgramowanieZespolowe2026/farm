@@ -31,6 +31,7 @@ BuildingDataManager="*res://scripts/globals/BuildingDataManager.gd"
 BuildingsDataUpdateManager="*res://scripts/components/buildings_data_update_manager.gd"
 ItemTooltipManager="*res://scripts/ui/ItemTooltipManager.gd"
 GlobalSignals="*res://scripts/globals/global_signals.gd"
+MarketManager="*res://scripts/globals/market_manager.gd"
 
 [display]
 
