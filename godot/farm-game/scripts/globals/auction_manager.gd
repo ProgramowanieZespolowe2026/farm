@@ -74,7 +74,6 @@ func npc_bid():
 
 func _end_auction():
 	is_active = false
-	
 	var final_winner = OwnerType.NONE
 	
 	if last_bidder == OwnerType.PLAYER_TEAM:

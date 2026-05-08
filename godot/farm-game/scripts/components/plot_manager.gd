@@ -42,8 +42,7 @@ func generate_plots():
 			plots_container.add_child(new_plot)
 			# set plot position
 			new_plot.global_position = Vector2(x, y)
-			new_plot.plot_id = "plot_%d_%d" % [x/plot_px, y/plot_px]
-			
+			new_plot.plot_id = "plot_%d_%d" % [floor(float(x)/plot_px), floor(float(y)/plot_px)]			
 			# create plot rectangle
 			var plot_rect = Rect2(Vector2(x, y), Vector2(plot_px, plot_px))
 			

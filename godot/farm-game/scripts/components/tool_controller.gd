@@ -36,6 +36,7 @@ var inventory_visible = false;
 var animal_building_panel_visible = false;
 var shop_panel_visible = false
 var recipe_book_visible = false
+var is_building_placed: bool = false
 
 
 func _ready():
@@ -61,6 +62,7 @@ func getRecipeBookVisible(is_open: bool):
 
 func _process(_delta):
 	update_highlight()
+	update_highlight_color() # Nowa funkcja do kolo
 
 func update_highlight():
 	var current_tool = player.current_tool
@@ -163,20 +165,24 @@ func _unhandled_input(event):
 			
 		elif current_tool == DataTypes.Tools.ChickenCoopBuilding:
 			place_building(chicken_coop_scene, "ChickenCoop", Vector2i(3, 4))
-			GlobalSignals.building_constructed.emit("ChickenCoop")
-			player.current_tool = DataTypes.Tools.None
+			if is_building_placed:
+				GlobalSignals.building_constructed.emit("ChickenCoop")
+				player.current_tool = DataTypes.Tools.None
 		elif current_tool == DataTypes.Tools.BarnBuilding:
 			place_building(barn_scene, "Barn", Vector2i(4, 5))
-			GlobalSignals.building_constructed.emit("Barn")
-			player.current_tool = DataTypes.Tools.None
+			if is_building_placed:
+				GlobalSignals.building_constructed.emit("Barn")
+				player.current_tool = DataTypes.Tools.None
 		elif current_tool == DataTypes.Tools.ShopBuilding:
 			place_building(shop_scene, "Shop", Vector2i(4, 4))
-			GlobalSignals.building_constructed.emit("Shop")
-			player.current_tool = DataTypes.Tools.None
+			if is_building_placed:
+				GlobalSignals.building_constructed.emit("Shop")
+				player.current_tool = DataTypes.Tools.None
 		elif current_tool == DataTypes.Tools.ComposerBuilding:
 			place_building(composer_scene, "Composer", Vector2i(2, 2))
-			GlobalSignals.building_constructed.emit("Composer")
-			player.current_tool = DataTypes.Tools.None
+			if is_building_placed:
+				GlobalSignals.building_constructed.emit("Composer")
+				player.current_tool = DataTypes.Tools.None
 			
 func use_hoe():
 	#Jesli jest zaorana ziemia i jakas roslina to zniszcz sama rosline
@@ -319,23 +325,30 @@ func plant_tree(scene):
 		player_sfx_controller.play_plant_sound()
 		
 func is_plot_owned_at_target() -> bool:
-	var current_target_px = current_target_grid_pos * TILE_SIZE
+	var b_size = highlight.scale * TILE_SIZE
+	var b_pos = current_target_grid_pos * TILE_SIZE
+	var building_rect = Rect2(b_pos, b_size).grow(-0.1)
 	
 	var plots = get_tree().get_nodes_in_group("plots")
+	
+	var touches_any_plot = false
 	
 	for plot in plots:
 		var plot_rect = Rect2(plot.global_position, Vector2(plot.plot_px, plot.plot_px))
 		
-		if plot_rect.has_point(current_target_px):
-			if plot.current_owner == AuctionManager.OwnerType.PLAYER_TEAM:
-				return true
-			elif plot.current_owner == AuctionManager.OwnerType.NONE:
-				AuctionManager.select_plot(plot)
-			elif plot.current_owner == AuctionManager.OwnerType.NPC:
-				player_sfx_controller.play_error()
-				plot.flash_border()
+		if plot_rect.intersects(building_rect):
+			touches_any_plot = true # Budynek na czymś stoi
+			
+			if plot.current_owner != AuctionManager.OwnerType.PLAYER_TEAM:
+				if plot.current_owner == AuctionManager.OwnerType.NONE:
+					AuctionManager.select_plot(plot)
+				elif plot.current_owner == AuctionManager.OwnerType.NPC:
+					player_sfx_controller.play_error()
+					plot.flash_border()
+				
+				return false
 					
-	return false
+	return touches_any_plot
 	
 func place_building(scene, building_name: String = "Building", size_in_tiles: Vector2i = Vector2i(1, 1)):
 	for x in range(size_in_tiles.x):
@@ -345,8 +358,10 @@ func place_building(scene, building_name: String = "Building", size_in_tiles: Ve
 			
 			if WorldObjects.objects.has(check_pos_i) or map_tiles.has(check_pos):
 				player_sfx_controller.play_error() 
+				is_building_placed = false
 				return
 
+	is_building_placed = true
 	var new_building = scene.instantiate()
 	var grid_pos_i = Vector2i(current_target_grid_pos)
 	
@@ -408,4 +423,55 @@ func place_building_at(scene, target_grid_pos: Vector2, building_name: String = 
 		for y in range(size_in_tiles.y):
 			var tile_pos_i = Vector2i(target_grid_pos + Vector2(x, y))
 			WorldObjects.objects[tile_pos_i] = new_building
+
+func update_highlight_color():
+	var current_tool = player.current_tool
+	var is_building = current_tool in [
+		DataTypes.Tools.ChickenCoopBuilding, 
+		DataTypes.Tools.BarnBuilding, 
+		DataTypes.Tools.ShopBuilding, 
+		DataTypes.Tools.ComposerBuilding
+	]
 	
+	if not is_building:
+		highlight.modulate = Color.WHITE
+		return
+
+	# Sprawdzamy, czy miejsce jest poprawne
+	if can_place_building_at_current_pos():
+		highlight.modulate = Color.WHITE
+	else:
+		highlight.modulate = Color.RED
+
+# Pomocnicza funkcja testująca, czy można budować (bez wywoływania licytacji!)
+func can_place_building_at_current_pos() -> bool:
+	var b_size = highlight.scale * TILE_SIZE
+	var b_pos = current_target_grid_pos * TILE_SIZE
+	var building_rect = Rect2(b_pos, b_size).grow(-0.1)
+	#
+	# 1. TEST DZIAŁEK (Tylko własne!)
+	var plots = get_tree().get_nodes_in_group("plots")
+	var on_valid_plot = false
+	
+	for plot in plots:
+		var plot_rect = Rect2(plot.global_position, Vector2(plot.plot_px, plot.plot_px))
+		if plot_rect.intersects(building_rect):
+			# Jeśli dotknie jakiejkolwiek działki, która NIE jest gracza -> RED
+			if plot.current_owner != AuctionManager.OwnerType.PLAYER_TEAM:
+				return false
+			on_valid_plot = true
+	
+	if not on_valid_plot: return false
+
+	# 2. TEST OBIEKTÓW (Drzewa, kamienie, inne budynki)
+	# Sprawdzamy każdy kafel, który zajmie budynek
+	var tiles_x = int(highlight.scale.x)
+	var tiles_y = int(highlight.scale.y)
+	
+	for x in range(tiles_x):
+		for y in range(tiles_y):
+			var check_pos = Vector2i(current_target_grid_pos) + Vector2i(x, y)
+			if WorldObjects.objects.has(check_pos) or map_tiles.has(Vector2(check_pos)):
+				return false # Coś stoi na drodze -> RED
+				
+	return true

@@ -35,24 +35,22 @@ func _ready():
 	monitoring = false
 
 func _process(_delta):
-
 	var player = get_tree().get_first_node_in_group("player")
 	if not player: return
 	
 	var tool_ctrl = player.get_node_or_null("ToolController")
 	if not tool_ctrl: return
 	
-	var target_pos = tool_ctrl.current_target_grid_pos
-	# change current grid target position to pixels
-	var target_in_pixels = target_pos * 16
+	# POBIERAMY CAŁY RECT Z HIGHLIGHTA (to co widzi gracz)
+	var b_size = tool_ctrl.highlight.scale * tool_ctrl.TILE_SIZE
+	var b_pos = tool_ctrl.current_target_grid_pos * tool_ctrl.TILE_SIZE
+	var building_rect = Rect2(b_pos, b_size).grow(-0.1)
 
-	# create plot rectangle
 	var plot_rect = Rect2(global_position, Vector2(plot_px, plot_px))
 	
-	# check if target pixels are in rectangle
-	var currently_inside: bool = plot_rect.has_point(target_in_pixels)
+	# Używamy intersects zamiast has_point!
+	var currently_inside: bool = plot_rect.intersects(building_rect)
 	
-	# flash border only when target enters plot 
 	if currently_inside and not is_target_inside:
 		flash_border()
 	
@@ -101,22 +99,24 @@ func flash_border():
 		)
 
 func update_visuals():
-	# set plot size
-	border.size = Vector2(plot_px, plot_px)
-	# get plot stylebox
+	var margin = 2
+	
+	border.size = Vector2(plot_px - (margin * 2), plot_px - (margin * 2))
+	border.position = Vector2(margin, margin)
+
 	var style_box = border.get_theme_stylebox("panel").duplicate()
-	# change frame color depending on owner
+	
 	match current_owner:
 		AuctionManager.OwnerType.PUBLIC:
+			border.visible = false # Lepiej ukryć, jeśli publiczne
 			return 
 		AuctionManager.OwnerType.NONE:
 			style_box.border_color = Color.YELLOW 
 		AuctionManager.OwnerType.PLAYER_TEAM:
-			#style_box.border_color = Color.GREEN 
-			## optional if it's player plot don't show any border
 			return
 		AuctionManager.OwnerType.NPC:
 			style_box.border_color = Color.ORANGE_RED 
 			
 	border.add_theme_stylebox_override("panel", style_box)
-	
+
+# Funkcja do trwałego podświetlenia (np. podczas licytacji)
