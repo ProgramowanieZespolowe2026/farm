@@ -94,7 +94,7 @@ func slot_gui_input(event: InputEvent, slot: SlotClass):
 				else:
 					# Tutaj trafi tylko jeśli holding_item.item_name == slot.item.item_name
 					left_click_same_item(slot)
-					print("same")
+					AudioManager.play_put_in_slot()
 					
 			elif slot.item:
 				left_click_not_holding(slot)
@@ -157,17 +157,19 @@ func save_current_slots_state():
 # --- OBSŁUGA STRON ---
 
 func _on_button_prev_pressed() -> void:
+	AudioManager.next_prev_sound.play()
 	save_current_slots_state()
 	current_index = (current_index - 1 + building_keys.size()) % building_keys.size()
 	update_recipe_page()
 
 func _on_button_next_pressed() -> void:
+	AudioManager.next_prev_sound.play()
 	save_current_slots_state()
 	current_index = (current_index + 1) % building_keys.size()
 	update_recipe_page()
 	
 func _on_build_button_pressed():
-	
+	AudioManager.play_building_ready()
 	var players = get_tree().get_nodes_in_group("player")
 	if players.size() > 0:
 		print(current_building_name)
@@ -234,7 +236,6 @@ func left_click_same_item(slot: SlotClass):
 		amount_to_add = able_to_add
 		slot.item.add_item_value(amount_to_add)
 		holding_item.decrease_item_value(amount_to_add)
-
 	var current_building = building_keys[current_index]
 	buildings_data[current_building]["CurrentStoredItems"][slot.item.item_name] = slot.item.item_value
 	
@@ -244,6 +245,7 @@ func left_click_not_holding(slot: SlotClass):
 
 	if slot.item.item_value <= 0:
 		print("Slot jest pusty, nie możesz nic zabrać.")
+		AudioManager.play_error()
 		return
 		
 	var item_name = slot.item.item_name
@@ -251,7 +253,6 @@ func left_click_not_holding(slot: SlotClass):
 	var game_screen = find_parent("GameScreen")
 	game_screen.holding_item = slot.item
 	slot.pickFromSlot()
-	
 	buildings_data[current_building]["CurrentStoredItems"][item_name] = 0
 
 	update_recipe_page()

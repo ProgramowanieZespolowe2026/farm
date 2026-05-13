@@ -1,59 +1,59 @@
 [gd_scene load_steps=18 format=3 uid="uid://duykdffthpeuk"]
 
-[ext_resource type="Script" uid="uid://beumuvkoop7w8" path="res://scenes/recipe_book/recipe_book_panel.gd" id="1_gg4hq"]
-[ext_resource type="Texture2D" uid="uid://cn48qmn3m5n0l" path="res://assets/ui/Slots.png" id="2_bdeoa"]
-[ext_resource type="Texture2D" uid="uid://b4vg3wyplpkye" path="res://assets/ui/board_ui.png" id="3_xfkr8"]
-[ext_resource type="Texture2D" uid="uid://b1i2v36yxp6ef" path="res://assets/ui/button.png" id="4_ijvqg"]
+[ext_resource type="Script" uid="uid://beumuvkoop7w8" path="res://scripts/ui/recipe_book_panel.gd" id="1_o3w0h"]
+[ext_resource type="Texture2D" uid="uid://cn48qmn3m5n0l" path="res://assets/ui/Slots.png" id="2_b5cne"]
+[ext_resource type="Texture2D" uid="uid://b4vg3wyplpkye" path="res://assets/ui/board_ui.png" id="3_3k4tk"]
+[ext_resource type="Texture2D" uid="uid://b1i2v36yxp6ef" path="res://assets/ui/button.png" id="4_h1tjd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_17uwj"]
-atlas = ExtResource("2_bdeoa")
+atlas = ExtResource("2_b5cne")
 region = Rect2(6, 105, 164, 28)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r02a4"]
-atlas = ExtResource("3_xfkr8")
+atlas = ExtResource("3_3k4tk")
 
 [sub_resource type="LabelSettings" id="LabelSettings_4lk4h"]
 font_size = 10
 font_color = Color(0.23921569, 0.08627451, 0.02745098, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_34aub"]
-atlas = ExtResource("4_ijvqg")
+atlas = ExtResource("4_h1tjd")
 region = Rect2(384, 16, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fxe3j"]
-atlas = ExtResource("4_ijvqg")
+atlas = ExtResource("4_h1tjd")
 region = Rect2(384, 80, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a6v7q"]
-atlas = ExtResource("4_ijvqg")
+atlas = ExtResource("4_h1tjd")
 region = Rect2(384, 64, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d1fjx"]
-atlas = ExtResource("4_ijvqg")
+atlas = ExtResource("4_h1tjd")
 region = Rect2(416, 208, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gg4hq"]
-atlas = ExtResource("4_ijvqg")
+atlas = ExtResource("4_h1tjd")
 region = Rect2(416, 272, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vvjg3"]
-atlas = ExtResource("4_ijvqg")
+atlas = ExtResource("4_h1tjd")
 region = Rect2(416, 256, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nsb1a"]
-atlas = ExtResource("4_ijvqg")
+atlas = ExtResource("4_h1tjd")
 region = Rect2(416, 496, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4iy8o"]
-atlas = ExtResource("4_ijvqg")
+atlas = ExtResource("4_h1tjd")
 region = Rect2(368, 16, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ww38g"]
-atlas = ExtResource("4_ijvqg")
+atlas = ExtResource("4_h1tjd")
 region = Rect2(368, 80, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pe4q7"]
-atlas = ExtResource("4_ijvqg")
+atlas = ExtResource("4_h1tjd")
 region = Rect2(368, 64, 16, 16)
 
 [node name="RecipeBookPanel" type="Control"]
@@ -62,7 +62,7 @@ anchors_preset = 0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 mouse_filter = 2
-script = ExtResource("1_gg4hq")
+script = ExtResource("1_o3w0h")
 
 [node name="Background" type="NinePatchRect" parent="."]
 layout_mode = 0

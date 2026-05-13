@@ -21,6 +21,7 @@ func _on_open_requested(event: Dictionary):
 
 func _on_close_pressed():
 	self.visible = false
+	AudioManager.next_prev_sound.play()
 	
 func _generate_event_text(event_data: Dictionary) -> String:
 	

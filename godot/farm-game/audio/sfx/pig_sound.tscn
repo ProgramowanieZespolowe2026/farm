@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbiggr2vjga5x"]
+
+[ext_resource type="AudioStream" uid="uid://d3k2rhx58keml" path="res://assets/audio/sfx/pig.ogg" id="1_m42sh"]
+
+[node name="PigSound" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_m42sh")
+max_distance = 80.0
+bus = &"Sfx"

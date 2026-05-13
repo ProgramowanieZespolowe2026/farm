@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ckphra5tyfs3b" path="res://scenes/map/test_scene_tile_map.tscn" id="3_gd3cn"]
 [ext_resource type="TileSet" uid="uid://gymfb77lk45e" path="res://TileSets/map/MapTileSet.tres" id="4_erlyq"]
 [ext_resource type="PackedScene" uid="uid://coe7o5imj3tw6" path="res://scenes/ui/game_screen.tscn" id="5_q32fc"]
-[ext_resource type="PackedScene" uid="uid://duykdffthpeuk" path="res://scenes/recipe_book/recipe_book_panel.tscn" id="7_gd3cn"]
+[ext_resource type="PackedScene" uid="uid://duykdffthpeuk" path="res://scenes/ui/recipe_book_panel.tscn" id="7_gd3cn"]
 [ext_resource type="PackedScene" uid="uid://csg1yvoduuxoh" path="res://scenes/components/plot_manager.tscn" id="8_q32fc"]
 
 [node name="TestLevel" type="Node2D"]

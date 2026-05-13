@@ -114,6 +114,27 @@
 	"BuyPrice": 100,
 	"SellPrice": 50
   },
+  "Apple_Plant": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Apple plant",
+	"BuyPrice": 100,
+	"SellPrice": 50
+  },
+  "Cherry_Plant": {
+	"ItemCategory": "Cherry_Plant",
+	"StackSize": 99,
+	"Description": "Cherry plant",
+	"BuyPrice": 100,
+	"SellPrice": 50
+  },
+  "Peach_Plant": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Peach plant",
+	"BuyPrice": 100,
+	"SellPrice": 50
+  },
   "Egg": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
@@ -128,6 +149,7 @@
 	"BuyPrice": 100,
 	"SellPrice": 50
   },
+
   "Feather": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,

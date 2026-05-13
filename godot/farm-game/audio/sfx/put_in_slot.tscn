@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bd4e8pq3dtrla"]
+
+[ext_resource type="AudioStream" uid="uid://bnddb1qjo1omx" path="res://assets/audio/sfx/put_in_slot.ogg" id="1_xcp0y"]
+
+[node name="PutInSlot" type="AudioStreamPlayer"]
+stream = ExtResource("1_xcp0y")
+volume_db = -3.0
+bus = &"Sfx"

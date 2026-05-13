@@ -6,6 +6,8 @@ var items: Dictionary = {}
 var active_event = null
 var end_day = -1
 var last_event_key: String = ""
+@export var event_probability: int = 50
+@export var events_start_day: int = 3
 
 func _ready():
 	
@@ -19,8 +21,8 @@ func _on_day_changed(day: int) -> void:
 	if active_event != null and day >= end_day:
 		stop_active_event()
 		
-	if active_event == null and day > 3:
-		if randf() <= 1:
+	if active_event == null and day >= events_start_day:
+		if (randi() % 100) <= event_probability:
 			trigger_random_event(day)
 	
 func load_events():
@@ -64,5 +66,6 @@ func apply_event_effects(current_event: Dictionary):
 func stop_active_event():
 
 	active_event = null
+	GlobalSignals.event_ended.emit()
 	MarketManager.clear_modifiers()
 	get_tree().call_group("ShopPanel", "fetch_products_price")

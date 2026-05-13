@@ -38,8 +38,11 @@ func _input(event):
 		
 	if event.is_action_pressed("scroll_up"):
 		InventoryManager.active_item_scroll_up()
+		AudioManager.next_prev_sound.play()
 	elif event.is_action_pressed("scroll_down"):
 		InventoryManager.active_item_scroll_down()
+		AudioManager.next_prev_sound.play()
+
 		
 func _process(_delta):
 	var tooltip = $MarginContainer/ItemTooltip

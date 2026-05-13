@@ -8,6 +8,8 @@
 radius = 5.0
 
 [node name="CherryItem" type="Sprite2D"]
+z_index = 2
+y_sort_enabled = true
 texture = ExtResource("1_hwxgt")
 script = ExtResource("2_y1k5t")
 item_name = "Cherry_Item"

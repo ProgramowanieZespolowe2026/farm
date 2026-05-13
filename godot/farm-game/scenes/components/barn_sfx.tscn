@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://da61ok3l3a8uk"]
+
+[ext_resource type="Script" uid="uid://d3qhjtld2k8vg" path="res://scripts/components/barn_sfx.gd" id="1_3an7d"]
+[ext_resource type="PackedScene" uid="uid://dbiggr2vjga5x" path="res://audio/sfx/pig_sound.tscn" id="2_cenk1"]
+[ext_resource type="PackedScene" uid="uid://cu5wp7lv8hooo" path="res://audio/sfx/cow_sound.tscn" id="3_5ak1p"]
+[ext_resource type="PackedScene" uid="uid://bhgejfdqkio6s" path="res://audio/sfx/sheep_sound.tscn" id="4_rxwrn"]
+
+[node name="BarnSfx" type="Node"]
+script = ExtResource("1_3an7d")
+
+[node name="PigSound" parent="." instance=ExtResource("2_cenk1")]
+unique_name_in_owner = true
+
+[node name="CowSound" parent="." instance=ExtResource("3_5ak1p")]
+unique_name_in_owner = true
+
+[node name="SheepSound" parent="." instance=ExtResource("4_rxwrn")]
+unique_name_in_owner = true

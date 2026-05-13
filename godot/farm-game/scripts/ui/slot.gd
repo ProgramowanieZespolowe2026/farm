@@ -7,6 +7,9 @@ var selected_texture = preload("res://assets/ui/button2.png")
 @onready var progress_bar: TextureProgressBar = get_node_or_null("TextureProgressBar")
 @onready var buy_button: Button = get_node_or_null("BuyButton")
 
+var pick_from_slot_sound = preload("res://audio/sfx/pick_from_slot.tscn")
+
+
 var default_style: StyleBoxTexture = null
 var selected_style: StyleBoxTexture = null
 
@@ -52,7 +55,7 @@ func refresh_style():
 func pickFromSlot():
 	if item == null:
 		return
-		
+	AudioManager.pick_from_slot.play()
 	remove_child(item)
 	var inventoryNode = find_parent("GameScreen")
 	inventoryNode.add_child(item)
@@ -63,6 +66,8 @@ func pickFromSlot():
 		product_icon.visible = false
 	
 func putIntoSlot(new_item):
+	
+	AudioManager.put_in_slot.play()
 	item = new_item
 	item.position = (size / 2) - (item_size / 2)
 	var inventoryNode = find_parent("GameScreen")

@@ -28,9 +28,14 @@ func hit(chop_sound: AudioStreamPlayer2D):
 func die():
 	WorldObjects.objects.erase(grid_pos)
 	queue_free()
-	call_deferred("load_item_scene")
+	for i in range(2):
+		call_deferred("load_item_scene")
 	
 func load_item_scene() -> void:
 	var item_scene_instance = item_scene.instantiate() as Sprite2D
-	item_scene_instance.global_position = global_position
+	var item_offset = Vector2(
+		randf_range(-20, 20), 
+		randf_range(-20, 20)
+	)
+	item_scene_instance.global_position = global_position + item_offset
 	get_parent().add_child(item_scene_instance)

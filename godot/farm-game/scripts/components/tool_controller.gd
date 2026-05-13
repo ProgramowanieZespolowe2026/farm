@@ -316,8 +316,10 @@ func plant(scene):
 				
 func plant_tree(scene):
 	if WorldObjects.objects.has(Vector2i(current_target_grid_pos)) or map_tiles.has(current_target_grid_pos):
+		player_sfx_controller.play_error()
 		return
 	else:
+		InventoryManager.decrease_item_value()
 		var new_tree = scene.instantiate()
 		new_tree.global_position = highlight.global_position
 		WorldObjects.objects[Vector2i(current_target_grid_pos)] = new_tree

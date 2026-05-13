@@ -225,6 +225,7 @@ func close_panel():
 	active_coop_data = {}
 
 func add_food(item_value: int):
+	AudioManager.put_in_slot.play()
 	BuildingDataManager.increase_food_level(current_animal_building_pos,item_value*10)
 
 func updateUI():
@@ -275,6 +276,7 @@ func update_animal_state(slot: SlotClass):
 					slot.update_progress(0)	
 				if itemName == "Chicken_Adult":
 					#print("jajo do zbioru")
+					AudioManager.new_item.play()
 					BuildingDataManager.add_item_to_collect(current_animal_building_pos,"Egg",1,slot.slot_index)
 					slot.update_progress(0)	
 					
@@ -283,6 +285,7 @@ func update_animal_state(slot: SlotClass):
 					slot.update_progress(0)	
 				if itemName == "Cow_Adult":
 					#print("mleko do zbioru")
+					AudioManager.new_item.play()
 					BuildingDataManager.add_item_to_collect(current_animal_building_pos,"Milk",1,slot.slot_index)
 					slot.update_progress(0)
 					
@@ -319,6 +322,7 @@ func collect_product(slot:SlotClass):
 	var item_to_collect = BuildingDataManager.get_item_to_collect(current_animal_building_pos, slot.slot_index)
 	
 	if not item_to_collect == null:
+		AudioManager.pick_up_item.play()
 		BuildingDataManager.reduce_item_to_collect(current_animal_building_pos, slot.slot_index)
 		BuildingDataManager.increase_collected_amount_item(current_animal_building_pos, slot.slot_index)
 	

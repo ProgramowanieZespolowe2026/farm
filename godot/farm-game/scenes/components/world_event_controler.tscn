@@ -1,6 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://dykgnjg316jbt"]
 
-[ext_resource type="Script" uid="uid://dfdv1ifbpvvgg" path="res://scenes/components/world_event_controler.gd" id="1_djkd4"]
+[ext_resource type="Script" uid="uid://dfdv1ifbpvvgg" path="res://scripts/components/world_event_controler.gd" id="1_djkd4"]
 
 [node name="WorldEventControler" type="Node2D"]
 script = ExtResource("1_djkd4")
+event_probability = 40
+events_start_day = 4

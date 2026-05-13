@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bja1gungkfsr5"]
+
+[ext_resource type="AudioStream" uid="uid://cebxn75h58pfq" path="res://assets/audio/sfx/shop_open.ogg" id="1_4i5tc"]
+
+[node name="ShopOpen" type="AudioStreamPlayer"]
+stream = ExtResource("1_4i5tc")
+volume_db = -6.0
+bus = &"Sfx"

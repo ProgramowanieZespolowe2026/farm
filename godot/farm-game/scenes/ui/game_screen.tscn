@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://y3lcfv2dd6wt" path="res://scenes/ui/inventory_panel.tscn" id="2_e2vrk"]
 [ext_resource type="PackedScene" uid="uid://dmfm2ff7lnpyt" path="res://scenes/ui/WalletDisplay.tscn" id="2_nwa5a"]
 [ext_resource type="PackedScene" uid="uid://c4ymdwgq7ly0l" path="res://scenes/ui/auction_window.tscn" id="3_ooiym"]
-[ext_resource type="PackedScene" uid="uid://duykdffthpeuk" path="res://scenes/recipe_book/recipe_book_panel.tscn" id="3_wwq64"]
+[ext_resource type="PackedScene" uid="uid://duykdffthpeuk" path="res://scenes/ui/recipe_book_panel.tscn" id="3_wwq64"]
 [ext_resource type="PackedScene" uid="uid://ylhduw5fblc5" path="res://audio/sfx/menu_open.tscn" id="4_gkbp4"]
 [ext_resource type="PackedScene" uid="uid://drjspv32c5mwu" path="res://scenes/ui/hotbar.tscn" id="7_ooiym"]
 [ext_resource type="PackedScene" uid="uid://buh3v7l8w15br" path="res://scenes/objects/buildings/animal_building_panel.tscn" id="8_ce4rh"]

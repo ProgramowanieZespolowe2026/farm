@@ -74,6 +74,8 @@ animations = [{
 radius = 4.1231055
 
 [node name="PeachTree" type="AnimatedSprite2D"]
+z_index = 1
+y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_wdy0v")
 animation = &"small"
 autoplay = "plant"

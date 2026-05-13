@@ -1,22 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://d3baolgwiuusf"]
+[gd_scene load_steps=6 format=3 uid="uid://d3baolgwiuusf"]
 
-[ext_resource type="Texture2D" uid="uid://d4jkml0rthmgt" path="res://assets/map/Trees.png" id="1_xb3e7"]
+[ext_resource type="Texture2D" uid="uid://yulnhxet61q4" path="res://assets/items/Icons/Log.png" id="1_xb3e7"]
 [ext_resource type="Script" uid="uid://dp11o0jmh47l" path="res://scripts/objects/trees/log.gd" id="2_y0lle"]
 [ext_resource type="PackedScene" uid="uid://c522b6f3babgw" path="res://scenes/components/collectable_component.tscn" id="3_18dyw"]
 [ext_resource type="PackedScene" uid="uid://1bu5wul7kg1b" path="res://scenes/components/new_item_sfx_component.tscn" id="4_gq5dc"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_77l4f"]
-atlas = ExtResource("1_xb3e7")
-region = Rect2(8, 128, 16, 16)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5dohg"]
 radius = 7.0
 
 [node name="BigLog" type="Sprite2D"]
-scale = Vector2(1.5, 1.5)
-texture = SubResource("AtlasTexture_77l4f")
+z_index = 2
+y_sort_enabled = true
+texture = ExtResource("1_xb3e7")
 script = ExtResource("2_y0lle")
-item_value = 2
 
 [node name="CollectableComponent" parent="." instance=ExtResource("3_18dyw")]
 collectable_name = "log"

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dre5uliiggd6a"]
+
+[ext_resource type="AudioStream" uid="uid://bcxc3pgsohoiu" path="res://assets/audio/sfx/chicken_sound.ogg" id="1_8pje2"]
+
+[node name="ChickenSound" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_8pje2")
+max_distance = 78.0
+bus = &"Sfx"

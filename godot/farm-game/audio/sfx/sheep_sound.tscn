@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhgejfdqkio6s"]
+
+[ext_resource type="AudioStream" uid="uid://dpb1xgrk6wn2q" path="res://assets/audio/sfx/sheep.ogg" id="1_rc5xt"]
+
+[node name="SheepSound" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_rc5xt")
+max_distance = 80.0
+bus = &"Sfx"

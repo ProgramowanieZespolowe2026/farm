@@ -26,34 +26,41 @@ func _unhandled_input(event):
 			close()
 		else:
 			open()
+			
 	elif event.is_action_pressed("ui_cancel") and visible:
-			close()
+		close()
+
 
 func open():
 	visible = true
+	AudioManager.menu_open.play()
 	get_tree().paused = true
+	
 
 func close():
 	visible = false
+	AudioManager.menu_open.play()
 	get_tree().paused = false
 
 func _on_audio_control_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(music_bus, linear_to_db(value))
+	AudioManager.next_prev_sound.play()
 
 func _on_sfx_control_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(sfx_bus, linear_to_db(value))
-
+	AudioManager.next_prev_sound.play()
 func _on_music_mute_checkbox_toggled(toggled_on: bool) -> void:
 	AudioServer.set_bus_mute(music_bus, toggled_on)
-
+	AudioManager.next_prev_sound.play()
 func _on_sfx_mute_checkbox_toggled(toggled_on: bool) -> void:
 	AudioServer.set_bus_mute(sfx_bus, toggled_on)
-	
+	AudioManager.next_prev_sound.play()
 func _on_back_to_menu_pressed():
 	close()
 	
 func _on_full_screen_toggled(toggled_on: bool) -> void:
 	print("Fullscreen toggled: ", toggled_on)
+	AudioManager.next_prev_sound.play()
 	if toggled_on:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	else:

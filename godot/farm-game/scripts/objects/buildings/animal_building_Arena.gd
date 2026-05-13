@@ -15,10 +15,13 @@ func _unhandled_input(event):
 		
 		if animal_ui_panel and (buildingName == "ChickenCoop" or buildingName == "Barn"):
 			panel = animal_ui_panel
+			AudioManager.animal_building_open.play()
 		if shop_ui_panel and buildingName == "Shop":
 			panel = shop_ui_panel
+			AudioManager.shop_open.play()
 		if composer_ui_panel and buildingName == "Composer":
 			panel = composer_ui_panel
+			AudioManager.menu_open.play()
 			
 			
 		if panel:
@@ -38,6 +41,18 @@ func _on_body_entered(body: Node2D) -> void:
 			buildingName = parent.object_name
 			
 		playerInArea = true
+		
+		match buildingName:
+			"Barn":
+				AudioManager.play_barn_sound(body.global_position)
+			"ChickenCoop":
+				AudioManager.chicken_sound.global_position = body.global_position
+				AudioManager.chicken_sound.play()
+			"Composer":
+				AudioManager.fly_sound.global_position = body.global_position
+				AudioManager.fly_sound.play()
+			_:
+				print("Nieznany stan (to jest domyślny 'default')")
 
 func _on_body_exited(body: Node2D) -> void:
 	if body is TemporaryPlayer:

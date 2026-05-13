@@ -47,8 +47,10 @@ func slot_gui_input(event: InputEvent, slot: SlotClass):
 				else:
 					if find_parent("GameScreen").holding_item.item_name != slot.item.item_name:
 						left_click_different_item(event, slot)
+						AudioManager.put_in_slot.play()
 					else:
 						left_click_same_item(slot)
+						AudioManager.put_in_slot.play()
 			elif slot.item:
 				left_click_not_holding(slot)
 
@@ -191,7 +193,7 @@ func _on_sell_button_pressed() -> void:
 		product_to_sell.remove_item()
 		product_to_sell = null
 		product_price.text = "0$"
-		
+		AudioManager.cha_ching.play()
 		print("Sprzedano ", item_qty, "x ", item_name, " za ", total_profit, "$")
 	else:
 		print("Brak przedmiotu do sprzedaży!")
@@ -220,7 +222,7 @@ func _on_buy_button_pressed() -> void:
 			Wallet.spend_money(final_buy_price)
 			
 			fetch_products_price()
-			
+			AudioManager.cha_ching.play()
 			print("Kupiono ", item_name, " za ", final_buy_price, "$ (Cena bazowa: ", base_buy_price, ")")
 		else:
 			print("Nie masz wystarczająco pieniędzy!")
@@ -228,6 +230,7 @@ func _on_buy_button_pressed() -> void:
 
 func _on_previous_page_pressed() -> void:
 	if not page == 0:
+		AudioManager.next_prev_sound.play()
 		page -= 1
 		fetch_products_price()
 		page_number.text = str("Page ", page+1)
@@ -235,6 +238,7 @@ func _on_previous_page_pressed() -> void:
 
 func _on_next_page_pressed() -> void:
 	if ((page+1)*20) < JsonData.item_data.size():
+		AudioManager.next_prev_sound.play()
 		page += 1
 		fetch_products_price()
 		page_number.text = str("Page ", page+1)
