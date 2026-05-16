@@ -21,7 +21,6 @@ const processing_scene = preload("uid://dqmcf74s6y5x2")
 
 const inventory = preload("uid://y3lcfv2dd6wt")
 
-
 @onready var highlight: Sprite2D = $Highlight
 @onready var chicken_coop_highlight: Sprite2D = $ChickenCoopHighlight
 @onready var barn_highlight: Sprite2D = $BarnHighlight
@@ -33,10 +32,14 @@ const inventory = preload("uid://y3lcfv2dd6wt")
 var map_tiles = {}
 var current_target_grid_pos = Vector2.ZERO
 
+var nature: TileMapLayer
+
 var inventory_visible = false;
 var animal_building_panel_visible = false;
 var shop_panel_visible = false
 var processing_panel_visible = false
+var recipe_book_visible = false
+
 
 func _ready():
 	call_deferred("place_building_at", shop_scene, Vector2(16, 4), "Shop", Vector2i(4, 4))
@@ -44,12 +47,14 @@ func _ready():
 	var animal_building_panel = get_tree().get_first_node_in_group("AnimalBuildingPanel")
 	var shop_panel = get_tree().get_first_node_in_group("ShopPanel")
 	var processing_panel = get_tree().get_first_node_in_group("ProcessingPanel")
+	nature = get_tree().get_first_node_in_group("props_layer")
 	
 	if game_screen:
 		game_screen.inventory_open.connect(getInventoryVisible)
 		animal_building_panel.animal_building_panel_open.connect(getAnimalBuildingPanelVisible)
 		shop_panel.shop_panel_open.connect(getShopPanelVisible)
 		processing_panel.processing_panel_open.connect(getProcessingPanelVisible)
+		game_screen.recipe_book_open.connect(getRecipeBookVisible)
 
 func getInventoryVisible(is_open: bool):
 	inventory_visible = is_open
@@ -59,6 +64,8 @@ func getShopPanelVisible(is_open: bool):
 	shop_panel_visible = is_open
 func getProcessingPanelVisible(is_open: bool):
 	processing_panel_visible = is_open
+func getRecipeBookVisible(is_open: bool):
+	recipe_book_visible = is_open
 
 func _process(_delta):
 	update_highlight()
@@ -117,12 +124,15 @@ func update_highlight():
 	
 	highlight.global_position = (current_target_grid_pos * TILE_SIZE) + (building_pixel_size / 2.0)
 
-func _input(event):
+#   WAZNA ZMIANA ZMIENILEM  _input NA _unhandled_input. PODCZAS KLIKANIA NA PANELE I GUZIKI SYGNAL 
+#   PRZECHODZIL DO GRY I GRACZ WYKONYWAL SWOJE FUNKCJE. JESLI COS NIE BEDZIE DZIALALO WARTO TO SPRAWDZIC
+func _unhandled_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		if not highlight.visible:
 			return 
 		
-		if inventory_visible or animal_building_panel_visible or shop_panel_visible or processing_panel_visible:
+
+		if inventory_visible or animal_building_panel_visible or shop_panel_visible or processing_panel_visible or recipe_book_visible:
 			return
 			
 		if not is_plot_owned_at_target():
@@ -165,14 +175,22 @@ func _input(event):
 			
 		elif current_tool == DataTypes.Tools.ChickenCoopBuilding:
 			place_building(chicken_coop_scene, "ChickenCoop", Vector2i(3, 4))
+			GlobalSignals.building_constructed.emit("ChickenCoop")
+			player.current_tool = DataTypes.Tools.None
 		elif current_tool == DataTypes.Tools.BarnBuilding:
 			place_building(barn_scene, "Barn", Vector2i(4, 5))
+			GlobalSignals.building_constructed.emit("Barn")
+			player.current_tool = DataTypes.Tools.None
 		elif current_tool == DataTypes.Tools.ShopBuilding:
 			place_building(shop_scene, "Shop", Vector2i(4, 4))
+			GlobalSignals.building_constructed.emit("Shop")
+			player.current_tool = DataTypes.Tools.None
 		elif current_tool == DataTypes.Tools.ComposerBuilding:
 			place_building(composer_scene, "Composer", Vector2i(2, 2))
 		elif current_tool == DataTypes.Tools.ProcessingBuilding:
 			place_building(processing_scene, "Processing", Vector2i(4, 4))
+			GlobalSignals.building_constructed.emit("Composer")
+			player.current_tool = DataTypes.Tools.None
 			
 func use_hoe():
 	#Jesli jest zaorana ziemia i jakas roslina to zniszcz sama rosline
@@ -191,6 +209,8 @@ func use_hoe():
 	#Jesli nie ma zaoranej ziemi to ja dodaj
 	if not WorldObjects.objects.has(Vector2i(current_target_grid_pos)):
 		if map_tiles[current_target_grid_pos]["dirt"] == null:
+			nature.erase_cell(Vector2i(current_target_grid_pos))
+			
 			var new_dirt = dirt_scene.instantiate()
 			new_dirt.global_position = highlight.global_position 
 			
@@ -352,6 +372,7 @@ func place_building(scene, building_name: String = "Building", size_in_tiles: Ve
 	var pixel_pos = current_target_grid_pos * TILE_SIZE
 	
 	var size_in_pixels = Vector2(size_in_tiles) * TILE_SIZE
+	
 	new_building.global_position = pixel_pos + (size_in_pixels / 2.0)
 	
 	#if building_name == "ChickenCoop" or building_name == "Barn":
@@ -365,6 +386,7 @@ func place_building(scene, building_name: String = "Building", size_in_tiles: Ve
 	for x in range(size_in_tiles.x):
 		for y in range(size_in_tiles.y):
 			var tile_pos_i = Vector2i(current_target_grid_pos + Vector2(x, y))
+			nature.erase_cell(Vector2i(current_target_grid_pos + Vector2(x, y)))
 			WorldObjects.objects[tile_pos_i] = new_building
 	
 	if player_sfx_controller.has_method("play_build_sound"):

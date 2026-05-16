@@ -113,14 +113,27 @@ func setVisiblePanel(is_open = null):
 		shop_panel.visible = is_open
 	shop_panel_open.emit(shop_panel.visible)
 
+#func calc_product_price():
+	#if product_to_sell:
+		#print(product_to_sell.item.item_name)
+		#for i in JsonData.item_data:
+			#var item = JsonData.item_data[i]
+			#if i == product_to_sell.item.item_name:
+				#product_price.text = str(item["SellPrice"]*product_to_sell.item.item_value,"$")
+				#break
+	#else:
+		#product_price.text = "0$"
+		
 func calc_product_price():
-	if product_to_sell:
-		print(product_to_sell.item.item_name)
-		for i in JsonData.item_data:
-			var item = JsonData.item_data[i]
-			if i == product_to_sell.item.item_name:
-				product_price.text = str(item["SellPrice"]*product_to_sell.item.item_value,"$")
-				break
+	if product_to_sell and product_to_sell.item:
+		var item_name = product_to_sell.item.item_name
+		var base_sell_price = JsonData.item_data[item_name]["SellPrice"]
+		var final_unit_price = MarketManager.get_price(item_name, base_sell_price)
+		var total_price = final_unit_price * product_to_sell.item.item_value
+		
+		product_price.text = str(total_price, " $")
+		
+		print("Przedmiot: ", item_name, " | Cena jedn.: ", final_unit_price, " | Suma: ", total_price)
 	else:
 		product_price.text = "0$"
 	
@@ -140,32 +153,77 @@ func fetch_products_price():
 			var item_id = items_to_show[index_na_liscie]
 			
 			slots[i].initialize_item(item_id, 1)
-			slots[i].update_product_price_label(JsonData.item_data[item_id]["BuyPrice"])
+			# te 3 linijki dodane a nastepna zakomentowana
+			var base_buy_price = JsonData.item_data[item_id]["BuyPrice"]
+			var final_buy_price = MarketManager.get_price(item_id, base_buy_price)
+			slots[i].update_product_price_label(final_buy_price)
+			
+			#slots[i].update_product_price_label(JsonData.item_data[item_id]["BuyPrice"])
 			slots[i].hide_label_visibility()
 			slots[i].change_visibility_buy_button(true)
 		else:
 			slots[i].remove_item()
 			slots[i].change_visibility_buy_button(false)
 
+#func _on_sell_button_pressed() -> void:
+	#if product_to_sell:
+		#for i in JsonData.item_data:
+			#var item = JsonData.item_data[i]
+			#if i == product_to_sell.item.item_name:
+				#Wallet.add_money(item["SellPrice"]*product_to_sell.item.item_value)
+				#product_to_sell.remove_item()
+				#product_to_sell = null
+				#product_price.text = "0$"
+				#break
+				
 func _on_sell_button_pressed() -> void:
-	if product_to_sell:
-		for i in JsonData.item_data:
-			var item = JsonData.item_data[i]
-			if i == product_to_sell.item.item_name:
-				Wallet.add_money(item["SellPrice"]*product_to_sell.item.item_value)
-				product_to_sell.remove_item()
-				product_to_sell = null
-				product_price.text = "0$"
-				break
+
+	if product_to_sell and product_to_sell.item:
+		var item_name = product_to_sell.item.item_name
+		var item_qty = product_to_sell.item.item_value
+		
+		var base_price = JsonData.item_data[item_name]["SellPrice"]
+		var final_unit_price = MarketManager.get_price(item_name, base_price)
+		var total_profit = final_unit_price * item_qty
+		
+		Wallet.add_money(total_profit)
+		
+		product_to_sell.remove_item()
+		product_to_sell = null
+		product_price.text = "0$"
+		
+		print("Sprzedano ", item_qty, "x ", item_name, " za ", total_profit, "$")
+	else:
+		print("Brak przedmiotu do sprzedaży!")
 	
 
+#func _on_buy_button_pressed() -> void:
+	#var button = get_viewport().gui_get_focus_owner()
+	#var slot = button.get_parent()
+	#if not slot.item == null:
+		#InventoryManager.add_item(slot.item.item_name,1)
+		#fetch_products_price()
+		#Wallet.spend_money(slot.get_buy_product_price())
+		
 func _on_buy_button_pressed() -> void:
 	var button = get_viewport().gui_get_focus_owner()
 	var slot = button.get_parent()
-	if not slot.item == null:
-		InventoryManager.add_item(slot.item.item_name,1)
-		fetch_products_price()
-		Wallet.spend_money(slot.get_buy_product_price())
+	
+	if slot.item != null:
+		var item_name = slot.item.item_name
+		
+		var base_buy_price = JsonData.item_data[item_name]["BuyPrice"]
+		var final_buy_price = MarketManager.get_price(item_name, base_buy_price)
+		
+		if Wallet.balance >= final_buy_price:
+			InventoryManager.add_item(item_name, 1)
+			Wallet.spend_money(final_buy_price)
+			
+			fetch_products_price()
+			
+			print("Kupiono ", item_name, " za ", final_buy_price, "$ (Cena bazowa: ", base_buy_price, ")")
+		else:
+			print("Nie masz wystarczająco pieniędzy!")
 
 
 func _on_previous_page_pressed() -> void:

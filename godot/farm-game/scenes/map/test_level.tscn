@@ -23,6 +23,7 @@ current_tool = 2
 
 [node name="FarmMusic" parent="." instance=ExtResource("5_l8c3y")]
 autoplay = true
+parameters/looping = true
 
 [node name="PlotManager" parent="." instance=ExtResource("6_w7454")]
 

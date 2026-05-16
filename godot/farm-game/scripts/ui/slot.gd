@@ -14,6 +14,7 @@ var ItemClass = preload("res://scenes/items/item.tscn")
 var item = null
 var slot_index
 var slot_type
+var item_size = Vector2(16, 16)
 
 enum SlotType {
 	HOTBAR = 0,
@@ -24,6 +25,7 @@ enum SlotType {
 	PRODUCT_FOR_SELL,
 	COMPOSER,
 	PROCESSING
+	RECIPE
 }
 
 func _ready():
@@ -63,7 +65,7 @@ func pickFromSlot():
 	
 func putIntoSlot(new_item):
 	item = new_item
-	item.position = Vector2(0,0)
+	item.position = (size / 2) - (item_size / 2)
 	var inventoryNode = find_parent("GameScreen")
 	inventoryNode.remove_child(item)
 	add_child(item)
@@ -78,7 +80,13 @@ func initialize_item(item_name, item_value):
 		item.set_item(item_name, item_value)
 	else:
 		item.set_item(item_name, item_value)
-	refresh_style()
+	
+	item.position = Vector2.ZERO
+	await get_tree().process_frame
+	
+	if item != null:
+		item.position = (size / 2) - (item_size / 2)
+		refresh_style()
 
 func update_progress(current_value: int):
 	if progress_bar:

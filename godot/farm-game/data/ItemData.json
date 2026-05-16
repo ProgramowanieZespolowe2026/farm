@@ -4,8 +4,8 @@
 	"ItemSpeed": 0.75, 
 	"StackSize": 1,
 	"Description": "Siekiera",
-	"BuyPrice": 100,
-	"SellPrice": 50
+	"BuyPrice": 500,
+	"SellPrice": 250
 },
 "Hoe": {
 	"ItemCategory": "Hoe",
@@ -20,8 +20,8 @@
 	"ItemSpeed": 0.75, 
 	"StackSize": 99,
 	"Description": "Nawóz",
-	"BuyPrice": 100,
-	"SellPrice": 50
+	"BuyPrice": 20,
+	"SellPrice": 10
 },
 "Apple_Item": {
 	"ItemCategory": "Resource",
@@ -260,5 +260,61 @@
 	"Description": "Martwa owca",
 	"BuyPrice": 0,
 	"SellPrice": 0
+  },
+"Bacon": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Bekon",
+	"BuyPrice": 250,
+	"SellPrice": 125
+  },
+"Butter": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Masło",
+	"BuyPrice": 250,
+	"SellPrice": 125
+  },
+"Cake": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Ciasto",
+	"BuyPrice": 750,
+	"SellPrice": 375
+  },
+"Cream": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Śmietana",
+	"BuyPrice": 250,
+	"SellPrice": 125
+  },
+"Mayonnaise": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Majonez",
+	"BuyPrice": 250,
+	"SellPrice": 125
+  },
+"Sausage": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Kiełbasa",
+	"BuyPrice": 250,
+	"SellPrice": 125
+  },
+"Flour": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Mąka",
+	"BuyPrice": 250,
+	"SellPrice": 125
+  },
+"Steel_Bar": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Sztabka stali",
+	"BuyPrice": 250,
+	"SellPrice": 125
   },
 }
