@@ -44,8 +44,13 @@ func _ready():
 		
 	mouse_entered.connect(_on_mouse_entered)
 	mouse_exited.connect(_on_mouse_exited)
+	
+	item_rect_changed.connect(center_item)
 		
-
+func center_item():
+	if item != null:
+		item.position = (size / 2) - (item_size / 2)
+		
 func refresh_style():
 	if SlotType.HOTBAR == slot_type and InventoryManager.active_item_slot == slot_index:
 		add_theme_stylebox_override("panel", selected_style)
@@ -70,7 +75,7 @@ func putIntoSlot(new_item):
 	
 	AudioManager.put_in_slot.play()
 	item = new_item
-	item.position = (size / 2) - (item_size / 2)
+	center_item()
 	var inventoryNode = find_parent("GameScreen")
 	inventoryNode.remove_child(item)
 	add_child(item)
@@ -89,9 +94,8 @@ func initialize_item(item_name, item_value):
 	item.position = Vector2.ZERO
 	await get_tree().process_frame
 	
-	if item != null:
-		item.position = (size / 2) - (item_size / 2)
-		refresh_style()
+	center_item()
+	refresh_style()
 
 func update_progress(current_value: int):
 	if progress_bar:
