@@ -1,5 +1,4 @@
-
-[gd_scene load_steps=14 format=3 uid="uid://coe7o5imj3tw6"]
+[gd_scene load_steps=18 format=3 uid="uid://coe7o5imj3tw6"]
 
 [ext_resource type="PackedScene" uid="uid://clcluxi7rp3ni" path="res://scenes/ui/test_game_time.tscn" id="1_8hmcv"]
 [ext_resource type="Script" uid="uid://cxnw3cis3e2ao" path="res://scenes/ui/game_screen.gd" id="1_gusqm"]
@@ -14,7 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://kgbocqhqlu7g" path="res://scenes/objects/buildings/composer_panel.tscn" id="9_c0p0g"]
 [ext_resource type="PackedScene" uid="uid://c7h8pc1feikys" path="res://scenes/ui/item_tooltip.tscn" id="9_dscta"]
 [ext_resource type="PackedScene" uid="uid://bdhst4l7ave8q" path="res://scenes/ui/settings_menu.tscn" id="9_nktmq"]
-
 [ext_resource type="PackedScene" uid="uid://b5emlt8l1oxae" path="res://scenes/objects/buildings/processing_panel.tscn" id="12_wwq64"]
 [ext_resource type="PackedScene" uid="uid://dykgnjg316jbt" path="res://scenes/components/world_event_controler.tscn" id="13_ywp2c"]
 [ext_resource type="PackedScene" uid="uid://pwn8u5ncdjjc" path="res://scenes/ui/event_notification.tscn" id="14_pwika"]
@@ -79,6 +77,7 @@ position = Vector2(-76, 12)
 [node name="ProcessingPanel" parent="MarginContainer" instance=ExtResource("12_wwq64")]
 visible = false
 position = Vector2(-65, 34)
+
 [node name="RecipeBookPanel" parent="MarginContainer" instance=ExtResource("3_wwq64")]
 unique_name_in_owner = true
 visible = false
@@ -88,9 +87,11 @@ layout_mode = 2
 
 [node name="EventNotification" parent="MarginContainer" instance=ExtResource("14_pwika")]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 
 [node name="EventDetailWindow" parent="MarginContainer" instance=ExtResource("15_4gsc8")]
+visible = false
 layout_mode = 2
 
 [node name="MenuOpen" parent="." instance=ExtResource("4_gkbp4")]

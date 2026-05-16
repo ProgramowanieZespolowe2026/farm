@@ -130,6 +130,7 @@ func add_item_value (slot: SlotClass, value_to_add: int, is_hotbar: bool = false
 
 func active_item_scroll_up():
 	active_item_slot = (active_item_slot + 1) % NUM_HOTBAR_SLOTS
+	print(active_item_slot)
 	active_item_updated.emit()
 	check_slot_for_tools()
 
@@ -138,6 +139,7 @@ func active_item_scroll_down():
 		active_item_slot = NUM_HOTBAR_SLOTS -1
 	else:
 		active_item_slot -= 1
+	print(active_item_slot)
 	active_item_updated.emit()
 	check_slot_for_tools()
 	
