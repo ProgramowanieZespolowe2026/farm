@@ -11,6 +11,7 @@ func _unhandled_input(event):
 		var animal_ui_panel = get_tree().get_first_node_in_group("AnimalBuildingPanel")
 		var shop_ui_panel = get_tree().get_first_node_in_group("ShopPanel")
 		var composer_ui_panel = get_tree().get_first_node_in_group("ComposerBuildingPanel")
+		var processing_ui_panel = get_tree().get_first_node_in_group("ProcessingPanel")
 		var panel = null
 		
 		if animal_ui_panel and (buildingName == "ChickenCoop" or buildingName == "Barn"):
@@ -22,6 +23,8 @@ func _unhandled_input(event):
 		if composer_ui_panel and buildingName == "Composer":
 			panel = composer_ui_panel
 			AudioManager.menu_open.play()
+		if processing_ui_panel and buildingName == "Processing":
+			panel = processing_ui_panel
 			
 			
 		if panel:
@@ -60,6 +63,7 @@ func _on_body_exited(body: Node2D) -> void:
 		var animal_ui_panel = get_tree().get_first_node_in_group("AnimalBuildingPanel")
 		var shop_ui_panel = get_tree().get_first_node_in_group("ShopPanel")
 		var composer_ui_panel = get_tree().get_first_node_in_group("ComposerBuildingPanel")
+		var processing_ui_panel = get_tree().get_first_node_in_group("ProcessingPanel")
 		
 		if animal_ui_panel:
 			animal_ui_panel.close_panel()
@@ -67,3 +71,5 @@ func _on_body_exited(body: Node2D) -> void:
 			shop_ui_panel.close_panel()
 		if composer_ui_panel:
 			composer_ui_panel.close_panel()
+		if processing_ui_panel:
+			processing_ui_panel.close_panel()

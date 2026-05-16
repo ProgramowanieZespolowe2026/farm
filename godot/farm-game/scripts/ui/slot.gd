@@ -27,6 +27,7 @@ enum SlotType {
 	SHOP,
 	PRODUCT_FOR_SELL,
 	COMPOSER,
+	PROCESSING
 	RECIPE
 }
 
@@ -48,7 +49,7 @@ func _ready():
 func refresh_style():
 	if SlotType.HOTBAR == slot_type and InventoryManager.active_item_slot == slot_index:
 		add_theme_stylebox_override("panel", selected_style)
-	else:
+	elif SlotType.INVENTORY == slot_type:
 		add_theme_stylebox_override("panel", default_style)
 
 

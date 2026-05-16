@@ -2,6 +2,7 @@
 
 [ext_resource type="AudioStream" uid="uid://d1p8agloassk3" path="res://assets/audio/music/farm_music.mp3" id="1_uktpj"]
 
-[node name="FarmMusic" type="AudioStreamPlayer2D"]
+[node name="FarmMusic" type="AudioStreamPlayer"]
 stream = ExtResource("1_uktpj")
 bus = &"Music"
+parameters/looping = true

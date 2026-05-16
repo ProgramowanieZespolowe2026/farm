@@ -20,5 +20,6 @@ enum Tools {
 	ChickenCoopBuilding,
 	BarnBuilding,
 	ShopBuilding,
-	ComposerBuilding
+	ComposerBuilding,
+	ProcessingBuilding
 }
