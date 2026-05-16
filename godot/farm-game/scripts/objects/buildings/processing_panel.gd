@@ -67,19 +67,22 @@ func slot_gui_input(event: InputEvent, slot: SlotClass):
 func left_click_empty_slot(slot: SlotClass):
 	var holding_item = find_parent("GameScreen").holding_item
 	if slot.get_parent() == crafting_grid_container and not slot == slot_out:
-		InventoryManager.add_item_to_empty_slot(holding_item, slot)
 		slot.putIntoSlot(holding_item)
 		find_parent("GameScreen").holding_item = null
 		fetch_crafting_output()
 
 func left_click_not_holding(slot: SlotClass):
 	if slot.get_parent() == crafting_grid_container or slot == slot_out:
+		if slot == slot_out:
+			decrease_items_crafting(slot.item.item_value)
+			
 		find_parent("GameScreen").holding_item = slot.item
 		slot.pickFromSlot()
-		InventoryManager.remove_item(slot)
+		
 		if find_parent("GameScreen").holding_item != null:
 			find_parent("GameScreen").holding_item.global_position = get_viewport().get_mouse_position()
-		fetch_crafting_output()
+		
+		#fetch_crafting_output()
 
 func left_click_different_item(event: InputEvent, slot: SlotClass):
 	if slot.get_parent() == crafting_grid_container:
@@ -108,15 +111,6 @@ func left_click_same_item(slot: SlotClass):
 		fetch_crafting_output()
 
 func open_panel(building_pos: Vector2i):
-	#composer_data = BuildingDataManager.buildings_data[building_pos]
-	#current_building_pos = building_pos
-	#
-	#building_name_text.text = str("Composer ",BuildingDataManager.get_building_type_id(building_pos))
-	#
-	#plant_slot.remove_item()
-	#fertlizer_slot.remove_item()
-	#fertilizer_progress_bar.value = 0
-	#plants_progress_bar.value = 0
 	recipes_current_page = 0
 	setVisiblePanel(true)
 
@@ -124,10 +118,14 @@ func close_panel():
 	var crafting_slots = crafting_grid_container.get_children()
 	for slot in crafting_slots:
 		if slot.item != null:
-			#slot.pickFromSlot()
-			slot.putIntoSlot()
-			slot.initialize_item(slot.item.item_name,slot.item.item_count)
+			InventoryManager.add_item(slot.item.item_name, slot.item.item_value)
+			slot.remove_item()
+	if slot_out != null:
+		slot_out.remove_item()
+	
+	recipes_container.visible = false
 	setVisiblePanel(false)
+	
 			
 func setVisiblePanel(is_open = null):
 	if is_open == null:
@@ -167,7 +165,7 @@ func fetch_crafting_output():
 					finded = false
 					break;
 		if finded:
-			print("Pasuje ", recipes[i].product)
+			#print("Pasuje ", recipes[i].product)
 			slot_out.initialize_item(recipes[i].product,item_count)
 			return
 		else:
@@ -184,19 +182,26 @@ func fetch_recipe_data():
 	
 	slot_out_recipes.initialize_item(recipes[recipes_current_page].product, 1)
 
+func decrease_items_crafting(item_value:int):
+	var crafting_slots = crafting_grid_container.get_children()
+	for slot in crafting_slots:
+		if slot.item != null:
+			slot.item.item_value = slot.item.item_value - item_value
+			if slot.item.item_value == 0:
+				slot.remove_item()
+			else:
+				slot.initialize_item(slot.item.item_name, slot.item.item_value)
+
 func _on_recipes_button_pressed() -> void:
 	if !recipes_container.visible:
 		fetch_recipe_data()
 	recipes_container.visible = !recipes_container.visible
-
 
 func _on_previous_product_pressed() -> void:
 	if recipes_current_page != 0:
 		recipes_current_page -= 1
 		fetch_recipe_data()
 	
-
-
 func _on_next_product_pressed() -> void:
 	if recipes_current_page != recipes.size()-1:
 		recipes_current_page += 1
