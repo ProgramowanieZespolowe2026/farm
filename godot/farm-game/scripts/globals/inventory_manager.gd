@@ -47,6 +47,9 @@ func _ready():
 	items[9] = {
 			"name": "Pig_Baby",
 			"value": 1}
+	items[10] = {
+			"name": "Apple_Item",
+			"value": 1}
 	hotbar[1] = {
 			"name": "Hoe",
 			"value": 1}
