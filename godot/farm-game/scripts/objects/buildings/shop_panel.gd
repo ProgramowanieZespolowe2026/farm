@@ -237,7 +237,7 @@ func _on_previous_page_pressed() -> void:
 
 
 func _on_next_page_pressed() -> void:
-	if ((page+1)*20) < JsonData.item_data.size():
+	if ((page+1)*20) < (JsonData.item_data.size()-items_not_for_sale.size()):
 		AudioManager.next_prev_sound.play()
 		page += 1
 		fetch_products_price()
