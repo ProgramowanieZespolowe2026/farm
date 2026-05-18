@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bcr4x2brtalu4"]
 
-[ext_resource type="AudioStream" uid="uid://bkbs12hf4skl" path="res://assets/audio/sfx/step_grass_2.ogg" id="1_w33y4"]
+[ext_resource type="AudioStream" uid="uid://1sblho1veg8c" path="res://assets/audio/sfx/step_grass_2.ogg" id="1_w33y4"]
 
 [node name="WalkOnGrass" type="AudioStreamPlayer2D"]
 stream = ExtResource("1_w33y4")

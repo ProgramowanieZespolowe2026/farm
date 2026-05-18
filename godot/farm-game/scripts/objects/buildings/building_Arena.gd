@@ -54,8 +54,6 @@ func _on_body_entered(body: Node2D) -> void:
 			"Composer":
 				AudioManager.fly_sound.global_position = body.global_position
 				AudioManager.fly_sound.play()
-			_:
-				print("Nieznany stan (to jest domyślny 'default')")
 
 func _on_body_exited(body: Node2D) -> void:
 	if body is TemporaryPlayer:

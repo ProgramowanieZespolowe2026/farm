@@ -16,7 +16,7 @@ func _ready():
 	ItemTooltipManager.tooltip = $MarginContainer/ItemTooltip
 	GlobalSignals.request_notification.connect(_on_notification_requested)
 	
-func _on_notification_requested(message: String):
+func _on_notification_requested(message: Dictionary):
 	# Wywołujemy logikę pokazywania/resetowania w skrypcie notyfikacji
 	event_notification.display_event(message)
 	

@@ -41,7 +41,7 @@ func start_confirmed():
 func cancel_auction():
 	current_plot = null
 	is_active = false
-	auction_ended.emit(null, OwnerType.NONE, 0)
+	auction_ended.emit("", OwnerType.NONE, 0)
 
 func _process(delta):
 	if not is_active: return

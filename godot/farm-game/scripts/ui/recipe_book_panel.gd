@@ -180,6 +180,8 @@ func _on_build_button_pressed():
 				players[0].current_tool = DataTypes.Tools.ChickenCoopBuilding
 			"Composer":
 				players[0].current_tool = DataTypes.Tools.ComposerBuilding
+			"Processing":
+				players[0].current_tool = DataTypes.Tools.ProcessingBuilding
 			"Shop":
 				players[0].current_tool = DataTypes.Tools.ShopBuilding
 			_:

@@ -57,6 +57,7 @@ atlas = ExtResource("4_h1tjd")
 region = Rect2(368, 64, 16, 16)
 
 [node name="RecipeBookPanel" type="Control"]
+z_index = 1
 layout_mode = 3
 anchors_preset = 0
 size_flags_horizontal = 0
