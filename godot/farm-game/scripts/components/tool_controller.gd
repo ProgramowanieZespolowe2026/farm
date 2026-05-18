@@ -197,7 +197,7 @@ func _unhandled_input(event):
 				player.current_tool = DataTypes.Tools.None
 		elif current_tool == DataTypes.Tools.ProcessingBuilding:
 			place_building(processing_scene, "Processing", Vector2i(4, 4))
-			GlobalSignals.building_constructed.emit("Composer")
+			GlobalSignals.building_constructed.emit("Processing")
 			player.current_tool = DataTypes.Tools.None
 			
 func use_hoe():
@@ -452,7 +452,8 @@ func update_highlight_color():
 		DataTypes.Tools.ChickenCoopBuilding, 
 		DataTypes.Tools.BarnBuilding, 
 		DataTypes.Tools.ShopBuilding, 
-		DataTypes.Tools.ComposerBuilding
+		DataTypes.Tools.ComposerBuilding,
+		DataTypes.Tools.ProcessingBuilding
 	]
 	
 	if not is_building:

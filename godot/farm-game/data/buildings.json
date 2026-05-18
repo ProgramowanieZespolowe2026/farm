@@ -30,14 +30,14 @@
 	"Composer": {
 		"CurrentStoredItems": {
 			"Log": 0,
-			"Wheat_Item": 0
+			"Steel_Bar": 3,
 		},
 		"Description": "Composter",
 		"Category": "Building",
 		"IconPath": "res://assets/buildings/composer.png",
 		"Requirements": {
 			"Log": 3.0,
-			"Wheat_Item": 4.0
+			"Steel_Bar": 1.0,
 		},
 		"ScenePath": "res://scenes/objects/buildings/composer_building.tscn"
 	},
@@ -54,5 +54,19 @@
 			"Log": 4.0
 		},
 		"ScenePath": "res://scenes/objects/buildings/shop_building.tscn"
+	},
+	"Processing": {
+		"CurrentStoredItems": {
+			"Steel_Bar": 0,
+			"Log": 0
+		},
+		"Description": "Processing building",
+		"Category": "Building",
+		"IconPath": "res://assets/buildings/processing.png",
+		"Requirements": {
+			"Steel_Bar": 8.0,
+			"Log": 6.0
+		},
+		"ScenePath": "res://scenes/objects/buildings/processing_building.tscn"
 	}
 }
