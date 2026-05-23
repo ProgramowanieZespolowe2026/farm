@@ -15,6 +15,14 @@
 	"BuyPrice": 100,
 	"SellPrice": 50
 },
+"Watering_Can": {
+	"ItemCategory": "Watering_Can",
+	"ItemSpeed": 0.75, 
+	"StackSize": 1,
+	"Description": "Konewka",
+	"BuyPrice": 100,
+	"SellPrice": 50
+},
 "Fertilizer": {
 	"ItemCategory": "Fertilizer",
 	"ItemSpeed": 0.75, 

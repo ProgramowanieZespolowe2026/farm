@@ -147,7 +147,7 @@ func _unhandled_input(event):
 			use_hoe()
 		elif current_tool == DataTypes.Tools.Shovel:
 			use_shovel()
-		elif current_tool == DataTypes.Tools.Watering:
+		elif current_tool == DataTypes.Tools.Watering_Can:
 			use_watering_can()
 		elif current_tool == DataTypes.Tools.Fertilizer:
 			use_fertilizer()
