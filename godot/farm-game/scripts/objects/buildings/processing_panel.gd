@@ -15,10 +15,7 @@ signal processing_panel_open(is_open: bool)
 var recipes_current_page: int = 0
 
 var recipes = [
-	{
-		"required":["Egg","Cream","Flour","Peach_Item"],
-		"product":"Cake"
-	},
+	
 	{
 		"required":["Milk",null,null,null],
 		"product":"Cream"
@@ -32,17 +29,21 @@ var recipes = [
 		"product":"Mayonnaise"
 	},
 	{
-		"required":["Pig_Meat","Cow_Meat","Sheep_Meat",null],
-		"product":"Sausage"
-	},
-	{
-		"required":["Milk",null,null,null],
+		"required":["Milk","Cream",null,null],
 		"product":"Butter"
 	},
 	{
 		"required":["Pig_Meat",null,null,null],
 		"product":"Bacon"
-	}
+	},
+	{
+		"required":["Pig_Meat","Cow_Meat","Sheep_Meat",null],
+		"product":"Sausage"
+	},
+	{
+		"required":["Egg","Cream","Flour","Peach_Item"],
+		"product":"Cake"
+	},
 ]
 
 func _ready():
