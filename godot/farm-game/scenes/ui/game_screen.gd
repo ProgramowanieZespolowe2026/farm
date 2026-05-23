@@ -48,3 +48,4 @@ func _process(_delta):
 	var tooltip = $MarginContainer/ItemTooltip
 	if tooltip.visible:
 		tooltip.global_position = get_viewport().get_mouse_position() + Vector2(10, -5)
+		
