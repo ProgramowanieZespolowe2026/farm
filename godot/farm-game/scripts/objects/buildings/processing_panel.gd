@@ -16,12 +16,32 @@ var recipes_current_page: int = 0
 
 var recipes = [
 	{
-		"required":["Apple_Item","Carrot_Item",null,null],
-		"product":"Beet_Item"
+		"required":["Egg","Cream","Flour","Peach_Item"],
+		"product":"Cake"
 	},
 	{
-		"required":["Carrot_Item","Apple_Item","Carrot_Item",null],
-		"product":"Carrot_Item"
+		"required":["Milk",null,null,null],
+		"product":"Cream"
+	},
+	{
+		"required":["Wheat_Item",null,null,null],
+		"product":"Flour"
+	},
+	{
+		"required":["Egg","Milk",null,null],
+		"product":"Mayonnaise"
+	},
+	{
+		"required":["Pig_Meat","Cow_Meat","Sheep_Meat",null],
+		"product":"Sausage"
+	},
+	{
+		"required":["Milk",null,null,null],
+		"product":"Butter"
+	},
+	{
+		"required":["Pig_Meat",null,null,null],
+		"product":"Bacon"
 	}
 ]
 
@@ -45,9 +65,6 @@ func _ready():
 	slot_out_recipes.slot_index = 0
 	slot_out_recipes.slot_type = SlotClass.SlotType.PROCESSING
 	
-	
-#func _on_time_tick(day: int, hour: int, minute: int) -> void:
-	#fetchData()
 
 func slot_gui_input(event: InputEvent, slot: SlotClass):
 	if event is InputEventMouseButton:
@@ -62,6 +79,13 @@ func slot_gui_input(event: InputEvent, slot: SlotClass):
 						left_click_same_item(slot)
 			elif slot.item:
 				left_click_not_holding(slot)
+		elif event.button_index == MOUSE_BUTTON_RIGHT && event.pressed:
+			if find_parent("GameScreen").holding_item != null:
+				if !slot.item:
+					right_click_empty_slot(slot)
+				else:
+					if find_parent("GameScreen").holding_item.item_name == slot.item.item_name:
+						right_click_same_item(slot)
 				
 		
 func left_click_empty_slot(slot: SlotClass):
@@ -69,6 +93,19 @@ func left_click_empty_slot(slot: SlotClass):
 	if slot.get_parent() == crafting_grid_container and not slot == slot_out:
 		slot.putIntoSlot(holding_item)
 		find_parent("GameScreen").holding_item = null
+		fetch_crafting_output()
+		
+func right_click_empty_slot(slot: SlotClass):
+	var holding_item = find_parent("GameScreen").holding_item
+	if slot.get_parent() == crafting_grid_container and not slot == slot_out:
+		
+		if holding_item.item_value > 1:
+			slot.initialize_item(holding_item.item_name,1)
+			holding_item.decrease_item_value(1)
+		else:
+			slot.putIntoSlot(holding_item)
+			find_parent("GameScreen").holding_item = null
+		
 		fetch_crafting_output()
 
 func left_click_not_holding(slot: SlotClass):
@@ -82,7 +119,7 @@ func left_click_not_holding(slot: SlotClass):
 		if find_parent("GameScreen").holding_item != null:
 			find_parent("GameScreen").holding_item.global_position = get_viewport().get_mouse_position()
 		
-		#fetch_crafting_output()
+		fetch_crafting_output()
 
 func left_click_different_item(event: InputEvent, slot: SlotClass):
 	if slot.get_parent() == crafting_grid_container:
@@ -109,6 +146,24 @@ func left_click_same_item(slot: SlotClass):
 			slot.item.add_item_value(able_to_add)
 			find_parent("GameScreen").holding_item.decrease_item_value(able_to_add)
 		fetch_crafting_output()
+		
+func right_click_same_item(slot: SlotClass):
+	var holding_item = find_parent("GameScreen").holding_item
+	if holding_item.item_value > 1:
+		if slot.get_parent() == crafting_grid_container and not slot == slot_out:
+			var temp_slot = slot.item
+			
+			slot.remove_item()
+			slot.initialize_item(temp_slot.item_name,temp_slot.item_value+1)
+			holding_item.decrease_item_value(1)
+			fetch_crafting_output()
+	else:
+			
+			holding_item.add_item_value(slot.item.item_value)
+			slot.remove_item()
+			slot.putIntoSlot(holding_item)
+			find_parent("GameScreen").holding_item = null
+			fetch_crafting_output()
 
 func open_panel(building_pos: Vector2i):
 	recipes_current_page = 0
@@ -176,6 +231,11 @@ func fetch_recipe_data():
 	var slots = recipes_grid_container.get_children()
 	for i in range(slots.size()):
 		var slot = slots[i]
+		if slot.item != null:
+			slot.remove_item()
+			
+	for i in range(slots.size()):
+		var slot = slots[i]
 		if recipes[recipes_current_page].required[i] != null:
 			slot.initialize_item(recipes[recipes_current_page].required[i],1)
 		
@@ -200,9 +260,14 @@ func _on_recipes_button_pressed() -> void:
 func _on_previous_product_pressed() -> void:
 	if recipes_current_page != 0:
 		recipes_current_page -= 1
-		fetch_recipe_data()
+	else:
+		recipes_current_page = recipes.size()-1
+	fetch_recipe_data()
 	
 func _on_next_product_pressed() -> void:
 	if recipes_current_page != recipes.size()-1:
 		recipes_current_page += 1
-		fetch_recipe_data()
+	else:
+		recipes_current_page = 0
+	
+	fetch_recipe_data()

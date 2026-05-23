@@ -30,23 +30,8 @@ func _ready():
 			"name": "Carrot_Item",
 			"value": 4}
 	items[4] = {
-			"name": "Carrot_Item",
+			"name": "Milk",
 			"value": 50}
-	items[5] = {
-			"name": "Cow_Baby",
-			"value": 1}
-	items[6] = {
-			"name": "Cow_Adult",
-			"value": 1}
-	items[7] = {
-			"name": "Sheep_Adult_HairCut",
-			"value": 1}
-	items[8] = {
-			"name": "Pig_Adult",
-			"value": 1}
-	items[9] = {
-			"name": "Pig_Baby",
-			"value": 1}
 	items[10] = {
 			"name": "Apple_Item",
 			"value": 1}
