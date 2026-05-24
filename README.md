@@ -27,7 +27,8 @@ Project->Project Settings -> Globals # In here you must have script TestGameTime
 - None ( empty hand ): to **collect regrowing plants**: tomato, corn
 
 ---
-
+# Public Link  
+https://alongthefarm.netlify.app/
 
 # This project contains:
 
