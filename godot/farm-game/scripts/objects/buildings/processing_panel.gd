@@ -223,6 +223,7 @@ func fetch_crafting_output():
 		if finded:
 			#print("Pasuje ", recipes[i].product)
 			slot_out.initialize_item(recipes[i].product,item_count)
+			AudioManager.new_item.play()
 			return
 		else:
 			slot_out.remove_item()
@@ -257,6 +258,7 @@ func _on_recipes_button_pressed() -> void:
 	if !recipes_container.visible:
 		fetch_recipe_data()
 	recipes_container.visible = !recipes_container.visible
+	AudioManager.menu_open.play()
 
 func _on_previous_product_pressed() -> void:
 	if recipes_current_page != 0:

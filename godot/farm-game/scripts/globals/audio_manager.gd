@@ -17,6 +17,8 @@ extends Node
 @onready var new_item: AudioStreamPlayer2D = %NewItem
 @onready var barn_sfx: Node = %BarnSfx
 @onready var new_notification: AudioStreamPlayer = %Notification
+@onready var factory: AudioStreamPlayer2D = %Factory
+@onready var new_item_2: AudioStreamPlayer2D = %NewItem2
 
 
 func play_put_in_slot():
