@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cnp7w74gt2tu"]
+[gd_scene load_steps=19 format=3 uid="uid://cnp7w74gt2tu"]
 
 [ext_resource type="Script" uid="uid://c1j36igkwbbbf" path="res://scripts/globals/audio_manager.gd" id="1_t0ifg"]
 [ext_resource type="PackedScene" uid="uid://cvt417x6wef24" path="res://audio/sfx/animal_building_open.tscn" id="2_nhqt3"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://o24mxieylsva" path="res://audio/sfx/notification.tscn" id="12_e1par"]
 [ext_resource type="PackedScene" uid="uid://qjygbasi78yy" path="res://audio/sfx/new_item.tscn" id="15_v3l6q"]
 [ext_resource type="PackedScene" uid="uid://da61ok3l3a8uk" path="res://scenes/components/barn_sfx.tscn" id="16_jdkqx"]
+[ext_resource type="PackedScene" uid="uid://bt70v3gemaejd" path="res://audio/sfx/factory.tscn" id="18_emaw8"]
 
 [node name="AudioManager" type="Node2D"]
 script = ExtResource("1_t0ifg")
@@ -71,4 +72,10 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 
 [node name="BarnSfx" parent="Game" instance=ExtResource("16_jdkqx")]
+unique_name_in_owner = true
+
+[node name="Factory" parent="Game" instance=ExtResource("18_emaw8")]
+unique_name_in_owner = true
+
+[node name="NewItem2" parent="Game" instance=ExtResource("15_v3l6q")]
 unique_name_in_owner = true

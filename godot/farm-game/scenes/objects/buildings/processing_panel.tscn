@@ -75,9 +75,9 @@ script = ExtResource("1_1tc8e")
 
 [node name="Background" type="NinePatchRect" parent="."]
 offset_left = 244.0
-offset_top = 29.0
+offset_top = 40.0
 offset_right = 386.0
-offset_bottom = 125.0
+offset_bottom = 136.0
 texture = SubResource("AtlasTexture_n177h")
 patch_margin_left = 7
 patch_margin_top = 7
@@ -86,16 +86,16 @@ patch_margin_bottom = 5
 
 [node name="Board" type="NinePatchRect" parent="."]
 offset_left = 258.0
-offset_top = 19.0
+offset_top = 30.0
 offset_right = 374.0
-offset_bottom = 51.0
+offset_bottom = 62.0
 texture = SubResource("AtlasTexture_lmde5")
 
 [node name="BuildingNameText" type="Label" parent="."]
 offset_left = 261.0
-offset_top = 22.0
+offset_top = 33.0
 offset_right = 367.0
-offset_bottom = 45.0
+offset_bottom = 56.0
 text = "Crafting"
 label_settings = SubResource("LabelSettings_fcjsu")
 horizontal_alignment = 1
@@ -106,9 +106,9 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 262.0
-offset_top = 60.0
+offset_top = 71.0
 offset_right = 301.0
-offset_bottom = 99.0
+offset_bottom = 110.0
 grow_horizontal = 2
 grow_vertical = 2
 columns = 2
@@ -143,25 +143,25 @@ script = ExtResource("4_fy0h6")
 
 [node name="Slot_out" type="Panel" parent="."]
 offset_left = 349.0
-offset_top = 70.0
+offset_top = 81.0
 offset_right = 367.0
-offset_bottom = 88.0
+offset_bottom = 99.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_memgi")
 script = ExtResource("4_fy0h6")
 
 [node name="Arrow" type="NinePatchRect" parent="."]
 offset_left = 309.0
-offset_top = 70.0
+offset_top = 81.0
 offset_right = 340.0
-offset_bottom = 88.0
+offset_bottom = 99.0
 texture = SubResource("AtlasTexture_14urv")
 patch_margin_right = 10
 
 [node name="RecipesButton" type="Button" parent="."]
 offset_left = 218.0
-offset_top = 43.0
+offset_top = 54.0
 offset_right = 240.3125
-offset_bottom = 64.0
+offset_bottom = 75.0
 theme_override_font_sizes/font_size = 10
 theme_override_styles/normal = SubResource("StyleBoxTexture_fy0h6")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_1tc8e")
@@ -177,8 +177,7 @@ expand_mode = 1
 flip_h = true
 
 [node name="RecipesContainer" type="Node2D" parent="."]
-visible = false
-position = Vector2(166, 97)
+position = Vector2(166, 108)
 
 [node name="Background" type="NinePatchRect" parent="RecipesContainer"]
 offset_left = 95.0

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bt70v3gemaejd"]
+
+[ext_resource type="AudioStream" uid="uid://curolojn7lou2" path="res://assets/audio/sfx/factory.ogg" id="1_841ww"]
+
+[node name="Factory" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_841ww")
+volume_db = -10.321
+max_distance = 203.0
+bus = &"Sfx"

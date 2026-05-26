@@ -9,6 +9,18 @@ func _ready():
 	self.visible = false
 	GlobalSignals.open_event_details.connect(_on_open_requested)
 	close_button.pressed.connect(_on_close_pressed)
+	
+func _gui_input(event: InputEvent) -> void:
+	# Jeśli okno jest niewidoczne, nie blokujemy niczego
+	if not self.visible:
+		return
+		
+	# Jeśli gracz używa akcji scrollowania...
+	if event.is_action("scroll_up") or event.is_action("scroll_down"):
+		## ...i kursor myszy znajduje się nad tym oknem notyfikacji...
+		#if get_global_rect().has_point(get_global_mouse_position()):
+			## ...to "zjadamy" ten event i mówimy Godotowi, że został obsłużony!
+			get_viewport().set_input_as_handled()
 
 func _on_open_requested(event: Dictionary):
 	title_label.text = event.get("name", "Breaking News!")

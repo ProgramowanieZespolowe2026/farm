@@ -47,4 +47,4 @@ func _on_event_ended():
 	tween = create_tween()
 	tween.tween_property(self, "modulate:a", 0.0, 0.5)
 	tween.tween_callback(func(): self.visible = false)
-	AudioManager.new_notification.play()
+	#AudioManager.new_notification.play()

@@ -24,7 +24,9 @@ func _unhandled_input(event):
 			panel = composer_ui_panel
 			AudioManager.menu_open.play()
 		if processing_ui_panel and buildingName == "Processing":
+			AudioManager.menu_open.play()
 			panel = processing_ui_panel
+		
 			
 			
 		if panel:
@@ -54,6 +56,9 @@ func _on_body_entered(body: Node2D) -> void:
 			"Composer":
 				AudioManager.fly_sound.global_position = body.global_position
 				AudioManager.fly_sound.play()
+			"Processing":
+				AudioManager.factory.global_position = body.global_position
+				AudioManager.factory.play()
 
 func _on_body_exited(body: Node2D) -> void:
 	if body is TemporaryPlayer:
