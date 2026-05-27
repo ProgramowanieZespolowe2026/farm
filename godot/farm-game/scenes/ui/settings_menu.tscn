@@ -63,7 +63,7 @@ layout_mode = 0
 offset_left = 115.0
 offset_top = 53.0
 offset_right = 545.0
-offset_bottom = 314.0
+offset_bottom = 313.0
 color = Color(0, 0, 0, 0)
 
 [node name="WoodenPanel" type="NinePatchRect" parent="."]
@@ -77,7 +77,7 @@ anchor_bottom = 0.5
 offset_left = -127.5
 offset_top = -102.0
 offset_right = 143.0
-offset_bottom = 78.0
+offset_bottom = 117.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(200, 150)
@@ -92,7 +92,7 @@ anchor_bottom = 1.0
 offset_left = -4.0
 offset_top = -6.0
 offset_right = 5.0
-offset_bottom = 7.0
+offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 20
@@ -168,9 +168,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -32.0
-offset_top = -25.5
+offset_top = -43.5
 offset_right = 29.0
-offset_bottom = -4.5
+offset_bottom = -22.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 14
@@ -210,9 +210,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -36.5
-offset_top = -27.0
+offset_top = -61.0
 offset_right = 36.5
-offset_bottom = -7.0
+offset_bottom = -41.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 3
@@ -222,6 +222,26 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_yu862")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ywggk")
 text = "Powrót"
 
+[node name="Menu" type="Button" parent="WoodenPanel/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -36.5
+offset_top = -32.0
+offset_right = 36.5
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_0b1cv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_yu862")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ywggk")
+text = "Menu"
+
 [node name="FullScreen" type="CheckBox" parent="WoodenPanel/MarginContainer/Control"]
 layout_mode = 1
 anchors_preset = 7
@@ -230,9 +250,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -48.5
-offset_top = -61.0
+offset_top = -95.0
 offset_right = 48.5
-offset_bottom = -30.0
+offset_bottom = -64.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 14
@@ -245,4 +265,5 @@ text = "Fullscreen"
 [connection signal="value_changed" from="WoodenPanel/MarginContainer/Control/SFXControl" to="WoodenPanel/MarginContainer/Control/SFXControl" method="_on_value_changed"]
 [connection signal="toggled" from="WoodenPanel/MarginContainer/Control/SFXMuteCheckbox" to="." method="_on_sfx_mute_checkbox_toggled"]
 [connection signal="pressed" from="WoodenPanel/MarginContainer/Control/BackToMenu" to="." method="_on_back_to_menu_pressed"]
+[connection signal="pressed" from="WoodenPanel/MarginContainer/Control/Menu" to="." method="_on_menu_pressed"]
 [connection signal="toggled" from="WoodenPanel/MarginContainer/Control/FullScreen" to="." method="_on_full_screen_toggled"]

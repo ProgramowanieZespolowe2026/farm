@@ -2,7 +2,7 @@ extends Node
 
 signal balance_changed(new_amount)
 
-var balance: int = 25000:
+var balance: int = 3000:
 	set(value):
 		balance = max(0, value)
 		balance_changed.emit(balance)

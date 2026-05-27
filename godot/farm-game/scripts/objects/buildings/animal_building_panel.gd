@@ -36,8 +36,8 @@ var barnAnimals = [
   "Sheep_Adult",
   "Sheep_Adult_HairCut"
 ]
-const requiredPointsToFirstUpgrade:int = 10
-const remaningCycleAnimal = 10 #po tylu zbiorach zwierze umiera
+const requiredPointsToFirstUpgrade:int = 100
+const remaningCycleAnimal = 100 #po tylu zbiorach zwierze umiera
 
 @onready var food_level_amount_text: Label = $FoodLevelAmountText
 @onready var chicken_coop_panel: Node2D = $"."

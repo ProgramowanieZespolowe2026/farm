@@ -3,7 +3,7 @@
 	"ItemCategory": "Axe",
 	"ItemSpeed": 0.75, 
 	"StackSize": 1,
-	"Description": "Siekiera",
+	"Description": "Axe",
 	"BuyPrice": 500,
 	"SellPrice": 250
 },
@@ -11,7 +11,7 @@
 	"ItemCategory": "Hoe",
 	"ItemSpeed": 0.75, 
 	"StackSize": 1,
-	"Description": "Motyka",
+	"Description": "Hoe",
 	"BuyPrice": 100,
 	"SellPrice": 50
 },
@@ -19,7 +19,15 @@
 	"ItemCategory": "Watering_Can",
 	"ItemSpeed": 0.75, 
 	"StackSize": 1,
-	"Description": "Konewka",
+	"Description": "Watering Can",
+	"BuyPrice": 100,
+	"SellPrice": 50
+},
+"Shovel": {
+	"ItemCategory": "Shovel",
+	"ItemSpeed": 0.75, 
+	"StackSize": 1,
+	"Description": "Shovel",
 	"BuyPrice": 100,
 	"SellPrice": 50
 },
@@ -27,98 +35,105 @@
 	"ItemCategory": "Fertilizer",
 	"ItemSpeed": 0.75, 
 	"StackSize": 99,
-	"Description": "Nawóz",
+	"Description": "Fertilizer",
 	"BuyPrice": 20,
 	"SellPrice": 10
 },
 "Apple_Item": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
-	"Description": "Jabłko",
+	"Description": "Apple",
 	"BuyPrice": 100,
 	"SellPrice": 50
   },
 "Cherry_Item": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
-	"Description": "Wiśnia",
+	"Description": "Cherry",
 	"BuyPrice": 100,
 	"SellPrice": 50
   },
 "Peach_Item": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
-	"Description": "Brzoskwinia",
+	"Description": "Peach",
 	"BuyPrice": 100,
 	"SellPrice": 50
   },
   "Log": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
-	"Description": "Kłoda",
+	"Description": "Log",
 	"BuyPrice": 100,
 	"SellPrice": 50
+  },
+"Steel_Bar": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Steel",
+	"BuyPrice": 250,
+	"SellPrice": 125
   },
   "Beet_Item": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
-	"Description": "Burak",
+	"Description": "Beet",
 	"BuyPrice": 100,
 	"SellPrice": 50
   },
   "Carrot_Item": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
-	"Description": "Marchew",
+	"Description": "Carrot",
 	"BuyPrice": 20,
 	"SellPrice": 10
   },
   "Corn_Item": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
-	"Description": "Kukurydza",
+	"Description": "Corn",
 	"BuyPrice": 100,
 	"SellPrice": 50
   },
  "Corn_Seed": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
-	"Description": "Nasiono kukurydzy",
+	"Description": "Corn Seed",
 	"BuyPrice": 100,
 	"SellPrice": 50
   },
   "Potato_Item": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
-	"Description": "Ziemniak",
+	"Description": "Potato",
 	"BuyPrice": 100,
 	"SellPrice": 50
   },
   "Tomato_Item": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
-	"Description": "Pomidor",
+	"Description": "Tomato",
 	"BuyPrice": 100,
 	"SellPrice": 50
   },
  "Tomato_Seed": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
-	"Description": "Nasiono pomidora",
+	"Description": "Tomato Seed",
 	"BuyPrice": 100,
 	"SellPrice": 50
   },
   "Wheat_Item": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
-	"Description": "Pszenica",
+	"Description": "Wheat",
 	"BuyPrice": 100,
 	"SellPrice": 50
   },
  "Wheat_Seed": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
-	"Description": "Nasiono pszenicy",
+	"Description": "Wheat Seed",
 	"BuyPrice": 100,
 	"SellPrice": 50
   },
@@ -146,14 +161,14 @@
   "Egg": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
-	"Description": "Jajko",
+	"Description": "Egg",
 	"BuyPrice": 100,
 	"SellPrice": 50
   },
   "Chicken_Meat": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
-	"Description": "Mięso kurczaka",
+	"Description": "Chicken Meat",
 	"BuyPrice": 100,
 	"SellPrice": 50
   },
@@ -161,190 +176,183 @@
   "Feather": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
-	"Description": "Pióro",
+	"Description": "Feather",
 	"BuyPrice": 100,
 	"SellPrice": 50
   },
 "Cow_Meat": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
-	"Description": "Mięso krowy",
+	"Description": "Cow Meat",
 	"BuyPrice": 100,
 	"SellPrice": 50
   },
   "Milk": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
-	"Description": "Mleko",
+	"Description": "Milk",
 	"BuyPrice": 100,
 	"SellPrice": 50
   },
 "Pig_Meat": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
-	"Description": "Mięso świni",
+	"Description": "Pig Meat",
 	"BuyPrice": 100,
 	"SellPrice": 50
   },
 "Sheep_Meat": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
-	"Description": "Mięso owcy",
+	"Description": "Sheep Meat",
 	"BuyPrice": 100,
 	"SellPrice": 50
   },
   "Wool": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
-	"Description": "Wełna",
+	"Description": "Wool",
 	"BuyPrice": 100,
 	"SellPrice": 50
   },
   "Chicken_Baby": {
 	"ItemCategory": "Resource",
 	"StackSize": 1,
-	"Description": "Pisklę",
+	"Description": "Chicken Baby",
 	"BuyPrice": 100,
 	"SellPrice": 50
   },
   "Chicken_Adult": {
 	"ItemCategory": "Resource",
 	"StackSize": 1,
-	"Description": "Kurczak",
+	"Description": "Chicken Adult",
 	"BuyPrice": 100,
 	"SellPrice": 50
   },
   "Chicken_Died": {
 	"ItemCategory": "Resource",
 	"StackSize": 1,
-	"Description": "Martwy kurczak",
+	"Description": "Chicken Died",
 	"BuyPrice": 0,
 	"SellPrice": 0
   },
   "Cow_Baby": {
 	"ItemCategory": "Resource",
 	"StackSize": 1,
-	"Description": "Cielę",
+	"Description": "Cow Baby",
 	"BuyPrice": 100,
 	"SellPrice": 50
   },
   "Cow_Adult": {
 	"ItemCategory": "Resource",
 	"StackSize": 1,
-	"Description": "Krowa",
+	"Description": "Cow Adult",
 	"BuyPrice": 100,
 	"SellPrice": 50
   },
 "Cow_Died": {
 	"ItemCategory": "Resource",
 	"StackSize": 1,
-	"Description": "Martwa krowa",
+	"Description": "Cow Died",
 	"BuyPrice": 0,
 	"SellPrice": 0
   },
   "Pig_Baby": {
 	"ItemCategory": "Resource",
 	"StackSize": 1,
-	"Description": "Mała świnka",
+	"Description": "Pig Baby",
 	"BuyPrice": 100,
 	"SellPrice": 50
   },
   "Pig_Adult": {
 	"ItemCategory": "Resource",
 	"StackSize": 1,
-	"Description": "Świnia",
+	"Description": "Pig Adult",
 	"BuyPrice": 100,
 	"SellPrice": 50
   },
 "Pig_Died": {
 	"ItemCategory": "Resource",
 	"StackSize": 1,
-	"Description": "Martwa świnia",
+	"Description": "Pig Died",
 	"BuyPrice": 0,
 	"SellPrice": 0
   },
   "Sheep_Baby": {
 	"ItemCategory": "Resource",
 	"StackSize": 1,
-	"Description": "Mała owca",
+	"Description": "Sheep Baby",
 	"BuyPrice": 100,
 	"SellPrice": 50
   },
   "Sheep_Adult": {
 	"ItemCategory": "Resource",
 	"StackSize": 1,
-	"Description": "Owca",
+	"Description": "Sheep Adult",
 	"BuyPrice": 100,
 	"SellPrice": 50
   },
   "Sheep_Adult_HairCut": {
 	"ItemCategory": "Resource",
 	"StackSize": 1,
-	"Description": "Ostrzyżona owca",
+	"Description": "Sheep Adult HairCut",
 	"BuyPrice": 100,
 	"SellPrice": 50
   },
 "Sheep_Died": {
 	"ItemCategory": "Resource",
 	"StackSize": 1,
-	"Description": "Martwa owca",
+	"Description": "Sheep Died",
 	"BuyPrice": 0,
 	"SellPrice": 0
   },
 "Bacon": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
-	"Description": "Bekon",
+	"Description": "Bacon",
 	"BuyPrice": 250,
 	"SellPrice": 125
   },
 "Butter": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
-	"Description": "Masło",
+	"Description": "Butter",
 	"BuyPrice": 250,
 	"SellPrice": 125
   },
 "Cake": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
-	"Description": "Ciasto",
+	"Description": "Cake",
 	"BuyPrice": 750,
 	"SellPrice": 375
   },
 "Cream": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
-	"Description": "Śmietana",
+	"Description": "Cream",
 	"BuyPrice": 250,
 	"SellPrice": 125
   },
 "Mayonnaise": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
-	"Description": "Majonez",
+	"Description": "Mayonnaise",
 	"BuyPrice": 250,
 	"SellPrice": 125
   },
 "Sausage": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
-	"Description": "Kiełbasa",
+	"Description": "Sausage",
 	"BuyPrice": 250,
 	"SellPrice": 125
   },
 "Flour": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
-	"Description": "Mąka",
+	"Description": "Flour",
 	"BuyPrice": 250,
 	"SellPrice": 125
-  },
-"Steel_Bar": {
-	"ItemCategory": "Resource",
-	"StackSize": 99,
-	"Description": "Sztabka stali",
-	"BuyPrice": 250,
-	"SellPrice": 125
-  },
+  }
 }

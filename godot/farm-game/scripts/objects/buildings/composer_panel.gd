@@ -110,14 +110,17 @@ func fetchData():
 		if progress >= requiredProgressPointsToCollect:
 			BuildingDataManager.add_item_to_collect(current_building_pos,"Fertilizer", 1)
 			fertilizer_progress_bar.value = 0
+			var item_to_collect = BuildingDataManager.get_item_to_collect(current_building_pos)
+			fertlizer_slot.initialize_item(item_to_collect.name,item_to_collect.value)
 		else:
 			fertilizer_progress_bar.value = progress
 		
 		
 	var item_to_collect = BuildingDataManager.get_item_to_collect(current_building_pos)
-	if item_to_collect:
+	if item_to_collect and fertlizer_slot.item == null:
 		fertlizer_slot.initialize_item(item_to_collect.name,item_to_collect.value)
-	else:
+	#else:
+	if not item_to_collect:
 		if fertlizer_slot.item != null:
 			fertlizer_slot.remove_item()
 	

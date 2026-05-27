@@ -17,9 +17,6 @@ func _ready():
 	items.resize(NUM_INVENTORY_SLOTS)
 	hotbar.resize(NUM_HOTBAR_SLOTS)
 	
-	items[0] = {
-			"name": "Egg",
-			"value": 5}
 	items[1] = {
 			"name": "Chicken_Baby",
 			"value": 1}

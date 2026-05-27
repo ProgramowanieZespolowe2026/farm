@@ -9,7 +9,7 @@ func _ready() -> void:
 	options.visible = false
 
 func _on_new_game_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/map/test_level.tscn")
+	get_tree().change_scene_to_file("res://scenes/map/main_map.tscn")
 
 
 func _on_continue_pressed() -> void:
