@@ -33,6 +33,7 @@ ItemTooltipManager="*res://scripts/ui/ItemTooltipManager.gd"
 GlobalSignals="*res://scripts/globals/global_signals.gd"
 MarketManager="*res://scripts/globals/market_manager.gd"
 AudioManager="*res://scenes/components/audio_manager.tscn"
+SaveManager="*res://scripts/globals/SaveManager.gd"
 
 [display]
 
