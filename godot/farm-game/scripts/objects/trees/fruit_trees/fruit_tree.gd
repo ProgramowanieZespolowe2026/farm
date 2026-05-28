@@ -6,13 +6,25 @@ extends AnimatedSprite2D
 @export var log_scene: PackedScene
 @export var health: int
 
-@export var days_to_grow: int = 14    # Dni od sadzonki do Large
-@export var days_to_fruit: int = 7    # Dni od podlania (Bloom) do Fruit
-@export var days_fruit_stays: int = 3 # Dni życia owoców
+# --- USTAWIENIA CZASU W DNIACH (Wygodne dla Inspektora) ---
+# Teraz wpisujesz ułamek lub wielokrotność dnia. Np. 1.0 = pełna doba gry.
+@export var days_to_grow: float = 1.0  
+@export var days_to_fruit: float = 0.5
+@export var days_fruit_stays: float = 0.3
 
-# Liczniki dni
-var current_day_count: int = 0
+# Wewnętrzne zmienne przeliczane na minuty
+var minutes_to_grow: int = 0
+var minutes_to_fruit: int = 0
+var minutes_fruit_stays: int = 0
+
+# Liczniki minut gry
+var growth_timer: int = 0
 var fruit_timer: int = 0
+
+# Indywidualne progi minutowe (z uwzględnieniem małej losowości)
+var target_minutes_to_grow: int = 0
+var target_minutes_to_fruit: int = 0
+var target_minutes_fruit_stays: int = 0
 
 # Stany drzewa
 enum State { SEEDLING, SMALL, LARGE, BLOOM, FRUIT }
@@ -27,60 +39,90 @@ const TILE_SIZE = 16
 @onready var shape2d = $StaticBody2D/CollisionShape2D
 
 func _ready() -> void:
-	TestGameTimeCycleManager.time_tick_day.connect(_on_day_tick)
+	# 1. Przeliczamy dni z Inspektora na minuty Twojego managera (1 dzień = 1440 minut)
+	minutes_to_grow = int(days_to_grow * 1440)
+	minutes_to_fruit = int(days_to_fruit * 1440)
+	minutes_fruit_stays = int(days_fruit_stays * 1440)
+
+	# 2. Podłączamy się pod Twój główny sygnał czasu
+	if TestGameTimeCycleManager.has_signal("time_tick"):
+		TestGameTimeCycleManager.time_tick.connect(_on_time_tick)
+	
 	grid_pos = global_position / TILE_SIZE
+	
+	# 3. Losujemy unikalny czas wzrostu dla tego konkretnego drzewa (+/- 5%)
+	_calculate_random_targets()
+	
 	update_appearance()
 
-func _on_day_tick(_day: int):
+# Funkcja losująca progi z dokładnością do +- 5%
+func _calculate_random_targets() -> void:
+	# randf_range(-0.05, 0.05) daje dokładnie 5% odchyłu w obie strony
+	var variation_grow = int(minutes_to_grow * randf_range(-0.05, 0.05))
+	target_minutes_to_grow = clampi(minutes_to_grow + variation_grow, 1, 999999)
+	
+	var variation_fruit = int(minutes_to_fruit * randf_range(-0.05, 0.05))
+	target_minutes_to_fruit = clampi(minutes_to_fruit + variation_fruit, 1, 999999)
+	
+	var variation_stays = int(minutes_fruit_stays * randf_range(-0.05, 0.05))
+	target_minutes_fruit_stays = clampi(minutes_fruit_stays + variation_stays, 1, 999999)
+
+# Ta funkcja odpala się z managera czasu DOKŁADNIE raz na każdą minutę gry
+func _on_time_tick(_day: int, _hour: int, _minute: int) -> void:
 	match current_state:
-		State.SEEDLING, State.SMALL:
-			current_day_count += 1
-			# Prosta logika: połowa czasu to 'small', reszta to 'large'
-			if current_day_count >= days_to_grow:
-				current_state = State.LARGE
-				current_day_count = 0
-			elif current_day_count >= days_to_grow / 2:
+		State.SEEDLING:
+			growth_timer += 1
+			# Przejście do SMALL w połowie czasu
+			if growth_timer >= (target_minutes_to_grow / 2):
 				current_state = State.SMALL
+				update_appearance()
+
+		State.SMALL:
+			growth_timer += 1
+			if growth_timer >= target_minutes_to_grow:
+				current_state = State.LARGE
+				growth_timer = 0
+				update_appearance()
 		
 		State.LARGE:
 			if tree_is_watered:
-				bloom() # Przechodzi w stan kwitnienia
+				bloom()
 		
 		State.BLOOM:
-			current_day_count += 1
-			if current_day_count >= days_to_fruit:
+			growth_timer += 1
+			if growth_timer >= target_minutes_to_fruit:
 				current_state = State.FRUIT
-				current_day_count = 0
+				growth_timer = 0
+				update_appearance()
 		
 		State.FRUIT:
 			fruit_timer += 1
-			if fruit_timer >= days_fruit_stays:
+			if fruit_timer >= target_minutes_fruit_stays:
 				rot_fruits()
-
-	update_appearance()
 
 func bloom():
 	current_state = State.BLOOM
-	current_day_count = 0
-	tree_is_watered = false # Woda zużyta na zakwitnięcie
+	growth_timer = 0
+	tree_is_watered = false
 	update_appearance()
 
 func rot_fruits():
 	current_state = State.LARGE
 	fruit_timer = 0
+	_calculate_random_targets() # Nowe losowanie na kolejny cykl owocowania
 	print("Owoce zgniły.")
 	update_appearance()
 
 func update_appearance():
 	match current_state:
 		State.SEEDLING:
-			self.play("small") # Możesz dodać animację sadzonki jeśli masz
+			self.play("small") 
 		State.SMALL:
 			self.play("small")
-			shape2d.set_deferred("disabled", false)
+			if shape2d: shape2d.set_deferred("disabled", false)
 		State.LARGE:
 			self.play("large")
-			shape2d.shape.set_deferred("radius", 5)
+			if shape2d and shape2d.shape: shape2d.shape.set_deferred("radius", 5)
 		State.BLOOM:
 			self.play("bloom")
 		State.FRUIT:
@@ -88,7 +130,6 @@ func update_appearance():
 
 func harvest():
 	if current_state == State.FRUIT:
-		# Animacja trzęsienia
 		var tween = create_tween()
 		tween.tween_property(self, "rotation_degrees", 5.0, 0.05)
 		tween.tween_property(self, "rotation_degrees", -5.0, 0.05)
@@ -96,9 +137,9 @@ func harvest():
 		
 		fruits_falling.play()
 		
-		# Powrót do fazy LARGE
 		current_state = State.LARGE
 		fruit_timer = 0
+		_calculate_random_targets() # Nowe losowanie po zbiorach
 		
 		if item_scene:
 			for i in range(item_produce_amount):
@@ -108,11 +149,8 @@ func harvest():
 		update_appearance()
 
 func water():
-	# Podlewanie działa tylko na duże drzewo, które jeszcze nie kwitnie
 	if current_state == State.LARGE:
 		tree_is_watered = true
-
-# ... reszta funkcji (spawn_item, hit, die, load_log_scene) pozostaje bez zmian ...
 
 func spawn_item(scene_to_spawn: PackedScene):
 	var item = scene_to_spawn.instantiate() as Node2D
@@ -127,7 +165,7 @@ func hit(chop_sound: AudioStreamPlayer2D):
 	if current_state != State.SEEDLING:
 		health -= 1
 		chop_sound.play()
-	# EFEKT WIZUALNY: Lekkie drżenie (Tween)
+		
 		var tween = create_tween()
 		tween.tween_property(self, "rotation_degrees", 5.0, 0.05)
 		tween.tween_property(self, "rotation_degrees", -5.0, 0.05)
@@ -142,7 +180,7 @@ func die():
 	call_deferred("load_log_scene")
 	
 func load_log_scene() -> void:
+	new_item.play()
 	var log_scene_instance = log_scene.instantiate() as Sprite2D
 	log_scene_instance.global_position = global_position
 	get_parent().add_child(log_scene_instance)
-	

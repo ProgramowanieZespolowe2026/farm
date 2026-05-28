@@ -20,7 +20,7 @@ func _on_notification_requested(message: Dictionary):
 	# Wywołujemy logikę pokazywania/resetowania w skrypcie notyfikacji
 	event_notification.display_event(message)
 	
-func _input(event):
+func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("Inventory"):
 		$MarginContainer/Inventory.visible = !$MarginContainer/Inventory.visible
 		$MarginContainer/Inventory.initialize_inventory()

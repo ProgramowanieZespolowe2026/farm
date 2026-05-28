@@ -64,7 +64,7 @@ func left_click_empty_slot(slot: SlotClass):
 	if slot.name == "PlantSlot":
 		var holding_item = find_parent("GameScreen").holding_item
 		if holding_item.item_name in availabilityPlants:
-			InventoryManager.add_item_to_empty_slot(holding_item, slot)
+			#InventoryManager.add_item_to_empty_slot(holding_item, slot)
 			slot.putIntoSlot(holding_item)
 			find_parent("GameScreen").holding_item = null
 			add_plant()
@@ -72,7 +72,7 @@ func left_click_empty_slot(slot: SlotClass):
 func left_click_not_holding(slot: SlotClass):
 	find_parent("GameScreen").holding_item = slot.item
 	slot.pickFromSlot()
-	InventoryManager.remove_item(slot)
+	#InventoryManager.remove_item(slot)
 	if find_parent("GameScreen").holding_item != null:
 		find_parent("GameScreen").holding_item.global_position = get_viewport().get_mouse_position()
 	if slot.name == "FertlizerSlot":
@@ -110,14 +110,17 @@ func fetchData():
 		if progress >= requiredProgressPointsToCollect:
 			BuildingDataManager.add_item_to_collect(current_building_pos,"Fertilizer", 1)
 			fertilizer_progress_bar.value = 0
+			var item_to_collect = BuildingDataManager.get_item_to_collect(current_building_pos)
+			fertlizer_slot.initialize_item(item_to_collect.name,item_to_collect.value)
 		else:
 			fertilizer_progress_bar.value = progress
 		
 		
 	var item_to_collect = BuildingDataManager.get_item_to_collect(current_building_pos)
-	if item_to_collect:
+	if item_to_collect and fertlizer_slot.item == null:
 		fertlizer_slot.initialize_item(item_to_collect.name,item_to_collect.value)
-	else:
+	#else:
+	if not item_to_collect:
 		if fertlizer_slot.item != null:
 			fertlizer_slot.remove_item()
 	

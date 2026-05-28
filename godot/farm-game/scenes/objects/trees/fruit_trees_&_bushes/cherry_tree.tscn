@@ -86,6 +86,8 @@ item_produce_amount = 4
 item_scene = ExtResource("3_k8h0u")
 log_scene = ExtResource("4_j83x5")
 health = 3
+days_to_grow = 0.5
+days_fruit_stays = 0.6
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 

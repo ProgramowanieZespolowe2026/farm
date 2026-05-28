@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var menu_open: AudioStreamPlayer2D = %MenuOpen
-@onready var auction: AudioStreamPlayer2D = %Auction
+@onready var auction: AudioStreamPlayer = %Auction
 @onready var knock: AudioStreamPlayer2D = %Knock
 @onready var cha_ching: AudioStreamPlayer2D = %ChaChing
 @onready var error: AudioStreamPlayer2D = %Error

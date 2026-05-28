@@ -91,12 +91,13 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="ScrollContainer" type="ScrollContainer" parent="NinePatchRect/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 110)
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
+mouse_filter = 0
 
 [node name="Description" type="Label" parent="NinePatchRect/MarginContainer/VBoxContainer/ScrollContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(280, 500)
+custom_minimum_size = Vector2(280, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0

@@ -229,6 +229,7 @@ func use_hoe():
 	else:
 		player_sfx_controller.play_error()
 		
+		
 func use_shovel():
 	if map_tiles.has(current_target_grid_pos):
 		var tile = map_tiles[current_target_grid_pos]

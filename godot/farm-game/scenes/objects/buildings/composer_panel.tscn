@@ -46,9 +46,9 @@ script = ExtResource("1_bbbf3")
 
 [node name="Background" type="NinePatchRect" parent="."]
 offset_left = 250.0
-offset_top = 29.0
+offset_top = 60.0
 offset_right = 379.0
-offset_bottom = 223.0
+offset_bottom = 254.0
 texture = SubResource("AtlasTexture_au5lx")
 patch_margin_left = 7
 patch_margin_top = 7
@@ -57,16 +57,16 @@ patch_margin_bottom = 5
 
 [node name="Board" type="NinePatchRect" parent="."]
 offset_left = 258.0
-offset_top = 19.0
+offset_top = 50.0
 offset_right = 374.0
-offset_bottom = 51.0
+offset_bottom = 82.0
 texture = SubResource("AtlasTexture_m7ic4")
 
 [node name="BuildingNameText" type="Label" parent="."]
 offset_left = 261.0
-offset_top = 22.0
+offset_top = 53.0
 offset_right = 367.0
-offset_bottom = 45.0
+offset_bottom = 76.0
 text = "Composer"
 label_settings = SubResource("LabelSettings_1d1ud")
 horizontal_alignment = 1
@@ -74,25 +74,25 @@ vertical_alignment = 1
 
 [node name="PlantSlot" type="Panel" parent="."]
 offset_left = 280.0
-offset_top = 177.0
+offset_top = 208.0
 offset_right = 298.0
-offset_bottom = 195.0
+offset_bottom = 226.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_rqq12")
 script = ExtResource("5_v0u4s")
 
 [node name="FertlizerSlot" type="Panel" parent="."]
 offset_left = 333.0
-offset_top = 70.0
+offset_top = 101.0
 offset_right = 351.0
-offset_bottom = 88.0
+offset_bottom = 119.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_rqq12")
 script = ExtResource("5_v0u4s")
 
 [node name="FertilizerProgressBar" type="TextureProgressBar" parent="."]
 offset_left = 333.0
-offset_top = 93.0
+offset_top = 124.0
 offset_right = 350.0
-offset_bottom = 208.0
+offset_bottom = 239.0
 max_value = 30.0
 value = 10.0
 fill_mode = 3
@@ -106,9 +106,9 @@ tint_progress = Color(0, 0.9569079, 0.34731165, 1)
 [node name="PlantsProgressBar" type="TextureProgressBar" parent="."]
 unique_name_in_owner = true
 offset_left = 281.0
-offset_top = 53.0
+offset_top = 84.0
 offset_right = 301.0
-offset_bottom = 173.0
+offset_bottom = 204.0
 max_value = 30.0
 value = 10.0
 fill_mode = 3
@@ -121,25 +121,25 @@ tint_progress = Color(0, 0.9569079, 0.34731165, 1)
 
 [node name="PlantSlotInfo" type="Label" parent="."]
 offset_left = 274.0
-offset_top = 198.0
+offset_top = 229.0
 offset_right = 304.0
-offset_bottom = 212.0
+offset_bottom = 243.0
 text = "Plants"
 label_settings = SubResource("LabelSettings_dbs84")
 
 [node name="FertilizerSlotInfo" type="Label" parent="."]
 offset_left = 320.0
-offset_top = 52.0
+offset_top = 83.0
 offset_right = 363.0
-offset_bottom = 66.0
+offset_bottom = 97.0
 text = "Fertilizer"
 label_settings = SubResource("LabelSettings_dbs84")
 
 [node name="Label" type="Label" parent="."]
 offset_left = 356.0
-offset_top = 94.0
+offset_top = 125.0
 offset_right = 396.0
-offset_bottom = 211.0
+offset_bottom = 242.0
 text = "P
 R
 O
@@ -152,9 +152,9 @@ label_settings = SubResource("LabelSettings_ekeao")
 
 [node name="Label2" type="Label" parent="."]
 offset_left = 258.0
-offset_top = 61.0
+offset_top = 92.0
 offset_right = 278.0
-offset_bottom = 178.0
+offset_bottom = 209.0
 text = "P    L
 L    E
 A    V
