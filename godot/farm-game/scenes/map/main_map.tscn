@@ -14,7 +14,7 @@ y_sort_enabled = true
 
 [node name="TemporaryPlayer" parent="." instance=ExtResource("2_tp1qk")]
 position = Vector2(265, 137)
-current_tool = 2
+current_tool = 18
 
 [node name="test-scene-tile-map" parent="." instance=ExtResource("3_vrayl")]
 

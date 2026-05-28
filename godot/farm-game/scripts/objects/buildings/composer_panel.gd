@@ -64,7 +64,7 @@ func left_click_empty_slot(slot: SlotClass):
 	if slot.name == "PlantSlot":
 		var holding_item = find_parent("GameScreen").holding_item
 		if holding_item.item_name in availabilityPlants:
-			InventoryManager.add_item_to_empty_slot(holding_item, slot)
+			#InventoryManager.add_item_to_empty_slot(holding_item, slot)
 			slot.putIntoSlot(holding_item)
 			find_parent("GameScreen").holding_item = null
 			add_plant()
@@ -72,7 +72,7 @@ func left_click_empty_slot(slot: SlotClass):
 func left_click_not_holding(slot: SlotClass):
 	find_parent("GameScreen").holding_item = slot.item
 	slot.pickFromSlot()
-	InventoryManager.remove_item(slot)
+	#InventoryManager.remove_item(slot)
 	if find_parent("GameScreen").holding_item != null:
 		find_parent("GameScreen").holding_item.global_position = get_viewport().get_mouse_position()
 	if slot.name == "FertlizerSlot":
