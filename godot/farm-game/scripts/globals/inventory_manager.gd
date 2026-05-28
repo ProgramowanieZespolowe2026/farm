@@ -17,29 +17,14 @@ func _ready():
 	items.resize(NUM_INVENTORY_SLOTS)
 	hotbar.resize(NUM_HOTBAR_SLOTS)
 	
-	items[0] = {
-			"name": "Egg",
-			"value": 5}
 	items[1] = {
-			"name": "Chicken_Baby",
-			"value": 1}
-	items[2] = {
-			"name": "Chicken_Adult",
-			"value": 1}
-	items[3] = {
-			"name": "Carrot_Item",
-			"value": 4}
+			"name": "Wheat_Seed",
+			"value": 10}
 	items[4] = {
 			"name": "Milk",
-			"value": 50}
-	items[10] = {
-			"name": "Apple_Item",
-			"value": 1}
+			"value": 100}
 	hotbar[1] = {
 			"name": "Hoe",
-			"value": 1}
-	hotbar[4] = {
-			"name": "Fertilizer",
 			"value": 1}
 
 var active_item_slot = 0

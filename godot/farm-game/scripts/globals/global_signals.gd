@@ -8,3 +8,5 @@ signal request_notification(event: Dictionary)
 signal open_event_details(data: Dictionary)
 
 signal event_ended
+
+signal reconstruct_buildings_in_world

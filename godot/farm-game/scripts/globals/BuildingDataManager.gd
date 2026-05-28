@@ -27,7 +27,6 @@ func add_new_building(grid_pos: Vector2i, buildingName: String):
 		}
 	else:
 		# dla kurnika i stodoły
-		#print("tworze ", buildingName)
 		var to_collect_array = []
 		to_collect_array.resize(20)
 		building_type_size = count_building_type(buildingName)
@@ -36,7 +35,7 @@ func add_new_building(grid_pos: Vector2i, buildingName: String):
 			"id": buildings_data.size() + 1,
 			"buildingTypeId": building_type_size +1,
 			"name": buildingName,
-			"food_level": 500,
+			"food_level": 0,
 			"items": new_items_array,
 			"food_slots": [null],
 			"to_collect": to_collect_array
@@ -160,3 +159,37 @@ func count_building_type(building_name: String) -> int:
 	return count
 func get_building_type_id(grid_pos: Vector2i):
 	return buildings_data[grid_pos]["buildingTypeId"]
+	
+# Przygotowuje dane do zapisu, zamieniając Vector2i na bezpieczny String "x,y"
+func get_buildings_save_data() -> Dictionary:
+	var save_dict = {}
+	for grid_pos in buildings_data.keys():
+		var pos_string = str(grid_pos.x) + "," + str(grid_pos.y)
+		save_dict[pos_string] = buildings_data[grid_pos]
+	return save_dict
+
+
+func load_buildings_from_save(loaded_buildings: Dictionary):
+	buildings_data.clear()
+	
+	for pos_string in loaded_buildings.keys():
+		var coords = pos_string.split(",")
+		if coords.size() == 2:
+			var grid_pos = Vector2i(int(coords[0]), int(coords[1]))
+			var b_data = loaded_buildings[pos_string]
+			
+			if b_data.has("id"):
+				b_data["id"] = int(b_data["id"])
+			if b_data.has("buildingTypeId"):
+				b_data["buildingTypeId"] = int(b_data["buildingTypeId"])
+				
+			if b_data.has("progressPoints"):
+				b_data["progressPoints"] = int(b_data["progressPoints"])
+			if b_data.has("plantsLevel"):
+				b_data["plantsLevel"] = int(b_data["plantsLevel"])
+			if b_data.has("food_level"):
+				b_data["food_level"] = float(b_data["food_level"])
+			
+			buildings_data[grid_pos] = b_data
+			
+	GlobalSignals.reconstruct_buildings_in_world.emit()

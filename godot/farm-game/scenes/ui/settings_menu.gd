@@ -57,6 +57,8 @@ func _on_sfx_mute_checkbox_toggled(toggled_on: bool) -> void:
 	AudioManager.next_prev_sound.play()
 func _on_back_to_menu_pressed():
 	close()
+	#SaveManager.save_game()
+	#get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")
 	
 func _on_full_screen_toggled(toggled_on: bool) -> void:
 	print("Fullscreen toggled: ", toggled_on)
@@ -65,3 +67,10 @@ func _on_full_screen_toggled(toggled_on: bool) -> void:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+
+
+func _on_save_pressed() -> void:
+	SaveManager.save_game()
+func _on_menu_pressed() -> void:
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")
