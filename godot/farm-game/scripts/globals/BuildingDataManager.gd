@@ -36,7 +36,7 @@ func add_new_building(grid_pos: Vector2i, buildingName: String):
 			"id": buildings_data.size() + 1,
 			"buildingTypeId": building_type_size +1,
 			"name": buildingName,
-			"food_level": 500,
+			"food_level": 0,
 			"items": new_items_array,
 			"food_slots": [null],
 			"to_collect": to_collect_array
