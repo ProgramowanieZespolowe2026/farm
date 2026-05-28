@@ -13,9 +13,7 @@ func _on_new_game_pressed() -> void:
 
 
 func _on_continue_pressed() -> void:
-	if SaveManager.load_game():
-		get_tree().change_scene_to_file("res://scenes/map/test_level.tscn")
-		SaveManager.apply_loaded_data()
+	SaveManager.load_and_switch_scene("res://scenes/map/main_map.tscn")
 
 
 func _on_multi_player_pressed() -> void:

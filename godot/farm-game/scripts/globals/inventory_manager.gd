@@ -22,7 +22,7 @@ func _ready():
 			"value": 10}
 	items[4] = {
 			"name": "Milk",
-			"value": 50}
+			"value": 100}
 	hotbar[1] = {
 			"name": "Hoe",
 			"value": 1}

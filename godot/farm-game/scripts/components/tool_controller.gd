@@ -43,6 +43,8 @@ var is_building_placed: bool = false
 
 
 func _ready():
+	GlobalSignals.reconstruct_buildings_in_world.connect(_on_reconstruct_buildings)
+	
 	call_deferred("place_building_at", shop_scene, Vector2(16, 4), "Shop", Vector2i(4, 4))
 	var game_screen = get_tree().get_first_node_in_group("GameScreen")
 	var animal_building_panel = get_tree().get_first_node_in_group("AnimalBuildingPanel")
@@ -72,6 +74,237 @@ func _process(_delta):
 	update_highlight()
 	update_highlight_color() # Nowa funkcja do kolo
 
+func get_tiles_save_data() -> Dictionary:
+	var save_dict = {}
+	for grid_pos in map_tiles.keys():
+		var pos_string = str(grid_pos.x) + "," + str(grid_pos.y)
+		var tile_data = {
+			"has_dirt": map_tiles[grid_pos]["dirt"] != null,
+			"crop_type": "",
+			"growth_points": 0
+		}
+		
+		var crop = map_tiles[grid_pos]["crop"]
+		if is_instance_valid(crop):
+			tile_data["crop_type"] = crop.plant_name
+			
+			if "growth_points" in crop:
+				tile_data["growth_points"] = crop.growth_points
+				
+		save_dict[pos_string] = tile_data
+	return save_dict
+	
+func reconstruct_tiles(loaded_tiles: Dictionary):
+	
+	for grid_pos in map_tiles.keys():
+		var tile = map_tiles[grid_pos]
+		if is_instance_valid(tile["crop"]): tile["crop"].queue_free()
+		if is_instance_valid(tile["dirt"]): tile["dirt"].queue_free()
+	map_tiles.clear()
+
+	for pos_string in loaded_tiles.keys():
+		var coords = pos_string.split(",")
+		if coords.size() == 2:
+			var grid_pos = Vector2(float(coords[0]), float(coords[1]))
+			var tile_data = loaded_tiles[pos_string]
+			
+			map_tiles[grid_pos] = {"dirt": null, "crop": null}
+			var pixel_pos = grid_pos * TILE_SIZE + Vector2(TILE_SIZE / 2.0, TILE_SIZE / 2.0)
+
+			if tile_data.get("has_dirt", false):
+				nature.erase_cell(Vector2i(grid_pos))
+				var new_dirt = dirt_scene.instantiate()
+				new_dirt.global_position = pixel_pos
+				player.get_parent().add_child(new_dirt)
+				map_tiles[grid_pos]["dirt"] = new_dirt
+
+	await get_tree().process_frame
+
+	for pos_string in loaded_tiles.keys():
+		var coords = pos_string.split(",")
+		if coords.size() == 2:
+			var grid_pos = Vector2(float(coords[0]), float(coords[1]))
+			var tile_data = loaded_tiles[pos_string]
+			var pixel_pos = grid_pos * TILE_SIZE + Vector2(TILE_SIZE / 2.0, TILE_SIZE / 2.0)
+			
+			var crop_type = tile_data.get("crop_type", "")
+			
+			
+			if crop_type != "" and crop_type != "Name":
+				var crop_scene: PackedScene = null
+				
+				match crop_type.to_lower():
+					"tomato", "tomato_plant", "tomato_seed": 
+						crop_scene = tomato_scene
+					"wheat", "wheat_plant", "wheat_seed": 
+						crop_scene = wheat_scene
+					"corn", "corn_plant", "corn_seed": 
+						crop_scene = corn_scene
+					"potato", "potato_item", "potato_plant": 
+						crop_scene = potato_scene
+					"carrot", "carrot_item", "carrot_plant": 
+						crop_scene = carrot_scene
+					"beet", "beet_item", "beet_plant": 
+						crop_scene = beet_scene
+				
+				if crop_scene != null and map_tiles.has(grid_pos) and map_tiles[grid_pos]["dirt"] != null:
+					var new_plant = crop_scene.instantiate()
+					new_plant.global_position = pixel_pos
+					
+					new_plant.dirt_underneath = map_tiles[grid_pos]["dirt"]
+					
+					new_plant.growth_points = int(tile_data.get("growth_points", 0))
+					
+					player.get_parent().add_child(new_plant)
+					map_tiles[grid_pos]["crop"] = new_plant
+					
+					if new_plant.has_method("update_sprite"):
+						new_plant.update_sprite()
+						
+func _on_reconstruct_buildings():
+	
+	for grid_pos_i in WorldObjects.objects.keys():
+		var obj = WorldObjects.objects[grid_pos_i]
+		if is_instance_valid(obj):
+			var should_remove = false
+			
+			# Usuwamy budynki
+			if "object_name" in obj and obj.object_name in ["Shop", "Composer", "ChickenCoop", "Barn", "Processing"]:
+				should_remove = true
+			# Usuwamy drzewa owocowe, bo za chwilę wczytamy je z JSON-a w prawidłowych stanach
+			elif "object_name" in obj and obj.object_name == "Fruit_Tree":
+				should_remove = true
+			elif "plant_name" in obj and obj.plant_name in ["Peach", "Cherry", "Apple"]:
+				should_remove = true
+				
+			if should_remove:
+				obj.queue_free()
+	
+	# 2. Czyścimy słownik WorldObjects z usuniętych elementów
+	var keys_to_remove = []
+	for grid_pos_i in WorldObjects.objects.keys():
+		var obj = WorldObjects.objects[grid_pos_i]
+		if not is_instance_valid(obj):
+			keys_to_remove.append(grid_pos_i)
+		elif "object_name" in obj and obj.object_name in ["Shop", "Composer", "ChickenCoop", "Barn", "Processing", "Fruit_Tree"]:
+			keys_to_remove.append(grid_pos_i)
+		elif "plant_name" in obj and obj.plant_name in ["Peach", "Cherry", "Apple"]:
+			keys_to_remove.append(grid_pos_i)
+			
+	for key in keys_to_remove:
+		WorldObjects.objects.erase(key)
+		
+
+	for grid_pos in BuildingDataManager.buildings_data.keys():
+		var b_data = BuildingDataManager.buildings_data[grid_pos]
+		var b_name = b_data["name"]
+		
+		var target_scene: PackedScene = null
+		var size_in_tiles: Vector2i = Vector2i(1, 1)
+		
+		match b_name:
+			"Shop":
+				target_scene = shop_scene
+				size_in_tiles = Vector2i(4, 4)
+			"Composer":
+				target_scene = composer_scene
+				size_in_tiles = Vector2i(2, 2)
+			"ChickenCoop":
+				target_scene = chicken_coop_scene
+				size_in_tiles = Vector2i(3, 4)
+			"Barn":
+				target_scene = barn_scene
+				size_in_tiles = Vector2i(4, 5)
+			"Processing":
+				target_scene = processing_scene
+				size_in_tiles = Vector2i(4, 4)
+				
+		if target_scene != null:
+			var backup_data = b_data.duplicate(true)
+			
+			place_building_at(target_scene, Vector2(grid_pos), b_name, size_in_tiles)
+			
+			BuildingDataManager.buildings_data[grid_pos] = backup_data
+			
+# Przygotowuje dane o drzewach owocowych do zapisu w JSON
+# Przygotowuje dane o drzewach owocowych do zapisu w JSON
+func get_trees_save_data() -> Dictionary:
+	var save_dict = {}
+	
+	for key in WorldObjects.objects.keys():
+		var obj = WorldObjects.objects[key]
+		
+		# Detekcja: Jeśli obiekt ma zmienną 'current_state' i funkcję 'hit', to na 100% jest to Fruit Tree
+		if is_instance_valid(obj) and obj.has_method("hit") and "current_state" in obj:
+			var pos_str = str(key.x) + "," + str(key.y)
+			
+			var t_name = obj.object_name if obj.object_name != "" else "Peach_Plant"
+				
+			# Zapisujemy WSZYSTKIE istotne zmienne z Twojego fruit_tree.gd
+			save_dict[pos_str] = {
+				"type": t_name,
+				"health": obj.health,
+				"state": obj.current_state,
+				"growth_timer": obj.growth_timer,
+				"fruit_timer": obj.fruit_timer,
+				"watered": obj.tree_is_watered
+			}
+			
+	return save_dict
+
+
+func reconstruct_trees(loaded_trees: Dictionary):
+	for pos_str in loaded_trees.keys():
+		var coords = pos_str.split(",")
+		if coords.size() != 2: continue
+		
+		var grid_pos = Vector2i(int(coords[0]), int(coords[1]))
+		var data = loaded_trees[pos_str]
+		var t_type = data["type"].to_lower()
+		
+		# Wybieramy odpowiednią scenę
+		var t_scene = peach_scene
+		if "apple" in t_type:
+			t_scene = apple_scene
+		elif "cherry" in t_type:
+			t_scene = cherry_scene
+		elif "peach" in t_type:
+			t_scene = peach_scene
+			
+		if t_scene != null:
+			# Bezpieczne czyszczenie kafelka
+			if WorldObjects.objects.has(grid_pos):
+				var old = WorldObjects.objects[grid_pos]
+				if is_instance_valid(old): old.queue_free()
+				WorldObjects.objects.erase(grid_pos)
+			
+			var new_tree = t_scene.instantiate()
+			
+			# Odtwarzamy pozycję na podstawie offsetu Twojego narzędzia (ToolController)
+			new_tree.global_position = (Vector2(grid_pos) * TILE_SIZE) + Vector2(TILE_SIZE / 2.0, TILE_SIZE / 2.0)
+			
+			# Wstrzykujemy parametry i WSZYSTKIE stany wzrostu
+			new_tree.object_name = data["type"]
+			new_tree.health = int(data.get("health", 3))
+			
+			# Sprawdzamy, czy nowa scena ma odpowiednie zmienne i ładujemy wartości
+			if "current_state" in new_tree:
+				new_tree.current_state = int(data.get("state", 0))
+				new_tree.growth_timer = int(data.get("growth_timer", 0))
+				new_tree.fruit_timer = int(data.get("fruit_timer", 0))
+				new_tree.tree_is_watered = bool(data.get("watered", false))
+			
+			# Wrzucamy do świata (co odpali _ready() wewnątrz fruit_tree.gd)
+			player.get_parent().add_child(new_tree)
+			
+			# Zabezpieczenie dla słownika WorldObjects
+			WorldObjects.objects[grid_pos] = new_tree
+			new_tree.grid_pos = grid_pos
+			
+			# WAŻNE: Wymuszamy aktualizację grafiki, żeby drzewo odpaliło klatkę zgodną ze stanem
+			if new_tree.has_method("update_appearance"):
+				new_tree.update_appearance()
+				
 func update_highlight():
 	var current_tool = player.current_tool
 	var facing_dir = player.last_facing_direction
@@ -126,8 +359,6 @@ func update_highlight():
 	
 	highlight.global_position = (current_target_grid_pos * TILE_SIZE) + (building_pixel_size / 2.0)
 
-#   WAZNA ZMIANA ZMIENILEM  _input NA _unhandled_input. PODCZAS KLIKANIA NA PANELE I GUZIKI SYGNAL 
-#   PRZECHODZIL DO GRY I GRACZ WYKONYWAL SWOJE FUNKCJE. JESLI COS NIE BEDZIE DZIALALO WARTO TO SPRAWDZIC
 func _unhandled_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		if not highlight.visible:
