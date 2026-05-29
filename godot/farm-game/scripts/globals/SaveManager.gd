@@ -1,13 +1,12 @@
 extends Node
 
-const SAVE_PATH = "./saves/savegame.json"
+const SAVE_PATH = "user://savegame.json"
 
 var pending_load_data = null
 
 func _ready():
 	if TestGameTimeCycleManager.has_signal("time_tick"):
 		TestGameTimeCycleManager.time_tick.connect(_on_time_tick)
-
 
 func _on_time_tick(day: int, hour: int, minute: int):
 	if hour == 6 and minute == 0:
