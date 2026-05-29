@@ -56,7 +56,7 @@ region = Rect2(368, 80, 16, 16)
 atlas = ExtResource("4_h1tjd")
 region = Rect2(368, 64, 16, 16)
 
-[node name="RecipeBookPanel" type="Control"]
+[node name="RecipeBookPanel" type="Control" groups=["RecipeBook"]]
 z_index = 1
 layout_mode = 3
 anchors_preset = 0
@@ -91,7 +91,7 @@ offset_left = 141.0
 offset_top = 54.0
 offset_right = 247.0
 offset_bottom = 77.0
-text = "Recipe Book"
+text = "Building Book"
 label_settings = SubResource("LabelSettings_4lk4h")
 horizontal_alignment = 1
 vertical_alignment = 1

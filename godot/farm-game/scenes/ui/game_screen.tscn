@@ -67,7 +67,6 @@ position = Vector2(-95, 50)
 layout_mode = 2
 
 [node name="SettingsMenu" parent="MarginContainer" instance=ExtResource("9_nktmq")]
-visible = false
 layout_mode = 2
 
 [node name="ComposerPanel" parent="MarginContainer" instance=ExtResource("9_c0p0g")]

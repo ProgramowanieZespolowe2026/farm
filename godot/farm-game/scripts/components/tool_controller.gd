@@ -226,21 +226,17 @@ func _on_reconstruct_buildings():
 			
 			BuildingDataManager.buildings_data[grid_pos] = backup_data
 			
-# Przygotowuje dane o drzewach owocowych do zapisu w JSON
-# Przygotowuje dane o drzewach owocowych do zapisu w JSON
 func get_trees_save_data() -> Dictionary:
 	var save_dict = {}
 	
 	for key in WorldObjects.objects.keys():
 		var obj = WorldObjects.objects[key]
 		
-		# Detekcja: Jeśli obiekt ma zmienną 'current_state' i funkcję 'hit', to na 100% jest to Fruit Tree
 		if is_instance_valid(obj) and obj.has_method("hit") and "current_state" in obj:
 			var pos_str = str(key.x) + "," + str(key.y)
 			
 			var t_name = obj.object_name if obj.object_name != "" else "Peach_Plant"
 				
-			# Zapisujemy WSZYSTKIE istotne zmienne z Twojego fruit_tree.gd
 			save_dict[pos_str] = {
 				"type": t_name,
 				"health": obj.health,
@@ -252,7 +248,6 @@ func get_trees_save_data() -> Dictionary:
 			
 	return save_dict
 
-
 func reconstruct_trees(loaded_trees: Dictionary):
 	for pos_str in loaded_trees.keys():
 		var coords = pos_str.split(",")
@@ -262,7 +257,6 @@ func reconstruct_trees(loaded_trees: Dictionary):
 		var data = loaded_trees[pos_str]
 		var t_type = data["type"].to_lower()
 		
-		# Wybieramy odpowiednią scenę
 		var t_scene = peach_scene
 		if "apple" in t_type:
 			t_scene = apple_scene
@@ -272,7 +266,6 @@ func reconstruct_trees(loaded_trees: Dictionary):
 			t_scene = peach_scene
 			
 		if t_scene != null:
-			# Bezpieczne czyszczenie kafelka
 			if WorldObjects.objects.has(grid_pos):
 				var old = WorldObjects.objects[grid_pos]
 				if is_instance_valid(old): old.queue_free()
@@ -280,28 +273,22 @@ func reconstruct_trees(loaded_trees: Dictionary):
 			
 			var new_tree = t_scene.instantiate()
 			
-			# Odtwarzamy pozycję na podstawie offsetu Twojego narzędzia (ToolController)
 			new_tree.global_position = (Vector2(grid_pos) * TILE_SIZE) + Vector2(TILE_SIZE / 2.0, TILE_SIZE / 2.0)
 			
-			# Wstrzykujemy parametry i WSZYSTKIE stany wzrostu
 			new_tree.object_name = data["type"]
 			new_tree.health = int(data.get("health", 3))
 			
-			# Sprawdzamy, czy nowa scena ma odpowiednie zmienne i ładujemy wartości
 			if "current_state" in new_tree:
 				new_tree.current_state = int(data.get("state", 0))
 				new_tree.growth_timer = int(data.get("growth_timer", 0))
 				new_tree.fruit_timer = int(data.get("fruit_timer", 0))
 				new_tree.tree_is_watered = bool(data.get("watered", false))
 			
-			# Wrzucamy do świata (co odpali _ready() wewnątrz fruit_tree.gd)
 			player.get_parent().add_child(new_tree)
 			
-			# Zabezpieczenie dla słownika WorldObjects
 			WorldObjects.objects[grid_pos] = new_tree
 			new_tree.grid_pos = grid_pos
 			
-			# WAŻNE: Wymuszamy aktualizację grafiki, żeby drzewo odpaliło klatkę zgodną ze stanem
 			if new_tree.has_method("update_appearance"):
 				new_tree.update_appearance()
 				
@@ -363,11 +350,10 @@ func _unhandled_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		if not highlight.visible:
 			return 
-		
-
+	
 		if inventory_visible or animal_building_panel_visible or shop_panel_visible or processing_panel_visible or recipe_book_visible:
 			return
-			
+		
 		if not is_plot_owned_at_target():
 			return 
 			

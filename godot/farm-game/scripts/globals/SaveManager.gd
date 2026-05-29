@@ -10,7 +10,7 @@ func _ready():
 
 
 func _on_time_tick(day: int, hour: int, minute: int):
-	if hour == 0 and minute == 0:
+	if hour == 6 and minute == 0:
 		print("[Autozapis]")
 		save_game()
 

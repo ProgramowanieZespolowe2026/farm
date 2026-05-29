@@ -1,10 +1,11 @@
 class_name BuildingEntered
 extends Area2D
 
-#@onready var menu_open: AudioStreamPlayer2D = $MenuOpen
 
 var playerInArea = false
 var buildingName:String = ""
+
+signal inventory_open(is_open: bool)
 
 func _unhandled_input(event):
 	if event.is_action_pressed("Building") and playerInArea:
@@ -36,8 +37,18 @@ func _unhandled_input(event):
 				var building_pos = get_parent().grid_position
 				if BuildingDataManager.buildings_data.has(building_pos):
 					panel.open_panel(building_pos)
+					
+					var inventory_panel = get_tree().get_first_node_in_group("Inventory")
+					
+					inventory_panel.visible = true
+					inventory_panel.initialize_inventory()
+					inventory_open.emit(inventory_panel.visible)
+					
 			get_viewport().set_input_as_handled()
-			
+		
+		var recipe_book_panel = get_tree().get_first_node_in_group("RecipeBook")
+		if recipe_book_panel.visible == true:
+			recipe_book_panel.visible = false
 			
 func _on_body_entered(body: Node2D) -> void:
 	if body is TemporaryPlayer:

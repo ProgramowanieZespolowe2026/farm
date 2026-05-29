@@ -28,8 +28,15 @@ func _unhandled_input(event: InputEvent) -> void:
 		inventory_open.emit($MarginContainer/Inventory.visible)
 		
 	if event.is_action_pressed("open_recipe_book"):
+		var animal_building_panel = get_tree().get_first_node_in_group("AnimalBuildingPanel")
+		var shop_panel = get_tree().get_first_node_in_group("ShopPanel")
+		var processing_panel = get_tree().get_first_node_in_group("ProcessingPanel")
+	
 		recipe_book.visible = !recipe_book.visible
 		if recipe_book.visible:
+			animal_building_panel.close_panel()
+			shop_panel.visible = false
+			processing_panel.close_panel()
 			recipe_book.update_recipe_page()
 			
 		menu_open.play()

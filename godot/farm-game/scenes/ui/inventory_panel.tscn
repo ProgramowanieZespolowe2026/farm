@@ -16,7 +16,7 @@ region = Rect2(48, 496, 48, 48)
 texture = SubResource("AtlasTexture_7ck5g")
 region_rect = Rect2(0, 0, 48, 48)
 
-[node name="Inventory" type="Node2D"]
+[node name="Inventory" type="Node2D" groups=["Inventory"]]
 script = ExtResource("1_cvy6a")
 
 [node name="TextureRect" type="TextureRect" parent="."]

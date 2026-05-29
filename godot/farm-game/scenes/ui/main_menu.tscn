@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cuct641uhibiv"]
+[gd_scene load_steps=19 format=3 uid="uid://cuct641uhibiv"]
 
 [ext_resource type="Script" uid="uid://c8toyk8cl8kjv" path="res://scripts/ui/main_menu.gd" id="1_1g8jr"]
 [ext_resource type="Texture2D" uid="uid://bw41dahssgn3e" path="res://assets/ui/background.png" id="1_sl1te"]
@@ -16,7 +16,7 @@ corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
-shadow_color = Color(0, 0, 0, 0.30980393)
+shadow_color = Color(0.40832946, 0.40832946, 0.40832946, 0.30980393)
 shadow_size = 5
 shadow_offset = Vector2(0, 3.4)
 
@@ -39,6 +39,43 @@ corner_radius_bottom_left = 16
 shadow_color = Color(0, 0, 0, 0.30980393)
 shadow_size = 5
 shadow_offset = Vector2(0, 3.4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x2yvf"]
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+corner_detail = 11
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uhagc"]
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btxxm"]
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wb0q5"]
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q85j6"]
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8g5eo"]
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_m1kxf"]
 color = Color(1, 1, 1, 1)
@@ -93,7 +130,7 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_87aya")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_fe2o3")
 theme_override_styles/hover = SubResource("StyleBoxFlat_1g8jr")
-text = "Nowa gra"
+text = "New game"
 
 [node name="Continue" type="Button" parent="MainButtons"]
 layout_mode = 2
@@ -102,24 +139,24 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_87aya")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_fe2o3")
 theme_override_styles/hover = SubResource("StyleBoxFlat_1g8jr")
-text = "Załaduj grę"
+text = "Load game"
 
 [node name="MultiPlayer" type="Button" parent="MainButtons"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_87aya")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_fe2o3")
-theme_override_styles/hover = SubResource("StyleBoxFlat_1g8jr")
-text = "Dołącz do gry"
+theme_override_styles/normal = SubResource("StyleBoxFlat_x2yvf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_uhagc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btxxm")
+text = "Join the game"
 
 [node name="DLC" type="Button" parent="MainButtons"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_87aya")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_fe2o3")
-theme_override_styles/hover = SubResource("StyleBoxFlat_1g8jr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_wb0q5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_q85j6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8g5eo")
 text = "DLC"
 
 [node name="Options" type="Button" parent="MainButtons"]
@@ -129,7 +166,7 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_87aya")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_fe2o3")
 theme_override_styles/hover = SubResource("StyleBoxFlat_1g8jr")
-text = "Ustawienia"
+text = "Settings"
 
 [node name="Exit" type="Button" parent="MainButtons"]
 layout_mode = 2
@@ -138,7 +175,7 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_87aya")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_fe2o3")
 theme_override_styles/hover = SubResource("StyleBoxFlat_1g8jr")
-text = "Wyjdź"
+text = "Exit"
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1

@@ -20,9 +20,6 @@ func _ready():
 	items[1] = {
 			"name": "Wheat_Seed",
 			"value": 10}
-	items[4] = {
-			"name": "Milk",
-			"value": 100}
 	hotbar[1] = {
 			"name": "Hoe",
 			"value": 1}

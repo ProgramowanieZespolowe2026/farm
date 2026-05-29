@@ -180,9 +180,9 @@ flip_h = true
 position = Vector2(166, 108)
 
 [node name="Background" type="NinePatchRect" parent="RecipesContainer"]
-offset_left = 95.0
+offset_left = 87.0
 offset_top = 29.0
-offset_right = 209.0
+offset_right = 212.0
 offset_bottom = 115.0
 texture = SubResource("AtlasTexture_n177h")
 patch_margin_left = 7
@@ -191,9 +191,9 @@ patch_margin_right = 6
 patch_margin_bottom = 5
 
 [node name="PreviousProduct" type="Button" parent="RecipesContainer"]
-offset_left = 106.0
+offset_left = 98.0
 offset_top = 41.0
-offset_right = 123.0
+offset_right = 115.0
 offset_bottom = 57.0
 theme_override_font_sizes/font_size = 10
 theme_override_styles/normal = SubResource("StyleBoxTexture_n177h")
@@ -211,9 +211,9 @@ texture = SubResource("AtlasTexture_qc327")
 flip_h = true
 
 [node name="NextProduct" type="Button" parent="RecipesContainer"]
-offset_left = 182.0
+offset_left = 184.0
 offset_top = 41.0
-offset_right = 199.0
+offset_right = 201.0
 offset_bottom = 57.0
 theme_override_font_sizes/font_size = 10
 theme_override_styles/normal = SubResource("StyleBoxTexture_n177h")
@@ -230,15 +230,15 @@ offset_bottom = 14.0
 texture = SubResource("AtlasTexture_qc327")
 
 [node name="Arrow" type="NinePatchRect" parent="RecipesContainer"]
-offset_left = 150.0
+offset_left = 142.0
 offset_top = 75.0
-offset_right = 176.0
+offset_right = 168.0
 offset_bottom = 93.0
 texture = SubResource("AtlasTexture_14urv")
 patch_margin_right = 10
 
 [node name="ProductName" type="Label" parent="RecipesContainer"]
-offset_left = 128.0
+offset_left = 120.0
 offset_top = 42.0
 offset_right = 179.0
 offset_bottom = 56.0
@@ -250,9 +250,9 @@ horizontal_alignment = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 107.0
+offset_left = 99.0
 offset_top = 64.0
-offset_right = 146.0
+offset_right = 138.0
 offset_bottom = 103.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -287,9 +287,9 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_memgi")
 script = ExtResource("4_fy0h6")
 
 [node name="Slot_out_crafting" type="Panel" parent="RecipesContainer"]
-offset_left = 181.0
+offset_left = 173.0
 offset_top = 75.0
-offset_right = 199.0
+offset_right = 191.0
 offset_bottom = 93.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
