@@ -1,0 +1,70 @@
+[gd_scene load_steps=9 format=3 uid="uid://bboxssfxh5d70"]
+
+[ext_resource type="Script" uid="uid://b2qxgja54m0d7" path="res://scripts/objects/plants/CropBase.gd" id="1_67d3c"]
+[ext_resource type="PackedScene" uid="uid://cxqh6d0uxhgj1" path="res://scenes/objects/plants/potato/potato_item.tscn" id="2_onml0"]
+[ext_resource type="Texture2D" uid="uid://dptjdkvpo33n2" path="res://assets/map/plants.png" id="4_1kaxt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8fvb"]
+atlas = ExtResource("4_1kaxt")
+region = Rect2(112, 102, 16, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_scmwx"]
+atlas = ExtResource("4_1kaxt")
+region = Rect2(80, 102, 16, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5jxg2"]
+atlas = ExtResource("4_1kaxt")
+region = Rect2(96, 102, 16, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3y4mn"]
+atlas = ExtResource("4_1kaxt")
+region = Rect2(32, 102, 16, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q5g8b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8fvb")
+}],
+"loop": true,
+"name": &"die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_scmwx")
+}],
+"loop": true,
+"name": &"in_growth",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5jxg2")
+}],
+"loop": true,
+"name": &"ready_to_collect",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3y4mn")
+}],
+"loop": true,
+"name": &"sprouting",
+"speed": 5.0
+}]
+
+[node name="Tomato_plant" type="Node2D"]
+position = Vector2(0, -2)
+script = ExtResource("1_67d3c")
+plant_name = "Potato_Plant"
+item_produce_amount = 3
+seed_produce_amount = 0
+item_scene = ExtResource("2_onml0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -7)
+sprite_frames = SubResource("SpriteFrames_q5g8b")
+animation = &"sprouting"
+autoplay = "sprouting"

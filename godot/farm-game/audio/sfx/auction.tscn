@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bud18uhd151hc"]
+
+[ext_resource type="AudioStream" uid="uid://b7kv34ke5x3ft" path="res://assets/audio/sfx/auction.ogg" id="1_lpxda"]
+
+[node name="Auction" type="AudioStreamPlayer"]
+stream = ExtResource("1_lpxda")
+volume_db = -15.0
+bus = &"Sfx"
+playback_type = 1

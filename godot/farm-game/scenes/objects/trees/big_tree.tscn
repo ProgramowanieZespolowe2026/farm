@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://dqhtxmdscucdc"]
+
+[ext_resource type="Texture2D" uid="uid://d4jkml0rthmgt" path="res://assets/map/Trees.png" id="1_03qij"]
+[ext_resource type="Script" uid="uid://d0nb8oemhfxfj" path="res://scripts/objects/trees/tree.gd" id="2_hd616"]
+[ext_resource type="PackedScene" uid="uid://d3baolgwiuusf" path="res://scenes/objects/trees/big_log.tscn" id="3_hd616"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q7tvr"]
+atlas = ExtResource("1_03qij")
+region = Rect2(32, 48, 32, 48)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ikhx0"]
+radius = 5.374839
+
+[node name="BigTree" type="Sprite2D"]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(-2, 5)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("AtlasTexture_q7tvr")
+offset = Vector2(0, -19)
+script = ExtResource("2_hd616")
+object_name = "Tree"
+item_scene = ExtResource("3_hd616")
+health = 6
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+z_index = 1
+position = Vector2(1, -6)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 3.5)
+shape = SubResource("CircleShape2D_ikhx0")

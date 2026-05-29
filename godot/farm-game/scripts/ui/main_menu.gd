@@ -9,11 +9,12 @@ func _ready() -> void:
 	options.visible = false
 
 func _on_new_game_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/map/test_level.tscn")
+	get_tree().change_scene_to_file("res://scenes/map/main_map.tscn")
+	Wallet.balance =0
 
 
 func _on_continue_pressed() -> void:
-	pass # Replace with function body.
+	SaveManager.load_and_switch_scene("res://scenes/map/main_map.tscn")
 
 
 func _on_multi_player_pressed() -> void:
@@ -32,7 +33,6 @@ func _on_options_pressed() -> void:
 func _on_exit_pressed() -> void:
 	get_tree().quit()
 
-#
 
 func _on_back_to_menu_pressed() -> void:
 	_ready()

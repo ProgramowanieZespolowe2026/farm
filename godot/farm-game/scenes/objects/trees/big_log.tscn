@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://d3baolgwiuusf"]
+
+[ext_resource type="Texture2D" uid="uid://yulnhxet61q4" path="res://assets/items/Icons/Log.png" id="1_xb3e7"]
+[ext_resource type="Script" uid="uid://dp11o0jmh47l" path="res://scripts/objects/trees/log.gd" id="2_y0lle"]
+[ext_resource type="PackedScene" uid="uid://c522b6f3babgw" path="res://scenes/components/collectable_component.tscn" id="3_18dyw"]
+[ext_resource type="PackedScene" uid="uid://1bu5wul7kg1b" path="res://scenes/components/new_item_sfx_component.tscn" id="4_gq5dc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5dohg"]
+radius = 7.0
+
+[node name="BigLog" type="Sprite2D"]
+z_index = 2
+y_sort_enabled = true
+texture = ExtResource("1_xb3e7")
+script = ExtResource("2_y0lle")
+
+[node name="CollectableComponent" parent="." instance=ExtResource("3_18dyw")]
+collectable_name = "log"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent"]
+shape = SubResource("CircleShape2D_5dohg")
+
+[node name="NewItemAudioComponent" parent="." instance=ExtResource("4_gq5dc")]
+script = null

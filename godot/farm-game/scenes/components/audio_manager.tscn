@@ -1,0 +1,81 @@
+[gd_scene load_steps=19 format=3 uid="uid://cnp7w74gt2tu"]
+
+[ext_resource type="Script" uid="uid://c1j36igkwbbbf" path="res://scripts/globals/audio_manager.gd" id="1_t0ifg"]
+[ext_resource type="PackedScene" uid="uid://cvt417x6wef24" path="res://audio/sfx/animal_building_open.tscn" id="2_nhqt3"]
+[ext_resource type="PackedScene" uid="uid://cwlx5obmvc2c8" path="res://audio/sfx/pick_from_slot.tscn" id="2_q7pj8"]
+[ext_resource type="PackedScene" uid="uid://bofmmsksw2sg3" path="res://audio/sfx/building_ready.tscn" id="2_v7pfr"]
+[ext_resource type="PackedScene" uid="uid://bd4e8pq3dtrla" path="res://audio/sfx/put_in_slot.tscn" id="3_v7pfr"]
+[ext_resource type="PackedScene" uid="uid://cy1v1ss4ol42j" path="res://audio/sfx/error.tscn" id="4_q7pj8"]
+[ext_resource type="PackedScene" uid="uid://b04hj6u2cja7t" path="res://audio/sfx/shop_close.tscn" id="6_li0p0"]
+[ext_resource type="PackedScene" uid="uid://bja1gungkfsr5" path="res://audio/sfx/shop_open.tscn" id="7_nhqt3"]
+[ext_resource type="PackedScene" uid="uid://ylhduw5fblc5" path="res://audio/sfx/menu_open.tscn" id="9_xngj1"]
+[ext_resource type="PackedScene" uid="uid://ndg5sr2cbt77" path="res://audio/sfx/cha_ching.tscn" id="10_m8mku"]
+[ext_resource type="PackedScene" uid="uid://db4bakodpidpg" path="res://audio/sfx/next_prev_sound.tscn" id="11_c64uk"]
+[ext_resource type="PackedScene" uid="uid://bjm00m4r6f6uy" path="res://audio/sfx/fly_sound.tscn" id="11_chxat"]
+[ext_resource type="PackedScene" uid="uid://csdds1e1s8a58" path="res://audio/sfx/pick_up_item.tscn" id="12_4e087"]
+[ext_resource type="PackedScene" uid="uid://dre5uliiggd6a" path="res://audio/sfx/chicken_sound.tscn" id="12_05mkw"]
+[ext_resource type="PackedScene" uid="uid://o24mxieylsva" path="res://audio/sfx/notification.tscn" id="12_e1par"]
+[ext_resource type="PackedScene" uid="uid://qjygbasi78yy" path="res://audio/sfx/new_item.tscn" id="15_v3l6q"]
+[ext_resource type="PackedScene" uid="uid://da61ok3l3a8uk" path="res://scenes/components/barn_sfx.tscn" id="16_jdkqx"]
+[ext_resource type="PackedScene" uid="uid://bt70v3gemaejd" path="res://audio/sfx/factory.tscn" id="18_emaw8"]
+
+[node name="AudioManager" type="Node2D"]
+script = ExtResource("1_t0ifg")
+
+[node name="UI" type="Node" parent="."]
+
+[node name="AnimalBuildingOpen" parent="UI" instance=ExtResource("2_nhqt3")]
+unique_name_in_owner = true
+
+[node name="BuildingReady" parent="UI" instance=ExtResource("2_v7pfr")]
+unique_name_in_owner = true
+
+[node name="PickFromSlot" parent="UI" instance=ExtResource("2_q7pj8")]
+unique_name_in_owner = true
+
+[node name="PutInSlot" parent="UI" instance=ExtResource("3_v7pfr")]
+unique_name_in_owner = true
+
+[node name="Error" parent="UI" instance=ExtResource("4_q7pj8")]
+unique_name_in_owner = true
+
+[node name="ShopClose" parent="UI" instance=ExtResource("6_li0p0")]
+unique_name_in_owner = true
+
+[node name="ShopOpen" parent="UI" instance=ExtResource("7_nhqt3")]
+unique_name_in_owner = true
+
+[node name="MenuOpen" parent="UI" instance=ExtResource("9_xngj1")]
+unique_name_in_owner = true
+
+[node name="ChaChing" parent="UI" instance=ExtResource("10_m8mku")]
+unique_name_in_owner = true
+
+[node name="NextPrevSound" parent="UI" instance=ExtResource("11_c64uk")]
+unique_name_in_owner = true
+
+[node name="Notification" parent="UI" instance=ExtResource("12_e1par")]
+unique_name_in_owner = true
+
+[node name="Game" type="Node" parent="."]
+
+[node name="PickUpItem" parent="Game" instance=ExtResource("12_4e087")]
+unique_name_in_owner = true
+
+[node name="FlySound" parent="Game" instance=ExtResource("11_chxat")]
+unique_name_in_owner = true
+
+[node name="ChickenSound" parent="Game" instance=ExtResource("12_05mkw")]
+unique_name_in_owner = true
+
+[node name="NewItem" parent="Game" instance=ExtResource("15_v3l6q")]
+unique_name_in_owner = true
+
+[node name="BarnSfx" parent="Game" instance=ExtResource("16_jdkqx")]
+unique_name_in_owner = true
+
+[node name="Factory" parent="Game" instance=ExtResource("18_emaw8")]
+unique_name_in_owner = true
+
+[node name="NewItem2" parent="Game" instance=ExtResource("15_v3l6q")]
+unique_name_in_owner = true

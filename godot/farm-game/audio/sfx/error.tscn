@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cy1v1ss4ol42j"]
+
+[ext_resource type="AudioStream" uid="uid://b0ng5knpw2tsi" path="res://assets/audio/sfx/error.ogg" id="1_28gcx"]
+
+[node name="Error" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_28gcx")
+bus = &"Sfx"

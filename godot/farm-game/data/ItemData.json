@@ -1,0 +1,357 @@
+{
+"Axe": {
+	"ItemCategory": "Axe",
+	"ItemSpeed": 0.75, 
+	"StackSize": 1,
+	"Description": "Axe",
+	"BuyPrice": 150,
+	"SellPrice": 25
+},
+"Hoe": {
+	"ItemCategory": "Hoe",
+	"ItemSpeed": 0.75, 
+	"StackSize": 1,
+	"Description": "Hoe",
+	"BuyPrice": 150,
+	"SellPrice": 25
+},
+"Watering_Can": {
+	"ItemCategory": "Watering_Can",
+	"ItemSpeed": 0.75, 
+	"StackSize": 1,
+	"Description": "Watering Can",
+	"BuyPrice": 150,
+	"SellPrice": 25
+},
+"Shovel": {
+	"ItemCategory": "Shovel",
+	"ItemSpeed": 0.75, 
+	"StackSize": 1,
+	"Description": "Shovel",
+	"BuyPrice": 150,
+	"SellPrice": 25
+},
+"Fertilizer": {
+	"ItemCategory": "Fertilizer",
+	"ItemSpeed": 0.75, 
+	"StackSize": 99,
+	"Description": "Fertilizer",
+	"BuyPrice": 15,
+	"SellPrice": 5
+},
+"Apple_Item": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Apple",
+	"BuyPrice": 60,
+	"SellPrice": 20
+  },
+"Cherry_Item": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Cherry",
+	"BuyPrice": 90,
+	"SellPrice": 30
+  },
+"Peach_Item": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Peach",
+	"BuyPrice": 135,
+	"SellPrice": 45
+  },
+  "Log": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Log",
+	"BuyPrice": 10,
+	"SellPrice": 2
+  },
+"Steel_Bar": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Steel",
+	"BuyPrice": 200,
+	"SellPrice": 50
+  },
+  "Beet_Item": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Beet",
+	"BuyPrice": 66,
+	"SellPrice": 22
+  },
+  "Carrot_Item": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Carrot",
+	"BuyPrice": 36,
+	"SellPrice": 12
+  },
+  "Corn_Item": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Corn",
+	"BuyPrice": 45,
+	"SellPrice": 15
+  },
+ "Corn_Seed": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Corn Seed",
+	"BuyPrice": 10,
+	"SellPrice": 2
+  },
+  "Potato_Item": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Potato",
+	"BuyPrice": 54,
+	"SellPrice": 18
+  },
+  "Tomato_Item": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Tomato",
+	"BuyPrice": 60,
+	"SellPrice": 25
+  },
+ "Tomato_Seed": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Tomato Seed",
+	"BuyPrice": 15,
+	"SellPrice": 3
+  },
+  "Wheat_Item": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Wheat",
+	"BuyPrice": 90,
+	"SellPrice": 30
+  },
+ "Wheat_Seed": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Wheat Seed",
+	"BuyPrice": 20,
+	"SellPrice": 4
+  },
+  "Apple_Plant": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Apple plant",
+	"BuyPrice": 400,
+	"SellPrice": 40
+  },
+  "Cherry_Plant": {
+	"ItemCategory": "Cherry_Plant",
+	"StackSize": 99,
+	"Description": "Cherry plant",
+	"BuyPrice": 700,
+	"SellPrice": 70
+  },
+  "Peach_Plant": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Peach plant",
+	"BuyPrice": 1000,
+	"SellPrice": 100
+  },
+  "Egg": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Egg",
+	"BuyPrice": 45,
+	"SellPrice": 15
+  },
+  "Chicken_Meat": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Chicken Meat",
+	"BuyPrice": 150,
+	"SellPrice": 50
+  },
+  "Feather": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Feather",
+	"BuyPrice": 30,
+	"SellPrice": 10
+  },
+"Cow_Meat": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Cow Meat",
+	"BuyPrice": 600,
+	"SellPrice": 200
+  },
+  "Milk": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Milk",
+	"BuyPrice": 75,
+	"SellPrice": 25
+  },
+"Pig_Meat": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Pig Meat",
+	"BuyPrice": 450,
+	"SellPrice": 150
+  },
+"Sheep_Meat": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Sheep Meat",
+	"BuyPrice": 540,
+	"SellPrice": 180
+  },
+  "Wool": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Wool",
+	"BuyPrice": 105,
+	"SellPrice": 35
+  },
+  "Chicken_Baby": {
+	"ItemCategory": "Resource",
+	"StackSize": 1,
+	"Description": "Chicken Baby",
+	"BuyPrice": 150,
+	"SellPrice": 40
+  },
+  "Chicken_Adult": {
+	"ItemCategory": "Resource",
+	"StackSize": 1,
+	"Description": "Chicken Adult",
+	"BuyPrice": 300,
+	"SellPrice": 80
+  },
+  "Chicken_Died": {
+	"ItemCategory": "Resource",
+	"StackSize": 1,
+	"Description": "Chicken Died",
+	"BuyPrice": 0,
+	"SellPrice": 0
+  },
+  "Cow_Baby": {
+	"ItemCategory": "Resource",
+	"StackSize": 1,
+	"Description": "Cow Baby",
+	"BuyPrice": 800,
+	"SellPrice": 200
+  },
+  "Cow_Adult": {
+	"ItemCategory": "Resource",
+	"StackSize": 1,
+	"Description": "Cow Adult",
+	"BuyPrice": 1600,
+	"SellPrice": 400
+  },
+"Cow_Died": {
+	"ItemCategory": "Resource",
+	"StackSize": 1,
+	"Description": "Cow Died",
+	"BuyPrice": 0,
+	"SellPrice": 0
+  },
+  "Pig_Baby": {
+	"ItemCategory": "Resource",
+	"StackSize": 1,
+	"Description": "Pig Baby",
+	"BuyPrice": 500,
+	"SellPrice": 125
+  },
+  "Pig_Adult": {
+	"ItemCategory": "Resource",
+	"StackSize": 1,
+	"Description": "Pig Adult",
+	"BuyPrice": 1000,
+	"SellPrice": 250
+  },
+"Pig_Died": {
+	"ItemCategory": "Resource",
+	"StackSize": 1,
+	"Description": "Pig Died",
+	"BuyPrice": 0,
+	"SellPrice": 0
+  },
+  "Sheep_Baby": {
+	"ItemCategory": "Resource",
+	"StackSize": 1,
+	"Description": "Sheep Baby",
+	"BuyPrice": 700,
+	"SellPrice": 175
+  },
+  "Sheep_Adult": {
+	"ItemCategory": "Resource",
+	"StackSize": 1,
+	"Description": "Sheep Adult",
+	"BuyPrice": 1400,
+	"SellPrice": 350
+  },
+  "Sheep_Adult_HairCut": {
+	"ItemCategory": "Resource",
+	"StackSize": 1,
+	"Description": "Sheep Adult HairCut",
+	"BuyPrice": 1300,
+	"SellPrice": 300
+  },
+"Sheep_Died": {
+	"ItemCategory": "Resource",
+	"StackSize": 1,
+	"Description": "Sheep Died",
+	"BuyPrice": 0,
+	"SellPrice": 0
+  },
+"Bacon": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Bacon",
+	"BuyPrice": 600,
+	"SellPrice": 200
+  },
+"Butter": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Butter",
+	"BuyPrice": 270,
+	"SellPrice": 90
+  },
+"Cake": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Cake",
+	"BuyPrice": 750,
+	"SellPrice": 250
+  },
+"Cream": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Cream",
+	"BuyPrice": 120,
+	"SellPrice": 40
+  },
+"Mayonnaise": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Mayonnaise",
+	"BuyPrice": 180,
+	"SellPrice": 60
+  },
+"Sausage": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Sausage",
+	"BuyPrice": 2100,
+	"SellPrice": 700
+  },
+"Flour": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "Flour",
+	"BuyPrice": 135,
+	"SellPrice": 45
+  }
+}

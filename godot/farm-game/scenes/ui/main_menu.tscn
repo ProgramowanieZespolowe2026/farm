@@ -1,11 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://dmjwltx4ixwd2"]
+[gd_scene load_steps=19 format=3 uid="uid://cuct641uhibiv"]
 
-[ext_resource type="Script" uid="uid://bghwdvrxd7aq2" path="res://scripts/ui/main_menu.gd" id="1_1g8jr"]
+[ext_resource type="Script" uid="uid://c8toyk8cl8kjv" path="res://scripts/ui/main_menu.gd" id="1_1g8jr"]
 [ext_resource type="Texture2D" uid="uid://bw41dahssgn3e" path="res://assets/ui/background.png" id="1_sl1te"]
 [ext_resource type="FontFile" uid="uid://capoihxunrgmm" path="res://assets/ui/pixelFont-7-8x14-sproutLands.ttf" id="2_fe2o3"]
-[ext_resource type="AudioStream" uid="uid://cjltq87787ymg" path="res://assets/audio/Darude - Sandstorm.mp3" id="4_m1kxf"]
-[ext_resource type="Script" uid="uid://dupb6niwn2o5b" path="res://scripts/ui/audio_control.gd" id="4_x2yvf"]
-[ext_resource type="Script" uid="uid://csq3hm03agbv7" path="res://scripts/ui/full_screen_control.gd" id="5_uhagc"]
+[ext_resource type="Script" uid="uid://d2ickw45fsc32" path="res://scripts/ui/audio_control.gd" id="4_x2yvf"]
+[ext_resource type="AudioStream" uid="uid://d1p8agloassk3" path="res://assets/audio/music/farm_music.mp3" id="6_uhagc"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fe2o3"]
 texture = ExtResource("1_sl1te")
@@ -17,7 +16,7 @@ corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
-shadow_color = Color(0, 0, 0, 0.30980393)
+shadow_color = Color(0.40832946, 0.40832946, 0.40832946, 0.30980393)
 shadow_size = 5
 shadow_offset = Vector2(0, 3.4)
 
@@ -40,6 +39,43 @@ corner_radius_bottom_left = 16
 shadow_color = Color(0, 0, 0, 0.30980393)
 shadow_size = 5
 shadow_offset = Vector2(0, 3.4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x2yvf"]
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+corner_detail = 11
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uhagc"]
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btxxm"]
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wb0q5"]
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q85j6"]
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8g5eo"]
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_m1kxf"]
 color = Color(1, 1, 1, 1)
@@ -72,19 +108,19 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_fe2o3")
 
 [node name="MainButtons" type="VBoxContainer" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -141.25
-offset_top = -35.0
-offset_right = 141.25
-offset_bottom = 265.0
+offset_left = -135.0
+offset_top = -60.0
+offset_right = 262.8125
+offset_bottom = 217.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.8, 0.8)
 theme_override_constants/separation = 5
 
 [node name="NewGame" type="Button" parent="MainButtons"]
@@ -94,7 +130,7 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_87aya")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_fe2o3")
 theme_override_styles/hover = SubResource("StyleBoxFlat_1g8jr")
-text = "Nowa gra"
+text = "New game"
 
 [node name="Continue" type="Button" parent="MainButtons"]
 layout_mode = 2
@@ -103,24 +139,24 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_87aya")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_fe2o3")
 theme_override_styles/hover = SubResource("StyleBoxFlat_1g8jr")
-text = "Załaduj grę"
+text = "Load game"
 
 [node name="MultiPlayer" type="Button" parent="MainButtons"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_87aya")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_fe2o3")
-theme_override_styles/hover = SubResource("StyleBoxFlat_1g8jr")
-text = "Dołącz do gry"
+theme_override_styles/normal = SubResource("StyleBoxFlat_x2yvf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_uhagc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btxxm")
+text = "Join the game"
 
 [node name="DLC" type="Button" parent="MainButtons"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_87aya")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_fe2o3")
-theme_override_styles/hover = SubResource("StyleBoxFlat_1g8jr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_wb0q5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_q85j6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8g5eo")
 text = "DLC"
 
 [node name="Options" type="Button" parent="MainButtons"]
@@ -130,7 +166,7 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_87aya")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_fe2o3")
 theme_override_styles/hover = SubResource("StyleBoxFlat_1g8jr")
-text = "Ustawienia"
+text = "Settings"
 
 [node name="Exit" type="Button" parent="MainButtons"]
 layout_mode = 2
@@ -139,7 +175,7 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_87aya")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_fe2o3")
 theme_override_styles/hover = SubResource("StyleBoxFlat_1g8jr")
-text = "Wyjdź"
+text = "Exit"
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -164,18 +200,18 @@ text = "Along the Farm"
 horizontal_alignment = 1
 
 [node name="Options" type="Panel" parent="."]
+visible = false
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -272.0
-offset_top = -47.0
-offset_right = 272.0
-offset_bottom = 221.0
+anchor_bottom = 1.0
+offset_left = -267.5
+offset_top = -227.0
+offset_right = 267.5
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 
 [node name="Label" type="Label" parent="Options"]
 layout_mode = 1
@@ -232,9 +268,9 @@ text = "Powrót"
 [node name="AudioControl" type="HSlider" parent="Options"]
 layout_mode = 0
 offset_left = 260.0
-offset_top = 81.0
+offset_top = 61.0
 offset_right = 430.0
-offset_bottom = 113.0
+offset_bottom = 93.0
 theme_override_styles/slider = SubResource("StyleBoxLine_m1kxf")
 theme_override_styles/grabber_area = SubResource("StyleBoxLine_x2yvf")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_uhagc")
@@ -244,26 +280,8 @@ value = 1.0
 script = ExtResource("4_x2yvf")
 audio_bus_name = "Music"
 
-[node name="FullScreenControl" type="CheckButton" parent="Options"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -174.0
-offset_top = -16.25
-offset_right = 167.0
-offset_bottom = 15.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 20
-button_pressed = true
-text = "Fullscreen"
-script = ExtResource("5_uhagc")
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_m1kxf")
+stream = ExtResource("6_uhagc")
 autoplay = true
 bus = &"Music"
 
@@ -275,4 +293,3 @@ bus = &"Music"
 [connection signal="pressed" from="MainButtons/Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="Options/BackToMenu" to="." method="_on_back_to_menu_pressed"]
 [connection signal="value_changed" from="Options/AudioControl" to="Options/AudioControl" method="_on_value_changed"]
-[connection signal="toggled" from="Options/FullScreenControl" to="Options/FullScreenControl" method="_on_toggled"]

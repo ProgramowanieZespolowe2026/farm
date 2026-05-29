@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ylhduw5fblc5"]
+
+[ext_resource type="AudioStream" uid="uid://c3cofppv3h2v2" path="res://assets/audio/sfx/menu_slyde.ogg" id="1_6xvxv"]
+
+[node name="MenuOpen" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_6xvxv")
+bus = &"Sfx"

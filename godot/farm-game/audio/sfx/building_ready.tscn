@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bofmmsksw2sg3"]
+
+[ext_resource type="AudioStream" uid="uid://cw4pq1gqlfab0" path="res://assets/audio/sfx/building_ready.ogg" id="1_pootb"]
+
+[node name="BuildingReady" type="AudioStreamPlayer"]
+stream = ExtResource("1_pootb")
+volume_db = -10.0
+bus = &"Sfx"

@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3 uid="uid://dmmvysvf3y6uj"]
+
+[ext_resource type="Script" uid="uid://b6wxb6hy8i0it" path="res://scripts/components/tool_controller.gd" id="1_qb26u"]
+[ext_resource type="Texture2D" uid="uid://cnxqhaoa5pt00" path="res://assets/map/Highlight.png" id="3_8tjh4"]
+[ext_resource type="Texture2D" uid="uid://c11o2fjmfea10" path="res://assets/map/barnHighlight.png" id="3_qmw5a"]
+[ext_resource type="Texture2D" uid="uid://2gpvyx3os6mm" path="res://assets/map/ChickenCoopHighlight.png" id="3_ulxi5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qmw5a"]
+atlas = ExtResource("3_ulxi5")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8tjh4"]
+atlas = ExtResource("3_8tjh4")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ubsmi"]
+atlas = ExtResource("3_qmw5a")
+
+[node name="ToolController" type="Node2D" groups=["tool_controller"]]
+script = ExtResource("1_qb26u")
+
+[node name="ChickenCoopHighlight" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.3137255)
+position = Vector2(23, 32)
+texture = SubResource("AtlasTexture_qmw5a")
+
+[node name="Highlight" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.3137255)
+position = Vector2(8, 8)
+texture = SubResource("AtlasTexture_8tjh4")
+
+[node name="BarnHighlightdsds" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0.3137255)
+position = Vector2(8, 8)
+texture = SubResource("AtlasTexture_8tjh4")
+
+[node name="BarnHighlight" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0.3137255)
+texture = SubResource("AtlasTexture_ubsmi")

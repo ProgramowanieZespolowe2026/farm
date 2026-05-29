@@ -1,0 +1,73 @@
+[gd_scene load_steps=10 format=3 uid="uid://cr7exlho4r0pg"]
+
+[ext_resource type="Script" uid="uid://b2qxgja54m0d7" path="res://scripts/objects/plants/CropBase.gd" id="1_w2blu"]
+[ext_resource type="PackedScene" uid="uid://dlwbmb4le8lh5" path="res://scenes/objects/plants/tomato/tomato_item.tscn" id="2_47mn2"]
+[ext_resource type="PackedScene" uid="uid://pn2ndodk5yht" path="res://scenes/objects/plants/tomato/tomato_seed.tscn" id="3_c6tni"]
+[ext_resource type="Texture2D" uid="uid://dptjdkvpo33n2" path="res://assets/map/Plants.png" id="3_lyulk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lyulk"]
+atlas = ExtResource("3_lyulk")
+region = Rect2(112, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31wig"]
+atlas = ExtResource("3_lyulk")
+region = Rect2(64, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2blu"]
+atlas = ExtResource("3_lyulk")
+region = Rect2(80, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_47mn2"]
+atlas = ExtResource("3_lyulk")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q5g8b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lyulk")
+}],
+"loop": true,
+"name": &"die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_31wig")
+}],
+"loop": true,
+"name": &"in_growth",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w2blu")
+}],
+"loop": true,
+"name": &"ready_to_collect",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_47mn2")
+}],
+"loop": true,
+"name": &"sprouting",
+"speed": 5.0
+}]
+
+[node name="Tomato_plant" type="Node2D"]
+script = ExtResource("1_w2blu")
+plant_name = "Tomato_Plant"
+item_produce_amount = 2
+seed_produce_amount = 3
+item_scene = ExtResource("2_47mn2")
+seed_scene = ExtResource("3_c6tni")
+regrowing = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -7)
+sprite_frames = SubResource("SpriteFrames_q5g8b")
+animation = &"sprouting"
+autoplay = "sprouting"
+frame_progress = 0.040784284

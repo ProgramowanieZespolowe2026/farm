@@ -1,0 +1,72 @@
+{
+	"Barn": {
+		"CurrentStoredItems": {
+			"Steel_Bar": 0,
+			"Log": 0
+		},
+		"Description": "Barn",
+		"Category": "Building",
+		"IconPath": "res://assets/buildings/barn.png",
+		"Requirements": {
+			"Steel_Bar": 4.0,
+			"Log": 3.0
+		},
+		"ScenePath": "res://scenes/objects/buildings/Barn_building.tscn"
+	},
+	"ChickenCoop": {
+		"CurrentStoredItems": {
+			"Steel_Bar": 0,
+			"Log": 0
+		},
+		"Description": "Chicken Coop",
+		"Category": "Building",
+		"IconPath": "res://assets/buildings/chickenCoop.png",
+		"Requirements": {
+			"Steel_Bar": 3.0,
+			"Log": 5.0
+		},
+		"ScenePath": "res://scenes/objects/buildings/chickenCoop_building.tscn"
+	},
+	"Composer": {
+		"CurrentStoredItems": {
+			"Log": 0,
+			"Steel_Bar": 0,
+		},
+		"Description": "Composter",
+		"Category": "Building",
+		"IconPath": "res://assets/buildings/composer.png",
+		"Requirements": {
+			"Log": 3.0,
+			"Steel_Bar": 1.0,
+		},
+		"ScenePath": "res://scenes/objects/buildings/composer_building.tscn"
+	},
+	"Shop": {
+		"CurrentStoredItems": {
+			"Steel_Bar": 0,
+			"Log": 0
+		},
+		"Description": "Shop",
+		"Category": "Building",
+		"IconPath": "res://assets/buildings/shop.png",
+		"Requirements": {
+			"Steel_Bar": 6.0,
+			"Log": 4.0
+		},
+		"ScenePath": "res://scenes/objects/buildings/shop_building.tscn"
+	},
+	"Processing": {
+		"CurrentStoredItems": {
+			"Steel_Bar": 0,
+			"Log": 0
+		},
+		"Description": "Processing building",
+		"Category": "Building",
+		"IconPath": "res://assets/buildings/processing.png",
+		"Requirements": {
+			"Steel_Bar": 8.0,
+			"Log": 6.0
+		},
+		"ScenePath": "res://scenes/objects/buildings/processing_building.tscn"
+	}
+}

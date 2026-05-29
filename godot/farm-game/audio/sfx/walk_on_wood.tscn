@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://blbtt2n6qbvvr"]
+
+[node name="WalkOnWood" type="AudioStreamPlayer2D"]

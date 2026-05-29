@@ -1,0 +1,102 @@
+[gd_scene load_steps=14 format=3 uid="uid://cr71x7drir8lg"]
+
+[ext_resource type="Texture2D" uid="uid://bes08mim5elpd" path="res://assets/map/fruit_trees (1).png" id="1_xd0fp"]
+[ext_resource type="Script" uid="uid://byaerq3o7v611" path="res://scripts/objects/trees/fruit_trees/fruit_tree.gd" id="2_qqs01"]
+[ext_resource type="PackedScene" uid="uid://dqrccc4suhpux" path="res://scenes/objects/trees/fruit_trees_&_bushes/apple_item.tscn" id="3_qqs01"]
+[ext_resource type="PackedScene" uid="uid://8mxf18swfvam" path="res://scenes/objects/trees/small_log.tscn" id="4_j4y5c"]
+[ext_resource type="PackedScene" uid="uid://bajrmevbhpc1s" path="res://audio/sfx/fruits_falling.tscn" id="5_synfd"]
+[ext_resource type="PackedScene" uid="uid://qjygbasi78yy" path="res://audio/sfx/new_item.tscn" id="6_1nqnp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7x0t"]
+atlas = ExtResource("1_xd0fp")
+region = Rect2(130, 124, 32, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4y5c"]
+atlas = ExtResource("1_xd0fp")
+region = Rect2(162, 124, 32, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_synfd"]
+atlas = ExtResource("1_xd0fp")
+region = Rect2(98, 124, 32, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1nqnp"]
+atlas = ExtResource("1_xd0fp")
+region = Rect2(34, 124, 32, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kb4tr"]
+atlas = ExtResource("1_xd0fp")
+region = Rect2(66, 124, 32, 62)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wdy0v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b7x0t")
+}],
+"loop": true,
+"name": &"bloom",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j4y5c")
+}],
+"loop": true,
+"name": &"fruit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_synfd")
+}],
+"loop": true,
+"name": &"large",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1nqnp")
+}],
+"loop": true,
+"name": &"plant",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kb4tr")
+}],
+"loop": true,
+"name": &"small",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4qmp1"]
+radius = 4.1231055
+
+[node name="AppleTree" type="AnimatedSprite2D"]
+z_index = 1
+y_sort_enabled = true
+sprite_frames = SubResource("SpriteFrames_wdy0v")
+animation = &"bloom"
+autoplay = "plant"
+offset = Vector2(0, -28)
+script = ExtResource("2_qqs01")
+object_name = "Fruit_Tree"
+item_produce_amount = 4
+item_scene = ExtResource("3_qqs01")
+log_scene = ExtResource("4_j4y5c")
+health = 3
+days_to_grow = 0.5
+days_to_fruit = 0.3
+days_fruit_stays = 0.8
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -4)
+shape = SubResource("CircleShape2D_4qmp1")
+disabled = true
+
+[node name="FruitsFalling" parent="." instance=ExtResource("5_synfd")]
+
+[node name="NewItem" parent="." instance=ExtResource("6_1nqnp")]

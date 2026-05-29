@@ -1,0 +1,301 @@
+[gd_scene load_steps=27 format=3 uid="uid://b5emlt8l1oxae"]
+
+[ext_resource type="Script" uid="uid://tycbt0g1tw27" path="res://scripts/objects/buildings/processing_panel.gd" id="1_1tc8e"]
+[ext_resource type="Texture2D" uid="uid://cn48qmn3m5n0l" path="res://assets/ui/Slots.png" id="1_1xuu8"]
+[ext_resource type="Texture2D" uid="uid://b4vg3wyplpkye" path="res://assets/ui/board_ui.png" id="2_xvmjd"]
+[ext_resource type="Texture2D" uid="uid://b1i2v36yxp6ef" path="res://assets/ui/button.png" id="3_s3ejm"]
+[ext_resource type="Script" uid="uid://dqfdg7wwx6cps" path="res://scripts/ui/slot.gd" id="4_fy0h6"]
+[ext_resource type="Texture2D" uid="uid://cbo2wsjycwv4k" path="res://assets/ui/Arrow.png" id="5_1tc8e"]
+[ext_resource type="Texture2D" uid="uid://bh7jks7tm8ktr" path="res://assets/ui/button1.png" id="7_fy0h6"]
+[ext_resource type="Texture2D" uid="uid://dq7deg40blf8d" path="res://assets/ui/Sprite sheet for Basic Pack.png" id="8_1tc8e"]
+[ext_resource type="Texture2D" uid="uid://7e63prwpnnhq" path="res://assets/ui/Book.png" id="8_fy0h6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n177h"]
+atlas = ExtResource("1_1xuu8")
+region = Rect2(6, 105, 164, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmde5"]
+atlas = ExtResource("2_xvmjd")
+
+[sub_resource type="LabelSettings" id="LabelSettings_fcjsu"]
+font_size = 10
+font_color = Color(0.23921569, 0.08627451, 0.02745098, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ck5g"]
+atlas = ExtResource("3_s3ejm")
+region = Rect2(48, 496, 48, 48)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_memgi"]
+texture = SubResource("AtlasTexture_7ck5g")
+region_rect = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_14urv"]
+atlas = ExtResource("5_1tc8e")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fy0h6"]
+texture = ExtResource("7_fy0h6")
+modulate_color = Color(0.9699662, 0.9699662, 0.9699662, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1tc8e"]
+texture = ExtResource("7_fy0h6")
+modulate_color = Color(1.1996135, 1.1996135, 1.1996135, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_14urv"]
+texture = ExtResource("7_fy0h6")
+modulate_color = Color(1.1996135, 1.1996135, 1.1996135, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qc327"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b165d"]
+atlas = ExtResource("8_fy0h6")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n177h"]
+texture = ExtResource("7_fy0h6")
+modulate_color = Color(0.9699662, 0.9699662, 0.9699662, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lmde5"]
+texture = ExtResource("7_fy0h6")
+modulate_color = Color(1.1996135, 1.1996135, 1.1996135, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fcjsu"]
+texture = ExtResource("7_fy0h6")
+modulate_color = Color(1.1996135, 1.1996135, 1.1996135, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_memgi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qc327"]
+atlas = ExtResource("8_1tc8e")
+region = Rect2(261, 2, 7, 12)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fy0h6"]
+font_size = 10
+
+[node name="ProcessingPanel" type="Node2D" groups=["ProcessingPanel"]]
+script = ExtResource("1_1tc8e")
+
+[node name="Background" type="NinePatchRect" parent="."]
+offset_left = 244.0
+offset_top = 40.0
+offset_right = 386.0
+offset_bottom = 136.0
+texture = SubResource("AtlasTexture_n177h")
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 6
+patch_margin_bottom = 5
+
+[node name="Board" type="NinePatchRect" parent="."]
+offset_left = 258.0
+offset_top = 30.0
+offset_right = 374.0
+offset_bottom = 62.0
+texture = SubResource("AtlasTexture_lmde5")
+
+[node name="BuildingNameText" type="Label" parent="."]
+offset_left = 261.0
+offset_top = 33.0
+offset_right = 367.0
+offset_bottom = 56.0
+text = "Crafting"
+label_settings = SubResource("LabelSettings_fcjsu")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CraftingGridContainer" type="GridContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 262.0
+offset_top = 71.0
+offset_right = 301.0
+offset_bottom = 110.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+
+[node name="Slot_in1" type="Panel" parent="CraftingGridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_memgi")
+script = ExtResource("4_fy0h6")
+
+[node name="Slot_in2" type="Panel" parent="CraftingGridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_memgi")
+script = ExtResource("4_fy0h6")
+
+[node name="Slot_in3" type="Panel" parent="CraftingGridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_memgi")
+script = ExtResource("4_fy0h6")
+
+[node name="Slot_in4" type="Panel" parent="CraftingGridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_memgi")
+script = ExtResource("4_fy0h6")
+
+[node name="Slot_out" type="Panel" parent="."]
+offset_left = 349.0
+offset_top = 81.0
+offset_right = 367.0
+offset_bottom = 99.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_memgi")
+script = ExtResource("4_fy0h6")
+
+[node name="Arrow" type="NinePatchRect" parent="."]
+offset_left = 309.0
+offset_top = 81.0
+offset_right = 340.0
+offset_bottom = 99.0
+texture = SubResource("AtlasTexture_14urv")
+patch_margin_right = 10
+
+[node name="RecipesButton" type="Button" parent="."]
+offset_left = 218.0
+offset_top = 54.0
+offset_right = 240.3125
+offset_bottom = 75.0
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxTexture_fy0h6")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_1tc8e")
+theme_override_styles/hover = SubResource("StyleBoxTexture_14urv")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qc327")
+
+[node name="TextureRect" type="TextureRect" parent="RecipesButton"]
+layout_mode = 0
+offset_right = 22.0
+offset_bottom = 21.0
+texture = SubResource("AtlasTexture_b165d")
+expand_mode = 1
+flip_h = true
+
+[node name="RecipesContainer" type="Node2D" parent="."]
+position = Vector2(166, 108)
+
+[node name="Background" type="NinePatchRect" parent="RecipesContainer"]
+offset_left = 87.0
+offset_top = 29.0
+offset_right = 212.0
+offset_bottom = 115.0
+texture = SubResource("AtlasTexture_n177h")
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 6
+patch_margin_bottom = 5
+
+[node name="PreviousProduct" type="Button" parent="RecipesContainer"]
+offset_left = 98.0
+offset_top = 41.0
+offset_right = 115.0
+offset_bottom = 57.0
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxTexture_n177h")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lmde5")
+theme_override_styles/hover = SubResource("StyleBoxTexture_fcjsu")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_memgi")
+
+[node name="TextureRect" type="TextureRect" parent="RecipesContainer/PreviousProduct"]
+layout_mode = 0
+offset_left = 2.6666718
+offset_top = 2.0
+offset_right = 12.666672
+offset_bottom = 14.0
+texture = SubResource("AtlasTexture_qc327")
+flip_h = true
+
+[node name="NextProduct" type="Button" parent="RecipesContainer"]
+offset_left = 184.0
+offset_top = 41.0
+offset_right = 201.0
+offset_bottom = 57.0
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxTexture_n177h")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lmde5")
+theme_override_styles/hover = SubResource("StyleBoxTexture_fcjsu")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_memgi")
+
+[node name="TextureRect" type="TextureRect" parent="RecipesContainer/NextProduct"]
+layout_mode = 0
+offset_left = 2.6666718
+offset_top = 2.0
+offset_right = 12.666672
+offset_bottom = 14.0
+texture = SubResource("AtlasTexture_qc327")
+
+[node name="Arrow" type="NinePatchRect" parent="RecipesContainer"]
+offset_left = 142.0
+offset_top = 75.0
+offset_right = 168.0
+offset_bottom = 93.0
+texture = SubResource("AtlasTexture_14urv")
+patch_margin_right = 10
+
+[node name="ProductName" type="Label" parent="RecipesContainer"]
+offset_left = 120.0
+offset_top = 42.0
+offset_right = 179.0
+offset_bottom = 56.0
+text = "Name"
+label_settings = SubResource("LabelSettings_fy0h6")
+horizontal_alignment = 1
+
+[node name="RecipesGridContainer" type="GridContainer" parent="RecipesContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 99.0
+offset_top = 64.0
+offset_right = 138.0
+offset_bottom = 103.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+
+[node name="Slot_in_crafting1" type="Panel" parent="RecipesContainer/RecipesGridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_memgi")
+script = ExtResource("4_fy0h6")
+
+[node name="Slot_in_crafting2" type="Panel" parent="RecipesContainer/RecipesGridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_memgi")
+script = ExtResource("4_fy0h6")
+
+[node name="Slot_in_crafting3" type="Panel" parent="RecipesContainer/RecipesGridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_memgi")
+script = ExtResource("4_fy0h6")
+
+[node name="Slot_in_crafting4" type="Panel" parent="RecipesContainer/RecipesGridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_memgi")
+script = ExtResource("4_fy0h6")
+
+[node name="Slot_out_crafting" type="Panel" parent="RecipesContainer"]
+offset_left = 173.0
+offset_top = 75.0
+offset_right = 191.0
+offset_bottom = 93.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_memgi")
+script = ExtResource("4_fy0h6")
+
+[connection signal="pressed" from="RecipesButton" to="." method="_on_recipes_button_pressed"]
+[connection signal="pressed" from="RecipesContainer/PreviousProduct" to="." method="_on_previous_product_pressed"]
+[connection signal="pressed" from="RecipesContainer/NextProduct" to="." method="_on_next_product_pressed"]

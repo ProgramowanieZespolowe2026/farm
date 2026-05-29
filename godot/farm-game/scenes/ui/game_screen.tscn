@@ -1,12 +1,35 @@
-[gd_scene load_steps=2 format=3 uid="uid://coe7o5imj3tw6"]
+[gd_scene load_steps=18 format=3 uid="uid://coe7o5imj3tw6"]
 
 [ext_resource type="PackedScene" uid="uid://clcluxi7rp3ni" path="res://scenes/ui/test_game_time.tscn" id="1_8hmcv"]
+[ext_resource type="Script" uid="uid://cxnw3cis3e2ao" path="res://scenes/ui/game_screen.gd" id="1_gusqm"]
+[ext_resource type="PackedScene" uid="uid://y3lcfv2dd6wt" path="res://scenes/ui/inventory_panel.tscn" id="2_e2vrk"]
+[ext_resource type="PackedScene" uid="uid://dmfm2ff7lnpyt" path="res://scenes/ui/WalletDisplay.tscn" id="2_nwa5a"]
+[ext_resource type="PackedScene" uid="uid://c4ymdwgq7ly0l" path="res://scenes/ui/auction_window.tscn" id="3_ooiym"]
+[ext_resource type="PackedScene" uid="uid://duykdffthpeuk" path="res://scenes/ui/recipe_book_panel.tscn" id="3_wwq64"]
+[ext_resource type="PackedScene" uid="uid://ylhduw5fblc5" path="res://audio/sfx/menu_open.tscn" id="4_gkbp4"]
+[ext_resource type="PackedScene" uid="uid://drjspv32c5mwu" path="res://scenes/ui/hotbar.tscn" id="7_ooiym"]
+[ext_resource type="PackedScene" uid="uid://buh3v7l8w15br" path="res://scenes/objects/buildings/animal_building_panel.tscn" id="8_ce4rh"]
+[ext_resource type="PackedScene" uid="uid://dr4pmi7x11ee4" path="res://scenes/objects/buildings/shop_panel.tscn" id="8_r1vnj"]
+[ext_resource type="PackedScene" uid="uid://kgbocqhqlu7g" path="res://scenes/objects/buildings/composer_panel.tscn" id="9_c0p0g"]
+[ext_resource type="PackedScene" uid="uid://c7h8pc1feikys" path="res://scenes/ui/item_tooltip.tscn" id="9_dscta"]
+[ext_resource type="PackedScene" uid="uid://bdhst4l7ave8q" path="res://scenes/ui/settings_menu.tscn" id="9_nktmq"]
+[ext_resource type="PackedScene" uid="uid://b5emlt8l1oxae" path="res://scenes/objects/buildings/processing_panel.tscn" id="12_wwq64"]
+[ext_resource type="PackedScene" uid="uid://dykgnjg316jbt" path="res://scenes/components/world_event_controler.tscn" id="13_ywp2c"]
+[ext_resource type="PackedScene" uid="uid://pwn8u5ncdjjc" path="res://scenes/ui/event_notification.tscn" id="14_pwika"]
+[ext_resource type="PackedScene" uid="uid://d3b56g3eworcr" path="res://scenes/ui/event_detail_window.tscn" id="15_4gsc8"]
 
-[node name="GameScreen" type="CanvasLayer"]
+[node name="GameScreen" type="CanvasLayer" groups=["GameScreen"]]
+script = ExtResource("1_gusqm")
+
+[node name="WalletDisplay" parent="." instance=ExtResource("2_nwa5a")]
+offset_left = -50.0
+offset_right = 50.0
+offset_bottom = 26.0
+pivot_offset = Vector2(0.5, 18)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-offset_right = 1153.0
-offset_bottom = 648.0
+offset_right = 640.0
+offset_bottom = 360.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/margin_left = 10
@@ -19,9 +42,56 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 
-[node name="MarginContainer2" type="MarginContainer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Inventory" parent="MarginContainer" instance=ExtResource("2_e2vrk")]
+unique_name_in_owner = true
+visible = false
+position = Vector2(97, 4)
 
-[node name="TestInventoryPanel" type="Control" parent="MarginContainer2"]
+[node name="AuctionWindow" parent="MarginContainer" instance=ExtResource("3_ooiym")]
+visible = false
 layout_mode = 2
+
+[node name="Hotbar" parent="MarginContainer" instance=ExtResource("7_ooiym")]
+position = Vector2(-18, 12)
+
+[node name="ChickenCoopPanel" parent="MarginContainer" instance=ExtResource("8_ce4rh")]
+unique_name_in_owner = true
+visible = false
+position = Vector2(-93, 11)
+
+[node name="ShopPanel" parent="MarginContainer" instance=ExtResource("8_r1vnj")]
+visible = false
+position = Vector2(-95, 50)
+
+[node name="ItemTooltip" parent="MarginContainer" instance=ExtResource("9_dscta")]
+layout_mode = 2
+
+[node name="SettingsMenu" parent="MarginContainer" instance=ExtResource("9_nktmq")]
+layout_mode = 2
+
+[node name="ComposerPanel" parent="MarginContainer" instance=ExtResource("9_c0p0g")]
+visible = false
+position = Vector2(-76, 12)
+
+[node name="ProcessingPanel" parent="MarginContainer" instance=ExtResource("12_wwq64")]
+visible = false
+position = Vector2(-65, 34)
+
+[node name="RecipeBookPanel" parent="MarginContainer" instance=ExtResource("3_wwq64")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="MarketEventControler" parent="MarginContainer" instance=ExtResource("13_ywp2c")]
+
+[node name="EventNotification" parent="MarginContainer" instance=ExtResource("14_pwika")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="EventDetailWindow" parent="MarginContainer" instance=ExtResource("15_4gsc8")]
+visible = false
+layout_mode = 2
+
+[node name="MenuOpen" parent="." instance=ExtResource("4_gkbp4")]
+unique_name_in_owner = true

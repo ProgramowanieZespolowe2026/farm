@@ -1,21 +1,44 @@
-[gd_scene load_steps=6 format=3 uid="uid://hdv3e0cdjdb4"]
+[gd_scene load_steps=9 format=3 uid="uid://hdv3e0cdjdb4"]
 
+[ext_resource type="Script" uid="uid://caxla6mrbkdh1" path="res://scenes/map/test_level.gd" id="1_4ux80"]
 [ext_resource type="PackedScene" uid="uid://c8qju1qxars1t" path="res://scenes/components/day_night_cycle_component.tscn" id="1_8nivs"]
 [ext_resource type="PackedScene" uid="uid://ckphra5tyfs3b" path="res://scenes/map/test_scene_tile_map.tscn" id="2_l8c3y"]
 [ext_resource type="PackedScene" uid="uid://coe7o5imj3tw6" path="res://scenes/ui/game_screen.tscn" id="3_w7454"]
 [ext_resource type="PackedScene" uid="uid://m5w4eggderw0" path="res://scenes/Temporary/temporary_player.tscn" id="4_5w3vb"]
-[ext_resource type="PackedScene" uid="uid://y3lcfv2dd6wt" path="res://scenes/ui/inventory_panel.tscn" id="5_l8c3y"]
+[ext_resource type="PackedScene" uid="uid://qmvwujvapog" path="res://audio/music/farm_music.tscn" id="5_l8c3y"]
+[ext_resource type="PackedScene" uid="uid://csg1yvoduuxoh" path="res://scenes/components/plot_manager.tscn" id="6_w7454"]
+[ext_resource type="PackedScene" uid="uid://ndmuv1r3ok3c" path="res://scenes/objects/plants/carrot/carrot_item.tscn" id="7_5w3vb"]
 
 [node name="TestLevel" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_4ux80")
 
 [node name="DayNightCycleComponent" parent="." instance=ExtResource("1_8nivs")]
 
 [node name="TemporaryPlayer" parent="." instance=ExtResource("4_5w3vb")]
 position = Vector2(265, 137)
+current_tool = 2
 
 [node name="test-scene-tile-map" parent="." instance=ExtResource("2_l8c3y")]
 
 [node name="GameScreen" parent="." instance=ExtResource("3_w7454")]
 
-[node name="InventoryPanel" parent="." instance=ExtResource("5_l8c3y")]
+[node name="FarmMusic" parent="." instance=ExtResource("5_l8c3y")]
+autoplay = true
+
+[node name="PlotManager" parent="." instance=ExtResource("6_w7454")]
+
+[node name="Carrot_item" parent="." instance=ExtResource("7_5w3vb")]
+position = Vector2(281.5, 170.5)
+
+[node name="Carrot_item2" parent="." instance=ExtResource("7_5w3vb")]
+position = Vector2(262.5, 170.5)
+
+[node name="Carrot_item3" parent="." instance=ExtResource("7_5w3vb")]
+position = Vector2(248.5, 172.5)
+
+[node name="Carrot_item4" parent="." instance=ExtResource("7_5w3vb")]
+position = Vector2(231.5, 174.5)
+
+[node name="Carrot_item5" parent="." instance=ExtResource("7_5w3vb")]
+position = Vector2(295.5, 170.5)

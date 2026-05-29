@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://dlw3fltxmgsfh"]
+
+[ext_resource type="Texture2D" uid="uid://d2p752pys3bci" path="res://assets/items/Icons/Cherry_Item.png" id="1_hwxgt"]
+[ext_resource type="Script" uid="uid://dflxb6a3a8uos" path="res://scripts/objects/plants/CropItemOrSeed.gd" id="2_y1k5t"]
+[ext_resource type="PackedScene" uid="uid://c522b6f3babgw" path="res://scenes/components/collectable_component.tscn" id="3_6lkmx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4ahkj"]
+radius = 5.0
+
+[node name="CherryItem" type="Sprite2D"]
+z_index = 2
+y_sort_enabled = true
+texture = ExtResource("1_hwxgt")
+script = ExtResource("2_y1k5t")
+item_name = "Cherry_Item"
+item_value = 3
+
+[node name="CollectableComponent" parent="." instance=ExtResource("3_6lkmx")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent"]
+shape = SubResource("CircleShape2D_4ahkj")

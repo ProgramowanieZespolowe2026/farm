@@ -17,11 +17,13 @@ func on_time_tick(day: int, hour: int, minute: int) ->void:
 
 func _on_normal_speed_button_pressed() -> void:
 	TestGameTimeCycleManager.game_speed = normal_speed
+	AudioManager.next_prev_sound.play()
 
 
 func _on_fast_speed_button_pressed() -> void:
 	TestGameTimeCycleManager.game_speed = fast_speed
-
+	AudioManager.next_prev_sound.play()
 
 func _on_cheetah_speed_button_pressed() -> void:
 	TestGameTimeCycleManager.game_speed = cheetah_speed
+	AudioManager.next_prev_sound.play()

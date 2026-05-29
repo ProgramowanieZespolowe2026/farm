@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://d6un2vjdjl34"]
+
+[ext_resource type="AudioStream" uid="uid://djn7xipjdgjem" path="res://assets/audio/sfx/chop_wood.ogg" id="1_ujm6s"]
+
+[node name="ChopWood" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_ujm6s")
+bus = &"Sfx"

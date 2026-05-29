@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://h4j2m27oqybs"]
+
+[ext_resource type="Texture2D" uid="uid://dptjdkvpo33n2" path="res://assets/map/Plants.png" id="1_bo7r7"]
+[ext_resource type="Script" uid="uid://dflxb6a3a8uos" path="res://scripts/objects/plants/CropItemOrSeed.gd" id="2_bo7r7"]
+[ext_resource type="PackedScene" uid="uid://c522b6f3babgw" path="res://scenes/components/collectable_component.tscn" id="3_0jjs1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3hi4k"]
+atlas = ExtResource("1_bo7r7")
+region = Rect2(144, 32, 16, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bo7r7"]
+size = Vector2(14.222219, 19.555553)
+
+[node name="Wheat_item" type="Sprite2D"]
+z_index = 1
+position = Vector2(0.49999952, -4.5000005)
+scale = Vector2(0.56250006, 0.56250006)
+texture = SubResource("AtlasTexture_3hi4k")
+script = ExtResource("2_bo7r7")
+item_name = "Wheat_Item"
+item_value = 1
+
+[node name="CollectableComponent" parent="." instance=ExtResource("3_0jjs1")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent"]
+position = Vector2(-0.88888794, 5.333333)
+shape = SubResource("RectangleShape2D_bo7r7")

@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=3 uid="uid://cnwapekbgonx0"]
+
+[ext_resource type="Script" uid="uid://cbiy0a5acqke7" path="res://scripts/objects/plants/dirt.gd" id="1_xff3s"]
+[ext_resource type="Texture2D" uid="uid://b7mfc3ayleybv" path="res://assets/map/dirt.png" id="2_hkhtw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hkhtw"]
+atlas = ExtResource("2_hkhtw")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xff3s"]
+atlas = ExtResource("2_hkhtw")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xcvtn"]
+atlas = ExtResource("2_hkhtw")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5fk1v"]
+atlas = ExtResource("2_hkhtw")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tqo41"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hkhtw")
+}],
+"loop": true,
+"name": &"Dry_with_fertilize",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xff3s")
+}],
+"loop": true,
+"name": &"Dry_without_fertilize",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xcvtn")
+}],
+"loop": true,
+"name": &"Wet_with_fertilize",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5fk1v")
+}],
+"loop": true,
+"name": &"Wet_without_fertilize",
+"speed": 5.0
+}]
+
+[node name="Dirt" type="Node2D" groups=["dirt"]]
+script = ExtResource("1_xff3s")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_tqo41")
+animation = &"Dry_with_fertilize"
+autoplay = "Dry_without_fertilize"

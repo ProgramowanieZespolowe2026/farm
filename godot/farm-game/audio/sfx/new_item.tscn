@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://qjygbasi78yy"]
+
+[ext_resource type="AudioStream" uid="uid://ca0w5dmuos80d" path="res://assets/audio/sfx/new_item_2.ogg" id="1_j6rdm"]
+
+[node name="NewItem" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_j6rdm")
+bus = &"Sfx"

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwlx5obmvc2c8"]
+
+[ext_resource type="AudioStream" uid="uid://cw1onf0pylm10" path="res://assets/audio/sfx/pick_from_slot.ogg" id="1_sdrh1"]
+
+[node name="PickFromSlot" type="AudioStreamPlayer"]
+stream = ExtResource("1_sdrh1")
+bus = &"Sfx"

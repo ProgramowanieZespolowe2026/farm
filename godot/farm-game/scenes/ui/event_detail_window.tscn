@@ -1,0 +1,122 @@
+[gd_scene load_steps=10 format=3 uid="uid://d3b56g3eworcr"]
+
+[ext_resource type="Texture2D" uid="uid://da7vybh7nqoyc" path="res://assets/ui/notification.png" id="1_gknck"]
+[ext_resource type="Script" uid="uid://wb576ocgjt4y" path="res://scripts/ui/event_detail_window.gd" id="1_ktdoy"]
+[ext_resource type="FontFile" uid="uid://c02huierhjkt" path="res://assets/fonts/m5x7.ttf" id="3_xqckx"]
+[ext_resource type="Texture2D" uid="uid://b1i2v36yxp6ef" path="res://assets/ui/button.png" id="4_ohqjp"]
+[ext_resource type="Texture2D" uid="uid://dd1jdbb67ifn1" path="res://assets/ui/newspaper.png" id="4_xqckx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y80hp"]
+atlas = ExtResource("1_gknck")
+region = Rect2(80, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xqckx"]
+atlas = ExtResource("4_ohqjp")
+region = Rect2(416, 496, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nuhom"]
+atlas = ExtResource("4_ohqjp")
+region = Rect2(416, 464, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1awa6"]
+atlas = ExtResource("4_ohqjp")
+region = Rect2(416, 448, 16, 16)
+
+[node name="EventDetailWindow" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ktdoy")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+z_index = 10
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -100.0
+offset_right = 150.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_y80hp")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/MarginContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="NinePatchRect/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8235294, 0.14901961, 0.25490198, 1)
+theme_override_colors/font_outline_color = Color(0.17254902, 0.17254902, 0.17254902, 1)
+theme_override_constants/shadow_offset_y = 7
+theme_override_constants/outline_size = 1
+theme_override_constants/shadow_outline_size = 4
+theme_override_fonts/font = ExtResource("3_xqckx")
+theme_override_font_sizes/font_size = 14
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NewsImage" type="TextureRect" parent="NinePatchRect/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(70, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_xqckx")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ScrollContainer" type="ScrollContainer" parent="NinePatchRect/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+mouse_filter = 0
+
+[node name="Description" type="Label" parent="NinePatchRect/MarginContainer/VBoxContainer/ScrollContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(280, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.8235294, 0.14901961, 0.25490198, 1)
+theme_override_colors/font_outline_color = Color(0.17254902, 0.17254902, 0.17254902, 1)
+theme_override_constants/line_spacing = 1
+theme_override_constants/shadow_offset_y = 7
+theme_override_constants/outline_size = 1
+theme_override_constants/shadow_outline_size = 4
+theme_override_fonts/font = ExtResource("3_xqckx")
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Close" type="TextureButton" parent="NinePatchRect/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_xqckx")
+texture_pressed = SubResource("AtlasTexture_nuhom")
+texture_hover = SubResource("AtlasTexture_1awa6")

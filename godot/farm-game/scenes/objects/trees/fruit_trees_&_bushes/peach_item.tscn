@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://bjlmofhepy86h"]
+
+[ext_resource type="Texture2D" uid="uid://c1i31odctmplv" path="res://assets/items/Icons/Peach_Item.png" id="1_tkwmc"]
+[ext_resource type="Script" uid="uid://dflxb6a3a8uos" path="res://scripts/objects/plants/CropItemOrSeed.gd" id="1_xec4l"]
+[ext_resource type="PackedScene" uid="uid://c522b6f3babgw" path="res://scenes/components/collectable_component.tscn" id="2_0vq3v"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4ahkj"]
+radius = 5.0
+
+[node name="PeachItem" type="Sprite2D"]
+z_index = 2
+y_sort_enabled = true
+texture = ExtResource("1_tkwmc")
+script = ExtResource("1_xec4l")
+item_name = "Peach_Item"
+item_value = 3
+
+[node name="CollectableComponent" parent="." instance=ExtResource("2_0vq3v")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent"]
+shape = SubResource("CircleShape2D_4ahkj")

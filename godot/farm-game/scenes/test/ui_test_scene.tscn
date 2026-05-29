@@ -1,0 +1,61 @@
+[gd_scene load_steps=11 format=3 uid="uid://e84pqknnflr6"]
+
+[ext_resource type="PackedScene" uid="uid://c8qju1qxars1t" path="res://scenes/components/day_night_cycle_component.tscn" id="1_dqhgi"]
+[ext_resource type="Script" uid="uid://m2xd0055140i" path="res://scenes/ui/settings_menu.gd" id="1_x6kod"]
+[ext_resource type="PackedScene" uid="uid://m5w4eggderw0" path="res://scenes/Temporary/temporary_player.tscn" id="2_2ub8r"]
+[ext_resource type="PackedScene" uid="uid://ckphra5tyfs3b" path="res://scenes/map/test_scene_tile_map.tscn" id="3_usklj"]
+[ext_resource type="PackedScene" uid="uid://coe7o5imj3tw6" path="res://scenes/ui/game_screen.tscn" id="4_7cony"]
+[ext_resource type="PackedScene" uid="uid://h4j2m27oqybs" path="res://scenes/objects/plants/wheat/wheat_item.tscn" id="5_2ub8r"]
+[ext_resource type="PackedScene" uid="uid://7sb28reghkcu" path="res://scenes/objects/plants/beet/beet_item.tscn" id="6_rt8m6"]
+[ext_resource type="PackedScene" uid="uid://crw5q6sfpdtr2" path="res://scenes/objects/plants/corn/corn_seed.tscn" id="7_7cony"]
+[ext_resource type="PackedScene" uid="uid://ndmuv1r3ok3c" path="res://scenes/objects/plants/carrot/carrot_item.tscn" id="7_x6kod"]
+[ext_resource type="PackedScene" uid="uid://cxqh6d0uxhgj1" path="res://scenes/objects/plants/potato/potato_item.tscn" id="9_fp727"]
+
+[node name="TestLevel" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_x6kod")
+
+[node name="DayNightCycleComponent" parent="." instance=ExtResource("1_dqhgi")]
+
+[node name="TemporaryPlayer" parent="." instance=ExtResource("2_2ub8r")]
+position = Vector2(265, 137)
+current_tool = 6
+
+[node name="test-scene-tile-map" parent="." instance=ExtResource("3_usklj")]
+position = Vector2(10, -5)
+
+[node name="GameScreen" parent="." instance=ExtResource("4_7cony")]
+
+[node name="Wheat_item" parent="." instance=ExtResource("5_2ub8r")]
+position = Vector2(333.99997, 126)
+item_value = 20
+
+[node name="Beet_item" parent="." instance=ExtResource("6_rt8m6")]
+position = Vector2(399, 167.99998)
+item_value = 30
+
+[node name="Beet_item2" parent="." instance=ExtResource("6_rt8m6")]
+position = Vector2(399, 167.99998)
+item_value = 30
+
+[node name="Beet_item3" parent="." instance=ExtResource("6_rt8m6")]
+position = Vector2(352, 167)
+item_value = 30
+
+[node name="Beet_item4" parent="." instance=ExtResource("6_rt8m6")]
+position = Vector2(396, 127)
+item_value = 30
+
+[node name="Beet_item5" parent="." instance=ExtResource("6_rt8m6")]
+position = Vector2(370, 139)
+item_value = 30
+
+[node name="Tomato_seed" parent="." instance=ExtResource("7_7cony")]
+position = Vector2(302.99997, 91.99999)
+item_name = "Tomato_Seed"
+
+[node name="Carrot_item" parent="." instance=ExtResource("7_x6kod")]
+position = Vector2(246, 78)
+
+[node name="Potato_item" parent="." instance=ExtResource("9_fp727")]
+position = Vector2(302, 156)

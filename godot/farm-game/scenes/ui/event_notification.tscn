@@ -1,0 +1,69 @@
+[gd_scene load_steps=5 format=3 uid="uid://pwn8u5ncdjjc"]
+
+[ext_resource type="Texture2D" uid="uid://da7vybh7nqoyc" path="res://assets/ui/notification.png" id="1_jwpj1"]
+[ext_resource type="Script" uid="uid://bfho73j4hjlti" path="res://scripts/ui/event_notification.gd" id="1_l6yeb"]
+[ext_resource type="FontFile" uid="uid://c02huierhjkt" path="res://assets/fonts/m5x7.ttf" id="2_22f1m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_22f1m"]
+atlas = ExtResource("1_jwpj1")
+region = Rect2(80, 0, 48, 16)
+
+[node name="Notification" type="MarginContainer"]
+offset_right = 400.0
+offset_bottom = 25.0
+mouse_filter = 2
+theme_override_constants/margin_top = 20
+script = ExtResource("1_l6yeb")
+
+[node name="EventNotification" type="Button" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 25)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+focus_mode = 0
+flat = true
+
+[node name="NinePatchRect" type="NinePatchRect" parent="EventNotification"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_22f1m")
+patch_margin_left = 4
+patch_margin_right = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="EventNotification/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 1
+
+[node name="NotificationLabel" type="Label" parent="EventNotification/NinePatchRect/MarginContainer"]
+unique_name_in_owner = true
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.8235294, 0.14901961, 0.25490198, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0.1728327, 0.17283267, 0.17283267, 1)
+theme_override_constants/line_spacing = 3
+theme_override_constants/shadow_offset_y = 7
+theme_override_constants/outline_size = 1
+theme_override_constants/shadow_outline_size = 4
+theme_override_fonts/font = ExtResource("2_22f1m")
+theme_override_font_sizes/font_size = 16
+text = "kfsjskfjskfksfjsfkfjkdjgkdgjkgdjgdkjgkjfffffffffsfsfafsgsgsgsggsgdsgsgsgsgss"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+text_overrun_behavior = 3

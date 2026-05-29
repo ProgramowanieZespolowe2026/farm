@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://xjbxrmwr17df"]
+
+[ext_resource type="PackedScene" uid="uid://c8qju1qxars1t" path="res://scenes/components/day_night_cycle_component.tscn" id="1_ix1hl"]
+[ext_resource type="PackedScene" uid="uid://m5w4eggderw0" path="res://scenes/Temporary/temporary_player.tscn" id="2_bj16r"]
+[ext_resource type="PackedScene" uid="uid://ckphra5tyfs3b" path="res://scenes/map/test_scene_tile_map.tscn" id="3_aym0t"]
+[ext_resource type="PackedScene" uid="uid://coe7o5imj3tw6" path="res://scenes/ui/game_screen.tscn" id="4_bux16"]
+[ext_resource type="PackedScene" uid="uid://csg1yvoduuxoh" path="res://scenes/components/plot_manager.tscn" id="5_bj16r"]
+
+[node name="TestLevel" type="Node2D"]
+y_sort_enabled = true
+
+[node name="DayNightCycleComponent" parent="." instance=ExtResource("1_ix1hl")]
+
+[node name="TemporaryPlayer" parent="." instance=ExtResource("2_bj16r")]
+z_index = 0
+position = Vector2(265, 137)
+current_tool = 15
+
+[node name="GameScreen" parent="." instance=ExtResource("4_bux16")]
+
+[node name="test-scene-tile-map" parent="." instance=ExtResource("3_aym0t")]
+
+[node name="PlotManager" parent="." instance=ExtResource("5_bj16r")]

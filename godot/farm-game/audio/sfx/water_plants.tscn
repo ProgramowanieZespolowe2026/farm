@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbll0rnoeqijo"]
+
+[ext_resource type="AudioStream" uid="uid://cp4x0pg50ldp8" path="res://assets/audio/sfx/watering_crop.ogg" id="1_jwqa7"]
+
+[node name="WaterPlants" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_jwqa7")
+bus = &"Sfx"

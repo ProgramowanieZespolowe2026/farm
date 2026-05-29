@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://o24mxieylsva"]
+
+[ext_resource type="AudioStream" uid="uid://conofek48dm4m" path="res://assets/audio/sfx/notification.ogg" id="1_jckqq"]
+
+[node name="Notification" type="AudioStreamPlayer"]
+stream = ExtResource("1_jckqq")
+bus = &"Sfx"

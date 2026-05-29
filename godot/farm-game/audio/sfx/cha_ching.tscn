@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ndg5sr2cbt77"]
+
+[ext_resource type="AudioStream" uid="uid://cjatwar2o6473" path="res://assets/audio/sfx/cha_ching.ogg" id="1_s8h01"]
+
+[node name="ChaChing" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_s8h01")
+bus = &"Sfx"

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvt417x6wef24"]
+
+[ext_resource type="AudioStream" uid="uid://5gywks5rau10" path="res://assets/audio/sfx/animal_building_open.ogg" id="1_tteel"]
+
+[node name="AnimalBuildingOpen" type="AudioStreamPlayer"]
+stream = ExtResource("1_tteel")
+bus = &"Sfx"
